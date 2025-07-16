@@ -16,6 +16,11 @@
         scroll-behavior: smooth; 
     }
     
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+
     body {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         background: linear-gradient(135deg, #1a4d3a 0%, #2d7a5f 50%, #4a9d7e 100%);
@@ -24,7 +29,7 @@
         flex-direction: column;
         overflow-x: hidden;
     }
-    
+
     .glass-card {
         background: rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(10px);
@@ -33,10 +38,11 @@
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
     }
-    
+
+    /* Removed hover lift effect */
     .glass-card:hover {
-        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-        transform: translateY(-2px);
+        /* box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15); */
+        /* transform: translateY(-2px); */
     }
 
     .carousel-container {
@@ -51,8 +57,58 @@
     }
 
     .carousel-slide {
-        min-width: calc(50% - 0.75rem);
         flex-shrink: 0;
+    }
+
+    /* Default slide width for desktop: two cards side-by-side */
+    @media (min-width: 1024px) {
+        .carousel-slide {
+            min-width: calc(50% - 0.75rem);
+        }
+    }
+
+    /* Tablet */
+    @media (min-width: 768px) and (max-width: 1023px) {
+        .carousel-slide {
+            min-width: 100%;
+        }
+
+        .tablet-adjust {
+            grid-template-columns: 2fr 1fr;
+        }
+    }
+
+    /* Mobile */
+    @media (max-width: 767px) {
+        .carousel-slide {
+            min-width: 100%;
+        }
+
+        .carousel-track {
+            gap: 1rem;
+        }
+
+        .glass-arrow {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+
+        .glass-arrow svg {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        .mobile-stack {
+            display: block !important;
+        }
+
+        .mobile-stack > div {
+            margin-bottom: 1.5rem;
+        }
+
+        .mobile-stack > div:last-child {
+            margin-bottom: 0;
+        }
     }
 
     .glass-arrow {
@@ -73,57 +129,6 @@
         cursor: not-allowed;
     }
 
-    /* Mobile Responsive */
-    @media (max-width: 767px) {
-        .carousel-slide {
-            min-width: 100%;
-        }
-        
-        .glass-arrow {
-            width: 2.5rem;
-            height: 2.5rem;
-        }
-        
-        .glass-arrow svg {
-            width: 1.25rem;
-            height: 1.25rem;
-        }
-        
-        .carousel-track {
-            gap: 1rem;
-        }
-        
-        .mobile-stack {
-            display: block !important;
-        }
-        
-        .mobile-stack > div {
-            margin-bottom: 1.5rem;
-        }
-        
-        .mobile-stack > div:last-child {
-            margin-bottom: 0;
-        }
-    }
-
-    /* Tablet Responsive */
-    @media (min-width: 768px) and (max-width: 1023px) {
-        .carousel-slide {
-            min-width: 100%;
-        }
-        
-        .tablet-adjust {
-            grid-template-columns: 2fr 1fr;
-        }
-    }
-
-    /* Desktop */
-    @media (min-width: 1024px) {
-        .carousel-slide {
-            min-width: calc(50% - 0.75rem);
-        }
-    }
-
     /* Back to top button styles */
     #backToTop {
         transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
@@ -141,7 +146,7 @@
 
     .ticker-content {
         display: flex;
-        animation: scroll-left 60s linear infinite;
+        animation: scroll-left 40s linear infinite;
         white-space: nowrap;
     }
 
@@ -180,7 +185,8 @@
       <h1 class="text-xl font-semibold text-white">Hanu Verse</h1>
       <nav class="flex space-x-4 sm:space-x-8">
         <a href="#top" class="text-white/90 hover:text-white transition-colors font-medium text-sm sm:text-base">Home</a>
-        <a href="#contact" class="text-white/90 hover:text-white transition-colors font-medium text-sm sm:text-base">Feedback</a>
+        <a href="#feedback" class="text-white/90 hover:text-white transition-colors font-medium text-sm sm:text-base">Feedback</a>
+		<a href="#contact" class="text-white/90 hover:text-white transition-colors font-medium text-sm sm:text-base">Contact Us</a>
       </nav>
     </div>
   </header>
@@ -188,155 +194,78 @@
   <!-- Main Content Area -->
   <main class="flex-1 min-h-screen">
     <!-- Feedback Section -->
-    <section id="home" class="py-4 sm:py-8 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-7xl mx-auto">
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white my-6 text-center">Feedback</h2>
-        <p class="text-white/70 text-center mb-6 text-sm sm:text-base">Add a description</p>
-        
-        <!-- Review Ticker Bar -->
-        <div class="mb-8 overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg py-3">
-          <div class="ticker-wrapper">
-            <div class="ticker-content">
-              <span class="ticker-item">⭐⭐⭐⭐⭐ "Amazing service, highly recommend!" - Sarah M.</span>
-              <span class="ticker-item">⭐⭐⭐⭐⭐ "Professional and reliable team" - John D.</span>
-              <span class="ticker-item">⭐⭐⭐⭐⭐ "Exceeded all expectations!" - Maria L.</span>
-              <span class="ticker-item">⭐⭐⭐⭐⭐ "Outstanding quality and support" - David R.</span>
-              <span class="ticker-item">⭐⭐⭐⭐⭐ "Will definitely use again!" - Emma K.</span>
-            </div>
-          </div>
+<section id="feedback" class="py-4 sm:py-8 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white my-6 text-center">Feedback</h2>
+    <p class="text-white/70 text-center mb-6 text-sm sm:text-base">Add a description</p>
+
+    <!-- Review Ticker -->
+    <div class="mb-8 overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg py-3">
+      <div class="ticker-wrapper">
+        <div class="ticker-content">
+          <span class="ticker-item">"one"</span>
+          <span class="ticker-item">"two"</span>
+          <span class="ticker-item">"three"</span>
+          <span class="ticker-item">"four"</span>
+          <span class="ticker-item">"five"</span>
+		<!-- Duplicated set -->
+		  <span class="ticker-item">"one"</span>
+          <span class="ticker-item">"two"</span>
+          <span class="ticker-item">"three"</span>
+          <span class="ticker-item">"four"</span>
+          <span class="ticker-item">"five"</span>
         </div>
-        
-        <!-- Mobile Layout -->
-        <div class="mobile-stack lg:hidden">
-          <!-- Feedback Carousel Mobile -->
-          <div class="relative">
-            <div class="flex items-center gap-2 sm:gap-4">
-              <!-- Left Arrow -->
-              <button id="prevBtn" class="glass-arrow w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-white shadow-lg">
-                <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                </svg>
-              </button>
+      </div>
+    </div>
 
-              <!-- Carousel Container -->
-              <div class="carousel-container flex-1">
-                <div id="carouselTrack" class="carousel-track">
-                  <div class="carousel-slide">
-                    <div class="glass-card h-48 sm:h-64 p-4 sm:p-6">
-                      <h3 class="text-white font-semibold text-base sm:text-lg">Feedback 1</h3>
-                    </div>
-                  </div>
-                  <div class="carousel-slide">
-                    <div class="glass-card h-48 sm:h-64 p-4 sm:p-6">
-                      <h3 class="text-white font-semibold text-base sm:text-lg">Feedback 2</h3>
-                    </div>
-                  </div>
-                  <div class="carousel-slide">
-                    <div class="glass-card h-48 sm:h-64 p-4 sm:p-6">
-                      <h3 class="text-white font-semibold text-base sm:text-lg">Feedback 3</h3>
-                    </div>
-                  </div>
-                  <div class="carousel-slide">
-                    <div class="glass-card h-48 sm:h-64 p-4 sm:p-6">
-                      <h3 class="text-white font-semibold text-base sm:text-lg">Feedback 4</h3>
-                    </div>
-                  </div>
-                  <div class="carousel-slide">
-                    <div class="glass-card h-48 sm:h-64 p-4 sm:p-6">
-                      <h3 class="text-white font-semibold text-base sm:text-lg">Feedback 5</h3>
-                    </div>
-                  </div>
-                  <div class="carousel-slide">
-                    <div class="glass-card h-48 sm:h-64 p-4 sm:p-6">
-                      <h3 class="text-white font-semibold text-base sm:text-lg">Feedback 6</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Right Arrow -->
-              <button id="nextBtn" class="glass-arrow w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-white shadow-lg">
-                <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- Leave a Review Card Mobile -->
-          <div>
-            <div class="glass-card h-48 sm:h-64 p-4 sm:p-6">
-              <h3 class="text-white font-semibold text-base sm:text-lg">Leave a Review</h3>
-            </div>
-          </div>
-        </div>
-
-        <!-- Desktop/Tablet Layout -->
-        <div class="hidden lg:grid lg:grid-cols-4 gap-6 tablet-adjust">
-          <!-- Feedback Carousel Desktop -->
-          <div class="lg:col-span-2 relative">
-            <div class="flex items-center gap-4">
-              <!-- Left Arrow -->
-              <button id="prevBtnDesktop" class="glass-arrow w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                </svg>
-              </button>
-
-              <!-- Carousel Container -->
-              <div class="carousel-container flex-1">
-                <div id="carouselTrackDesktop" class="carousel-track">
-                  <div class="carousel-slide">
-                    <div class="glass-card h-64 p-6">
-                      <h3 class="text-white font-semibold text-lg">Feedback 1</h3>
-                    </div>
-                  </div>
-                  <div class="carousel-slide">
-                    <div class="glass-card h-64 p-6">
-                      <h3 class="text-white font-semibold text-lg">Feedback 2</h3>
-                    </div>
-                  </div>
-                  <div class="carousel-slide">
-                    <div class="glass-card h-64 p-6">
-                      <h3 class="text-white font-semibold text-lg">Feedback 3</h3>
-                    </div>
-                  </div>
-                  <div class="carousel-slide">
-                    <div class="glass-card h-64 p-6">
-                      <h3 class="text-white font-semibold text-lg">Feedback 4</h3>
-                    </div>
-                  </div>
-                  <div class="carousel-slide">
-                    <div class="glass-card h-64 p-6">
-                      <h3 class="text-white font-semibold text-lg">Feedback 5</h3>
-                    </div>
-                  </div>
-                  <div class="carousel-slide">
-                    <div class="glass-card h-64 p-6">
-                      <h3 class="text-white font-semibold text-lg">Feedback 6</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Right Arrow -->
-              <button id="nextBtnDesktop" class="glass-arrow w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- Leave a Review Card Desktop -->
-          <div class="lg:col-span-2">
-            <div class="glass-card h-64 p-6">
-              <h3 class="text-white font-semibold text-lg">Leave a Review</h3>
-            </div>
+    <!-- Mobile Layout -->
+    <div class="mobile-stack lg:hidden">
+      <div>
+        <div class="carousel-container flex-1">
+          <div id="carouselTrack" class="carousel-track">
+            <!-- Feedback Cards -->
+            <div class="carousel-slide"><div class="glass-card h-48 sm:h-64 p-4 sm:p-6"><h3 class="text-white font-semibold text-base sm:text-lg">Feedback 1</h3></div></div>
+            <div class="carousel-slide"><div class="glass-card h-48 sm:h-64 p-4 sm:p-6"><h3 class="text-white font-semibold text-base sm:text-lg">Feedback 2</h3></div></div>
+            <div class="carousel-slide"><div class="glass-card h-48 sm:h-64 p-4 sm:p-6"><h3 class="text-white font-semibold text-base sm:text-lg">Feedback 3</h3></div></div>
+            <div class="carousel-slide"><div class="glass-card h-48 sm:h-64 p-4 sm:p-6"><h3 class="text-white font-semibold text-base sm:text-lg">Feedback 4</h3></div></div>
+            <div class="carousel-slide"><div class="glass-card h-48 sm:h-64 p-4 sm:p-6"><h3 class="text-white font-semibold text-base sm:text-lg">Feedback 5</h3></div></div>
+            <div class="carousel-slide"><div class="glass-card h-48 sm:h-64 p-4 sm:p-6"><h3 class="text-white font-semibold text-base sm:text-lg">Feedback 6</h3></div></div>
           </div>
         </div>
       </div>
-    </section>
+
+      <!-- Leave Review Card -->
+      <div>
+        <div class="glass-card h-48 sm:h-64 p-4 sm:p-6">
+          <h3 class="text-white font-semibold text-base sm:text-lg">Leave a Review</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desktop Layout -->
+    <div class="hidden lg:grid lg:grid-cols-4 gap-6 tablet-adjust">
+      <div class="lg:col-span-2">
+        <div class="carousel-container flex-1">
+          <div id="carouselTrackDesktop" class="carousel-track">
+            <div class="carousel-slide"><div class="glass-card h-64 p-6"><h3 class="text-white font-semibold text-lg">Feedback 1</h3></div></div>
+            <div class="carousel-slide"><div class="glass-card h-64 p-6"><h3 class="text-white font-semibold text-lg">Feedback 2</h3></div></div>
+            <div class="carousel-slide"><div class="glass-card h-64 p-6"><h3 class="text-white font-semibold text-lg">Feedback 3</h3></div></div>
+            <div class="carousel-slide"><div class="glass-card h-64 p-6"><h3 class="text-white font-semibold text-lg">Feedback 4</h3></div></div>
+            <div class="carousel-slide"><div class="glass-card h-64 p-6"><h3 class="text-white font-semibold text-lg">Feedback 5</h3></div></div>
+            <div class="carousel-slide"><div class="glass-card h-64 p-6"><h3 class="text-white font-semibold text-lg">Feedback 6</h3></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Leave Review -->
+      <div class="lg:col-span-2">
+        <div class="glass-card h-64 p-6">
+          <h3 class="text-white font-semibold text-lg">Leave a Review</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Contact Section -->
     <section id="contact" class="py-4 sm:py-8 px-4 sm:px-6 lg:px-8">
@@ -344,16 +273,34 @@
         <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white my-6 text-center">Contact Us</h2>
         <p class="text-white/70 text-center mb-6 text-sm sm:text-base">Add a description</p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
-          <div class="glass-card h-48 sm:h-64 p-4 sm:p-6">
+          <div class="glass-card h-96 sm:h-[32rem] p-4 sm:p-6">
             <h3 class="text-white font-semibold text-base sm:text-lg">Get In Touch</h3>
           </div>
-          <div class="glass-card h-48 sm:h-64 p-4 sm:p-6">
+          <div class="glass-card h-96 sm:h-[32rem] p-4 sm:p-6">
             <h3 class="text-white font-semibold text-base sm:text-lg">Contact Info</h3>
           </div>
         </div>
       </div>
     </section>
   </main>
+
+  <!-- Cookie Popup Modal -->
+  <div id="cookieModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 invisible transition-all duration-300">
+    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 sm:p-8 max-w-md w-full shadow-2xl">
+      <h3 class="text-white font-semibold text-lg sm:text-xl mb-4">Cookie Notice</h3>
+      <p class="text-white/90 text-sm sm:text-base mb-6 leading-relaxed">
+        We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. By clicking "Accept", you consent to our use of cookies.
+      </p>
+      <div class="flex gap-3 justify-end">
+        <button id="declineCookies" class="bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-lg font-medium transition-colors">
+          Decline
+        </button>
+        <button id="acceptCookies" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium transition-colors">
+          Accept
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- Back to Top Button -->
   <button id="backToTop" class="fixed bottom-8 right-4 sm:bottom-12 sm:right-6 bg-white/20 backdrop-blur-md border border-white/30 text-white p-2 sm:p-3 rounded-full shadow-lg hover:bg-white/30 transition-all duration-300 opacity-0 invisible z-50">
@@ -370,10 +317,10 @@
   </footer>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(link => {
-            link.addEventListener('click', function(e) {
+            link.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
@@ -388,8 +335,8 @@
 
         // Back to top button functionality
         const backToTopButton = document.getElementById('backToTop');
-        
-        window.addEventListener('scroll', function() {
+
+        window.addEventListener('scroll', function () {
             if (window.pageYOffset > 300) {
                 backToTopButton.classList.remove('opacity-0', 'invisible');
                 backToTopButton.classList.add('opacity-100', 'visible');
@@ -399,67 +346,94 @@
             }
         });
 
-        backToTopButton.addEventListener('click', function() {
+        backToTopButton.addEventListener('click', function () {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
         });
 
-        // Carousel functionality for mobile
-        function setupCarousel(trackId, prevBtnId, nextBtnId) {
+        // Fixed pixel-based auto-playing carousel with pause on hover
+        function setupAutoCarousel(trackId) {
             const track = document.getElementById(trackId);
-            const prevBtn = document.getElementById(prevBtnId);
-            const nextBtn = document.getElementById(nextBtnId);
-            
-            if (!track || !prevBtn || !nextBtn) return;
-            
+            if (!track) return;
+
+            const slides = track.children;
             let currentIndex = 0;
-            const totalSlides = 6;
             let slidesVisible = window.innerWidth >= 1024 ? 2 : 1;
-            let maxIndex = totalSlides - 1;
+            let intervalId = null;
+
+            function getSlideWidth() {
+                const firstSlide = slides[0];
+                if (!firstSlide) return 0;
+
+                const style = window.getComputedStyle(track);
+                const gap = parseFloat(style.gap || 0);
+                return firstSlide.offsetWidth + gap;
+            }
 
             function updateCarousel() {
-                const slideWidth = 100 / slidesVisible;
+                const slideWidth = getSlideWidth();
                 const translateX = -(currentIndex * slideWidth);
-                track.style.transform = `translateX(${translateX}%)`;
-                
-                prevBtn.disabled = currentIndex === 0;
-                nextBtn.disabled = currentIndex >= maxIndex;
+                track.style.transform = `translateX(${translateX}px)`;
+            }
+
+            function startCarousel() {
+                stopCarousel(); // Prevent duplicate intervals
+                intervalId = setInterval(() => {
+                    const maxIndex = slides.length - slidesVisible;
+                    currentIndex = (currentIndex + 1) % (maxIndex + 1);
+                    updateCarousel();
+                }, 10000);
+            }
+
+            function stopCarousel() {
+                clearInterval(intervalId);
             }
 
             function handleResize() {
                 slidesVisible = window.innerWidth >= 1024 ? 2 : 1;
-                maxIndex = totalSlides - 1;
-                if (currentIndex > maxIndex) {
-                    currentIndex = maxIndex;
-                }
+                currentIndex = 0;
                 updateCarousel();
+                startCarousel();
             }
 
-            prevBtn.addEventListener('click', function() {
-                if (currentIndex > 0) {
-                    currentIndex--;
-                    updateCarousel();
-                }
-            });
-
-            nextBtn.addEventListener('click', function() {
-                if (currentIndex < maxIndex) {
-                    currentIndex++;
-                    updateCarousel();
-                }
-            });
-
+            track.addEventListener('mouseenter', stopCarousel);
+            track.addEventListener('mouseleave', startCarousel);
             window.addEventListener('resize', handleResize);
-            
-            // Initialize carousel
+
             updateCarousel();
+            startCarousel();
         }
 
-        // Setup carousels for both mobile and desktop
-        setupCarousel('carouselTrack', 'prevBtn', 'nextBtn');
-        setupCarousel('carouselTrackDesktop', 'prevBtnDesktop', 'nextBtnDesktop');
+        setupAutoCarousel('carouselTrack');
+        setupAutoCarousel('carouselTrackDesktop');
+
+        // Cookie modal functionality
+        const cookieModal = document.getElementById('cookieModal');
+        const acceptBtn = document.getElementById('acceptCookies');
+        const declineBtn = document.getElementById('declineCookies');
+
+        if (!localStorage.getItem('cookieConsent')) {
+            setTimeout(() => {
+                cookieModal.classList.remove('opacity-0', 'invisible');
+                cookieModal.classList.add('opacity-100', 'visible');
+            }, 1000);
+        }
+
+        acceptBtn.addEventListener('click', function () {
+            localStorage.setItem('cookieConsent', 'accepted');
+            cookieModal.classList.add('opacity-0', 'invisible');
+            cookieModal.classList.remove('opacity-100', 'visible');
+            console.log('Cookies accepted - Analytics can be initialized');
+        });
+
+        declineBtn.addEventListener('click', function () {
+            localStorage.setItem('cookieConsent', 'declined');
+            cookieModal.classList.add('opacity-0', 'invisible');
+            cookieModal.classList.remove('opacity-100', 'visible');
+            console.log('Cookies declined - Only essential cookies will be used');
+        });
     });
 </script>
 
