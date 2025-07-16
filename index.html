@@ -151,7 +151,7 @@
 <body>
   <!-- Header -->
   <header class="fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/20 shadow-lg">
-    <div class="max-w-8xl mx-auto px-4 flex justify-between items-center h-16">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center h-16">
       <img src="Company Logo.png" alt="Hanu Logo" class="h-12 w-auto">
       
       <!-- Desktop Navigation -->
@@ -169,12 +169,22 @@
     </div>
     
     <!-- Mobile Navigation -->
-    <div id="mobileMenu" class="hidden md:hidden bg-white/20 backdrop-blur-md border-t border-white/20">
-      <div class="px-4 py-2 space-y-2">
-        <a href="#home" class="block py-2 text-white hover:text-blue-200 transition-colors font-medium">Home</a>
-        <a href="#contact" class="block py-2 text-white hover:text-blue-200 transition-colors font-medium">Contact</a>
+    <div id="mobileMenu" class="fixed top-0 right-0 h-full w-64 bg-white/95 backdrop-blur-md shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out z-50 md:hidden">
+      <div class="p-6">
+        <button id="closeMobileMenu" class="absolute top-4 right-4 p-2">
+          <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+        <div class="mt-12 space-y-6">
+          <a href="#home" class="block py-3 text-gray-700 hover:text-blue-600 transition-colors font-medium text-lg border-b border-gray-200">Home</a>
+          <a href="#contact" class="block py-3 text-gray-700 hover:text-blue-600 transition-colors font-medium text-lg border-b border-gray-200">Contact</a>
+        </div>
       </div>
     </div>
+    
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenuOverlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 z-40 md:hidden"></div>
   </header>
 
   <!-- Paint Splats -->
@@ -183,37 +193,30 @@
     <svg class="absolute -top-10 -left-10 w-32 h-32 opacity-80 animate-float" viewBox="0 0 100 100" fill="#336da9" style="animation-delay: 0s;">
       <path d="M50,10 C60,15 70,25 75,35 C80,45 75,55 70,60 C65,65 55,70 45,65 C35,60 25,50 20,40 C15,30 20,20 30,15 C40,10 50,10 50,10 Z"/>
     </svg>
-    
     <!-- Paint Splat 2 - Top Right -->
     <svg class="absolute top-20 right-10 w-24 h-24 opacity-85 animate-pulse-slow" viewBox="0 0 100 100" fill="#fdcf20" style="animation-delay: 1s;">
       <path d="M45,20 C55,18 65,22 70,30 C75,38 72,48 65,55 C58,62 48,65 38,62 C28,59 20,52 18,42 C16,32 22,22 32,20 C42,18 45,20 45,20 Z"/>
     </svg>
-    
     <!-- Paint Splat 3 - Middle Left -->
     <svg class="absolute top-1/2 -left-5 w-28 h-28 opacity-75 animate-bounce-slow" viewBox="0 0 100 100" fill="#ed343f" style="animation-delay: 2s;">
       <path d="M30,25 C40,20 50,25 58,32 C66,39 70,49 65,58 C60,67 50,72 40,70 C30,68 22,60 20,50 C18,40 25,30 30,25 Z"/>
     </svg>
-    
     <!-- Paint Splat 4 - Middle Right -->
     <svg class="absolute top-1/3 right-5 w-20 h-20 opacity-80 animate-float" viewBox="0 0 100 100" fill="#1f9dd1" style="animation-delay: 3s;">
       <path d="M40,30 C50,28 60,32 65,40 C70,48 68,58 60,65 C52,72 42,70 35,62 C28,54 30,44 35,36 C40,28 40,30 40,30 Z"/>
     </svg>
-    
     <!-- Paint Splat 5 - Bottom Left -->
     <svg class="absolute bottom-32 left-20 w-36 h-36 opacity-70 animate-wiggle" viewBox="0 0 100 100" fill="#336da9" style="animation-delay: 4s;">
       <path d="M25,35 C35,30 45,35 53,42 C61,49 65,59 60,68 C55,77 45,80 35,75 C25,70 18,60 20,50 C22,40 25,35 25,35 Z"/>
     </svg>
-    
     <!-- Paint Splat 6 - Bottom Right -->
     <svg class="absolute bottom-20 right-32 w-26 h-26 opacity-90 animate-pulse-slow" viewBox="0 0 100 100" fill="#fdcf20" style="animation-delay: 5s;">
       <path d="M35,25 C45,22 55,28 62,36 C69,44 70,54 65,62 C60,70 50,72 40,68 C30,64 25,54 28,44 C31,34 35,25 35,25 Z"/>
     </svg>
-    
     <!-- Paint Splat 7 - Center -->
     <svg class="absolute top-2/3 left-1/2 transform -translate-x-1/2 w-22 h-22 opacity-65 animate-bounce-slow" viewBox="0 0 100 100" fill="#ed343f" style="animation-delay: 6s;">
       <path d="M42,28 C52,26 62,30 67,38 C72,46 70,56 62,63 C54,70 44,68 37,60 C30,52 32,42 37,34 C42,26 42,28 42,28 Z"/>
     </svg>
-    
     <!-- Paint Splat 8 - Top Center -->
     <svg class="absolute top-5 left-1/3 w-30 h-30 opacity-75 animate-float" viewBox="0 0 100 100" fill="#1f9dd1" style="animation-delay: 7s;">
       <path d="M38,22 C48,20 58,24 63,32 C68,40 66,50 58,57 C50,64 40,62 33,54 C26,46 28,36 33,28 C38,20 38,22 38,22 Z"/>
@@ -234,7 +237,6 @@
             </div>
           </div>
         </div>
-        
         <!-- Slide 2 -->
         <div class="slide flex items-center justify-center w-full h-full">
           <div class="max-w-4xl mx-auto px-4 text-center">
@@ -244,7 +246,6 @@
             </div>
           </div>
         </div>
-        
         <!-- Slide 3 -->
         <div class="slide flex items-center justify-center w-full h-full">
           <div class="max-w-4xl mx-auto px-4 text-center">
@@ -254,7 +255,6 @@
             </div>
           </div>
         </div>
-        
         <!-- Slide 4 -->
         <div class="slide flex items-center justify-center w-full h-full">
           <div class="max-w-4xl mx-auto px-4 text-center">
@@ -284,7 +284,7 @@
         <div class="grid md:grid-cols-2 gap-8 md:gap-12">
           <!-- Contact Form -->
           <div class="card p-8">
-            <h3 class="text-xl font-semibold text-black mb-6 text-center" style="font-family: 'Comic Sans MS', cursive, sans-serif; font-weight: 400; letter-spacing: 0.5px;">POP US A MESSAGE</h3>
+            <h3 class="text-2xl font-bold text-center mb-6 bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">Get In Touch</h3>
             <form id="contactForm" class="space-y-6">
               <div>
                 <input type="text" name="name" placeholder="Your Name" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
@@ -306,14 +306,14 @@
           <div class="card p-8">
             <div class="space-y-6">
               <div class="flex items-center space-x-4">
-                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                <a href="mailto:hanu@hanu.co.za" class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center hover:bg-blue-200 transition-colors cursor-pointer">
                   <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                   </svg>
-                </div>
+                </a>
                 <div>
                   <p class="font-semibold text-gray-800">Email</p>
-                  <p class="text-gray-600">hanu@hanu.co.za</p>
+                  <a href="mailto:hanu@hanu.co.za" class="text-blue-600 hover:text-blue-800 transition-colors">hanu@hanu.co.za</a>
                 </div>
               </div>
 
@@ -423,16 +423,26 @@ Message: ${formData.message}
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
         
-        mobileMenuBtn.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
-        });
+        function openMobileMenu() {
+            mobileMenu.classList.remove('translate-x-full');
+            mobileMenuOverlay.classList.remove('opacity-0', 'pointer-events-none');
+        }
+        
+        function closeMobileMenuFunc() {
+            mobileMenu.classList.add('translate-x-full');
+            mobileMenuOverlay.classList.add('opacity-0', 'pointer-events-none');
+        }
+        
+        mobileMenuBtn.addEventListener('click', openMobileMenu);
+        closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenuFunc);
 
         // Close mobile menu when clicking on a link
         document.querySelectorAll('#mobileMenu a').forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenu.classList.add('hidden');
-            });
+            link.addEventListener('click', closeMobileMenuFunc);
         });
 
         // Slideshow functionality
@@ -559,5 +569,5 @@ Message: ${formData.message}
     });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96037e77134f7400',t:'MTc1MjY4OTgyMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96038955f74325c1',t:'MTc1MjY5MDI2Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
