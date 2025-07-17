@@ -1,640 +1,566 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Designed by Hanu</title>
-  
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-<style>
-    html { 
-        scroll-behavior: smooth; 
-    }
-    
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-        width: 12px;
-    }
-    
-    ::-webkit-scrollbar-track {
-        background: #f8fafc;
-        border-radius: 6px;
-    }
-    
-    ::-webkit-scrollbar-thumb {
-        background: linear-gradient(135deg, #336da9 0%, #1f9dd1 50%, #fdcf20 100%);
-        border-radius: 6px;
-        border: 2px solid #f8fafc;
-    }
-    
-    ::-webkit-scrollbar-thumb:hover {
-        background: linear-gradient(135deg, #ed343f 0%, #336da9 50%, #1f9dd1 100%);
-    }
-    
-    /* Firefox scrollbar */
-    html {
-        scrollbar-width: thin;
-        scrollbar-color: #336da9 #f8fafc;
-    }
-    
-    body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        background: #f8fafc;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .card {
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    }
-
-    .btn-primary {
-        background: linear-gradient(135deg, #336da9 0%, #1f9dd1 100%);
-        color: white;
-        padding: 12px 24px;
-        border-radius: 8px;
-        font-weight: 500;
-        transition: all 0.3s ease;
-        border: none;
-        cursor: pointer;
-    }
-
-    .btn-primary:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(51, 109, 169, 0.3);
-    }
-
-    .section-padding {
-        padding: 24px 0;
-    }
-    
-    @media (min-width: 640px) {
-        .section-padding {
-            padding: 32px 0;
-        }
-    }
-    
-    @media (min-width: 1024px) {
-        .section-padding {
-            padding: 48px 0;
-        }
-    }
-
-    /* Paint Splash Animations */
-    @keyframes float {
-        0%, 100% { transform: translateY(0px) rotate(0deg); }
-        25% { transform: translateY(-10px) rotate(2deg); }
-        50% { transform: translateY(-5px) rotate(-1deg); }
-        75% { transform: translateY(-15px) rotate(1deg); }
-    }
-    
-    @keyframes pulse-slow {
-        0%, 100% { opacity: 0.7; transform: scale(1); }
-        50% { opacity: 1; transform: scale(1.05); }
-    }
-    
-    @keyframes bounce-slow {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-8px); }
-    }
-    
-    @keyframes wiggle {
-        0%, 100% { transform: rotate(0deg); }
-        25% { transform: rotate(1deg); }
-        50% { transform: rotate(-1deg); }
-        75% { transform: rotate(0.5deg); }
-    }
-    
-    .animate-float {
-        animation: float 6s ease-in-out infinite;
-    }
-    
-    .animate-pulse-slow {
-        animation: pulse-slow 4s ease-in-out infinite;
-    }
-    
-    .animate-bounce-slow {
-        animation: bounce-slow 3s ease-in-out infinite;
-    }
-    
-    .animate-wiggle {
-        animation: wiggle 5s ease-in-out infinite;
-    }
-</style>
-
-</head>
-<body>
-  <!-- Header -->
-  <header class="fixed top-0 left-0 right-0 z-50 text-black shadow-lg backdrop-blur-md border-b border-white/20" style="background-color: rgba(51, 109, 169, 0.8);">
-    <div class="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 flex justify-between items-center h-16 sm:h-14">
-      
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex space-x-4 lg:space-x-6 ml-auto">
-        <a href="#home" class="text-black hover:scale-110 transition-all duration-300 font-medium text-sm lg:text-base" onmouseover="this.style.color='#ff6b6b'" onmouseout="this.style.color='#000000'">Home</a>
-        <a href="#services" class="text-black hover:scale-110 transition-all duration-300 font-medium text-sm lg:text-base" onmouseover="this.style.color='#4ecdc4'" onmouseout="this.style.color='#000000'">Our Services</a>
-      <a href="#contact" class="text-black hover:scale-110 transition-all duration-300 font-medium text-sm lg:text-base" onmouseover="this.style.color='#4ecdc4'" onmouseout="this.style.color='#000000'">Contact Us</a>
-	  </nav>
-      
-      <!-- Mobile Menu Button -->
-      <button id="mobileMenuBtn" class="md:hidden p-1.5 rounded-lg hover:bg-white/20 transition-colors">
-        <svg id="hamburgerIcon" class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-        <svg id="closeIcon" class="w-5 h-5 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-      </button>
-    </div>
-    
-    <!-- Mobile Navigation -->
-    <div id="mobileMenu" class="md:hidden border-t border-white/20 shadow-lg transform translate-y-0 opacity-0 scale-y-0 origin-top transition-all duration-300 ease-in-out overflow-hidden max-h-0 backdrop-blur-md" style="background-color: rgba(51, 109, 169, 0.9);">
-      <div class="px-3 py-2 space-y-1">
-        <a href="#home" class="block py-2 px-2 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-sm rounded-lg text-black" onmouseover="this.style.color='#ff6b6b'" onmouseout="this.style.color='#000000'">Home</a>
-		<a href="#services" class="block py-2 px-2 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-sm rounded-lg text-black" onmouseover="this.style.color='#ff6b6b'" onmouseout="this.style.color='#000000'">Our Services</a>
-        <a href="#contact" class="block py-2 px-2 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-sm rounded-lg text-black" onmouseover="this.style.color='#4ecdc4'" onmouseout="this.style.color='#000000'">Contact Us</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- Paint Splats -->
-  <div class="fixed inset-0 pointer-events-none z-10 overflow-hidden">
-    <!-- Paint Splat 1 - Top Left -->
-    <svg class="absolute -top-10 -left-10 w-32 h-32 opacity-80 animate-float" viewBox="0 0 100 100" fill="#336da9" style="animation-delay: 0s;">
-      <path d="M50,10 C60,15 70,25 75,35 C80,45 75,55 70,60 C65,65 55,70 45,65 C35,60 25,50 20,40 C15,30 20,20 30,15 C40,10 50,10 50,10 Z"/>
-    </svg>
-    
-    <!-- Paint Splat 2 - Top Right -->
-    <svg class="absolute top-20 right-10 w-24 h-24 opacity-85 animate-pulse-slow" viewBox="0 0 100 100" fill="#fdcf20" style="animation-delay: 1s;">
-      <path d="M45,20 C55,18 65,22 70,30 C75,38 72,48 65,55 C58,62 48,65 38,62 C28,59 20,52 18,42 C16,32 22,22 32,20 C42,18 45,20 45,20 Z"/>
-    </svg>
-    
-    <!-- Paint Splat 3 - Middle Left -->
-    <svg class="absolute top-1/2 -left-5 w-28 h-28 opacity-75 animate-bounce-slow" viewBox="0 0 100 100" fill="#ed343f" style="animation-delay: 2s;">
-      <path d="M30,25 C40,20 50,25 58,32 C66,39 70,49 65,58 C60,67 50,72 40,70 C30,68 22,60 20,50 C18,40 25,30 30,25 Z"/>
-    </svg>
-    
-    <!-- Paint Splat 4 - Middle Right -->
-    <svg class="absolute top-1/3 right-5 w-20 h-20 opacity-80 animate-float" viewBox="0 0 100 100" fill="#1f9dd1" style="animation-delay: 3s;">
-      <path d="M40,30 C50,28 60,32 65,40 C70,48 68,58 60,65 C52,72 42,70 35,62 C28,54 30,44 35,36 C40,28 40,30 40,30 Z"/>
-    </svg>
-    
-    <!-- Paint Splat 5 - Bottom Left -->
-    <svg class="absolute bottom-32 left-20 w-36 h-36 opacity-70 animate-wiggle" viewBox="0 0 100 100" fill="#336da9" style="animation-delay: 4s;">
-      <path d="M25,35 C35,30 45,35 53,42 C61,49 65,59 60,68 C55,77 45,80 35,75 C25,70 18,60 20,50 C22,40 25,35 25,35 Z"/>
-    </svg>
-    
-    <!-- Paint Splat 6 - Bottom Right -->
-    <svg class="absolute bottom-20 right-32 w-26 h-26 opacity-90 animate-pulse-slow" viewBox="0 0 100 100" fill="#fdcf20" style="animation-delay: 5s;">
-      <path d="M35,25 C45,22 55,28 62,36 C69,44 70,54 65,62 C60,70 50,72 40,68 C30,64 25,54 28,44 C31,34 35,25 35,25 Z"/>
-    </svg>
-    
-    <!-- Paint Splat 7 - Center -->
-    <svg class="absolute top-2/3 left-1/2 transform -translate-x-1/2 w-22 h-22 opacity-65 animate-bounce-slow" viewBox="0 0 100 100" fill="#ed343f" style="animation-delay: 6s;">
-      <path d="M42,28 C52,26 62,30 67,38 C72,46 70,56 62,63 C54,70 44,68 37,60 C30,52 32,42 37,34 C42,26 42,28 42,28 Z"/>
-    </svg>
-    
-    <!-- Paint Splat 8 - Top Center -->
-    <svg class="absolute top-5 left-1/3 w-30 h-30 opacity-75 animate-float" viewBox="0 0 100 100" fill="#1f9dd1" style="animation-delay: 7s;">
-      <path d="M38,22 C48,20 58,24 63,32 C68,40 66,50 58,57 C50,64 40,62 33,54 C26,46 28,36 33,28 C38,20 38,22 38,22 Z"/>
-    </svg>
-  </div>
-
-  <!-- Main Content -->
-  <main class="flex-1 relative z-20">
-
-    <!-- Services Section -->
-    <section id="services" class="section-padding">
-      <div class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6 relative z-10">
-        <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center text-gray-800 mb-3 sm:mb-4">Our Services</h2>
-        <p class="text-gray-600 text-center mb-6 md:mb-8 px-3 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">We offer comprehensive digital solutions to help your business thrive in the modern world</p>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Business - Professional Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          <!-- Web Design & Development -->
-          <div class="card p-4 sm:p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-            <div class="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3 sm:mb-4">
-              <svg class="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-              </svg>
-            </div>
-            <h3 class="text-base sm:text-lg font-semibold text-gray-800 mb-2">Web Design & Development</h3>
-            <p class="text-xs sm:text-sm text-gray-600">Custom websites built with modern technologies, fully responsive for all devices. We focus on fast loading speeds, SEO optimization, and user-friendly designs that convert visitors into customers.</p>
-          </div>
+        html { 
+            scroll-behavior: smooth; 
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f8fafc;
+            border-radius: 6px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #336da9 0%, #1f9dd1 50%, #fdcf20 100%);
+            border-radius: 6px;
+            border: 2px solid #f8fafc;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #ed343f 0%, #336da9 50%, #1f9dd1 100%);
+        }
+        
+        /* Firefox scrollbar */
+        html {
+            scrollbar-width: thin;
+            scrollbar-color: #336da9 #f8fafc;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8fafc;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
 
-          <!-- Social Media Management -->
-          <div class="card p-4 sm:p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-            <div class="w-12 h-12 sm:w-16 sm:h-16 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3 sm:mb-4">
-              <svg class="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
-              </svg>
-            </div>
-            <h3 class="text-base sm:text-lg font-semibold text-gray-800 mb-2">Social Media Management</h3>
-            <p class="text-xs sm:text-sm text-gray-600">Complete social media management across all major platforms. Content creation, scheduling, community engagement, and advertising to build your brand and drive engagement.</p>
-          </div>
+        .btn-primary {
+            background: linear-gradient(135deg, #336da9 0%, #1f9dd1 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
 
-          <!-- Logo Design -->
-          <div class="card p-4 sm:p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-            <div class="w-12 h-12 sm:w-16 sm:h-16 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-3 sm:mb-4">
-              <svg class="w-6 h-6 sm:w-8 sm:h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM7 3H5a2 2 0 00-2 2v12a4 4 0 004 4h2a2 2 0 002-2V5a2 2 0 00-2-2z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 3h2a2 2 0 012 2v12a4 4 0 01-4 4h-2a2 2 0 01-2-2V5a2 2 0 012-2z"></path>
-              </svg>
-            </div>
-            <h3 class="text-base sm:text-lg font-semibold text-gray-800 mb-2">Logo Design</h3>
-            <p class="text-xs sm:text-sm text-gray-600">Professional logo designs and brand identity packages. Multiple revisions, all file formats delivered, plus brand guidelines and color palettes for consistent branding.</p>
-          </div>
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(51, 109, 169, 0.4);
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:active {
+            transform: translateY(-1px) scale(1.01);
+            transition: all 0.1s ease;
+        }
+
+        .section-padding {
+            padding: 24px 0;
+        }
+        
+        @media (min-width: 640px) {
+            .section-padding {
+                padding: 32px 0;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .section-padding {
+                padding: 48px 0;
+            }
+        }
+
+
+        
+        /* Paint Splash Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+            25% { transform: translateY(-10px) rotate(2deg) scale(1.05); }
+            50% { transform: translateY(-5px) rotate(-1deg) scale(0.95); }
+            75% { transform: translateY(-15px) rotate(1deg) scale(1.02); }
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.6; filter: blur(0px); }
+            50% { opacity: 0.9; filter: blur(1px); }
+        }
+        
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+        
+        @keyframes bounce-slow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(2deg); }
+            75% { transform: rotate(-2deg); }
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .animate-pulse-glow {
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+        
+        .animate-pulse-slow {
+            animation: pulse-slow 4s ease-in-out infinite;
+        }
+        
+        .animate-bounce-slow {
+            animation: bounce-slow 5s ease-in-out infinite;
+        }
+        
+        .animate-wiggle {
+            animation: wiggle 3s ease-in-out infinite;
+        }
+        
+        /* Enhanced mobile responsiveness */
+        @media (max-width: 640px) {
+            .paint-splash {
+                transform: scale(0.7);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .paint-splash {
+                transform: scale(0.5);
+            }
+        }
+        
+        /* Touch-friendly interactions */
+        @media (hover: none) and (pointer: coarse) {
+            .btn-primary:hover {
+                transform: none;
+                background: linear-gradient(135deg, #336da9 0%, #1f9dd1 100%);
+            }
+            
+            .btn-primary:active {
+                transform: scale(0.98);
+                background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            }
+        }
+    </style>
+</head>
+<body class="bg-white min-h-screen">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 text-black shadow-lg backdrop-blur-md border-b border-blue-200/30 bg-blue-100/60">
+        <div class="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 flex justify-between items-center h-16 sm:h-14">
+            <img src="H:\Personal\My Website\Company Logo.png" alt="Hanu Logo" class="h-10 sm:h-8 md:h-10 w-auto">
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-4 lg:space-x-6 ml-auto">
+                <a href="#services" class="text-black hover:scale-110 transition-all duration-300 font-medium text-sm lg:text-base" onmouseover="this.style.color='#4ecdc4'" onmouseout="this.style.color='#000000'">Our Services</a>
+                <a href="#contact" class="text-black hover:scale-110 transition-all duration-300 font-medium text-sm lg:text-base" onmouseover="this.style.color='#4ecdc4'" onmouseout="this.style.color='#000000'">Contact Us</a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="md:hidden p-1.5 rounded-lg hover:bg-white/20 transition-colors">
+                <svg id="hamburgerIcon" class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+                <svg id="closeIcon" class="w-5 h-5 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
         </div>
-      </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobileMenu" class="md:hidden border-t border-blue-200/30 shadow-lg transform translate-y-0 opacity-0 scale-y-0 origin-top transition-all duration-300 ease-in-out overflow-hidden max-h-0 backdrop-blur-md bg-blue-100/60">
+            <div class="px-3 py-2 space-y-1">
+                <a href="#services" class="block py-2 px-2 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-sm rounded-lg text-black" onmouseover="this.style.color='#ff6b6b'" onmouseout="this.style.color='#000000'">Our Services</a>
+                <a href="#contact" class="block py-2 px-2 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-sm rounded-lg text-black" onmouseover="this.style.color='#4ecdc4'" onmouseout="this.style.color='#000000'">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Paint Splats -->
+    <div class="fixed inset-0 pointer-events-none z-10 overflow-hidden">
+        <!-- Paint Splat 1 - Top Left -->
+        <svg class="absolute -top-10 -left-10 w-32 h-32 opacity-80 animate-float" viewBox="0 0 100 100" fill="#336da9" style="animation-delay: 0s;">
+            <path d="M50,10 C60,15 70,25 75,35 C80,45 75,55 70,60 C65,65 55,70 45,65 C35,60 25,50 20,40 C15,30 20,20 30,15 C40,10 50,10 50,10 Z"/>
+        </svg>
+        
+        <!-- Paint Splat 2 - Top Right -->
+        <svg class="absolute top-20 right-10 w-24 h-24 opacity-85 animate-pulse-slow" viewBox="0 0 100 100" fill="#fdcf20" style="animation-delay: 1s;">
+            <path d="M45,20 C55,18 65,22 70,30 C75,38 72,48 65,55 C58,62 48,65 38,62 C28,59 20,52 18,42 C16,32 22,22 32,20 C42,18 45,20 45,20 Z"/>
+        </svg>
+        
+        <!-- Paint Splat 3 - Middle Left -->
+        <svg class="absolute top-1/2 -left-5 w-28 h-28 opacity-75 animate-bounce-slow" viewBox="0 0 100 100" fill="#ed343f" style="animation-delay: 2s;">
+            <path d="M30,25 C40,20 50,25 58,32 C66,39 70,49 65,58 C60,67 50,72 40,70 C30,68 22,60 20,50 C18,40 25,30 30,25 Z"/>
+        </svg>
+        
+        <!-- Paint Splat 4 - Middle Right -->
+        <svg class="absolute top-1/3 right-5 w-20 h-20 opacity-80 animate-float" viewBox="0 0 100 100" fill="#1f9dd1" style="animation-delay: 3s;">
+            <path d="M40,30 C50,28 60,32 65,40 C70,48 68,58 60,65 C52,72 42,70 35,62 C28,54 30,44 35,36 C40,28 40,30 40,30 Z"/>
+        </svg>
+        
+        <!-- Paint Splat 5 - Bottom Left -->
+        <svg class="absolute bottom-32 left-20 w-36 h-36 opacity-70 animate-wiggle" viewBox="0 0 100 100" fill="#336da9" style="animation-delay: 4s;">
+            <path d="M25,35 C35,30 45,35 53,42 C61,49 65,59 60,68 C55,77 45,80 35,75 C25,70 18,60 20,50 C22,40 25,35 25,35 Z"/>
+        </svg>
+        
+        <!-- Paint Splat 6 - Bottom Right -->
+        <svg class="absolute bottom-20 right-32 w-26 h-26 opacity-90 animate-pulse-slow" viewBox="0 0 100 100" fill="#fdcf20" style="animation-delay: 5s;">
+            <path d="M35,25 C45,22 55,28 62,36 C69,44 70,54 65,62 C60,70 50,72 40,68 C30,64 25,54 28,44 C31,34 35,25 35,25 Z"/>
+        </svg>
+        
+        <!-- Paint Splat 7 - Center -->
+        <svg class="absolute top-2/3 left-1/2 transform -translate-x-1/2 w-22 h-22 opacity-65 animate-bounce-slow" viewBox="0 0 100 100" fill="#ed343f" style="animation-delay: 6s;">
+            <path d="M42,28 C52,26 62,30 67,38 C72,46 70,56 62,63 C54,70 44,68 37,60 C30,52 32,42 37,34 C42,26 42,28 42,28 Z"/>
+        </svg>
+        
+        <!-- Paint Splat 8 - Top Center -->
+        <svg class="absolute top-5 left-1/3 w-30 h-30 opacity-75 animate-float" viewBox="0 0 100 100" fill="#1f9dd1" style="animation-delay: 7s;">
+            <path d="M38,22 C48,20 58,24 63,32 C68,40 66,50 58,57 C50,64 40,62 33,54 C26,46 28,36 33,28 C38,20 38,22 38,22 Z"/>
+        </svg>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-1 relative z-20">
+
+
+
+        <!-- Services Section -->
+        <section id="services" class="pt-20 pb-12 sm:pt-24 sm:pb-16">
+            <div class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6 relative z-10">
+                <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center text-gray-800 mb-3 sm:mb-4">What We Do Best</h2>
+                <p class="text-gray-600 text-center mb-6 md:mb-8 px-3 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">Turning your digital dreams into reality with cutting-edge solutions that actually work</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                <!-- Web Design & Development -->
+                <div class="card p-4 sm:p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                        <svg class="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-base sm:text-lg font-semibold text-gray-800 mb-2">Websites That Actually Convert</h3>
+                    <p class="text-xs sm:text-sm text-gray-600">Lightning-fast, mobile-first websites that turn visitors into customers. No boring templates here – just custom designs that make your competition jealous.</p>
+                </div>
+
+                <!-- Social Media Management -->
+                <div class="card p-4 sm:p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                        <svg class="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-base sm:text-lg font-semibold text-gray-800 mb-2">Social Media That Slaps</h3>
+                    <p class="text-xs sm:text-sm text-gray-600">We'll make your brand the main character on every platform. From viral-worthy content to community building that actually builds communities.</p>
+                </div>
+
+                <!-- Logo Design -->
+                <div class="card p-4 sm:p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                        <svg class="w-6 h-6 sm:w-8 sm:h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM7 3H5a2 2 0 00-2 2v12a4 4 0 004 4h2a2 2 0 002-2V5a2 2 0 00-2-2z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 3h2a2 2 0 012 2v12a4 4 0 01-4 4h-2a2 2 0 01-2-2V5a2 2 0 012-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-base sm:text-lg font-semibold text-gray-800 mb-2">Logos That Hit Different</h3>
+                    <p class="text-xs sm:text-sm text-gray-600">Iconic designs that stick in people's minds. We create visual identities so good, your customers will want to get them tattooed.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="section-padding">
-      <div class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6">
-        <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center text-gray-800 mb-3 sm:mb-4">Contact Us</h2>
-        <p class="text-gray-600 text-center mb-6 md:mb-8 px-3 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">Ready to transform your digital presence? Get in touch with us today!</p>
-        
-        <div class="grid lg:grid-cols-2 gap-6 lg:gap-8">
-          <!-- Contact Form -->
-          <div class="card p-4 sm:p-6 lg:p-8">
-            <form id="contactForm" class="space-y-3 sm:space-y-4">
-              <div>
-                <label for="name" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5">Your Name</label>
-                <input type="text" id="name" name="name" placeholder="Enter your full name" required class="w-full border border-gray-300 rounded-lg px-3 py-2 sm:py-3 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
-              </div>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                <div>
-                  <label for="email" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5">Your Email</label>
-                  <input type="email" id="email" name="email" placeholder="Enter your email address" required class="w-full border border-gray-300 rounded-lg px-3 py-2 sm:py-3 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
-                </div>
-                <div>
-                  <label for="subject" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5">Subject</label>
-                  <input type="text" id="subject" name="subject" placeholder="What's this about?" required class="w-full border border-gray-300 rounded-lg px-3 py-2 sm:py-3 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
-                </div>
-              </div>
-              <div>
-                <label for="message" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5">Message</label>
-                <textarea id="message" name="message" placeholder="Tell us about your project or inquiry..." rows="4" required class="w-full border border-gray-300 rounded-lg px-3 py-2 sm:py-3 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none transition-colors"></textarea>
-              </div>
-              <button type="submit" class="btn-primary w-full text-sm sm:text-base py-2.5 sm:py-3 touch-manipulation">Send Message</button>
-            </form>
-          </div>
+        <div class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6">
+            <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center text-gray-800 mb-3 sm:mb-4">Let's Make Magic Happen</h2>
+            <p class="text-gray-600 text-center mb-6 md:mb-8 px-3 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">Ready to level up your digital game? Drop us a line and let's create something amazing together!</p>
 
-          <!-- Contact Info -->
-          <div class="card p-4 sm:p-6 lg:p-8">
-            <div class="space-y-4 sm:space-y-6">
-              <div class="flex items-start space-x-3">
-                <a href="mailto:hanu@hanu.co.za" class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-lg flex items-center justify-center hover:bg-blue-200 transition-colors cursor-pointer flex-shrink-0 touch-manipulation">
-                  <svg class="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                  </svg>
-                </a>
-                <div>
-                  <p class="font-semibold text-gray-800 text-sm sm:text-base">Email</p>
-                  <a href="mailto:hanu@hanu.co.za" class="text-blue-600 hover:text-blue-800 transition-colors text-xs sm:text-sm break-all">hanu@hanu.co.za</a>
-                </div>
-              </div>
+            <div class="grid lg:grid-cols-2 gap-6 lg:gap-8">
+                <!-- Contact Form -->
+                <div class="card p-4 sm:p-6 lg:p-8">
+                    <form id="contactForm" class="space-y-3 sm:space-y-4">
+                        <div>
+                            <label for="name" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your full name" required class="w-full border border-gray-300 rounded-lg px-3 py-2 sm:py-3 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                            <div>
+                                <label for="email" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5">Your Email</label>
+                                <input type="email" id="email" name="email" placeholder="Enter your email address" required class="w-full border border-gray-300 rounded-lg px-3 py-2 sm:py-3 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5">Subject</label>
+                                <input type="text" id="subject" name="subject" placeholder="What's this about?" required class="w-full border border-gray-300 rounded-lg px-3 py-2 sm:py-3 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your project or inquiry..." rows="4" required class="w-full border border-gray-300 rounded-lg px-3 py-2 sm:py-3 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none transition-colors"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full text-sm sm:text-base py-2.5 sm:py-3 touch-manipulation">Send Message</button>
+                    </form>
+                    
 
-              <div class="flex items-start space-x-3">
-                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg class="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                  </svg>
                 </div>
-                <div>
-                  <p class="font-semibold text-gray-800 text-sm sm:text-base">Location</p>
-                  <p class="text-gray-600 text-xs sm:text-sm">South Africa</p>
-                </div>
-              </div>
 
-              <div class="pt-4 border-t border-gray-200">
-                <h4 class="font-semibold text-gray-800 mb-2 sm:mb-3 text-sm sm:text-base">Our Services</h4>
-                <ul class="space-y-1.5 text-gray-600 text-xs sm:text-sm">
-                  <li>• Web Design & Development</li>
-                  <li>• Digital Marketing</li>
-                  <li>• Social Media Management</li>
-                  <li>• Logo Design</li>
-                </ul>
-              </div>
+                <!-- Contact Info -->
+                <div class="card p-4 sm:p-6 lg:p-8">
+                    <div class="space-y-4 sm:space-y-6">
+                        <div class="flex items-start space-x-3">
+                            <a href="mailto:hanu@hanu.co.za" class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-lg flex items-center justify-center hover:bg-blue-200 transition-colors cursor-pointer flex-shrink-0 touch-manipulation">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </a>
+                            <div>
+                                <p class="font-semibold text-gray-800 text-sm sm:text-base">Email</p>
+                                <a href="mailto:hanu@hanu.co.za" class="text-blue-600 hover:text-blue-800 transition-colors text-xs sm:text-sm break-all">hanu@hanu.co.za</a>
+                            </div>
+                        </div>
 
-              <div class="pt-4 border-t border-gray-200">
-                <h4 class="font-semibold text-gray-800 mb-2 sm:mb-3 text-sm sm:text-base">Follow Us</h4>
-                <div class="flex space-x-2 sm:space-x-3">
-                  <a href="https://www.instagram.com/hanukeyser" target="_blank" rel="noopener noreferrer" class="w-8 h-8 sm:w-10 sm:h-10 bg-blue-100 rounded-lg flex items-center justify-center hover:bg-blue-200 transition-colors touch-manipulation">
-                    <svg class="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                  </a>
-                  <a href="https://www.linkedin.com/in/hanukeyser/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 sm:w-10 sm:h-10 bg-blue-100 rounded-lg flex items-center justify-center hover:bg-blue-200 transition-colors touch-manipulation">
-                    <svg class="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                    </svg>
-                  </a>
+
+
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800 text-sm sm:text-base">Location</p>
+                                <p class="text-gray-600 text-xs sm:text-sm">South Africa</p>
+                            </div>
+                        </div>
+
+
+
+                        <div class="pt-4 border-t border-gray-200">
+                            <h4 class="font-semibold text-gray-800 mb-2 sm:mb-3 text-sm sm:text-base">Our Services</h4>
+                            <ul class="space-y-1.5 text-gray-600 text-xs sm:text-sm">
+                                <li>• Web Design & Development</li>
+                                <li>• Social Media Management</li>
+                                <li>• Logo Design</li>
+                            </ul>
+                        </div>
+
+                        <div class="pt-4 border-t border-gray-200">
+                            <h4 class="font-semibold text-gray-800 mb-2 sm:mb-3 text-sm sm:text-base">Follow Us</h4>
+                            <div class="flex space-x-2 sm:space-x-3">
+                                <a href="https://www.instagram.com/hanukeyser" target="_blank" rel="noopener noreferrer" class="w-8 h-8 sm:w-10 sm:h-10 bg-blue-100 rounded-lg flex items-center justify-center hover:bg-blue-200 transition-colors touch-manipulation">
+                                    <svg class="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                    </svg>
+                                </a>
+                                <a href="https://www.linkedin.com/in/hanukeyser/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 sm:w-10 sm:h-10 bg-blue-100 rounded-lg flex items-center justify-center hover:bg-blue-200 transition-colors touch-manipulation">
+                                    <svg class="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
     </section>
-  </main>
 
-  <!-- Cookie Consent Banner -->
-  <div id="cookieBanner" class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 shadow-lg transform translate-y-full transition-transform duration-500 ease-in-out">
-    <div class="max-w-6xl mx-auto px-4 py-4">
-      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-        <div class="flex-1">
-          <div class="flex items-start space-x-3">
-            <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-              <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-            </div>
-            <div>
-              <h4 class="font-semibold text-gray-800 text-sm mb-1">We use cookies</h4>
-              <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">
-                We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. By clicking "Accept All", you consent to our use of cookies.
-                <a href="#" id="cookiePolicy" class="text-blue-600 hover:text-blue-800 underline ml-1">Learn more</a>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
-          <button id="cookieSettings" class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">
-            Settings
-          </button>
-          <button id="acceptCookies" class="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors">
-            Accept All
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+    </main>
 
-  <!-- Cookie Settings Modal -->
-  <div id="cookieModal" class="fixed inset-0 z-50 hidden">
-    <div class="fixed inset-0 bg-black bg-opacity-50 transition-opacity"></div>
-    <div class="fixed inset-0 flex items-center justify-center p-4">
-      <div class="bg-white rounded-lg shadow-xl max-w-md w-full max-h-96 overflow-y-auto">
-        <div class="p-6">
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="text-lg font-semibold text-gray-800">Cookie Settings</h3>
-            <button id="closeCookieModal" class="text-gray-400 hover:text-gray-600">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-              </svg>
+    <!-- Cookie Notification -->
+    <div id="cookieNotification" class="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg p-4 z-50 transform translate-y-full opacity-0 transition-all duration-300 ease-in-out">
+        <div class="flex items-start space-x-3">
+            <div class="flex-shrink-0">
+                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </div>
+            <div class="flex-1">
+                <p class="text-sm text-gray-700 mb-3">We use cookies to make your experience better. By continuing, you're cool with our cookie policy.</p>
+                <div class="flex space-x-2">
+                    <button id="acceptCookies" class="bg-blue-600 text-white px-3 py-1.5 rounded-md text-xs font-medium hover:bg-blue-700 transition-colors">Got it!</button>
+                    <button id="declineCookies" class="text-gray-500 px-3 py-1.5 rounded-md text-xs font-medium hover:text-gray-700 transition-colors">No thanks</button>
+                </div>
+            </div>
+            <button id="closeCookies" class="flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
             </button>
-          </div>
-          
-          <div class="space-y-4">
-            <div class="flex items-center justify-between">
-              <div>
-                <h4 class="font-medium text-gray-800">Essential Cookies</h4>
-                <p class="text-sm text-gray-600">Required for basic site functionality</p>
-              </div>
-              <div class="bg-gray-300 rounded-full w-10 h-6 flex items-center">
-                <div class="bg-gray-500 w-4 h-4 rounded-full ml-1"></div>
-              </div>
-            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-black shadow-lg backdrop-blur-md border-t border-blue-200/30 bg-blue-100/60">
+        <div class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6 text-center py-3 sm:py-4">
+            <p class="text-xs sm:text-sm">© 2025 Hanu. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cookie notification functionality
+            const cookieNotification = document.getElementById('cookieNotification');
+            const acceptCookies = document.getElementById('acceptCookies');
+            const declineCookies = document.getElementById('declineCookies');
+            const closeCookies = document.getElementById('closeCookies');
             
-            <div class="flex items-center justify-between">
-              <div>
-                <h4 class="font-medium text-gray-800">Analytics Cookies</h4>
-                <p class="text-sm text-gray-600">Help us understand site usage</p>
-              </div>
-              <label class="relative inline-flex items-center cursor-pointer">
-                <input type="checkbox" id="analyticsCookies" class="sr-only peer" checked>
-                <div class="w-10 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
-              </label>
-            </div>
-            
-            <div class="flex items-center justify-between">
-              <div>
-                <h4 class="font-medium text-gray-800">Marketing Cookies</h4>
-                <p class="text-sm text-gray-600">Used for targeted advertising</p>
-              </div>
-              <label class="relative inline-flex items-center cursor-pointer">
-                <input type="checkbox" id="marketingCookies" class="sr-only peer">
-                <div class="w-10 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
-              </label>
-            </div>
-          </div>
-          
-          <div class="flex gap-3 mt-6">
-            <button id="saveSettings" class="flex-1 px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors">
-              Save Settings
-            </button>
-            <button id="acceptAllModal" class="flex-1 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">
-              Accept All
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer class="text-white flex items-center justify-center py-3 sm:py-4">
-    <div class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6 text-center">
-      <p class="text-xs sm:text-sm">© 2025 Hanu. All rights reserved.</p>
-    </div>
-  </footer>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop,
-                        behavior: 'smooth'
-                    });
+            // Show cookie notification after 2 seconds if not already accepted/declined
+            setTimeout(() => {
+                if (!localStorage.getItem('cookiePreference')) {
+                    cookieNotification.classList.remove('translate-y-full', 'opacity-0');
+                    cookieNotification.classList.add('translate-y-0', 'opacity-100');
                 }
+            }, 2000);
+            
+            function hideCookieNotification() {
+                cookieNotification.classList.remove('translate-y-0', 'opacity-100');
+                cookieNotification.classList.add('translate-y-full', 'opacity-0');
+            }
+            
+            acceptCookies.addEventListener('click', function() {
+                localStorage.setItem('cookiePreference', 'accepted');
+                hideCookieNotification();
             });
-        });
-
-        // Email functionality
-        function sendEmail(formData, type) {
-            const subject = encodeURIComponent(`${type} from ${formData.name}`);
-            const body = encodeURIComponent(`
+            
+            declineCookies.addEventListener('click', function() {
+                localStorage.setItem('cookiePreference', 'declined');
+                hideCookieNotification();
+            });
+            
+            closeCookies.addEventListener('click', function() {
+                hideCookieNotification();
+            });
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const headerHeight = 64; // Account for fixed header
+                        window.scrollTo({
+                            top: target.offsetTop - headerHeight,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Email functionality
+            function sendEmail(formData, type) {
+                const subject = encodeURIComponent(`${type} from ${formData.name}`);
+                const body = encodeURIComponent(`
 Name: ${formData.name}
 Email: ${formData.email}
 Subject: ${formData.subject}
 Message: ${formData.message}
-            `);
+                `);
+                const mailtoLink = `mailto:hanu@hanu.co.za?subject=${subject}&body=${body}`;
+                window.location.href = mailtoLink;
+            }
             
-            const mailtoLink = `mailto:hanu@hanu.co.za?subject=${subject}&body=${body}`;
-            window.location.href = mailtoLink;
-        }
-
-        // Contact form
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            sendEmail(data, 'Contact Form');
-            this.reset();
-        });
-
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const hamburgerIcon = document.getElementById('hamburgerIcon');
-        const closeIcon = document.getElementById('closeIcon');
-        
-        function openMobileMenu() {
-            mobileMenu.classList.remove('opacity-0', 'scale-y-0', 'max-h-0');
-            mobileMenu.classList.add('opacity-100', 'scale-y-100', 'max-h-96');
-            hamburgerIcon.classList.add('hidden');
-            closeIcon.classList.remove('hidden');
-        }
-        
-        function closeMobileMenu() {
-            mobileMenu.classList.remove('opacity-100', 'scale-y-100', 'max-h-96');
-            mobileMenu.classList.add('opacity-0', 'scale-y-0', 'max-h-0');
-            hamburgerIcon.classList.remove('hidden');
-            closeIcon.classList.add('hidden');
-        }
-        
-        mobileMenuBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            if (mobileMenu.classList.contains('opacity-0')) {
-                openMobileMenu();
-            } else {
-                closeMobileMenu();
-            }
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('#mobileMenu a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                closeMobileMenu();
-            });
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(e) {
-            const isClickInsideMenu = mobileMenu.contains(e.target);
-            const isClickOnMenuButton = mobileMenuBtn.contains(e.target);
-            
-            if (!isClickInsideMenu && !isClickOnMenuButton && !mobileMenu.classList.contains('opacity-0')) {
-                closeMobileMenu();
-            }
-        });
-
-        // Close mobile menu on escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && !mobileMenu.classList.contains('opacity-0')) {
-                closeMobileMenu();
-            }
-        });
-    });
-	
-	        // Cookie Management
-        const cookieBanner = document.getElementById('cookieBanner');
-        const cookieModal = document.getElementById('cookieModal');
-        const acceptCookiesBtn = document.getElementById('acceptCookies');
-        const cookieSettingsBtn = document.getElementById('cookieSettings');
-        const closeCookieModalBtn = document.getElementById('closeCookieModal');
-        const saveSettingsBtn = document.getElementById('saveSettings');
-        const acceptAllModalBtn = document.getElementById('acceptAllModal');
-        const cookiePolicyLink = document.getElementById('cookiePolicy');
-
-        // Check if cookies have been accepted
-        function checkCookieConsent() {
-            const consent = localStorage.getItem('cookieConsent');
-            if (!consent) {
-                setTimeout(() => {
-                    cookieBanner.classList.remove('translate-y-full');
-                }, 1000);
-            }
-        }
-
-        // Set cookie preferences
-        function setCookiePreferences(preferences) {
-            localStorage.setItem('cookieConsent', JSON.stringify({
-                timestamp: Date.now(),
-                preferences: preferences
-            }));
-            cookieBanner.classList.add('translate-y-full');
-        }
-
-        // Accept all cookies
-        acceptCookiesBtn.addEventListener('click', function() {
-            setCookiePreferences({
-                essential: true,
-                analytics: true,
-                marketing: true
-            });
-        });
-
-        // Open cookie settings modal
-        cookieSettingsBtn.addEventListener('click', function() {
-            cookieModal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        });
-
-        // Close cookie settings modal
-        function closeCookieSettingsModal() {
-            cookieModal.classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-
-        closeCookieModalBtn.addEventListener('click', closeCookieSettingsModal);
-
-        // Close modal when clicking outside
-        cookieModal.addEventListener('click', function(e) {
-            if (e.target === cookieModal) {
-                closeCookieSettingsModal();
-            }
-        });
-
-        // Save custom settings
-        saveSettingsBtn.addEventListener('click', function() {
-            const analyticsChecked = document.getElementById('analyticsCookies').checked;
-            const marketingChecked = document.getElementById('marketingCookies').checked;
-            
-            setCookiePreferences({
-                essential: true,
-                analytics: analyticsChecked,
-                marketing: marketingChecked
+            // Contact form
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                const data = Object.fromEntries(formData);
+                sendEmail(data, 'Contact Form');
+                this.reset();
             });
             
-            closeCookieSettingsModal();
-        });
-
-        // Accept all from modal
-        acceptAllModalBtn.addEventListener('click', function() {
-            document.getElementById('analyticsCookies').checked = true;
-            document.getElementById('marketingCookies').checked = true;
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburgerIcon = document.getElementById('hamburgerIcon');
+            const closeIcon = document.getElementById('closeIcon');
             
-            setCookiePreferences({
-                essential: true,
-                analytics: true,
-                marketing: true
+            function openMobileMenu() {
+                mobileMenu.classList.remove('opacity-0', 'scale-y-0', 'max-h-0');
+                mobileMenu.classList.add('opacity-100', 'scale-y-100', 'max-h-96');
+                hamburgerIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+            }
+            
+            function closeMobileMenu() {
+                mobileMenu.classList.remove('opacity-100', 'scale-y-100', 'max-h-96');
+                mobileMenu.classList.add('opacity-0', 'scale-y-0', 'max-h-0');
+                hamburgerIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            }
+            
+            mobileMenuBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (mobileMenu.classList.contains('opacity-0')) {
+                    openMobileMenu();
+                } else {
+                    closeMobileMenu();
+                }
             });
             
-            closeCookieSettingsModal();
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('#mobileMenu a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    closeMobileMenu();
+                });
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                const isClickInsideMenu = mobileMenu.contains(e.target);
+                const isClickOnMenuButton = mobileMenuBtn.contains(e.target);
+
+                if (!isClickInsideMenu && !isClickOnMenuButton && !mobileMenu.classList.contains('opacity-0')) {
+                    closeMobileMenu();
+                }
+            });
+            
+            // Close mobile menu on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && !mobileMenu.classList.contains('opacity-0')) {
+                    closeMobileMenu();
+                }
+            });
         });
-
-        // Cookie policy link (placeholder)
-        cookiePolicyLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('Cookie Policy: This is where you would link to your detailed cookie policy page explaining how cookies are used on your website.');
-        });
-
-        // Initialize cookie banner
-        checkCookieConsent();
-
-    });
-</script>
-
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9608e06ed766fff4',t:'MTc1Mjc0NjI2My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'960c5198a7d025c1',t:'MTc1Mjc4MjM1Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
