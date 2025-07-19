@@ -10,28 +10,34 @@
         html { 
             scroll-behavior: smooth; 
         }
-        
-        /* Custom Scrollbar */
+
+        /* Custom Scrollbar Styling */
         ::-webkit-scrollbar {
             width: 12px;
         }
-        
+
         ::-webkit-scrollbar-track {
-            background: #f8fafc;
-            border-radius: 6px;
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 10px;
         }
-        
+
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, #336da9 0%, #1f9dd1 50%, #fdcf20 100%);
-            border-radius: 6px;
+            background: linear-gradient(180deg, #336da9 0%, #1f9dd1 50%, #326da9 100%);
+            border-radius: 10px;
             border: 2px solid #f8fafc;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
         }
-        
+
         ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(135deg, #ed343f 0%, #336da9 50%, #1f9dd1 100%);
+            background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%);
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
         }
-        
-        /* Firefox scrollbar */
+
+        ::-webkit-scrollbar-thumb:active {
+            background: linear-gradient(180deg, #1d4ed8 0%, #1e40af 50%, #1e3a8a 100%);
+        }
+
+        /* Firefox scrollbar styling */
         html {
             scrollbar-width: thin;
             scrollbar-color: #336da9 #f8fafc;
@@ -43,7 +49,6 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            font-size: 16px;
         }
         
         .card {
@@ -58,107 +63,127 @@
             padding: 12px 24px;
             border-radius: 8px;
             font-weight: 500;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
+            min-height: 44px;
+            touch-action: manipulation;
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(51, 109, 169, 0.4);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(51, 109, 169, 0.3);
             background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
         }
 
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-
         .btn-primary:active {
-            transform: translateY(-1px) scale(1.01);
+            transform: scale(0.98);
             transition: all 0.1s ease;
         }
 
         /* Animations */
         @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
-            25% { transform: translateY(-10px) rotate(2deg) scale(1.05); }
-            50% { transform: translateY(-5px) rotate(-1deg) scale(0.95); }
-            75% { transform: translateY(-15px) rotate(1deg) scale(1.02); }
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(1deg); }
         }
         
         @keyframes pulse-slow {
-            0%, 100% { opacity: 0.7; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.05); }
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
         }
         
         @keyframes bounce-slow {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-8px); }
         }
         
         @keyframes wiggle {
             0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(2deg); }
-            75% { transform: rotate(-2deg); }
+            25% { transform: rotate(1deg); }
+            75% { transform: rotate(-1deg); }
         }
         
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
+        .animate-float { animation: float 4s ease-in-out infinite; }
+        .animate-pulse-slow { animation: pulse-slow 3s ease-in-out infinite; }
+        .animate-bounce-slow { animation: bounce-slow 3s ease-in-out infinite; }
+        .animate-wiggle { animation: wiggle 2s ease-in-out infinite; }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 1rem;
         }
-        
-        .animate-pulse-slow {
-            animation: pulse-slow 4s ease-in-out infinite;
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
         }
-        
-        .animate-bounce-slow {
-            animation: bounce-slow 5s ease-in-out infinite;
+
+        .modal-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            padding: 2rem;
+            width: 100%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: scale(0.9) translateY(20px);
+            transition: all 0.3s ease;
+            position: relative;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
         }
-        
-        .animate-wiggle {
-            animation: wiggle 3s ease-in-out infinite;
+
+        .modal-content::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
         }
-        
-        /* Touch-friendly interactions */
-        @media (hover: none) and (pointer: coarse) {
-            .btn-primary:hover {
-                transform: none;
-                background: linear-gradient(135deg, #336da9 0%, #1f9dd1 100%);
-            }
-            
-            .btn-primary:active {
-                transform: scale(0.98);
-                background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-            }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1) translateY(0);
         }
-        
-        /* Mobile optimizations */
-        @media (max-width: 768px) {
-            .card {
-                margin-bottom: 1rem;
-            }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            touch-action: manipulation;
         }
-        
-        @media (max-width: 480px) {
-            h2 {
-                font-size: 1.5rem !important;
-            }
-            
-            .card {
-                padding: 1rem !important;
-            }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(1.05);
+        }
+
+        .modal-close:active {
+            transform: scale(0.95);
         }
 
         /* Back to Top Button */
@@ -169,10 +194,9 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
             border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -181,6 +205,7 @@
             z-index: 1000;
             opacity: 0;
             transform: translateY(20px);
+            touch-action: manipulation;
         }
 
         .back-to-top.visible {
@@ -189,18 +214,36 @@
         }
 
         .back-to-top:hover {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 1);
             transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
         }
 
-        .back-to-top svg {
-            color: #336da9;
-            transition: color 0.3s ease;
+        .back-to-top:active {
+            transform: scale(0.95);
         }
 
-        .back-to-top:hover svg {
-            color: #1e9bd5;
+        /* Touch-friendly interactions */
+        @media (hover: none) and (pointer: coarse) {
+            .btn-primary:hover {
+                transform: none;
+                background: linear-gradient(135deg, #336da9 0%, #1f9dd1 100%);
+            }
+            
+            .modal-close:hover, .back-to-top:hover {
+                transform: none;
+            }
+        }
+        
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .modal-content { padding: 1.5rem; }
+            .back-to-top { bottom: 16px; right: 16px; }
+        }
+        
+        @media (max-width: 480px) {
+            .modal-content { padding: 1rem; }
+            h2 { font-size: 1.5rem !important; }
         }
     </style>
 </head>
@@ -211,7 +254,8 @@
             <img src="Company Logo.png" alt="Hanu Logo" class="h-8 sm:h-7 md:h-8 w-auto">
             
             <!-- Desktop Navigation -->
-            <nav class="hidden md:flex space-x-4 lg:space-x-6 ml-auto">
+            <nav class="hidden md:flex items-center space-x-4 lg:space-x-6 ml-auto">
+                <a href="#about" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-110" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">About Us</a>
                 <a href="#services" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-110" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Our Services</a>
                 <a href="#portfolio" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-110" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Portfolio</a>
                 <a href="#contact" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-110" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Contact Us</a>
@@ -231,6 +275,7 @@
         <!-- Mobile Navigation -->
         <div id="mobileMenu" class="md:hidden border-t border-blue-200/30 shadow-lg transform translate-y-0 opacity-0 scale-y-0 origin-top transition-all duration-300 ease-in-out overflow-hidden max-h-0 backdrop-blur-md bg-blue-100/60">
             <div class="px-3 py-2 space-y-1">
+                <a href="#about" class="block py-2 px-2 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-sm rounded-lg" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">About Us</a>
                 <a href="#services" class="block py-2 px-2 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-sm rounded-lg" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Our Services</a>
                 <a href="#portfolio" class="block py-2 px-2 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-sm rounded-lg" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Portfolio</a>
                 <a href="#contact" class="block py-2 px-2 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-sm rounded-lg" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Contact Us</a>
@@ -293,46 +338,239 @@
 
     <!-- Main Content -->
     <main class="flex-1 relative z-20">
-        <!-- Services Section -->
-        <section id="services" class="pt-16 pb-8 sm:pt-18 sm:pb-10">
+        <!-- About Us Section -->
+        <section id="about" class="py-16 pt-20 bg-gray-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-4 lg:mb-6" style="color: #326da9;">What We Do Best</h2>
-                <p class="text-gray-600 text-center mb-8 px-4 text-lg max-w-3xl mx-auto">Turning your digital dreams into reality with cutting-edge solutions that actually work</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Web Design & Development -->
-                    <div class="card p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #1e9bd5;">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-                            </svg>
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 lg:mb-6" style="color: #326da9;">We Don't Just Build Websites, We Build Empires</h2>
+                    <p class="text-gray-600 text-lg max-w-3xl mx-auto">Ready to dominate your industry? We're the digital rebels who turn ordinary brands into legendary experiences that your competition will envy.</p>
+                </div>
+                
+                <!-- 4 Cards in 2x2 Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                    <!-- Card 1: Our Story -->
+                    <div class="card p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #326da9;">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold" style="color: #326da9;">Our Story</h3>
                         </div>
-                        <h3 class="text-xl font-semibold mb-3" style="color: #1e9bd5;">Websites That Actually Convert</h3>
-                        <p class="text-gray-600">Lightning-fast, mobile-first websites that turn visitors into customers. No boring templates here – just custom designs that make your competition jealous.</p>
+                        <p class="text-gray-600 leading-relaxed">
+                            Born from a passion for digital rebellion, Hanu Studio started as a one-person mission to shake up the boring world of web design. We believe every brand deserves to stand out, not blend in with the crowd.
+                        </p>
+                        <div class="mt-4 pt-4 border-t border-gray-100">
+                            <span class="text-sm font-medium" style="color: #1e9bd5;">Est. 2025 • South Africa</span>
+                        </div>
                     </div>
-                    <!-- Social Media Management -->
-                    <div class="card p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                        <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #ec343e;">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
-                            </svg>
+                    
+                    <!-- Card 2: Our Mission -->
+                    <div class="card p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #ed343f;">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold" style="color: #ed343f;">Our Mission</h3>
                         </div>
-                        <h3 class="text-xl font-semibold mb-3" style="color: #ec343e;">Social Media That Slaps</h3>
-                        <p class="text-gray-600">We'll make your brand the main character on every platform. From viral-worthy content to community building that actually builds communities.</p>
+                        <p class="text-gray-600 leading-relaxed">
+                            To transform ordinary businesses into digital legends. We're here to make your competition jealous and your customers obsessed with your brand through killer design and unstoppable digital presence.
+                        </p>
+                        <div class="mt-4 pt-4 border-t border-gray-100">
+                            <span class="text-sm font-medium" style="color: #ed343f;">Making Brands Legendary</span>
+                        </div>
                     </div>
-                    <!-- Logo Design -->
-                    <div class="card p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                        <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #fed121;">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM7 3H5a2 2 0 00-2 2v12a4 4 0 004 4h2a2 2 0 002-2V5a2 2 0 00-2-2z"></path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 3h2a2 2 0 012 2v12a4 4 0 01-4 4h-2a2 2 0 01-2-2V5a2 2 0 012-2z"></path>
-                            </svg>
+                    
+                    <!-- Card 3: Team -->
+                    <div class="card p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #fdcf20;">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold" style="color: #fdcf20;">Meet The Team</h3>
                         </div>
-                        <h3 class="text-xl font-semibold mb-3" style="color: #fed121;">Logos That Hit Different</h3>
-                        <p class="text-gray-600">Iconic designs that stick in people's minds. We create visual identities so good, your customers will want to get them tattooed.</p>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full mx-auto mb-3 flex items-center justify-center">
+                                <span class="text-white font-bold text-lg">H</span>
+                            </div>
+                            <h4 class="font-semibold text-gray-800 mb-1">Hanu Keyser</h4>
+                            <p class="text-sm text-gray-600 mb-2">Founder & Digital Rebel</p>
+                            <p class="text-xs text-gray-500">The mastermind behind every pixel-perfect design and viral-worthy campaign.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 4: Our Values -->
+                    <div class="card p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #8b5cf6;">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold" style="color: #8b5cf6;">Our Values</h3>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <div class="w-2 h-2 bg-purple-400 rounded-full mr-3"></div>
+                                <span class="text-sm text-gray-700 font-medium">Bold & Fearless Design</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>
+                                <span class="text-sm text-gray-700 font-medium">Results That Actually Matter</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-2 h-2 bg-pink-400 rounded-full mr-3"></div>
+                                <span class="text-sm text-gray-700 font-medium">Authentic Brand Stories</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-2 h-2 bg-yellow-400 rounded-full mr-3"></div>
+                                <span class="text-sm text-gray-700 font-medium">No Boring Templates</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-2 h-2 bg-green-400 rounded-full mr-3"></div>
+                                <span class="text-sm text-gray-700 font-medium">Always Ahead of Trends</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 lg:mb-6" style="color: #326da9;">What We Do Best</h2>
+                    <p class="text-gray-600 px-4 text-lg max-w-3xl mx-auto">Turning your digital dreams into reality with cutting-edge solutions that actually work</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Web Design & Development -->
+                    <div class="group relative">
+                        <div class="card p-8 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:bg-gradient-to-br group-hover:from-blue-50 group-hover:to-white relative overflow-hidden h-full flex flex-col">
+                            <!-- Animated background on hover -->
+                            <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            
+                            <div class="relative z-10 flex flex-col h-full">
+                                <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg">
+                                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-bold mb-4 group-hover:text-blue-600 transition-colors duration-300" style="color: #1e9bd5;">Websites That Actually Convert</h3>
+                                <p class="text-gray-600 mb-6 leading-relaxed flex-grow">Lightning-fast, mobile-first websites that turn visitors into customers. No boring templates here – just custom designs that make your competition jealous.</p>
+                                
+                                <!-- Feature list -->
+                                <div class="space-y-2 mb-6 text-left">
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <div class="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>
+                                        <span>Custom Design & Development</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <div class="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>
+                                        <span>Mobile-First Responsive Design</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <div class="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>
+                                        <span>SEO Optimized</span>
+                                    </div>
+                                </div>
+                                
+                                <button class="service-btn w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:from-blue-600 hover:to-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl mt-auto" data-service="Web Design & Development" data-theme="blue">
+                                    Get Started
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Media Management -->
+                    <div class="group relative">
+                        <div class="card p-8 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:bg-gradient-to-br group-hover:from-red-50 group-hover:to-white relative overflow-hidden h-full flex flex-col">
+                            <!-- Animated background on hover -->
+                            <div class="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            
+                            <div class="relative z-10 flex flex-col h-full">
+                                <div class="w-16 h-16 bg-gradient-to-br from-red-400 to-red-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg">
+                                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-bold mb-4 group-hover:text-red-600 transition-colors duration-300" style="color: #ec343e;">Social Media That Slaps</h3>
+                                <p class="text-gray-600 mb-6 leading-relaxed flex-grow">We'll make your brand the main character on every platform. From viral-worthy content to community building that actually builds communities.</p>
+                                
+                                <!-- Feature list -->
+                                <div class="space-y-2 mb-6 text-left">
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <div class="w-2 h-2 bg-red-400 rounded-full mr-3"></div>
+                                        <span>Content Creation & Strategy</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <div class="w-2 h-2 bg-red-400 rounded-full mr-3"></div>
+                                        <span>Community Management</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <div class="w-2 h-2 bg-red-400 rounded-full mr-3"></div>
+                                        <span>Analytics & Growth Tracking</span>
+                                    </div>
+                                </div>
+                                
+                                <button class="service-btn w-full bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-3 rounded-lg font-medium hover:from-red-600 hover:to-red-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl mt-auto" data-service="Social Media Management" data-theme="red">
+                                    Let's Go Viral
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Logo Design -->
+                    <div class="group relative">
+                        <div class="card p-8 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:bg-gradient-to-br group-hover:from-yellow-50 group-hover:to-white relative overflow-hidden h-full flex flex-col">
+                            <!-- Animated background on hover -->
+                            <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            
+                            <div class="relative z-10 flex flex-col h-full">
+                                <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg">
+                                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM7 3H5a2 2 0 00-2 2v12a4 4 0 004 4h2a2 2 0 002-2V5a2 2 0 00-2-2z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 3h2a2 2 0 012 2v12a4 4 0 01-4 4h-2a2 2 0 01-2-2V5a2 2 0 012-2z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-bold mb-4 group-hover:text-yellow-600 transition-colors duration-300" style="color: #fed121;">Logos That Hit Different</h3>
+                                <p class="text-gray-600 mb-6 leading-relaxed flex-grow">Iconic designs that stick in people's minds. We create visual identities so good, your customers will want to get them tattooed.</p>
+                                
+                                <!-- Feature list -->
+                                <div class="space-y-2 mb-6 text-left">
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <div class="w-2 h-2 bg-yellow-400 rounded-full mr-3"></div>
+                                        <span>Custom Logo Design</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <div class="w-2 h-2 bg-yellow-400 rounded-full mr-3"></div>
+                                        <span>Brand Identity Package</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <div class="w-2 h-2 bg-yellow-400 rounded-full mr-3"></div>
+                                        <span>Multiple Format Delivery</span>
+                                    </div>
+                                </div>
+                                
+                                <button class="service-btn w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-white px-6 py-3 rounded-lg font-medium hover:from-yellow-600 hover:to-yellow-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl mt-auto" data-service="Logo Design" data-theme="yellow">
+                                    Create My Brand
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+
+
 
         <!-- Portfolio Section -->
         <section id="portfolio" class="py-16 bg-gray-50 relative overflow-hidden">
@@ -691,7 +929,7 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <p class="font-semibold text-gray-800">Lightning Fast</p>
+                                    <p class="font-semibold text-gray-800">Response Time</p>
                                     <p class="text-gray-600">Masterpieces don't happen overnight</p>
                                 </div>
                             </div>
@@ -730,26 +968,74 @@
         </section>
     </main>
 
+
+
     <!-- Cookie Notification -->
-    <div id="cookieNotification" class="fixed bottom-4 right-4 left-4 md:right-4 md:left-auto md:max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg p-4 z-50 transform translate-y-full opacity-0 transition-all duration-300 ease-in-out">
+    <div id="cookieNotification" class="fixed bottom-4 right-4 left-4 sm:right-4 sm:left-auto sm:max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg p-4 z-50 transform translate-y-full opacity-0 transition-all duration-300 ease-in-out">
         <div class="flex items-start space-x-3">
-            <div class="flex-shrink-0">
+            <div class="flex-shrink-0 mt-0.5">
                 <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
             </div>
-            <div class="flex-1">
-                <p class="text-sm text-gray-700 mb-3">We use cookies to make your experience better. By continuing, you're cool with our cookie policy.</p>
-                <div class="flex space-x-2">
-                    <button id="acceptCookies" class="bg-blue-600 text-white px-3 py-1.5 rounded-md text-xs font-medium hover:bg-blue-700 transition-colors">Got it!</button>
-                    <button id="declineCookies" class="text-gray-500 px-3 py-1.5 rounded-md text-xs font-medium hover:text-gray-700 transition-colors">No thanks</button>
+            <div class="flex-1 min-w-0">
+                <p class="text-sm text-gray-700 mb-3 leading-relaxed">We use cookies to make your experience better. By continuing, you're cool with our cookie policy.</p>
+                <div class="flex flex-col sm:flex-row gap-2">
+                    <button id="acceptCookies" class="bg-blue-600 text-white px-4 py-2.5 sm:px-3 sm:py-2 rounded-md text-sm font-medium hover:bg-blue-700 active:bg-blue-800 transition-colors touch-manipulation min-h-[44px] sm:min-h-[40px] flex-1 sm:flex-none">Got it!</button>
+                    <button id="declineCookies" class="text-gray-500 px-4 py-2.5 sm:px-3 sm:py-2 rounded-md text-sm font-medium hover:text-gray-700 active:text-gray-800 transition-colors touch-manipulation min-h-[44px] sm:min-h-[40px] flex-1 sm:flex-none border border-gray-300">No thanks</button>
                 </div>
             </div>
-            <button id="closeCookies" class="flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors">
+            <button id="closeCookies" class="flex-shrink-0 text-gray-400 hover:text-gray-600 active:text-gray-700 transition-colors p-2 -m-2 touch-manipulation min-w-[44px] min-h-[44px] flex items-center justify-center">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
+        </div>
+    </div>
+
+    <!-- Service Modal -->
+    <div id="serviceModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">
+                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            
+            <div class="text-center mb-6">
+                <div id="modalIcon" class="w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <svg id="modalIconSvg" class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                    </svg>
+                </div>
+                <h3 id="modalTitle" class="text-2xl font-bold mb-2">Get Started</h3>
+                <p id="modalSubtitle" class="text-gray-600">Let's bring your vision to life! Tell us about your project.</p>
+            </div>
+
+            <form id="serviceForm" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="modalName" class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                        <input type="text" id="modalName" name="name" placeholder="Enter your first name" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-white/80 backdrop-blur-sm">
+                    </div>
+                    <div>
+                        <label for="modalSurname" class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                        <input type="text" id="modalSurname" name="surname" placeholder="Enter your last name" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-white/80 backdrop-blur-sm">
+                    </div>
+                </div>
+                <div>
+                    <label for="modalEmail" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                    <input type="email" id="modalEmail" name="email" placeholder="Enter your email address" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-white/80 backdrop-blur-sm">
+                </div>
+                <div>
+                    <label for="modalMessage" class="block text-sm font-medium text-gray-700 mb-2">Tell us about your project</label>
+                    <textarea id="modalMessage" name="message" placeholder="Describe your project, goals, timeline, or any specific requirements..." rows="4" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none transition-colors bg-white/80 backdrop-blur-sm"></textarea>
+                </div>
+                <input type="hidden" id="modalService" name="service" value="">
+                <button type="submit" id="modalSubmitBtn" class="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:from-blue-600 hover:to-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                    Send My Request
+                </button>
+            </form>
         </div>
     </div>
 
@@ -891,6 +1177,131 @@ Message: ${formData.message}
             hideCookieNotification();
         });
 
+
+
+        // Service Modal functionality
+        const serviceModal = document.getElementById('serviceModal');
+        const closeModal = document.getElementById('closeModal');
+        const serviceForm = document.getElementById('serviceForm');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalSubtitle = document.getElementById('modalSubtitle');
+        const modalIcon = document.getElementById('modalIcon');
+        const modalIconSvg = document.getElementById('modalIconSvg');
+        const modalSubmitBtn = document.getElementById('modalSubmitBtn');
+        const modalService = document.getElementById('modalService');
+
+        // Service button configurations
+        const serviceConfigs = {
+            blue: {
+                title: 'Get Started with Web Design',
+                subtitle: 'Let\'s create a website that converts visitors into customers!',
+                icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
+                iconBg: 'bg-gradient-to-br from-blue-400 to-blue-600',
+                submitText: 'Start My Website Project',
+                submitBg: 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700'
+            },
+            red: {
+                title: 'Let\'s Go Viral Together',
+                subtitle: 'Ready to dominate social media? Tell us about your brand!',
+                icon: 'M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z',
+                iconBg: 'bg-gradient-to-br from-red-400 to-red-600',
+                submitText: 'Launch My Social Media',
+                submitBg: 'bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700'
+            },
+            yellow: {
+                title: 'Create Your Brand Identity',
+                subtitle: 'Let\'s design a logo that makes your customers want to get it tattooed!',
+                icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM7 3H5a2 2 0 00-2 2v12a4 4 0 004 4h2a2 2 0 002-2V5a2 2 0 00-2-2z M16 3h2a2 2 0 012 2v12a4 4 0 01-4 4h-2a2 2 0 01-2-2V5a2 2 0 012-2z',
+                iconBg: 'bg-gradient-to-br from-yellow-400 to-yellow-600',
+                submitText: 'Design My Brand',
+                submitBg: 'bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700'
+            }
+        };
+
+        // Open modal function
+        function openServiceModal(service, theme) {
+            const config = serviceConfigs[theme];
+            
+            // Update modal content
+            modalTitle.textContent = config.title;
+            modalSubtitle.textContent = config.subtitle;
+            modalService.value = service;
+            
+            // Update icon
+            modalIcon.className = `w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg ${config.iconBg}`;
+            modalIconSvg.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${config.icon}"></path>`;
+            
+            // Update submit button
+            modalSubmitBtn.textContent = config.submitText;
+            modalSubmitBtn.className = `w-full ${config.submitBg} text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl min-h-[44px] touch-manipulation`;
+            
+            // Show modal
+            serviceModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close modal function
+        function closeServiceModal() {
+            serviceModal.classList.remove('active');
+            document.body.style.overflow = '';
+            serviceForm.reset();
+        }
+
+        // Event listeners for service buttons
+        document.querySelectorAll('.service-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const service = this.getAttribute('data-service');
+                const theme = this.getAttribute('data-theme');
+                openServiceModal(service, theme);
+            });
+        });
+
+        // Close modal events
+        closeModal.addEventListener('click', closeServiceModal);
+        
+        serviceModal.addEventListener('click', function(e) {
+            if (e.target === serviceModal) {
+                closeServiceModal();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && serviceModal.classList.contains('active')) {
+                closeServiceModal();
+            }
+        });
+
+        // Service form submission
+        serviceForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Create detailed email content
+            const subject = encodeURIComponent(`${data.service} Inquiry from ${data.name} ${data.surname}`);
+            const body = encodeURIComponent(`
+New Service Inquiry - ${data.service}
+
+Client Details:
+- Name: ${data.name} ${data.surname}
+- Email: ${data.email}
+- Service Requested: ${data.service}
+
+Project Description:
+${data.message}
+
+---
+This inquiry was submitted through the Hanu Studio website service modal.
+            `);
+            const mailtoLink = `mailto:hanu@hanu.co.za?subject=${subject}&body=${body}`;
+            window.location.href = mailtoLink;
+            
+            // Show success message before closing
+            alert('Thank you! Your request has been sent. We\'ll get back to you soon!');
+            closeServiceModal();
+        });
+
         // Back to Top Button functionality
         const backToTopBtn = document.getElementById('backToTop');
 
@@ -911,5 +1322,5 @@ Message: ${formData.message}
             });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'961900b5b1c573b5',t:'MTc1MjkxNTM1Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'961a31e287a473de',t:'MTc1MjkyNzg1Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
