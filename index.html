@@ -6,9 +6,6 @@
     <title>Hanu Studio</title>
     <link rel="icon" href="Hanu Tab Icon Top & Bottom.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
     <style>
         html { 
             scroll-behavior: smooth; 
@@ -20,11 +17,6 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        img {
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
-        }
-
         /* GPU acceleration for animations */
         .animate-float,
         .animate-pulse-slow,
@@ -32,13 +24,6 @@
         .animate-wiggle {
             will-change: transform;
             transform: translateZ(0);
-        }
-
-        /* Optimize transitions */
-        .transition-all,
-        .transition-colors,
-        .transition-transform {
-            will-change: auto;
         }
 
         /* Custom Scrollbar Styling */
@@ -61,10 +46,6 @@
         ::-webkit-scrollbar-thumb:hover {
             background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%);
             box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
-        }
-
-        ::-webkit-scrollbar-thumb:active {
-            background: linear-gradient(180deg, #1d4ed8 0%, #1e40af 50%, #1e3a8a 100%);
         }
 
         /* Firefox scrollbar styling */
@@ -159,7 +140,7 @@
             border-color: #3b82f6 !important;
         }
 
-        /* Dark mode service cards hover effects */
+        /* Dark mode service cards */
         .dark .group-hover\:bg-gradient-to-br {
             background: linear-gradient(to bottom right, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9)) !important;
         }
@@ -184,17 +165,12 @@
             background: #14532d !important;
         }
 
-        .dark .bg-indigo-100 {
-            background: #312e81 !important;
-        }
-
-        /* Dark mode portfolio cards - ONLY affect card backgrounds, text, and buttons - NOT design previews */
+        /* Dark mode portfolio cards */
         .dark #portfolio .card {
             background: #1e293b !important;
             border: 1px solid #334155 !important;
         }
 
-        /* Dark mode portfolio card titles and descriptions */
         .dark #portfolio .card h3 {
             color: #e2e8f0 !important;
         }
@@ -203,7 +179,6 @@
             color: #94a3b8 !important;
         }
 
-        /* Dark mode portfolio project buttons */
         .dark #portfolio .card a {
             background: #374151 !important;
             color: #e2e8f0 !important;
@@ -213,19 +188,17 @@
             background: #4b5563 !important;
         }
 
-        /* Dark mode portfolio tags */
         .dark #portfolio .card span {
             background: #374151 !important;
             color: #e2e8f0 !important;
         }
 
-        /* Dark mode design previews - show dark versions of the designs */
+        /* Dark mode design previews */
         .dark #portfolio .card .design-preview {
             background: #1f2937 !important;
             border: 2px solid #374151 !important;
         }
 
-        /* Dark mode minimalist design */
         .dark #portfolio .card .design-preview .bg-gray-800 {
             background: #f3f4f6 !important;
         }
@@ -242,7 +215,6 @@
             background: #1f2937 !important;
         }
 
-        /* Dark mode corporate design */
         .dark #portfolio .card .design-preview .bg-gradient-to-br.from-blue-600.to-blue-800 {
             background: linear-gradient(to bottom right, #1e40af, #1e3a8a) !important;
         }
@@ -255,7 +227,6 @@
             background: #60a5fa !important;
         }
 
-        /* Dark mode creative design */
         .dark #portfolio .card .design-preview .bg-gradient-to-br.from-purple-500.via-pink-500.to-orange-400 {
             background: linear-gradient(to bottom right, #7c3aed, #ec4899, #f97316) !important;
         }
@@ -272,7 +243,6 @@
             background: #a78bfa !important;
         }
 
-        /* Dark mode e-commerce design */
         .dark #portfolio .card .design-preview .bg-gradient-to-br.from-green-400.to-emerald-600 {
             background: linear-gradient(to bottom right, #10b981, #059669) !important;
         }
@@ -285,7 +255,6 @@
             background: #6b7280 !important;
         }
 
-        /* Dark mode dashboard design */
         .dark #portfolio .card .design-preview .bg-gradient-to-br.from-indigo-600.via-purple-600.to-pink-600 {
             background: linear-gradient(to bottom right, #4f46e5, #7c3aed, #ec4899) !important;
         }
@@ -298,7 +267,6 @@
             background: #6366f1 !important;
         }
 
-        /* Dark mode experimental design */
         .dark #portfolio .card .design-preview .bg-black {
             background: #0f172a !important;
         }
@@ -337,10 +305,6 @@
             background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%);
         }
 
-        .dark ::-webkit-scrollbar-thumb:active {
-            background: linear-gradient(180deg, #1d4ed8 0%, #1e40af 50%, #1e3a8a 100%);
-        }
-
         .dark html {
             scrollbar-color: #336da9 #0f172a;
         }
@@ -376,9 +340,7 @@
             background: rgba(30, 41, 59, 1);
         }
 
-
-
-        /* Dark mode social media links - keep text black in both modes */
+        /* Dark mode social media links */
         .dark a[href*="instagram"] {
             background: #fed121 !important;
         }
@@ -394,12 +356,11 @@
             color: #000000 !important;
         }
 
-        /* Dark mode hover effects for navigation */
+        /* Dark mode navigation */
         .dark nav a:hover {
             color: #1e9bd5 !important;
         }
 
-        /* Dark mode theme buttons */
         .dark #themeToggle {
             color: #326da9 !important;
         }
@@ -408,7 +369,6 @@
             color: #1e9bd5 !important;
         }
 
-        /* Dark mode mobile theme button */
         .dark #mobileThemeToggle {
             color: #326da9 !important;
         }
@@ -417,7 +377,6 @@
             color: #1e9bd5 !important;
         }
 
-        /* Dark mode mobile menu links */
         .dark #mobileMenu a {
             color: #e2e8f0 !important;
         }
@@ -426,27 +385,11 @@
             color: #1e9bd5 !important;
         }
 
-
-
-        /* Dark mode portfolio floating elements */
-        .dark .bg-gray-300 {
-            background: #4b5563 !important;
-        }
-
-        .dark .bg-gray-400 {
-            background: #6b7280 !important;
-        }
-
-        .dark .bg-gray-200 {
-            background: #374151 !important;
-        }
-
-        /* Dark mode form labels */
+        /* Dark mode form elements */
         .dark label {
             color: #e2e8f0 !important;
         }
 
-        /* Dark mode links */
         .dark a[href^="mailto"] {
             color: #60a5fa !important;
         }
@@ -455,12 +398,10 @@
             color: #3b82f6 !important;
         }
 
-        /* Dark mode button text */
         .dark .text-white {
             color: #ffffff !important;
         }
 
-        /* Dark mode portfolio project buttons */
         .dark .bg-gray-800 {
             background: #1f2937 !important;
         }
@@ -469,7 +410,6 @@
             background: #111827 !important;
         }
 
-        /* Dark mode gradient text */
         .dark .bg-gradient-to-r.from-purple-600.to-pink-600 {
             background: linear-gradient(to right, #a855f7, #ec4899);
             -webkit-background-clip: text;
@@ -532,6 +472,16 @@
         .animate-pulse-slow { animation: pulse-slow 3s ease-in-out infinite; }
         .animate-bounce-slow { animation: bounce-slow 3s ease-in-out infinite; }
         .animate-wiggle { animation: wiggle 2s ease-in-out infinite; }
+
+        /* Reduce animations on mobile for better performance */
+        @media (max-width: 768px) {
+            .animate-float,
+            .animate-pulse-slow,
+            .animate-bounce-slow,
+            .animate-wiggle {
+                animation-duration: 6s;
+            }
+        }
 
         /* Modal Styles */
         .modal-overlay {
@@ -611,6 +561,29 @@
             transform: scale(0.95);
         }
 
+        /* Mobile modal adjustments */
+        @media (max-width: 768px) {
+            .modal-content {
+                padding: 1.5rem;
+                border-radius: 16px;
+                margin: 0.5rem;
+            }
+            
+            .modal-close {
+                top: 0.75rem;
+                right: 0.75rem;
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .modal-content {
+                padding: 1rem;
+                border-radius: 12px;
+            }
+        }
+
         /* Back to Top Button */
         .back-to-top {
             position: fixed;
@@ -660,15 +633,23 @@
             }
         }
         
-        /* Mobile optimizations */
+        /* Responsive adjustments */
         @media (max-width: 768px) {
-            .modal-content { padding: 1.5rem; }
-            .back-to-top { bottom: 16px; right: 16px; }
+            .back-to-top { 
+                bottom: 16px; 
+                right: 16px; 
+                width: 48px;
+                height: 48px;
+            }
         }
         
         @media (max-width: 480px) {
-            .modal-content { padding: 1rem; }
-            h2 { font-size: 1.5rem !important; }
+            .back-to-top { 
+                bottom: 12px; 
+                right: 12px; 
+                width: 44px;
+                height: 44px;
+            }
         }
     </style>
 </head>
@@ -2302,5 +2283,5 @@ Please provide an update on this client's project status.
             });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9621ed1d64861689',t:'MTc1MzAwODkyNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9622ccc6a4dabd1a',t:'MTc1MzAxODA4Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
