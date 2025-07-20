@@ -17,6 +17,11 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
+        /* CSS containment for better performance */
+        .card {
+            contain: layout style paint;
+        }
+
         /* GPU acceleration for animations */
         .animate-float,
         .animate-pulse-slow,
@@ -165,131 +170,9 @@
             background: #14532d !important;
         }
 
-        /* Dark mode portfolio cards */
-        .dark #portfolio .card {
-            background: #1e293b !important;
-            border: 1px solid #334155 !important;
-        }
 
-        .dark #portfolio .card h3 {
-            color: #e2e8f0 !important;
-        }
 
-        .dark #portfolio .card p {
-            color: #94a3b8 !important;
-        }
 
-        .dark #portfolio .card a {
-            background: #374151 !important;
-            color: #e2e8f0 !important;
-        }
-
-        .dark #portfolio .card a:hover {
-            background: #4b5563 !important;
-        }
-
-        .dark #portfolio .card span {
-            background: #374151 !important;
-            color: #e2e8f0 !important;
-        }
-
-        /* Dark mode design previews */
-        .dark #portfolio .card .design-preview {
-            background: #1f2937 !important;
-            border: 2px solid #374151 !important;
-        }
-
-        .dark #portfolio .card .design-preview .bg-gray-800 {
-            background: #f3f4f6 !important;
-        }
-
-        .dark #portfolio .card .design-preview .bg-gray-400 {
-            background: #6b7280 !important;
-        }
-
-        .dark #portfolio .card .design-preview .bg-gray-200 {
-            background: #4b5563 !important;
-        }
-
-        .dark #portfolio .card .design-preview .bg-white {
-            background: #1f2937 !important;
-        }
-
-        .dark #portfolio .card .design-preview .bg-gradient-to-br.from-blue-600.to-blue-800 {
-            background: linear-gradient(to bottom right, #1e40af, #1e3a8a) !important;
-        }
-
-        .dark #portfolio .card .design-preview .bg-blue-300 {
-            background: #3b82f6 !important;
-        }
-
-        .dark #portfolio .card .design-preview .bg-blue-200 {
-            background: #60a5fa !important;
-        }
-
-        .dark #portfolio .card .design-preview .bg-gradient-to-br.from-purple-500.via-pink-500.to-orange-400 {
-            background: linear-gradient(to bottom right, #7c3aed, #ec4899, #f97316) !important;
-        }
-
-        .dark #portfolio .card .design-preview .bg-yellow-300 {
-            background: #fbbf24 !important;
-        }
-
-        .dark #portfolio .card .design-preview .bg-pink-300 {
-            background: #f472b6 !important;
-        }
-
-        .dark #portfolio .card .design-preview .bg-purple-300 {
-            background: #a78bfa !important;
-        }
-
-        .dark #portfolio .card .design-preview .bg-gradient-to-br.from-green-400.to-emerald-600 {
-            background: linear-gradient(to bottom right, #10b981, #059669) !important;
-        }
-
-        .dark #portfolio .card .design-preview .bg-green-200 {
-            background: #34d399 !important;
-        }
-
-        .dark #portfolio .card .design-preview .bg-gray-300 {
-            background: #6b7280 !important;
-        }
-
-        .dark #portfolio .card .design-preview .bg-gradient-to-br.from-indigo-600.via-purple-600.to-pink-600 {
-            background: linear-gradient(to bottom right, #4f46e5, #7c3aed, #ec4899) !important;
-        }
-
-        .dark #portfolio .card .design-preview .bg-indigo-300 {
-            background: #818cf8 !important;
-        }
-
-        .dark #portfolio .card .design-preview .bg-indigo-500 {
-            background: #6366f1 !important;
-        }
-
-        .dark #portfolio .card .design-preview .bg-black {
-            background: #0f172a !important;
-        }
-
-        .dark #portfolio .card .design-preview .bg-cyan-400 {
-            background: #22d3ee !important;
-        }
-
-        .dark #portfolio .card .design-preview .bg-pink-400 {
-            background: #f472b6 !important;
-        }
-
-        .dark #portfolio .card .design-preview .bg-yellow-400 {
-            background: #facc15 !important;
-        }
-
-        .dark #portfolio .card .design-preview .bg-purple-400 {
-            background: #a78bfa !important;
-        }
-
-        .dark #portfolio .card .design-preview .bg-cyan-300 {
-            background: #67e8f9 !important;
-        }
 
         /* Dark mode scrollbar */
         .dark ::-webkit-scrollbar-track {
@@ -349,11 +232,20 @@
             background: #326da9 !important;
         }
 
-        .dark a[href*="instagram"] svg,
-        .dark a[href*="instagram"] span,
-        .dark a[href*="linkedin"] svg,
-        .dark a[href*="linkedin"] span {
+        .dark a[href*="instagram"] svg {
             color: #000000 !important;
+        }
+
+        .dark a[href*="instagram"] span {
+            color: #fed121 !important;
+        }
+
+        .dark a[href*="linkedin"] svg {
+            color: #ffffff !important;
+        }
+
+        .dark a[href*="linkedin"] span {
+            color: #326da9 !important;
         }
 
         /* Dark mode navigation */
@@ -362,19 +254,19 @@
         }
 
         .dark #themeToggle {
-            color: #326da9 !important;
+            color: #1e9bd5 !important;
         }
 
         .dark #themeToggle:hover {
-            color: #1e9bd5 !important;
+            color: #7cd6ff !important;
         }
 
         .dark #mobileThemeToggle {
-            color: #326da9 !important;
+            color: #1e9bd5 !important;
         }
 
         .dark #mobileThemeToggle:hover {
-            color: #1e9bd5 !important;
+            color: #7cd6ff !important;
         }
 
         .dark #mobileMenu a {
@@ -382,7 +274,7 @@
         }
 
         .dark #mobileMenu a:hover {
-            color: #1e9bd5 !important;
+            color: #7cd6ff !important;
         }
 
         /* Dark mode form elements */
@@ -423,7 +315,7 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #336da9 0%, #1f9dd1 100%);
+            background: linear-gradient(135deg, #326da9 0%, #1e9bd5 100%);
             color: white;
             padding: 12px 24px;
             border-radius: 8px;
@@ -437,8 +329,8 @@
 
         .btn-primary:hover {
             transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(51, 109, 169, 0.3);
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            box-shadow: 0 6px 20px rgba(50, 109, 169, 0.3);
+            background: linear-gradient(135deg, #1e9bd5 0%, #7cd6ff 100%);
         }
 
         .btn-primary:active {
@@ -480,6 +372,16 @@
             .animate-bounce-slow,
             .animate-wiggle {
                 animation-duration: 6s;
+            }
+        }
+
+        /* Final optimizations */
+        @media (prefers-reduced-motion: reduce) {
+            .animate-float,
+            .animate-pulse-slow,
+            .animate-bounce-slow,
+            .animate-wiggle {
+                animation: none;
             }
         }
 
@@ -656,16 +558,15 @@
 <body class="bg-white min-h-screen">
     <!-- Header -->
     <header class="fixed top-0 left-0 right-0 z-50 text-black shadow-lg backdrop-blur-md border-b border-blue-200/30 bg-blue-100/60">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-14 sm:h-16 lg:h-16">
-            <img src="Company Logo.png" alt="Hanu Logo" class="h-8 sm:h-9 md:h-10 w-auto" loading="eager" decoding="async">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16 sm:h-18 lg:h-20">
+            <img src="Company Logo.png" alt="Hanu Logo" class="h-10 sm:h-12 md:h-14 w-auto" loading="eager" decoding="async">
             
             <!-- Desktop Navigation -->
             <nav class="hidden md:flex items-center space-x-6 ml-auto">
                 <a href="#about" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-110" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">About Us</a>
                 <a href="#services" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-110" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Our Services</a>
                 <a href="#portfolio" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-110" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Portfolio</a>
-                <a href="#pricing" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-110" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Pricing</a>
-                <a href="#client-portal" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-110" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Client Portal</a>
+                <a href="#pricing" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-110" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Client Plans</a>
                 <a href="#contact" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-110" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Contact Us</a>
                 <!-- Theme Toggle Button -->
                 <button id="themeToggle" class="p-2 rounded-lg transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">
@@ -691,20 +592,19 @@
         
         <!-- Mobile Navigation -->
         <div id="mobileMenu" class="md:hidden border-t border-blue-200/30 shadow-lg transform translate-y-0 opacity-0 scale-y-0 origin-top transition-all duration-300 ease-in-out overflow-hidden max-h-0 backdrop-blur-md bg-blue-100/60">
-            <div class="px-4 py-3 space-y-2">
-                <a href="#about" class="block py-3 px-3 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-base rounded-lg min-h-[44px] flex items-center" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">About Us</a>
-                <a href="#services" class="block py-3 px-3 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-base rounded-lg min-h-[44px] flex items-center" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Our Services</a>
-                <a href="#portfolio" class="block py-3 px-3 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-base rounded-lg min-h-[44px] flex items-center" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Portfolio</a>
-                <a href="#pricing" class="block py-3 px-3 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-base rounded-lg min-h-[44px] flex items-center" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Pricing</a>
-                <a href="#client-portal" class="block py-3 px-3 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-base rounded-lg min-h-[44px] flex items-center" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Client Portal</a>
-                <a href="#contact" class="block py-3 px-3 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-base rounded-lg min-h-[44px] flex items-center" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Contact Us</a>
+            <div class="px-4 py-2 space-y-1">
+                <a href="#about" class="block py-2 px-3 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-sm lg:text-base rounded-lg min-h-[40px] flex items-center" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">About Us</a>
+                <a href="#services" class="block py-2 px-3 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-sm lg:text-base rounded-lg min-h-[40px] flex items-center" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Our Services</a>
+                <a href="#portfolio" class="block py-2 px-3 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-sm lg:text-base rounded-lg min-h-[40px] flex items-center" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Portfolio</a>
+                <a href="#pricing" class="block py-2 px-3 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-sm lg:text-base rounded-lg min-h-[40px] flex items-center" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Client Plans</a>
+                <a href="#contact" class="block py-2 px-3 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-sm lg:text-base rounded-lg min-h-[40px] flex items-center" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Contact Us</a>
                 
                 <!-- Mobile Theme Options -->
-                <div class="border-t border-blue-200/30 pt-3 mt-3 space-y-2">
+                <div class="border-t border-blue-200/30 pt-2 mt-2 space-y-1">
                     <div class="px-3 py-1">
                         <span class="text-xs font-medium text-gray-500 uppercase tracking-wide">Theme</span>
                     </div>
-                    <button id="mobileThemeToggle" class="flex items-center w-full py-3 px-3 hover:scale-105 transition-all duration-300 font-medium text-base rounded-lg min-h-[44px]" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">
+                    <button id="mobileThemeToggle" class="flex items-center w-full py-2 px-3 hover:scale-105 transition-all duration-300 font-medium text-base rounded-lg min-h-[40px]" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">
                         <svg id="mobileSunIcon" class="w-5 h-5 mr-3 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
                         </svg>
@@ -721,52 +621,52 @@
     <!-- Paint Splats -->
     <div class="fixed inset-0 pointer-events-none z-10 overflow-hidden">
         <!-- Paint Splat 1 - Top Left -->
-        <svg class="absolute -top-10 -left-10 w-32 h-32 opacity-80 animate-float" viewBox="0 0 100 100" fill="#336da9" style="animation-delay: 0s;">
+        <svg class="absolute -top-10 -left-10 w-32 h-32 opacity-80 animate-float" viewBox="0 0 100 100" fill="#326da9" style="animation-delay: 0s;">
             <path d="M50,10 C60,15 70,25 75,35 C80,45 75,55 70,60 C65,65 55,70 45,65 C35,60 25,50 20,40 C15,30 20,20 30,15 C40,10 50,10 50,10 Z"/>
         </svg>
 
         <!-- Paint Splat 2 - Top Right -->
-        <svg class="absolute top-20 right-10 w-24 h-24 opacity-85 animate-pulse-slow" viewBox="0 0 100 100" fill="#fdcf20" style="animation-delay: 1s;">
+        <svg class="absolute top-20 right-10 w-24 h-24 opacity-85 animate-pulse-slow" viewBox="0 0 100 100" fill="#fed121" style="animation-delay: 1s;">
             <path d="M45,20 C55,18 65,22 70,30 C75,38 72,48 65,55 C58,62 48,65 38,62 C28,59 20,52 18,42 C16,32 22,22 32,20 C42,18 45,20 45,20 Z"/>
         </svg>
 
         <!-- Paint Splat 3 - Middle Left -->
-        <svg class="absolute top-1/2 -left-5 w-28 h-28 opacity-75 animate-bounce-slow" viewBox="0 0 100 100" fill="#ed343f" style="animation-delay: 2s;">
+        <svg class="absolute top-1/2 -left-5 w-28 h-28 opacity-75 animate-bounce-slow" viewBox="0 0 100 100" fill="#ec343e" style="animation-delay: 2s;">
             <path d="M30,25 C40,20 50,25 58,32 C66,39 70,49 65,58 C60,67 50,72 40,70 C30,68 22,60 20,50 C18,40 25,30 30,25 Z"/>
         </svg>
 
         <!-- Paint Splat 4 - Middle Right -->
-        <svg class="absolute top-1/3 right-5 w-20 h-20 opacity-80 animate-float" viewBox="0 0 100 100" fill="#1f9dd1" style="animation-delay: 3s;">
+        <svg class="absolute top-1/3 right-5 w-20 h-20 opacity-80 animate-float" viewBox="0 0 100 100" fill="#1e9bd5" style="animation-delay: 3s;">
             <path d="M40,30 C50,28 60,32 65,40 C70,48 68,58 60,65 C52,72 42,70 35,62 C28,54 30,44 35,36 C40,28 40,30 40,30 Z"/>
         </svg>
 
         <!-- Paint Splat 5 - Bottom Left -->
-        <svg class="absolute bottom-32 left-20 w-36 h-36 opacity-70 animate-wiggle" viewBox="0 0 100 100" fill="#336da9" style="animation-delay: 4s;">
+        <svg class="absolute bottom-32 left-20 w-36 h-36 opacity-70 animate-wiggle" viewBox="0 0 100 100" fill="#7cd6ff" style="animation-delay: 4s;">
             <path d="M25,35 C35,30 45,35 53,42 C61,49 65,59 60,68 C55,77 45,80 35,75 C25,70 18,60 20,50 C22,40 25,35 25,35 Z"/>
         </svg>
 
         <!-- Paint Splat 6 - Bottom Right -->
-        <svg class="absolute bottom-20 right-32 w-26 h-26 opacity-90 animate-pulse-slow" viewBox="0 0 100 100" fill="#fdcf20" style="animation-delay: 5s;">
+        <svg class="absolute bottom-20 right-32 w-26 h-26 opacity-90 animate-pulse-slow" viewBox="0 0 100 100" fill="#fae4a0" style="animation-delay: 5s;">
             <path d="M35,25 C45,22 55,28 62,36 C69,44 70,54 65,62 C60,70 50,72 40,68 C30,64 25,54 28,44 C31,34 35,25 35,25 Z"/>
         </svg>
 
         <!-- Paint Splat 7 - Center -->
-        <svg class="absolute top-2/3 left-1/2 transform -translate-x-1/2 w-22 h-22 opacity-65 animate-bounce-slow" viewBox="0 0 100 100" fill="#ed343f" style="animation-delay: 6s;">
+        <svg class="absolute top-2/3 left-1/2 transform -translate-x-1/2 w-22 h-22 opacity-65 animate-bounce-slow" viewBox="0 0 100 100" fill="#ff6f76" style="animation-delay: 6s;">
             <path d="M42,28 C52,26 62,30 67,38 C72,46 70,56 62,63 C54,70 44,68 37,60 C30,52 32,42 37,34 C42,26 42,28 42,28 Z"/>
         </svg>
 
         <!-- Paint Splat 8 - Top Center -->
-        <svg class="absolute top-5 left-1/3 w-30 h-30 opacity-75 animate-float" viewBox="0 0 100 100" fill="#1f9dd1" style="animation-delay: 7s;">
+        <svg class="absolute top-5 left-1/3 w-30 h-30 opacity-75 animate-float" viewBox="0 0 100 100" fill="#1e9bd5" style="animation-delay: 7s;">
             <path d="M38,22 C48,20 58,24 63,32 C68,40 66,50 58,57 C50,64 40,62 33,54 C26,46 28,36 33,28 C38,20 38,22 38,22 Z"/>
         </svg>
 
         <!-- Paint Splat 9 - Middle Center -->
-        <svg class="absolute top-1/2 left-1/4 w-24 h-24 opacity-70 animate-wiggle" viewBox="0 0 100 100" fill="#fdcf20" style="animation-delay: 8s;">
+        <svg class="absolute top-1/2 left-1/4 w-24 h-24 opacity-70 animate-wiggle" viewBox="0 0 100 100" fill="#fed121" style="animation-delay: 8s;">
             <path d="M35,30 C45,25 55,30 62,37 C69,44 72,54 67,63 C62,72 52,75 42,70 C32,65 28,55 30,45 C32,35 35,30 35,30 Z"/>
         </svg>
 
         <!-- Paint Splat 10 - Bottom Center -->
-        <svg class="absolute bottom-10 right-1/4 w-28 h-28 opacity-85 animate-pulse-slow" viewBox="0 0 100 100" fill="#ed343f" style="animation-delay: 9s;">
+        <svg class="absolute bottom-10 right-1/4 w-28 h-28 opacity-85 animate-pulse-slow" viewBox="0 0 100 100" fill="#ec343e" style="animation-delay: 9s;">
             <path d="M40,25 C50,23 60,27 65,35 C70,43 68,53 60,60 C52,67 42,65 35,57 C28,49 30,39 35,31 C40,23 40,25 40,25 Z"/>
         </svg>
     </div>
@@ -774,7 +674,7 @@
     <!-- Main Content -->
     <main class="flex-1 relative z-20">
         <!-- About Us Section -->
-        <section id="about" class="py-12 sm:py-16 pt-20 sm:pt-24 bg-gray-50">
+        <section id="about" class="py-12 sm:py-16 pt-20 sm:pt-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="text-center mb-8 sm:mb-12">
                     <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 lg:mb-6 px-4" style="color: #326da9;">We Don't Just Build Websites, We Build Empires</h2>
@@ -833,7 +733,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-bold" style="color: #fdcf20;">Meet The Team</h3>
+                            <h3 class="text-xl font-bold" style="color: #fdcf20;">Meet The Creator</h3>
                         </div>
                         <div class="text-center">
                             <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full mx-auto mb-3 flex items-center justify-center">
@@ -883,7 +783,7 @@
         </section>
 
         <!-- Services Section -->
-        <section id="services" class="py-12 sm:py-16">
+        <section id="services" class="py-12 sm:py-16 bg-gray-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-8 sm:mb-12">
                     <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 lg:mb-6 px-4" style="color: #326da9;">What We Do Best</h2>
@@ -898,7 +798,7 @@
                             <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                             
                             <div class="relative z-10 flex flex-col h-full">
-                                <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg">
+                                <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg" style="background: linear-gradient(to bottom right, #1e9bd5, #326da9);">
                                     <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
                                     </svg>
@@ -922,7 +822,7 @@
                                     </div>
                                 </div>
                                 
-                                <button class="service-btn w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:from-blue-600 hover:to-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl mt-auto" data-service="Web Design & Development" data-theme="blue">
+                                <button class="service-btn w-full text-white px-6 py-3 rounded-lg font-medium transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl mt-auto" style="background: linear-gradient(to right, #1e9bd5, #326da9); hover:background: linear-gradient(to right, #326da9, #7cd6ff);" data-service="Web Design & Development" data-theme="blue">
                                     Get Started
                                 </button>
                             </div>
@@ -936,7 +836,7 @@
                             <div class="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                             
                             <div class="relative z-10 flex flex-col h-full">
-                                <div class="w-16 h-16 bg-gradient-to-br from-red-400 to-red-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg">
+                                <div class="w-16 h-16 bg-gradient-to-br from-red-400 to-red-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg" style="background: linear-gradient(to bottom right, #ec343e, #ff6f76);">
                                     <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
                                     </svg>
@@ -960,7 +860,7 @@
                                     </div>
                                 </div>
                                 
-                                <button class="service-btn w-full bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-3 rounded-lg font-medium hover:from-red-600 hover:to-red-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl mt-auto" data-service="Social Media Management" data-theme="red">
+                                <button class="service-btn w-full text-white px-6 py-3 rounded-lg font-medium transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl mt-auto" style="background: linear-gradient(to right, #ec343e, #ff6f76);" data-service="Social Media Management" data-theme="red">
                                     Let's Go Viral
                                 </button>
                             </div>
@@ -974,7 +874,7 @@
                             <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                             
                             <div class="relative z-10 flex flex-col h-full">
-                                <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg">
+                                <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg" style="background: linear-gradient(to bottom right, #fed121, #fae4a0);">
                                     <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM7 3H5a2 2 0 00-2 2v12a4 4 0 004 4h2a2 2 0 002-2V5a2 2 0 00-2-2z"></path>
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 3h2a2 2 0 012 2v12a4 4 0 01-4 4h-2a2 2 0 01-2-2V5a2 2 0 012-2z"></path>
@@ -999,7 +899,7 @@
                                     </div>
                                 </div>
                                 
-                                <button class="service-btn w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-white px-6 py-3 rounded-lg font-medium hover:from-yellow-600 hover:to-yellow-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl mt-auto" data-service="Logo Design" data-theme="yellow">
+                                <button class="service-btn w-full text-white px-6 py-3 rounded-lg font-medium transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl mt-auto" style="background: linear-gradient(to right, #fed121, #fae4a0);" data-service="Logo Design" data-theme="yellow">
                                     Create My Brand
                                 </button>
                             </div>
@@ -1014,373 +914,36 @@
 
 
         <!-- Portfolio Section -->
-        <section id="portfolio" class="py-12 sm:py-16 bg-gray-50 relative overflow-hidden">
+        <section id="portfolio" class="py-12 sm:py-16 relative overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-4 lg:mb-6 px-4" style="color: #326da9;">Work That Actually Slaps</h2>
                 <p class="text-gray-600 text-center mb-8 sm:mb-12 px-4 text-base sm:text-lg max-w-3xl mx-auto">Check out some of our recent projects that made our clients' competition jealous</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 relative">
-                    <!-- Card 1: Simple Minimalist Website -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 relative">
+                    <!-- Card 1: Empty Portfolio Card -->
                     <div class="relative group">
-                        <!-- Minimalist floating elements -->
-                        <div class="absolute -top-4 -left-4 w-8 h-8 bg-gray-300 rounded-full opacity-60 animate-float" style="animation-delay: 0s;"></div>
-                        <div class="absolute -top-2 -right-6 w-4 h-4 bg-gray-400 rounded opacity-40 animate-bounce-slow" style="animation-delay: 1s;"></div>
-                        <div class="absolute -bottom-3 -left-2 w-6 h-6 bg-gray-200 rounded-full opacity-50 animate-pulse-slow" style="animation-delay: 2s;"></div>
-                        <div class="absolute -bottom-4 -right-4 w-3 h-12 bg-gray-300 rounded-full opacity-30 animate-wiggle" style="animation-delay: 3s;"></div>
-                        
-                        <div class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10">
-                            <div class="design-preview w-full h-48 bg-white border-2 border-gray-200 rounded-lg mb-4 p-3 flex flex-col overflow-hidden">
-                                <!-- Minimalist header with logo and nav -->
-                                <div class="flex justify-between items-center mb-6 pb-2 border-b border-gray-100">
-                                    <div class="w-8 h-8 bg-gray-900 rounded-full flex items-center justify-center">
-                                        <div class="w-4 h-4 bg-white rounded-sm"></div>
-                                    </div>
-                                    <div class="flex space-x-3">
-                                        <div class="w-8 h-1 bg-gray-400 rounded-full"></div>
-                                        <div class="w-8 h-1 bg-gray-400 rounded-full"></div>
-                                        <div class="w-8 h-1 bg-gray-400 rounded-full"></div>
-                                    </div>
-                                </div>
-                                <!-- Hero section -->
-                                <div class="flex-1 flex flex-col justify-center items-center text-center">
-                                    <div class="w-32 h-3 bg-gray-900 rounded mb-2"></div>
-                                    <div class="w-24 h-2 bg-gray-500 rounded mb-4"></div>
-                                    <div class="w-16 h-6 bg-gray-900 rounded"></div>
-                                </div>
-                                <!-- Bottom section -->
-                                <div class="flex justify-center space-x-2 mt-4">
-                                    <div class="w-12 h-12 bg-gray-100 rounded"></div>
-                                    <div class="w-12 h-12 bg-gray-100 rounded"></div>
-                                    <div class="w-12 h-12 bg-gray-100 rounded"></div>
-                                </div>
-                            </div>
-                            <h3 class="text-lg font-semibold mb-2 text-gray-800">Simple & Clean</h3>
-                            <p class="text-gray-600 mb-4">Minimalist design that focuses on content and user experience.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">Minimalist</span>
-                            </div>
-                            <a href="https://minimalist-portfolio.demo" target="_blank" rel="noopener noreferrer" class="block w-full bg-gray-800 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-900 transition-colors text-center">View Project</a>
+                        <div class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10 h-64">
                         </div>
                     </div>
 
-                    <!-- Card 2: Corporate Professional -->
+                    <!-- Card 2: Empty Portfolio Card -->
                     <div class="relative group">
-                        <!-- Corporate themed effects -->
-                        <div class="absolute -top-6 -left-6 w-12 h-12 bg-blue-200 rounded-lg opacity-40 animate-float transform rotate-12" style="animation-delay: 0.5s;"></div>
-                        <div class="absolute -top-3 -right-3 w-6 h-6 bg-blue-400 rounded opacity-60 animate-pulse-slow" style="animation-delay: 1.5s;"></div>
-                        <div class="absolute -bottom-5 -left-3 w-8 h-2 bg-blue-300 rounded-full opacity-50 animate-bounce-slow" style="animation-delay: 2.5s;"></div>
-                        <div class="absolute -bottom-2 -right-8 w-10 h-10 bg-blue-100 rounded-full opacity-30 animate-wiggle" style="animation-delay: 3.5s;"></div>
-                        <div class="absolute top-1/2 -left-8 w-4 h-16 bg-blue-200 rounded-full opacity-25 animate-float" style="animation-delay: 4s;"></div>
-                        
-                        <div class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10">
-                            <div class="design-preview w-full h-48 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg mb-4 p-3 flex flex-col text-white overflow-hidden">
-                                <!-- Corporate header with logo and professional nav -->
-                                <div class="flex justify-between items-center mb-4 pb-2 border-b border-blue-400/30">
-                                    <div class="flex items-center space-x-2">
-                                        <div class="w-6 h-6 bg-white rounded flex items-center justify-center">
-                                            <div class="w-3 h-3 bg-blue-600 rounded-sm"></div>
-                                        </div>
-                                        <div class="w-16 h-2 bg-white rounded"></div>
-                                    </div>
-                                    <div class="flex space-x-2">
-                                        <div class="w-10 h-1 bg-blue-300 rounded-full"></div>
-                                        <div class="w-10 h-1 bg-blue-300 rounded-full"></div>
-                                        <div class="w-10 h-1 bg-blue-300 rounded-full"></div>
-                                        <div class="w-8 h-4 bg-white rounded text-xs"></div>
-                                    </div>
-                                </div>
-                                <!-- Hero section with professional layout -->
-                                <div class="flex-1 flex">
-                                    <div class="flex-1 pr-3">
-                                        <div class="w-full h-3 bg-white rounded mb-2"></div>
-                                        <div class="w-4/5 h-2 bg-blue-200 rounded mb-1"></div>
-                                        <div class="w-3/5 h-2 bg-blue-200 rounded mb-3"></div>
-                                        <div class="flex space-x-2">
-                                            <div class="w-12 h-5 bg-white rounded"></div>
-                                            <div class="w-12 h-5 bg-blue-300 rounded"></div>
-                                        </div>
-                                    </div>
-                                    <div class="w-16 h-full bg-blue-300/50 rounded flex flex-col justify-center items-center">
-                                        <div class="w-8 h-8 bg-white rounded mb-1"></div>
-                                        <div class="w-6 h-1 bg-blue-200 rounded"></div>
-                                    </div>
-                                </div>
-                                <!-- Bottom stats/features -->
-                                <div class="flex justify-between mt-3 pt-2 border-t border-blue-400/30">
-                                    <div class="flex space-x-3">
-                                        <div class="w-8 h-6 bg-blue-300 rounded"></div>
-                                        <div class="w-8 h-6 bg-blue-300 rounded"></div>
-                                        <div class="w-8 h-6 bg-blue-300 rounded"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <h3 class="text-lg font-semibold mb-2 text-blue-700">Corporate Professional</h3>
-                            <p class="text-gray-600 mb-4">Professional business websites that build trust and credibility.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Corporate</span>
-                            </div>
-                            <a href="https://corporate-business.demo" target="_blank" rel="noopener noreferrer" class="block w-full bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors text-center">View Project</a>
+                        <div class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10 h-64">
                         </div>
                     </div>
 
-                    <!-- Card 3: Creative Portfolio -->
+                    <!-- Card 3: Empty Portfolio Card -->
                     <div class="relative group">
-                        <!-- Creative artistic effects -->
-                        <div class="absolute -top-8 -left-4 w-6 h-6 bg-purple-400 rounded-full opacity-70 animate-bounce-slow transform rotate-45" style="animation-delay: 1s;"></div>
-                        <div class="absolute -top-4 -right-6 w-8 h-4 bg-pink-400 rounded-full opacity-60 animate-wiggle transform -rotate-12" style="animation-delay: 2s;"></div>
-                        <div class="absolute -bottom-6 -left-8 w-10 h-10 bg-orange-300 rounded-full opacity-40 animate-pulse-slow" style="animation-delay: 3s;"></div>
-                        <div class="absolute -bottom-3 -right-4 w-4 h-8 bg-purple-300 rounded-full opacity-50 animate-float transform rotate-90" style="animation-delay: 4s;"></div>
-                        <div class="absolute top-1/4 -right-10 w-6 h-6 bg-pink-300 transform rotate-45 opacity-45 animate-bounce-slow" style="animation-delay: 5s;"></div>
-                        <div class="absolute bottom-1/4 -left-6 w-3 h-3 bg-yellow-400 rounded-full opacity-60 animate-pulse-slow" style="animation-delay: 6s;"></div>
-                        
-                        <div class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10">
-                            <div class="design-preview w-full h-48 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 rounded-lg mb-4 p-3 flex flex-col overflow-hidden">
-                                <!-- Creative header with artistic logo -->
-                                <div class="flex justify-between items-center mb-4">
-                                    <div class="flex items-center space-x-2">
-                                        <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center transform rotate-12">
-                                            <div class="w-4 h-4 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full"></div>
-                                        </div>
-                                        <div class="w-12 h-2 bg-white rounded-full"></div>
-                                    </div>
-                                    <div class="flex space-x-1">
-                                        <div class="w-1 h-6 bg-white rounded-full transform rotate-12"></div>
-                                        <div class="w-1 h-4 bg-white rounded-full transform -rotate-12"></div>
-                                        <div class="w-1 h-5 bg-white rounded-full"></div>
-                                    </div>
-                                </div>
-                                <!-- Creative hero section -->
-                                <div class="flex-1 flex flex-col justify-center items-center mb-4">
-                                    <div class="w-20 h-3 bg-white rounded transform -rotate-1 mb-2"></div>
-                                    <div class="w-16 h-2 bg-yellow-300 rounded transform rotate-1 mb-3"></div>
-                                    <div class="w-10 h-5 bg-white rounded-full"></div>
-                                </div>
-                                <!-- Creative portfolio grid -->
-                                <div class="grid grid-cols-4 gap-1">
-                                    <div class="aspect-square bg-white rounded opacity-90 transform rotate-1"></div>
-                                    <div class="aspect-square bg-yellow-300 rounded transform -rotate-2"></div>
-                                    <div class="aspect-square bg-pink-300 rounded opacity-80 transform rotate-3"></div>
-                                    <div class="aspect-square bg-white rounded opacity-70 transform -rotate-1"></div>
-                                </div>
-                            </div>
-                            <h3 class="text-lg font-semibold mb-2 text-purple-700">Creative Portfolio</h3>
-                            <p class="text-gray-600 mb-4">Artistic and creative websites that showcase unique personalities.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Creative</span>
-                            </div>
-                            <a href="https://creative-artist.demo" target="_blank" rel="noopener noreferrer" class="block w-full bg-purple-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-purple-700 transition-colors text-center">View Project</a>
+                        <div class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10 h-64">
                         </div>
                     </div>
 
-                    <!-- Card 4: E-commerce Modern -->
+                    <!-- Card 4: Empty Portfolio Card -->
                     <div class="relative group">
-                        <!-- E-commerce themed effects -->
-                        <div class="absolute -top-5 -left-5 w-8 h-8 bg-green-300 rounded-lg opacity-50 animate-float transform rotate-12" style="animation-delay: 0.5s;"></div>
-                        <div class="absolute -top-2 -right-4 w-5 h-5 bg-emerald-400 rounded-full opacity-60 animate-bounce-slow" style="animation-delay: 1.5s;"></div>
-                        <div class="absolute -bottom-4 -left-6 w-6 h-6 bg-green-200 rounded opacity-40 animate-pulse-slow" style="animation-delay: 2.5s;"></div>
-                        <div class="absolute -bottom-6 -right-3 w-4 h-10 bg-emerald-300 rounded-full opacity-45 animate-wiggle" style="animation-delay: 3.5s;"></div>
-                        <div class="absolute top-1/3 -right-8 w-7 h-7 bg-green-400 rounded-full opacity-35 animate-float" style="animation-delay: 4.5s;"></div>
-                        <!-- Shopping bag icon effect -->
-                        <div class="absolute -top-7 right-2 w-6 h-6 bg-green-500 rounded opacity-50 animate-bounce-slow" style="animation-delay: 5s;">
-                            <div class="absolute top-1 left-1 w-4 h-3 border-2 border-white rounded-t"></div>
-                            <div class="absolute top-0 left-2 w-2 h-1 bg-white rounded-full"></div>
-                        </div>
-                        
-                        <div class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10">
-                            <div class="design-preview w-full h-48 bg-gradient-to-br from-green-400 to-emerald-600 rounded-lg mb-4 p-3 flex flex-col text-white overflow-hidden">
-                                <!-- E-commerce header with search and cart -->
-                                <div class="flex justify-between items-center mb-4 pb-2 border-b border-green-300/30">
-                                    <div class="flex items-center space-x-2">
-                                        <div class="w-6 h-6 bg-white rounded flex items-center justify-center">
-                                            <div class="w-3 h-3 bg-green-600 rounded"></div>
-                                        </div>
-                                        <div class="w-14 h-2 bg-white rounded"></div>
-                                    </div>
-                                    <div class="flex items-center space-x-2">
-                                        <div class="w-16 h-4 bg-white/20 rounded-full border border-white/30"></div>
-                                        <div class="relative">
-                                            <div class="w-5 h-5 bg-white rounded border-2 border-green-300"></div>
-                                            <div class="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full text-xs flex items-center justify-center">
-                                                <div class="w-1 h-1 bg-green-600 rounded-full"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Featured product banner -->
-                                <div class="mb-3 bg-white/10 rounded p-2 flex items-center space-x-2">
-                                    <div class="w-8 h-8 bg-white rounded"></div>
-                                    <div class="flex-1">
-                                        <div class="w-full h-2 bg-white rounded mb-1"></div>
-                                        <div class="w-2/3 h-1 bg-green-200 rounded"></div>
-                                    </div>
-                                    <div class="w-8 h-4 bg-yellow-400 rounded text-xs"></div>
-                                </div>
-                                <!-- Product grid -->
-                                <div class="flex-1 grid grid-cols-3 gap-1">
-                                    <div class="bg-white rounded p-1">
-                                        <div class="w-full aspect-square bg-green-200 rounded mb-1"></div>
-                                        <div class="w-full h-1 bg-gray-300 rounded"></div>
-                                    </div>
-                                    <div class="bg-white rounded p-1">
-                                        <div class="w-full aspect-square bg-green-200 rounded mb-1"></div>
-                                        <div class="w-full h-1 bg-gray-300 rounded"></div>
-                                    </div>
-                                    <div class="bg-white rounded p-1">
-                                        <div class="w-full aspect-square bg-green-200 rounded mb-1"></div>
-                                        <div class="w-full h-1 bg-gray-300 rounded"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <h3 class="text-lg font-semibold mb-2 text-green-700">E-commerce Store</h3>
-                            <p class="text-gray-600 mb-4">Modern online stores that convert browsers into buyers.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">E-commerce</span>
-                            </div>
-                            <a href="https://modern-ecommerce.demo" target="_blank" rel="noopener noreferrer" class="block w-full bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors text-center">View Project</a>
+                        <div class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10 h-64">
                         </div>
                     </div>
 
-                    <!-- Card 5: Interactive Dashboard -->
-                    <div class="relative group">
-                        <!-- Dashboard themed effects -->
-                        <div class="absolute -top-6 -left-7 w-10 h-6 bg-indigo-300 rounded opacity-45 animate-float transform rotate-45" style="animation-delay: 1s;"></div>
-                        <div class="absolute -top-3 -right-5 w-5 h-5 bg-purple-400 rounded-full opacity-55 animate-pulse-slow" style="animation-delay: 2s;"></div>
-                        <div class="absolute -bottom-5 -left-4 w-8 h-8 bg-pink-300 rounded opacity-40 animate-bounce-slow" style="animation-delay: 3s;"></div>
-                        <div class="absolute -bottom-7 -right-6 w-6 h-12 bg-indigo-200 rounded-full opacity-35 animate-wiggle" style="animation-delay: 4s;"></div>
-                        <div class="absolute top-1/4 -right-9 w-4 h-4 bg-purple-300 rounded opacity-50 animate-float" style="animation-delay: 5s;"></div>
-                        <!-- Chart/graph effect -->
-                        <div class="absolute -top-8 left-1/4 w-8 h-4 bg-indigo-400 rounded opacity-40 animate-pulse-slow" style="animation-delay: 6s;">
-                            <div class="absolute bottom-0 left-0 w-1 h-2 bg-white rounded"></div>
-                            <div class="absolute bottom-0 left-2 w-1 h-3 bg-white rounded"></div>
-                            <div class="absolute bottom-0 left-4 w-1 h-1 bg-white rounded"></div>
-                            <div class="absolute bottom-0 left-6 w-1 h-4 bg-white rounded"></div>
-                        </div>
-                        
-                        <div class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10">
-                            <div class="design-preview w-full h-48 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 rounded-lg mb-4 p-3 flex flex-col overflow-hidden">
-                                <!-- Dashboard header with user and notifications -->
-                                <div class="flex justify-between items-center mb-3 pb-2 border-b border-white/20">
-                                    <div class="flex items-center space-x-2">
-                                        <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center">
-                                            <div class="w-3 h-3 bg-indigo-600 rounded-full"></div>
-                                        </div>
-                                        <div class="w-16 h-2 bg-white rounded"></div>
-                                    </div>
-                                    <div class="flex items-center space-x-2">
-                                        <div class="relative">
-                                            <div class="w-4 h-4 bg-white/20 rounded border border-white/30"></div>
-                                            <div class="absolute -top-1 -right-1 w-2 h-2 bg-pink-400 rounded-full"></div>
-                                        </div>
-                                        <div class="w-5 h-5 bg-white rounded-full"></div>
-                                    </div>
-                                </div>
-                                <!-- Stats cards row -->
-                                <div class="flex space-x-2 mb-3">
-                                    <div class="flex-1 bg-white/10 rounded p-2">
-                                        <div class="w-full h-2 bg-white rounded mb-1"></div>
-                                        <div class="w-2/3 h-1 bg-indigo-300 rounded"></div>
-                                    </div>
-                                    <div class="flex-1 bg-white/10 rounded p-2">
-                                        <div class="w-full h-2 bg-white rounded mb-1"></div>
-                                        <div class="w-2/3 h-1 bg-pink-300 rounded"></div>
-                                    </div>
-                                    <div class="flex-1 bg-white/10 rounded p-2">
-                                        <div class="w-full h-2 bg-white rounded mb-1"></div>
-                                        <div class="w-2/3 h-1 bg-purple-300 rounded"></div>
-                                    </div>
-                                </div>
-                                <!-- Main dashboard content -->
-                                <div class="flex-1 flex space-x-2">
-                                    <div class="flex-1 bg-white/10 rounded p-2">
-                                        <div class="w-full h-2 bg-white rounded mb-2"></div>
-                                        <!-- Chart representation -->
-                                        <div class="flex items-end space-x-1 h-8">
-                                            <div class="w-1 h-3 bg-indigo-300 rounded"></div>
-                                            <div class="w-1 h-5 bg-purple-300 rounded"></div>
-                                            <div class="w-1 h-2 bg-pink-300 rounded"></div>
-                                            <div class="w-1 h-6 bg-indigo-300 rounded"></div>
-                                            <div class="w-1 h-4 bg-purple-300 rounded"></div>
-                                        </div>
-                                    </div>
-                                    <div class="w-12 space-y-1">
-                                        <div class="h-4 bg-white/10 rounded"></div>
-                                        <div class="h-4 bg-white/10 rounded"></div>
-                                        <div class="h-4 bg-white/10 rounded"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <h3 class="text-lg font-semibold mb-2 text-indigo-700">Interactive Dashboard</h3>
-                            <p class="text-gray-600 mb-4">Complex web applications with stunning user interfaces.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Dashboard</span>
-                            </div>
-                            <a href="https://interactive-dashboard.demo" target="_blank" rel="noopener noreferrer" class="block w-full bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors text-center">View Project</a>
-                        </div>
-                    </div>
 
-                    <!-- Card 6: Ultra-Unique Experimental -->
-                    <div class="relative group">
-                        <!-- Experimental neon effects -->
-                        <div class="absolute -top-8 -left-8 w-12 h-4 bg-cyan-400 rounded-full opacity-60 animate-pulse-slow transform rotate-45" style="animation-delay: 0.5s; box-shadow: 0 0 20px rgba(34, 211, 238, 0.5);"></div>
-                        <div class="absolute -top-4 -right-6 w-6 h-6 bg-pink-400 rounded-full opacity-70 animate-bounce-slow" style="animation-delay: 1s; box-shadow: 0 0 15px rgba(244, 114, 182, 0.6);"></div>
-                        <div class="absolute -bottom-6 -left-10 w-8 h-8 bg-yellow-400 rounded opacity-50 animate-wiggle transform rotate-12" style="animation-delay: 1.5s; box-shadow: 0 0 25px rgba(250, 204, 21, 0.4);"></div>
-                        <div class="absolute -bottom-8 -right-4 w-10 h-6 bg-purple-400 rounded-full opacity-55 animate-float" style="animation-delay: 2s; box-shadow: 0 0 18px rgba(168, 85, 247, 0.5);"></div>
-                        <div class="absolute top-1/4 -right-12 w-4 h-10 bg-cyan-300 rounded-full opacity-45 animate-pulse-slow transform rotate-90" style="animation-delay: 2.5s; box-shadow: 0 0 12px rgba(103, 232, 249, 0.4);"></div>
-                        <div class="absolute bottom-1/3 -left-6 w-6 h-6 bg-pink-300 rounded-full opacity-40 animate-bounce-slow" style="animation-delay: 3s; box-shadow: 0 0 20px rgba(249, 168, 212, 0.3);"></div>
-                        <!-- Glowing lines -->
-                        <div class="absolute -top-10 left-1/4 w-16 h-1 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full opacity-60 animate-pulse-slow" style="animation-delay: 3.5s; box-shadow: 0 0 10px rgba(34, 211, 238, 0.5);"></div>
-                        <div class="absolute -bottom-4 right-1/4 w-12 h-1 bg-gradient-to-r from-pink-400 to-yellow-400 rounded-full opacity-50 animate-float" style="animation-delay: 4s; box-shadow: 0 0 8px rgba(244, 114, 182, 0.4);"></div>
-                        <!-- Floating geometric shapes -->
-                        <div class="absolute top-1/2 -left-12 w-5 h-5 bg-purple-500 transform rotate-45 opacity-35 animate-wiggle" style="animation-delay: 4.5s; box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);"></div>
-                        
-                        <div class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10">
-                            <div class="design-preview w-full h-48 bg-black rounded-lg mb-4 p-3 flex flex-col relative overflow-hidden">
-                                <!-- Animated background elements -->
-                                <div class="absolute inset-0">
-                                    <div class="absolute top-3 left-3 w-3 h-3 bg-cyan-400 rounded-full animate-pulse opacity-60"></div>
-                                    <div class="absolute top-4 right-4 w-2 h-2 bg-pink-400 rounded-full animate-bounce opacity-70"></div>
-                                    <div class="absolute bottom-4 left-6 w-1 h-1 bg-yellow-400 rounded-full animate-ping opacity-80"></div>
-                                    <div class="absolute bottom-3 right-3 w-4 h-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded animate-pulse opacity-50"></div>
-                                    <div class="absolute top-1/2 left-1/4 w-2 h-6 bg-cyan-300 rounded-full opacity-30 animate-pulse transform rotate-45"></div>
-                                </div>
-                                <!-- Futuristic header -->
-                                <div class="relative z-10 flex justify-between items-center mb-3">
-                                    <div class="flex items-center space-x-2">
-                                        <div class="w-4 h-4 bg-gradient-to-br from-cyan-400 to-purple-400 rounded-full animate-pulse"></div>
-                                        <div class="w-14 h-2 bg-gradient-to-r from-cyan-400 to-purple-400 rounded transform skew-x-12"></div>
-                                    </div>
-                                    <div class="flex space-x-1">
-                                        <div class="w-1 h-4 bg-pink-400 rounded-full transform rotate-12"></div>
-                                        <div class="w-1 h-3 bg-cyan-400 rounded-full transform -rotate-12"></div>
-                                        <div class="w-1 h-5 bg-yellow-400 rounded-full"></div>
-                                    </div>
-                                </div>
-                                <!-- Experimental hero section -->
-                                <div class="relative z-10 flex-1 flex flex-col justify-center items-center mb-3">
-                                    <div class="w-24 h-3 bg-gradient-to-r from-purple-400 to-pink-400 rounded transform -skew-x-6 mb-2"></div>
-                                    <div class="w-16 h-2 bg-cyan-400 rounded transform skew-x-3 mb-3"></div>
-                                    <div class="w-12 h-4 bg-gradient-to-r from-yellow-400 to-pink-400 rounded-full"></div>
-                                </div>
-                                <!-- Experimental interface elements -->
-                                <div class="relative z-10 flex justify-between items-end">
-                                    <div class="flex space-x-1">
-                                        <div class="w-3 h-6 bg-cyan-400 rounded transform rotate-12"></div>
-                                        <div class="w-3 h-4 bg-pink-400 rounded transform -rotate-6"></div>
-                                        <div class="w-3 h-8 bg-purple-400 rounded transform rotate-3"></div>
-                                    </div>
-                                    <div class="flex space-x-2">
-                                        <div class="w-6 h-6 bg-gradient-to-br from-yellow-400 to-pink-400 rounded-full transform rotate-45"></div>
-                                        <div class="w-4 h-4 bg-cyan-400 rounded transform -rotate-45"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <h3 class="text-lg font-semibold mb-2 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Ultra-Unique Experience</h3>
-                            <p class="text-gray-600 mb-4">Experimental designs that push the boundaries of web creativity.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 rounded-full text-sm">Experimental</span>
-                            </div>
-                            <a href="https://experimental-future.demo" target="_blank" rel="noopener noreferrer" class="block w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:from-purple-700 hover:to-pink-700 transition-all text-center">View Project</a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -1398,99 +961,87 @@
                         
                         <div class="space-y-6">
                             <!-- Web Design Package -->
-                            <div class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-l-4 border-blue-500">
+                            <div class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-l-4" style="border-color: #1e9bd5;">
                                 <div class="flex items-start justify-between mb-4">
                                     <div>
-                                        <h3 class="text-xl font-bold text-blue-600 mb-2">Website Design & Development</h3>
+                                        <h3 class="text-xl font-bold mb-2" style="color: #1e9bd5;">Website Design & Development</h3>
                                         <p class="text-gray-600 text-sm">Custom websites that convert visitors into customers</p>
                                     </div>
                                     <div class="text-right">
-                                        <div class="text-2xl font-bold text-blue-600">From R5,000</div>
-                                        <div class="text-sm text-gray-500">Starting price</div>
+                                        <div class="text-2xl font-bold" style="color: #326da9;">From R0</div>
+                                        <div class="text-sm" style="color: #326da9;">Starting price</div>
                                     </div>
                                 </div>
                                 <div class="space-y-2 text-sm text-gray-600">
                                     <div class="flex items-center">
-                                        <div class="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>
+                                        <div class="w-2 h-2 rounded-full mr-3" style="background-color: #1e9bd5;"></div>
                                         <span>Responsive design for all devices</span>
                                     </div>
                                     <div class="flex items-center">
-                                        <div class="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>
-                                        <span>Lightning-fast performance</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <div class="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>
+                                        <div class="w-2 h-2 rounded-full mr-3" style="background-color: #1e9bd5;"></div>
                                         <span>3 months support included</span>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Social Media Package -->
-                            <div class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-l-4 border-red-500">
+                            <div class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-l-4" style="border-color: #ec343e;">
                                 <div class="flex items-start justify-between mb-4">
                                     <div>
-                                        <h3 class="text-xl font-bold text-red-600 mb-2">Social Media Management</h3>
+                                        <h3 class="text-xl font-bold mb-2" style="color: #ec343e;">Social Media Management</h3>
                                         <p class="text-gray-600 text-sm">Content that gets your audience talking</p>
                                     </div>
                                     <div class="text-right">
-                                        <div class="text-2xl font-bold text-red-600">From R2,500</div>
-                                        <div class="text-sm text-gray-500">Per month</div>
+                                        <div class="text-2xl font-bold" style="color: #ec343e;">From R0</div>
+                                        <div class="text-sm" style="color: #ec343e;">Per month</div>
                                     </div>
                                 </div>
                                 <div class="space-y-2 text-sm text-gray-600">
                                     <div class="flex items-center">
-                                        <div class="w-2 h-2 bg-red-400 rounded-full mr-3"></div>
+                                        <div class="w-2 h-2 rounded-full mr-3" style="background-color: #ec343e;"></div>
                                         <span>Daily content creation & posting</span>
                                     </div>
                                     <div class="flex items-center">
-                                        <div class="w-2 h-2 bg-red-400 rounded-full mr-3"></div>
-                                        <span>Engagement strategy & growth</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <div class="w-2 h-2 bg-red-400 rounded-full mr-3"></div>
+                                        <div class="w-2 h-2 rounded-full mr-3" style="background-color: #ec343e;"></div>
                                         <span>Monthly analytics reports</span>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Logo Design Package -->
-                            <div class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-l-4 border-yellow-500">
+                            <div class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-l-4" style="border-color: #fed121;">
                                 <div class="flex items-start justify-between mb-4">
                                     <div>
-                                        <h3 class="text-xl font-bold text-yellow-600 mb-2">Logo & Brand Identity</h3>
+                                        <h3 class="text-xl font-bold mb-2" style="color: #fed121;">Logo & Brand Identity</h3>
                                         <p class="text-gray-600 text-sm">Memorable designs that stick in minds</p>
                                     </div>
                                     <div class="text-right">
-                                        <div class="text-2xl font-bold text-yellow-600">From R1,500</div>
-                                        <div class="text-sm text-gray-500">Complete package</div>
+                                        <div class="text-2xl font-bold" style="color: #fed121;">From R0</div>
+                                        <div class="text-sm" style="color: #fed121;">Complete package</div>
                                     </div>
                                 </div>
                                 <div class="space-y-2 text-sm text-gray-600">
                                     <div class="flex items-center">
-                                        <div class="w-2 h-2 bg-yellow-400 rounded-full mr-3"></div>
+                                        <div class="w-2 h-2 rounded-full mr-3" style="background-color: #fed121;"></div>
                                         <span>3 initial concepts to choose from</span>
                                     </div>
                                     <div class="flex items-center">
-                                        <div class="w-2 h-2 bg-yellow-400 rounded-full mr-3"></div>
-                                        <span>Professional brand guidelines</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <div class="w-2 h-2 bg-yellow-400 rounded-full mr-3"></div>
+                                        <div class="w-2 h-2 rounded-full mr-3" style="background-color: #fed121;"></div>
                                         <span>All file formats included</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                        <div class="rounded-lg p-4" style="background-color: #fae4a0; border: 1px solid #fed121;">
                             <div class="flex items-start">
                                 <div class="flex-shrink-0">
-                                    <svg class="w-5 h-5 text-blue-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg class="w-5 h-5 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #326da9;">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                     </svg>
                                 </div>
                                 <div class="ml-3">
-                                    <p class="text-sm text-blue-700">
+                                    <p class="text-sm" style="color: #326da9;">
                                         <strong>Custom quotes available.</strong> Every project is unique, so pricing may vary based on your specific requirements and timeline.
                                     </p>
                                 </div>
@@ -1506,7 +1057,7 @@
                         </div>
 
                         <div class="card p-8 text-center flex-1 flex flex-col">
-                            <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                            <div class="w-20 h-20 rounded-xl flex items-center justify-center mx-auto mb-6 shadow-lg" style="background: linear-gradient(to bottom right, #7cd6ff, #1e9bd5);">
                                 <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
@@ -1520,38 +1071,38 @@
                                 
                                 <div class="space-y-4 mb-8">
                                     <div class="flex items-center justify-center text-sm text-gray-600">
-                                        <div class="w-2 h-2 bg-green-400 rounded-full mr-3"></div>
+                                        <div class="w-2 h-2 rounded-full mr-3" style="background-color: #1e9bd5;"></div>
                                         <span>Real-time project updates</span>
                                     </div>
                                     <div class="flex items-center justify-center text-sm text-gray-600">
-                                        <div class="w-2 h-2 bg-green-400 rounded-full mr-3"></div>
+                                        <div class="w-2 h-2 rounded-full mr-3" style="background-color: #1e9bd5;"></div>
                                         <span>Direct communication with our team</span>
                                     </div>
                                 </div>
                                 
-                                <button id="clientPortalMainBtn" class="w-full bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-4 rounded-lg font-medium hover:from-green-600 hover:to-green-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl min-h-[44px] touch-manipulation mt-auto">
+                                <button id="clientPortalMainBtn" class="w-full text-white px-8 py-4 rounded-lg font-medium transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl min-h-[44px] touch-manipulation mt-auto" style="background: linear-gradient(to right, #1e9bd5, #326da9);" onmouseover="this.style.background='linear-gradient(to right, #326da9, #7cd6ff)'" onmouseout="this.style.background='linear-gradient(to right, #1e9bd5, #326da9)'">
                                     Access Client Portal
                                 </button>
                             </div>
                         </div>
 
-                        <div class="bg-green-50 border border-green-200 rounded-lg p-6">
-                            <h4 class="font-semibold text-green-800 mb-3 flex items-center">
+                        <div class="rounded-lg p-6" style="background-color: #7cd6ff; border: 1px solid #1e9bd5;">
+                            <h4 class="font-semibold mb-3 flex items-center" style="color: #326da9;">
                                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                                 </svg>
                                 For Existing Clients Only
                             </h4>
-                            <p class="text-sm text-green-700 mb-4">
+                            <p class="text-sm mb-4" style="color: #326da9;">
                                 This portal is exclusively for clients with active projects. You'll need the email address used during project setup.
                             </p>
-                            <div class="space-y-2 text-sm text-green-600">
+                            <div class="space-y-2 text-sm" style="color: #326da9;">
                                 <div class="flex items-center">
-                                    <div class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></div>
+                                    <div class="w-1.5 h-1.5 rounded-full mr-2" style="background-color: #1e9bd5;"></div>
                                     <span>Secure and private access</span>
                                 </div>
                                 <div class="flex items-center">
-                                    <div class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></div>
+                                    <div class="w-1.5 h-1.5 rounded-full mr-2" style="background-color: #1e9bd5;"></div>
                                     <span>Instant email notifications</span>
                                 </div>
                             </div>
@@ -1602,7 +1153,7 @@
                                 </a>
                                 <div>
                                     <p class="font-semibold text-gray-800">Email</p>
-                                    <a href="mailto:hanu@hanu.co.za" class="text-blue-600 hover:text-blue-800 transition-colors break-all">hanu@hanu.co.za</a>
+                                    <a href="mailto:hanu@hanu.co.za" class="hover:opacity-80 transition-colors break-all text-black">hanu@hanu.co.za</a>
                                 </div>
                             </div>
                             <div class="flex items-start space-x-4">
@@ -1646,13 +1197,13 @@
                                     <svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                                     </svg>
-                                    <span class="text-sm font-medium text-black">Instagram</span>
+                                    <span class="text-sm font-medium text-white">Instagram</span>
                                 </a>
                                 <a href="https://www.linkedin.com/in/hanukeyser/" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 rounded-lg px-4 py-2 hover:opacity-80 transition-colors touch-manipulation" style="background-color: #326da9;">
-                                    <svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 24 24">
+                                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                                     </svg>
-                                    <span class="text-sm font-medium text-black">LinkedIn</span>
+                                    <span class="text-sm font-medium text-white">LinkedIn</span>
                                 </a>
                             </div>
                         </div>
@@ -1708,10 +1259,6 @@
             </div>
 
             <div class="space-y-4 text-gray-700 leading-relaxed">
-                <p>
-                    Born from a passion for digital rebellion, Hanu Studio is a one-person company on a mission to shake up the boring world of web design. We believe every brand deserves to stand out, not blend in with the crowd.
-                </p>
-                
                 <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg">
                     <div class="flex items-start">
                         <div class="flex-shrink-0">
@@ -1727,8 +1274,6 @@
                         </div>
                     </div>
                 </div>
-                
-
                 
                 <div class="bg-gray-50 p-4 rounded-lg border">
                     <div class="text-center">
@@ -1751,7 +1296,7 @@
             </button>
             
             <div class="text-center mb-6">
-                <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <div class="w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg" style="background: linear-gradient(to bottom right, #7cd6ff, #1e9bd5);">
                     <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
@@ -1761,15 +1306,9 @@
             </div>
 
             <form id="clientPortalForm" class="space-y-4">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label for="clientName" class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
-                        <input type="text" id="clientName" name="name" placeholder="Enter your first name" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors bg-white/80 backdrop-blur-sm">
-                    </div>
-                    <div>
-                        <label for="clientSurname" class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
-                        <input type="text" id="clientSurname" name="surname" placeholder="Enter your last name" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors bg-white/80 backdrop-blur-sm">
-                    </div>
+                <div>
+                    <label for="clientName" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                    <input type="text" id="clientName" name="name" placeholder="Enter your full name" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors bg-white/80 backdrop-blur-sm">
                 </div>
                 <div>
                     <label for="clientEmail" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
@@ -1779,7 +1318,7 @@
                     <label for="projectReference" class="block text-sm font-medium text-gray-700 mb-2">Project Reference</label>
                     <input type="text" id="projectReference" name="projectReference" placeholder="Project name, invoice number, or any reference" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors bg-white/80 backdrop-blur-sm">
                 </div>
-                <button type="submit" class="w-full bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-3 rounded-lg font-medium hover:from-green-600 hover:to-green-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl min-h-[44px] touch-manipulation">
+                <button type="submit" class="w-full text-white px-6 py-3 rounded-lg font-medium transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl min-h-[44px] touch-manipulation" style="background: linear-gradient(to right, #1e9bd5, #326da9);" onmouseover="this.style.background='linear-gradient(to right, #326da9, #7cd6ff)'" onmouseout="this.style.background='linear-gradient(to right, #1e9bd5, #326da9)'">
                     Request Project Update
                 </button>
             </form>
@@ -1806,15 +1345,9 @@
             </div>
 
             <form id="serviceForm" class="space-y-4">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label for="modalName" class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
-                        <input type="text" id="modalName" name="name" placeholder="Enter your first name" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-white/80 backdrop-blur-sm">
-                    </div>
-                    <div>
-                        <label for="modalSurname" class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
-                        <input type="text" id="modalSurname" name="surname" placeholder="Enter your last name" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-white/80 backdrop-blur-sm">
-                    </div>
+                <div>
+                    <label for="modalName" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                    <input type="text" id="modalName" name="name" placeholder="Enter your full name" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-white/80 backdrop-blur-sm">
                 </div>
                 <div>
                     <label for="modalEmail" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
@@ -1841,7 +1374,7 @@
 
     <!-- Footer -->
     <footer class="text-black shadow-lg backdrop-blur-md border-t border-blue-200/30 bg-blue-100/60">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center h-16 sm:h-18 lg:h-20 flex items-center justify-center">
             <p class="text-sm">© 2025 Hanu. All rights reserved.</p>
         </div>
     </footer>
@@ -1927,7 +1460,7 @@ Message: ${formData.message}
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    const headerHeight = 80; // Account for fixed header height
+                    const headerHeight = 80; // 80px offset to stop above section headings
                     const targetPosition = target.offsetTop - headerHeight;
                     window.scrollTo({
                         top: targetPosition,
@@ -2024,7 +1557,9 @@ Message: ${formData.message}
                 icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
                 iconBg: 'bg-gradient-to-br from-blue-400 to-blue-600',
                 submitText: 'Start My Website Project',
-                submitBg: 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700'
+                submitBg: 'text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl min-h-[44px] touch-manipulation',
+                submitStyle: 'background: linear-gradient(to right, #1e9bd5, #326da9);',
+                submitHover: 'onmouseover="this.style.background=\'linear-gradient(to right, #326da9, #7cd6ff)\'" onmouseout="this.style.background=\'linear-gradient(to right, #1e9bd5, #326da9)\'"'
             },
             red: {
                 title: 'Let\'s Go Viral Together',
@@ -2032,7 +1567,9 @@ Message: ${formData.message}
                 icon: 'M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z',
                 iconBg: 'bg-gradient-to-br from-red-400 to-red-600',
                 submitText: 'Launch My Social Media',
-                submitBg: 'bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700'
+                submitBg: 'text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl min-h-[44px] touch-manipulation',
+                submitStyle: 'background: linear-gradient(to right, #ec343e, #ff6f76);',
+                submitHover: 'onmouseover="this.style.background=\'linear-gradient(to right, #ff6f76, #ec343e)\'" onmouseout="this.style.background=\'linear-gradient(to right, #ec343e, #ff6f76)\'"'
             },
             yellow: {
                 title: 'Create Your Brand Identity',
@@ -2040,7 +1577,9 @@ Message: ${formData.message}
                 icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM7 3H5a2 2 0 00-2 2v12a4 4 0 004 4h2a2 2 0 002-2V5a2 2 0 00-2-2z M16 3h2a2 2 0 012 2v12a4 4 0 01-4 4h-2a2 2 0 01-2-2V5a2 2 0 012-2z',
                 iconBg: 'bg-gradient-to-br from-yellow-400 to-yellow-600',
                 submitText: 'Design My Brand',
-                submitBg: 'bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700'
+                submitBg: 'text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl min-h-[44px] touch-manipulation',
+                submitStyle: 'background: linear-gradient(to right, #fed121, #fae4a0);',
+                submitHover: 'onmouseover="this.style.background=\'linear-gradient(to right, #fae4a0, #fed121)\'" onmouseout="this.style.background=\'linear-gradient(to right, #fed121, #fae4a0)\'"'
             }
         };
 
@@ -2059,7 +1598,10 @@ Message: ${formData.message}
             
             // Update submit button
             modalSubmitBtn.textContent = config.submitText;
-            modalSubmitBtn.className = `w-full ${config.submitBg} text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl min-h-[44px] touch-manipulation`;
+            modalSubmitBtn.className = `w-full ${config.submitBg}`;
+            modalSubmitBtn.setAttribute('style', config.submitStyle);
+            modalSubmitBtn.setAttribute('onmouseover', config.submitHover.split(' ')[0].replace('onmouseover="', '').replace('"', ''));
+            modalSubmitBtn.setAttribute('onmouseout', config.submitHover.split(' ')[1].replace('onmouseout="', '').replace('"', ''));
             
             // Show modal
             serviceModal.classList.add('active');
@@ -2105,12 +1647,12 @@ Message: ${formData.message}
             const data = Object.fromEntries(formData);
             
             // Create detailed email content
-            const subject = encodeURIComponent(`${data.service} Inquiry from ${data.name} ${data.surname}`);
+            const subject = encodeURIComponent(`${data.service} Inquiry from ${data.name}`);
             const body = encodeURIComponent(`
 New Service Inquiry - ${data.service}
 
 Client Details:
-- Name: ${data.name} ${data.surname}
+- Name: ${data.name}
 - Email: ${data.email}
 - Service Requested: ${data.service}
 
@@ -2176,12 +1718,12 @@ This inquiry was submitted through the Hanu Studio website service modal.
             const data = Object.fromEntries(formData);
             
             // Create detailed email content for project status request
-            const subject = encodeURIComponent(`Project Status Request from ${data.name} ${data.surname}`);
+            const subject = encodeURIComponent(`Project Status Request from ${data.name}`);
             const body = encodeURIComponent(`
 Project Status Update Request
 
 Client Details:
-- Name: ${data.name} ${data.surname}
+- Name: ${data.name}
 - Email: ${data.email}
 - Project Reference: ${data.projectReference}
 
@@ -2283,5 +1825,5 @@ Please provide an update on this client's project status.
             });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9622ccc6a4dabd1a',t:'MTc1MzAxODA4Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96242285c6e973b1',t:'MTc1MzAzMjA4NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
