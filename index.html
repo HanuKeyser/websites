@@ -6,9 +6,39 @@
     <title>Hanu Studio</title>
     <link rel="icon" href="Hanu Tab Icon Top & Bottom.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
     <style>
         html { 
             scroll-behavior: smooth; 
+        }
+
+        /* Performance optimizations */
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        img {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+
+        /* GPU acceleration for animations */
+        .animate-float,
+        .animate-pulse-slow,
+        .animate-bounce-slow,
+        .animate-wiggle {
+            will-change: transform;
+            transform: translateZ(0);
+        }
+
+        /* Optimize transitions */
+        .transition-all,
+        .transition-colors,
+        .transition-transform {
+            will-change: auto;
         }
 
         /* Custom Scrollbar Styling */
@@ -49,6 +79,399 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Dark Mode Styles */
+        .dark {
+            background: #0f172a;
+            color: #e2e8f0;
+        }
+
+        .dark .card {
+            background: #1e293b;
+            border: 1px solid #334155;
+        }
+
+        .dark header {
+            background: rgba(15, 23, 42, 0.8);
+            border-color: rgba(51, 65, 85, 0.3);
+        }
+
+        .dark footer {
+            background: rgba(15, 23, 42, 0.8);
+            border-color: rgba(51, 65, 85, 0.3);
+        }
+
+        .dark #mobileMenu {
+            background: rgba(15, 23, 42, 0.9);
+            border-color: rgba(51, 65, 85, 0.3);
+        }
+
+        .dark .bg-gray-50 {
+            background: #1e293b !important;
+        }
+
+        .dark .bg-white {
+            background: #1e293b !important;
+        }
+
+        .dark .text-gray-600 {
+            color: #94a3b8 !important;
+        }
+
+        .dark .text-gray-700 {
+            color: #cbd5e1 !important;
+        }
+
+        .dark .text-gray-800 {
+            color: #e2e8f0 !important;
+        }
+
+        .dark .text-black {
+            color: #e2e8f0 !important;
+        }
+
+        .dark .border-gray-300 {
+            border-color: #475569 !important;
+        }
+
+        .dark .border-gray-200 {
+            border-color: #374151 !important;
+        }
+
+        .dark .border-gray-100 {
+            border-color: #374151 !important;
+        }
+
+        .dark input, .dark textarea {
+            background: #334155 !important;
+            color: #e2e8f0 !important;
+            border-color: #475569 !important;
+        }
+
+        .dark input::placeholder, .dark textarea::placeholder {
+            color: #94a3b8 !important;
+        }
+
+        .dark input:focus, .dark textarea:focus {
+            background: #475569 !important;
+            border-color: #3b82f6 !important;
+        }
+
+        /* Dark mode service cards hover effects */
+        .dark .group-hover\:bg-gradient-to-br {
+            background: linear-gradient(to bottom right, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9)) !important;
+        }
+
+        .dark .bg-blue-100 {
+            background: #1e3a8a !important;
+        }
+
+        .dark .bg-red-100 {
+            background: #7f1d1d !important;
+        }
+
+        .dark .bg-yellow-100 {
+            background: #78350f !important;
+        }
+
+        .dark .bg-purple-100 {
+            background: #581c87 !important;
+        }
+
+        .dark .bg-green-100 {
+            background: #14532d !important;
+        }
+
+        .dark .bg-indigo-100 {
+            background: #312e81 !important;
+        }
+
+        /* Dark mode portfolio cards - ONLY affect card backgrounds, text, and buttons - NOT design previews */
+        .dark #portfolio .card {
+            background: #1e293b !important;
+            border: 1px solid #334155 !important;
+        }
+
+        /* Dark mode portfolio card titles and descriptions */
+        .dark #portfolio .card h3 {
+            color: #e2e8f0 !important;
+        }
+
+        .dark #portfolio .card p {
+            color: #94a3b8 !important;
+        }
+
+        /* Dark mode portfolio project buttons */
+        .dark #portfolio .card a {
+            background: #374151 !important;
+            color: #e2e8f0 !important;
+        }
+
+        .dark #portfolio .card a:hover {
+            background: #4b5563 !important;
+        }
+
+        /* Dark mode portfolio tags */
+        .dark #portfolio .card span {
+            background: #374151 !important;
+            color: #e2e8f0 !important;
+        }
+
+        /* Dark mode design previews - show dark versions of the designs */
+        .dark #portfolio .card .design-preview {
+            background: #1f2937 !important;
+            border: 2px solid #374151 !important;
+        }
+
+        /* Dark mode minimalist design */
+        .dark #portfolio .card .design-preview .bg-gray-800 {
+            background: #f3f4f6 !important;
+        }
+
+        .dark #portfolio .card .design-preview .bg-gray-400 {
+            background: #6b7280 !important;
+        }
+
+        .dark #portfolio .card .design-preview .bg-gray-200 {
+            background: #4b5563 !important;
+        }
+
+        .dark #portfolio .card .design-preview .bg-white {
+            background: #1f2937 !important;
+        }
+
+        /* Dark mode corporate design */
+        .dark #portfolio .card .design-preview .bg-gradient-to-br.from-blue-600.to-blue-800 {
+            background: linear-gradient(to bottom right, #1e40af, #1e3a8a) !important;
+        }
+
+        .dark #portfolio .card .design-preview .bg-blue-300 {
+            background: #3b82f6 !important;
+        }
+
+        .dark #portfolio .card .design-preview .bg-blue-200 {
+            background: #60a5fa !important;
+        }
+
+        /* Dark mode creative design */
+        .dark #portfolio .card .design-preview .bg-gradient-to-br.from-purple-500.via-pink-500.to-orange-400 {
+            background: linear-gradient(to bottom right, #7c3aed, #ec4899, #f97316) !important;
+        }
+
+        .dark #portfolio .card .design-preview .bg-yellow-300 {
+            background: #fbbf24 !important;
+        }
+
+        .dark #portfolio .card .design-preview .bg-pink-300 {
+            background: #f472b6 !important;
+        }
+
+        .dark #portfolio .card .design-preview .bg-purple-300 {
+            background: #a78bfa !important;
+        }
+
+        /* Dark mode e-commerce design */
+        .dark #portfolio .card .design-preview .bg-gradient-to-br.from-green-400.to-emerald-600 {
+            background: linear-gradient(to bottom right, #10b981, #059669) !important;
+        }
+
+        .dark #portfolio .card .design-preview .bg-green-200 {
+            background: #34d399 !important;
+        }
+
+        .dark #portfolio .card .design-preview .bg-gray-300 {
+            background: #6b7280 !important;
+        }
+
+        /* Dark mode dashboard design */
+        .dark #portfolio .card .design-preview .bg-gradient-to-br.from-indigo-600.via-purple-600.to-pink-600 {
+            background: linear-gradient(to bottom right, #4f46e5, #7c3aed, #ec4899) !important;
+        }
+
+        .dark #portfolio .card .design-preview .bg-indigo-300 {
+            background: #818cf8 !important;
+        }
+
+        .dark #portfolio .card .design-preview .bg-indigo-500 {
+            background: #6366f1 !important;
+        }
+
+        /* Dark mode experimental design */
+        .dark #portfolio .card .design-preview .bg-black {
+            background: #0f172a !important;
+        }
+
+        .dark #portfolio .card .design-preview .bg-cyan-400 {
+            background: #22d3ee !important;
+        }
+
+        .dark #portfolio .card .design-preview .bg-pink-400 {
+            background: #f472b6 !important;
+        }
+
+        .dark #portfolio .card .design-preview .bg-yellow-400 {
+            background: #facc15 !important;
+        }
+
+        .dark #portfolio .card .design-preview .bg-purple-400 {
+            background: #a78bfa !important;
+        }
+
+        .dark #portfolio .card .design-preview .bg-cyan-300 {
+            background: #67e8f9 !important;
+        }
+
+        /* Dark mode scrollbar */
+        .dark ::-webkit-scrollbar-track {
+            background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+        }
+
+        .dark ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #336da9 0%, #1f9dd1 50%, #336da9 100%);
+            border-color: #0f172a;
+        }
+
+        .dark ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%);
+        }
+
+        .dark ::-webkit-scrollbar-thumb:active {
+            background: linear-gradient(180deg, #1d4ed8 0%, #1e40af 50%, #1e3a8a 100%);
+        }
+
+        .dark html {
+            scrollbar-color: #336da9 #0f172a;
+        }
+
+        /* Dark mode modal */
+        .dark .modal-content {
+            background: rgba(30, 41, 59, 0.95);
+            border-color: rgba(71, 85, 105, 0.3);
+        }
+
+        .dark .modal-close {
+            background: rgba(30, 41, 59, 0.8);
+            border-color: rgba(71, 85, 105, 0.3);
+        }
+
+        .dark .modal-close:hover {
+            background: rgba(30, 41, 59, 1);
+        }
+
+        /* Dark mode cookie notification */
+        .dark #cookieNotification {
+            background: #1e293b;
+            border-color: #475569;
+        }
+
+        /* Dark mode back to top */
+        .dark .back-to-top {
+            background: rgba(30, 41, 59, 0.9);
+            border-color: rgba(71, 85, 105, 0.3);
+        }
+
+        .dark .back-to-top:hover {
+            background: rgba(30, 41, 59, 1);
+        }
+
+
+
+        /* Dark mode social media links - keep text black in both modes */
+        .dark a[href*="instagram"] {
+            background: #fed121 !important;
+        }
+
+        .dark a[href*="linkedin"] {
+            background: #326da9 !important;
+        }
+
+        .dark a[href*="instagram"] svg,
+        .dark a[href*="instagram"] span,
+        .dark a[href*="linkedin"] svg,
+        .dark a[href*="linkedin"] span {
+            color: #000000 !important;
+        }
+
+        /* Dark mode hover effects for navigation */
+        .dark nav a:hover {
+            color: #1e9bd5 !important;
+        }
+
+        /* Dark mode theme buttons */
+        .dark #themeToggle {
+            color: #326da9 !important;
+        }
+
+        .dark #themeToggle:hover {
+            color: #1e9bd5 !important;
+        }
+
+        /* Dark mode mobile theme button */
+        .dark #mobileThemeToggle {
+            color: #326da9 !important;
+        }
+
+        .dark #mobileThemeToggle:hover {
+            color: #1e9bd5 !important;
+        }
+
+        /* Dark mode mobile menu links */
+        .dark #mobileMenu a {
+            color: #e2e8f0 !important;
+        }
+
+        .dark #mobileMenu a:hover {
+            color: #1e9bd5 !important;
+        }
+
+        /* Dark mode portfolio floating elements */
+        .dark .bg-gray-300 {
+            background: #4b5563 !important;
+        }
+
+        .dark .bg-gray-400 {
+            background: #6b7280 !important;
+        }
+
+        .dark .bg-gray-200 {
+            background: #374151 !important;
+        }
+
+        /* Dark mode form labels */
+        .dark label {
+            color: #e2e8f0 !important;
+        }
+
+        /* Dark mode links */
+        .dark a[href^="mailto"] {
+            color: #60a5fa !important;
+        }
+
+        .dark a[href^="mailto"]:hover {
+            color: #3b82f6 !important;
+        }
+
+        /* Dark mode button text */
+        .dark .text-white {
+            color: #ffffff !important;
+        }
+
+        /* Dark mode portfolio project buttons */
+        .dark .bg-gray-800 {
+            background: #1f2937 !important;
+        }
+
+        .dark .bg-gray-800:hover {
+            background: #111827 !important;
+        }
+
+        /* Dark mode gradient text */
+        .dark .bg-gradient-to-r.from-purple-600.to-pink-600 {
+            background: linear-gradient(to right, #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            background-clip: text;
         }
         
         .card {
@@ -250,23 +673,32 @@
 <body class="bg-white min-h-screen">
     <!-- Header -->
     <header class="fixed top-0 left-0 right-0 z-50 text-black shadow-lg backdrop-blur-md border-b border-blue-200/30 bg-blue-100/60">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-12 sm:h-12">
-            <img src="Company Logo.png" alt="Hanu Logo" class="h-8 sm:h-7 md:h-8 w-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-14 sm:h-16 lg:h-16">
+            <img src="Company Logo.png" alt="Hanu Logo" class="h-8 sm:h-9 md:h-10 w-auto" loading="eager" decoding="async">
             
             <!-- Desktop Navigation -->
-            <nav class="hidden md:flex items-center space-x-4 lg:space-x-6 ml-auto">
+            <nav class="hidden md:flex items-center space-x-6 ml-auto">
                 <a href="#about" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-110" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">About Us</a>
                 <a href="#services" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-110" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Our Services</a>
                 <a href="#portfolio" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-110" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Portfolio</a>
                 <a href="#contact" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-110" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Contact Us</a>
+                <!-- Theme Toggle Button -->
+                <button id="themeToggle" class="p-2 rounded-lg transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">
+                    <svg id="sunIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                    <svg id="moonIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                    </svg>
+                </button>
             </nav>
-            
+
             <!-- Mobile Menu Button -->
-            <button id="mobileMenuBtn" class="md:hidden p-1.5 rounded-lg hover:bg-white/20 transition-colors">
-                <svg id="hamburgerIcon" class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg hover:bg-white/20 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center">
+                <svg id="hamburgerIcon" class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
-                <svg id="closeIcon" class="w-5 h-5 text-black hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg id="closeIcon" class="w-6 h-6 text-black hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
@@ -274,11 +706,27 @@
         
         <!-- Mobile Navigation -->
         <div id="mobileMenu" class="md:hidden border-t border-blue-200/30 shadow-lg transform translate-y-0 opacity-0 scale-y-0 origin-top transition-all duration-300 ease-in-out overflow-hidden max-h-0 backdrop-blur-md bg-blue-100/60">
-            <div class="px-3 py-2 space-y-1">
-                <a href="#about" class="block py-2 px-2 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-sm rounded-lg" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">About Us</a>
-                <a href="#services" class="block py-2 px-2 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-sm rounded-lg" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Our Services</a>
-                <a href="#portfolio" class="block py-2 px-2 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-sm rounded-lg" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Portfolio</a>
-                <a href="#contact" class="block py-2 px-2 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-sm rounded-lg" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Contact Us</a>
+            <div class="px-4 py-3 space-y-2">
+                <a href="#about" class="block py-3 px-3 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-base rounded-lg min-h-[44px] flex items-center" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">About Us</a>
+                <a href="#services" class="block py-3 px-3 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-base rounded-lg min-h-[44px] flex items-center" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Our Services</a>
+                <a href="#portfolio" class="block py-3 px-3 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-base rounded-lg min-h-[44px] flex items-center" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Portfolio</a>
+                <a href="#contact" class="block py-3 px-3 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-base rounded-lg min-h-[44px] flex items-center" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Contact Us</a>
+                
+                <!-- Mobile Theme Options -->
+                <div class="border-t border-blue-200/30 pt-3 mt-3 space-y-2">
+                    <div class="px-3 py-1">
+                        <span class="text-xs font-medium text-gray-500 uppercase tracking-wide">Theme</span>
+                    </div>
+                    <button id="mobileThemeToggle" class="flex items-center w-full py-3 px-3 hover:scale-105 transition-all duration-300 font-medium text-base rounded-lg min-h-[44px]" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">
+                        <svg id="mobileSunIcon" class="w-5 h-5 mr-3 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                        <svg id="mobileMoonIcon" class="w-5 h-5 mr-3 text-blue-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                        <span id="mobileThemeText">Light Mode</span>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
@@ -339,17 +787,17 @@
     <!-- Main Content -->
     <main class="flex-1 relative z-20">
         <!-- About Us Section -->
-        <section id="about" class="py-16 pt-20 bg-gray-50">
+        <section id="about" class="py-12 sm:py-16 pt-20 sm:pt-24 bg-gray-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="text-center mb-12">
-                    <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 lg:mb-6" style="color: #326da9;">We Don't Just Build Websites, We Build Empires</h2>
-                    <p class="text-gray-600 text-lg max-w-3xl mx-auto">Ready to dominate your industry? We're the digital rebels who turn ordinary brands into legendary experiences that your competition will envy.</p>
+                <div class="text-center mb-8 sm:mb-12">
+                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 lg:mb-6 px-4" style="color: #326da9;">We Don't Just Build Websites, We Build Empires</h2>
+                    <p class="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto px-4">Ready to dominate your industry? We're the digital rebels who turn ordinary brands into legendary experiences that your competition will envy.</p>
                 </div>
                 
                 <!-- 4 Cards in 2x2 Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
                     <!-- Card 1: Our Story -->
-                    <div class="card p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <div class="card p-6 sm:p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer" id="storyCard">
                         <div class="flex items-center mb-4">
                             <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #326da9;">
@@ -359,15 +807,21 @@
                             <h3 class="text-xl font-bold" style="color: #326da9;">Our Story</h3>
                         </div>
                         <p class="text-gray-600 leading-relaxed">
-                            Born from a passion for digital rebellion, Hanu Studio started as a one-person mission to shake up the boring world of web design. We believe every brand deserves to stand out, not blend in with the crowd.
+                            Born from a passion for digital rebellion, Hanu Studio is a one-person company on a mission to shake up the boring world of web design and create legendary digital experiences.
                         </p>
-                        <div class="mt-4 pt-4 border-t border-gray-100">
-                            <span class="text-sm font-medium" style="color: #1e9bd5;">Est. 2025 • South Africa</span>
+                        <div class="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between">
+                            <span class="text-sm font-medium" style="color: #326da9;">Est. 2025 • South Africa</span>
+                            <div class="flex items-center text-blue-600 text-sm font-medium">
+                                <span class="mr-1">Read More</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                     
                     <!-- Card 2: Our Mission -->
-                    <div class="card p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <div class="card p-6 sm:p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                         <div class="flex items-center mb-4">
                             <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mr-4">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #ed343f;">
@@ -385,7 +839,7 @@
                     </div>
                     
                     <!-- Card 3: Team -->
-                    <div class="card p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <div class="card p-6 sm:p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                         <div class="flex items-center mb-4">
                             <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mr-4">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #fdcf20;">
@@ -405,7 +859,7 @@
                     </div>
                     
                     <!-- Card 4: Our Values -->
-                    <div class="card p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <div class="card p-6 sm:p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                         <div class="flex items-center mb-4">
                             <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #8b5cf6;">
@@ -442,17 +896,17 @@
         </section>
 
         <!-- Services Section -->
-        <section id="services" class="py-16">
+        <section id="services" class="py-12 sm:py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 lg:mb-6" style="color: #326da9;">What We Do Best</h2>
-                    <p class="text-gray-600 px-4 text-lg max-w-3xl mx-auto">Turning your digital dreams into reality with cutting-edge solutions that actually work</p>
+                <div class="text-center mb-8 sm:mb-12">
+                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 lg:mb-6 px-4" style="color: #326da9;">What We Do Best</h2>
+                    <p class="text-gray-600 px-4 text-base sm:text-lg max-w-3xl mx-auto">Turning your digital dreams into reality with cutting-edge solutions that actually work</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                     <!-- Web Design & Development -->
                     <div class="group relative">
-                        <div class="card p-8 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:bg-gradient-to-br group-hover:from-blue-50 group-hover:to-white relative overflow-hidden h-full flex flex-col">
+                        <div class="card p-6 sm:p-8 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:bg-gradient-to-br group-hover:from-blue-50 group-hover:to-white relative overflow-hidden h-full flex flex-col">
                             <!-- Animated background on hover -->
                             <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                             
@@ -490,7 +944,7 @@
 
                     <!-- Social Media Management -->
                     <div class="group relative">
-                        <div class="card p-8 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:bg-gradient-to-br group-hover:from-red-50 group-hover:to-white relative overflow-hidden h-full flex flex-col">
+                        <div class="card p-6 sm:p-8 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:bg-gradient-to-br group-hover:from-red-50 group-hover:to-white relative overflow-hidden h-full flex flex-col">
                             <!-- Animated background on hover -->
                             <div class="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                             
@@ -528,7 +982,7 @@
 
                     <!-- Logo Design -->
                     <div class="group relative">
-                        <div class="card p-8 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:bg-gradient-to-br group-hover:from-yellow-50 group-hover:to-white relative overflow-hidden h-full flex flex-col">
+                        <div class="card p-6 sm:p-8 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:bg-gradient-to-br group-hover:from-yellow-50 group-hover:to-white relative overflow-hidden h-full flex flex-col">
                             <!-- Animated background on hover -->
                             <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                             
@@ -573,11 +1027,11 @@
 
 
         <!-- Portfolio Section -->
-        <section id="portfolio" class="py-16 bg-gray-50 relative overflow-hidden">
+        <section id="portfolio" class="py-12 sm:py-16 bg-gray-50 relative overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-4 lg:mb-6" style="color: #326da9;">Work That Actually Slaps</h2>
-                <p class="text-gray-600 text-center mb-12 px-4 text-lg max-w-3xl mx-auto">Check out some of our recent projects that made our clients' competition jealous</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-4 lg:mb-6 px-4" style="color: #326da9;">Work That Actually Slaps</h2>
+                <p class="text-gray-600 text-center mb-8 sm:mb-12 px-4 text-base sm:text-lg max-w-3xl mx-auto">Check out some of our recent projects that made our clients' competition jealous</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 relative">
                     <!-- Card 1: Simple Minimalist Website -->
                     <div class="relative group">
                         <!-- Minimalist floating elements -->
@@ -587,21 +1041,29 @@
                         <div class="absolute -bottom-4 -right-4 w-3 h-12 bg-gray-300 rounded-full opacity-30 animate-wiggle" style="animation-delay: 3s;"></div>
                         
                         <div class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10">
-                            <div class="w-full h-48 bg-white border-2 border-gray-200 rounded-lg mb-4 p-4 flex flex-col">
-                                <!-- Simple header -->
-                                <div class="flex justify-between items-center mb-4">
-                                    <div class="w-16 h-3 bg-gray-800 rounded"></div>
-                                    <div class="flex space-x-2">
-                                        <div class="w-12 h-2 bg-gray-400 rounded"></div>
-                                        <div class="w-12 h-2 bg-gray-400 rounded"></div>
-                                        <div class="w-12 h-2 bg-gray-400 rounded"></div>
+                            <div class="design-preview w-full h-48 bg-white border-2 border-gray-200 rounded-lg mb-4 p-3 flex flex-col overflow-hidden">
+                                <!-- Minimalist header with logo and nav -->
+                                <div class="flex justify-between items-center mb-6 pb-2 border-b border-gray-100">
+                                    <div class="w-8 h-8 bg-gray-900 rounded-full flex items-center justify-center">
+                                        <div class="w-4 h-4 bg-white rounded-sm"></div>
+                                    </div>
+                                    <div class="flex space-x-3">
+                                        <div class="w-8 h-1 bg-gray-400 rounded-full"></div>
+                                        <div class="w-8 h-1 bg-gray-400 rounded-full"></div>
+                                        <div class="w-8 h-1 bg-gray-400 rounded-full"></div>
                                     </div>
                                 </div>
-                                <!-- Simple content -->
-                                <div class="flex-1 flex flex-col justify-center items-center">
-                                    <div class="w-24 h-4 bg-gray-800 rounded mb-2"></div>
-                                    <div class="w-16 h-2 bg-gray-400 rounded mb-4"></div>
-                                    <div class="w-12 h-8 bg-gray-800 rounded"></div>
+                                <!-- Hero section -->
+                                <div class="flex-1 flex flex-col justify-center items-center text-center">
+                                    <div class="w-32 h-3 bg-gray-900 rounded mb-2"></div>
+                                    <div class="w-24 h-2 bg-gray-500 rounded mb-4"></div>
+                                    <div class="w-16 h-6 bg-gray-900 rounded"></div>
+                                </div>
+                                <!-- Bottom section -->
+                                <div class="flex justify-center space-x-2 mt-4">
+                                    <div class="w-12 h-12 bg-gray-100 rounded"></div>
+                                    <div class="w-12 h-12 bg-gray-100 rounded"></div>
+                                    <div class="w-12 h-12 bg-gray-100 rounded"></div>
                                 </div>
                             </div>
                             <h3 class="text-lg font-semibold mb-2 text-gray-800">Simple & Clean</h3>
@@ -623,26 +1085,45 @@
                         <div class="absolute top-1/2 -left-8 w-4 h-16 bg-blue-200 rounded-full opacity-25 animate-float" style="animation-delay: 4s;"></div>
                         
                         <div class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10">
-                            <div class="w-full h-48 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg mb-4 p-4 flex flex-col text-white">
-                                <!-- Corporate header -->
-                                <div class="flex justify-between items-center mb-4">
-                                    <div class="w-14 h-3 bg-white rounded"></div>
+                            <div class="design-preview w-full h-48 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg mb-4 p-3 flex flex-col text-white overflow-hidden">
+                                <!-- Corporate header with logo and professional nav -->
+                                <div class="flex justify-between items-center mb-4 pb-2 border-b border-blue-400/30">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-6 h-6 bg-white rounded flex items-center justify-center">
+                                            <div class="w-3 h-3 bg-blue-600 rounded-sm"></div>
+                                        </div>
+                                        <div class="w-16 h-2 bg-white rounded"></div>
+                                    </div>
                                     <div class="flex space-x-2">
-                                        <div class="w-8 h-2 bg-blue-300 rounded"></div>
-                                        <div class="w-8 h-2 bg-blue-300 rounded"></div>
-                                        <div class="w-8 h-2 bg-blue-300 rounded"></div>
-                                        <div class="w-8 h-2 bg-blue-300 rounded"></div>
+                                        <div class="w-10 h-1 bg-blue-300 rounded-full"></div>
+                                        <div class="w-10 h-1 bg-blue-300 rounded-full"></div>
+                                        <div class="w-10 h-1 bg-blue-300 rounded-full"></div>
+                                        <div class="w-8 h-4 bg-white rounded text-xs"></div>
                                     </div>
                                 </div>
-                                <!-- Corporate content -->
+                                <!-- Hero section with professional layout -->
                                 <div class="flex-1 flex">
-                                    <div class="flex-1 pr-4">
-                                        <div class="w-full h-3 bg-blue-300 rounded mb-2"></div>
-                                        <div class="w-3/4 h-2 bg-blue-200 rounded mb-2"></div>
-                                        <div class="w-1/2 h-2 bg-blue-200 rounded mb-4"></div>
-                                        <div class="w-12 h-6 bg-white rounded"></div>
+                                    <div class="flex-1 pr-3">
+                                        <div class="w-full h-3 bg-white rounded mb-2"></div>
+                                        <div class="w-4/5 h-2 bg-blue-200 rounded mb-1"></div>
+                                        <div class="w-3/5 h-2 bg-blue-200 rounded mb-3"></div>
+                                        <div class="flex space-x-2">
+                                            <div class="w-12 h-5 bg-white rounded"></div>
+                                            <div class="w-12 h-5 bg-blue-300 rounded"></div>
+                                        </div>
                                     </div>
-                                    <div class="w-12 h-full bg-blue-300 rounded"></div>
+                                    <div class="w-16 h-full bg-blue-300/50 rounded flex flex-col justify-center items-center">
+                                        <div class="w-8 h-8 bg-white rounded mb-1"></div>
+                                        <div class="w-6 h-1 bg-blue-200 rounded"></div>
+                                    </div>
+                                </div>
+                                <!-- Bottom stats/features -->
+                                <div class="flex justify-between mt-3 pt-2 border-t border-blue-400/30">
+                                    <div class="flex space-x-3">
+                                        <div class="w-8 h-6 bg-blue-300 rounded"></div>
+                                        <div class="w-8 h-6 bg-blue-300 rounded"></div>
+                                        <div class="w-8 h-6 bg-blue-300 rounded"></div>
+                                    </div>
                                 </div>
                             </div>
                             <h3 class="text-lg font-semibold mb-2 text-blue-700">Corporate Professional</h3>
@@ -665,26 +1146,33 @@
                         <div class="absolute bottom-1/4 -left-6 w-3 h-3 bg-yellow-400 rounded-full opacity-60 animate-pulse-slow" style="animation-delay: 6s;"></div>
                         
                         <div class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10">
-                            <div class="w-full h-48 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 rounded-lg mb-4 p-4 flex flex-col">
-                                <!-- Creative header -->
+                            <div class="design-preview w-full h-48 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 rounded-lg mb-4 p-3 flex flex-col overflow-hidden">
+                                <!-- Creative header with artistic logo -->
                                 <div class="flex justify-between items-center mb-4">
-                                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                                        <div class="w-6 h-6 bg-purple-500 rounded-full"></div>
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center transform rotate-12">
+                                            <div class="w-4 h-4 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full"></div>
+                                        </div>
+                                        <div class="w-12 h-2 bg-white rounded-full"></div>
                                     </div>
                                     <div class="flex space-x-1">
-                                        <div class="w-2 h-8 bg-white rounded-full"></div>
-                                        <div class="w-2 h-6 bg-white rounded-full"></div>
-                                        <div class="w-2 h-7 bg-white rounded-full"></div>
+                                        <div class="w-1 h-6 bg-white rounded-full transform rotate-12"></div>
+                                        <div class="w-1 h-4 bg-white rounded-full transform -rotate-12"></div>
+                                        <div class="w-1 h-5 bg-white rounded-full"></div>
                                     </div>
                                 </div>
-                                <!-- Creative grid -->
-                                <div class="flex-1 grid grid-cols-3 gap-2">
-                                    <div class="bg-white rounded opacity-80"></div>
-                                    <div class="bg-yellow-300 rounded"></div>
-                                    <div class="bg-white rounded opacity-60"></div>
-                                    <div class="bg-pink-300 rounded"></div>
-                                    <div class="bg-white rounded opacity-90"></div>
-                                    <div class="bg-purple-300 rounded"></div>
+                                <!-- Creative hero section -->
+                                <div class="flex-1 flex flex-col justify-center items-center mb-4">
+                                    <div class="w-20 h-3 bg-white rounded transform -rotate-1 mb-2"></div>
+                                    <div class="w-16 h-2 bg-yellow-300 rounded transform rotate-1 mb-3"></div>
+                                    <div class="w-10 h-5 bg-white rounded-full"></div>
+                                </div>
+                                <!-- Creative portfolio grid -->
+                                <div class="grid grid-cols-4 gap-1">
+                                    <div class="aspect-square bg-white rounded opacity-90 transform rotate-1"></div>
+                                    <div class="aspect-square bg-yellow-300 rounded transform -rotate-2"></div>
+                                    <div class="aspect-square bg-pink-300 rounded opacity-80 transform rotate-3"></div>
+                                    <div class="aspect-square bg-white rounded opacity-70 transform -rotate-1"></div>
                                 </div>
                             </div>
                             <h3 class="text-lg font-semibold mb-2 text-purple-700">Creative Portfolio</h3>
@@ -711,33 +1199,47 @@
                         </div>
                         
                         <div class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10">
-                            <div class="w-full h-48 bg-gradient-to-br from-green-400 to-emerald-600 rounded-lg mb-4 p-4 flex flex-col text-white">
-                                <!-- E-commerce header -->
-                                <div class="flex justify-between items-center mb-4">
-                                    <div class="w-16 h-3 bg-white rounded"></div>
+                            <div class="design-preview w-full h-48 bg-gradient-to-br from-green-400 to-emerald-600 rounded-lg mb-4 p-3 flex flex-col text-white overflow-hidden">
+                                <!-- E-commerce header with search and cart -->
+                                <div class="flex justify-between items-center mb-4 pb-2 border-b border-green-300/30">
                                     <div class="flex items-center space-x-2">
-                                        <div class="w-6 h-6 bg-white rounded border-2 border-green-300"></div>
-                                        <div class="w-2 h-2 bg-white rounded-full"></div>
-                                        <div class="text-sm">3</div>
+                                        <div class="w-6 h-6 bg-white rounded flex items-center justify-center">
+                                            <div class="w-3 h-3 bg-green-600 rounded"></div>
+                                        </div>
+                                        <div class="w-14 h-2 bg-white rounded"></div>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-16 h-4 bg-white/20 rounded-full border border-white/30"></div>
+                                        <div class="relative">
+                                            <div class="w-5 h-5 bg-white rounded border-2 border-green-300"></div>
+                                            <div class="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full text-xs flex items-center justify-center">
+                                                <div class="w-1 h-1 bg-green-600 rounded-full"></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                <!-- Featured product banner -->
+                                <div class="mb-3 bg-white/10 rounded p-2 flex items-center space-x-2">
+                                    <div class="w-8 h-8 bg-white rounded"></div>
+                                    <div class="flex-1">
+                                        <div class="w-full h-2 bg-white rounded mb-1"></div>
+                                        <div class="w-2/3 h-1 bg-green-200 rounded"></div>
+                                    </div>
+                                    <div class="w-8 h-4 bg-yellow-400 rounded text-xs"></div>
+                                </div>
                                 <!-- Product grid -->
-                                <div class="flex-1 grid grid-cols-2 gap-2">
-                                    <div class="bg-white rounded p-2">
-                                        <div class="w-full h-4 bg-green-200 rounded mb-1"></div>
-                                        <div class="w-2/3 h-2 bg-gray-300 rounded"></div>
+                                <div class="flex-1 grid grid-cols-3 gap-1">
+                                    <div class="bg-white rounded p-1">
+                                        <div class="w-full aspect-square bg-green-200 rounded mb-1"></div>
+                                        <div class="w-full h-1 bg-gray-300 rounded"></div>
                                     </div>
-                                    <div class="bg-white rounded p-2">
-                                        <div class="w-full h-4 bg-green-200 rounded mb-1"></div>
-                                        <div class="w-2/3 h-2 bg-gray-300 rounded"></div>
+                                    <div class="bg-white rounded p-1">
+                                        <div class="w-full aspect-square bg-green-200 rounded mb-1"></div>
+                                        <div class="w-full h-1 bg-gray-300 rounded"></div>
                                     </div>
-                                    <div class="bg-white rounded p-2">
-                                        <div class="w-full h-4 bg-green-200 rounded mb-1"></div>
-                                        <div class="w-2/3 h-2 bg-gray-300 rounded"></div>
-                                    </div>
-                                    <div class="bg-white rounded p-2">
-                                        <div class="w-full h-4 bg-green-200 rounded mb-1"></div>
-                                        <div class="w-2/3 h-2 bg-gray-300 rounded"></div>
+                                    <div class="bg-white rounded p-1">
+                                        <div class="w-full aspect-square bg-green-200 rounded mb-1"></div>
+                                        <div class="w-full h-1 bg-gray-300 rounded"></div>
                                     </div>
                                 </div>
                             </div>
@@ -767,32 +1269,55 @@
                         </div>
                         
                         <div class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10">
-                            <div class="w-full h-48 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 rounded-lg mb-4 p-4 flex flex-col">
-                                <!-- Dashboard header -->
-                                <div class="flex justify-between items-center mb-4">
+                            <div class="design-preview w-full h-48 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 rounded-lg mb-4 p-3 flex flex-col overflow-hidden">
+                                <!-- Dashboard header with user and notifications -->
+                                <div class="flex justify-between items-center mb-3 pb-2 border-b border-white/20">
                                     <div class="flex items-center space-x-2">
-                                        <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                                            <div class="w-4 h-4 bg-indigo-500 rounded-full"></div>
+                                        <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center">
+                                            <div class="w-3 h-3 bg-indigo-600 rounded-full"></div>
                                         </div>
-                                        <div class="w-12 h-2 bg-white rounded"></div>
+                                        <div class="w-16 h-2 bg-white rounded"></div>
                                     </div>
-                                    <div class="w-6 h-6 bg-white rounded-full"></div>
+                                    <div class="flex items-center space-x-2">
+                                        <div class="relative">
+                                            <div class="w-4 h-4 bg-white/20 rounded border border-white/30"></div>
+                                            <div class="absolute -top-1 -right-1 w-2 h-2 bg-pink-400 rounded-full"></div>
+                                        </div>
+                                        <div class="w-5 h-5 bg-white rounded-full"></div>
+                                    </div>
                                 </div>
-                                <!-- Dashboard content -->
+                                <!-- Stats cards row -->
+                                <div class="flex space-x-2 mb-3">
+                                    <div class="flex-1 bg-white/10 rounded p-2">
+                                        <div class="w-full h-2 bg-white rounded mb-1"></div>
+                                        <div class="w-2/3 h-1 bg-indigo-300 rounded"></div>
+                                    </div>
+                                    <div class="flex-1 bg-white/10 rounded p-2">
+                                        <div class="w-full h-2 bg-white rounded mb-1"></div>
+                                        <div class="w-2/3 h-1 bg-pink-300 rounded"></div>
+                                    </div>
+                                    <div class="flex-1 bg-white/10 rounded p-2">
+                                        <div class="w-full h-2 bg-white rounded mb-1"></div>
+                                        <div class="w-2/3 h-1 bg-purple-300 rounded"></div>
+                                    </div>
+                                </div>
+                                <!-- Main dashboard content -->
                                 <div class="flex-1 flex space-x-2">
-                                    <div class="flex-1 space-y-2">
-                                        <div class="h-3 bg-white rounded opacity-80"></div>
-                                        <div class="h-2 bg-pink-300 rounded"></div>
-                                        <div class="h-2 bg-purple-300 rounded"></div>
-                                        <div class="flex space-x-2">
-                                            <div class="flex-1 h-4 bg-white rounded opacity-60"></div>
-                                            <div class="flex-1 h-4 bg-indigo-300 rounded"></div>
+                                    <div class="flex-1 bg-white/10 rounded p-2">
+                                        <div class="w-full h-2 bg-white rounded mb-2"></div>
+                                        <!-- Chart representation -->
+                                        <div class="flex items-end space-x-1 h-8">
+                                            <div class="w-1 h-3 bg-indigo-300 rounded"></div>
+                                            <div class="w-1 h-5 bg-purple-300 rounded"></div>
+                                            <div class="w-1 h-2 bg-pink-300 rounded"></div>
+                                            <div class="w-1 h-6 bg-indigo-300 rounded"></div>
+                                            <div class="w-1 h-4 bg-purple-300 rounded"></div>
                                         </div>
                                     </div>
-                                    <div class="w-12 space-y-2">
-                                        <div class="h-6 bg-white rounded opacity-70"></div>
-                                        <div class="h-3 bg-pink-300 rounded"></div>
-                                        <div class="h-2 bg-purple-300 rounded"></div>
+                                    <div class="w-12 space-y-1">
+                                        <div class="h-4 bg-white/10 rounded"></div>
+                                        <div class="h-4 bg-white/10 rounded"></div>
+                                        <div class="h-4 bg-white/10 rounded"></div>
                                     </div>
                                 </div>
                             </div>
@@ -821,37 +1346,44 @@
                         <div class="absolute top-1/2 -left-12 w-5 h-5 bg-purple-500 transform rotate-45 opacity-35 animate-wiggle" style="animation-delay: 4.5s; box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);"></div>
                         
                         <div class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10">
-                            <div class="w-full h-48 bg-black rounded-lg mb-4 p-4 flex flex-col relative overflow-hidden">
+                            <div class="design-preview w-full h-48 bg-black rounded-lg mb-4 p-3 flex flex-col relative overflow-hidden">
                                 <!-- Animated background elements -->
                                 <div class="absolute inset-0">
-                                    <div class="absolute top-4 left-4 w-4 h-4 bg-cyan-400 rounded-full animate-pulse"></div>
-                                    <div class="absolute top-6 right-6 w-3 h-3 bg-pink-400 rounded-full animate-bounce"></div>
-                                    <div class="absolute bottom-6 left-8 w-2 h-2 bg-yellow-400 rounded-full animate-ping"></div>
-                                    <div class="absolute bottom-4 right-4 w-6 h-2 bg-gradient-to-r from-purple-400 to-pink-400 rounded animate-pulse"></div>
+                                    <div class="absolute top-3 left-3 w-3 h-3 bg-cyan-400 rounded-full animate-pulse opacity-60"></div>
+                                    <div class="absolute top-4 right-4 w-2 h-2 bg-pink-400 rounded-full animate-bounce opacity-70"></div>
+                                    <div class="absolute bottom-4 left-6 w-1 h-1 bg-yellow-400 rounded-full animate-ping opacity-80"></div>
+                                    <div class="absolute bottom-3 right-3 w-4 h-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded animate-pulse opacity-50"></div>
+                                    <div class="absolute top-1/2 left-1/4 w-2 h-6 bg-cyan-300 rounded-full opacity-30 animate-pulse transform rotate-45"></div>
                                 </div>
                                 <!-- Futuristic header -->
-                                <div class="relative z-10 flex justify-between items-center mb-4">
+                                <div class="relative z-10 flex justify-between items-center mb-3">
                                     <div class="flex items-center space-x-2">
-                                        <div class="w-3 h-3 bg-cyan-400 rounded-full animate-pulse"></div>
-                                        <div class="w-12 h-2 bg-gradient-to-r from-cyan-400 to-purple-400 rounded"></div>
+                                        <div class="w-4 h-4 bg-gradient-to-br from-cyan-400 to-purple-400 rounded-full animate-pulse"></div>
+                                        <div class="w-14 h-2 bg-gradient-to-r from-cyan-400 to-purple-400 rounded transform skew-x-12"></div>
                                     </div>
                                     <div class="flex space-x-1">
-                                        <div class="w-2 h-6 bg-pink-400 rounded-full"></div>
-                                        <div class="w-2 h-4 bg-cyan-400 rounded-full"></div>
-                                        <div class="w-2 h-7 bg-yellow-400 rounded-full"></div>
+                                        <div class="w-1 h-4 bg-pink-400 rounded-full transform rotate-12"></div>
+                                        <div class="w-1 h-3 bg-cyan-400 rounded-full transform -rotate-12"></div>
+                                        <div class="w-1 h-5 bg-yellow-400 rounded-full"></div>
                                     </div>
                                 </div>
-                                <!-- Experimental layout -->
-                                <div class="relative z-10 flex-1 flex">
-                                    <div class="flex-1 space-y-2">
-                                        <div class="h-3 bg-gradient-to-r from-purple-400 to-pink-400 rounded transform -skew-x-12"></div>
-                                        <div class="h-2 bg-cyan-400 rounded w-2/3"></div>
-                                        <div class="flex space-x-2">
-                                            <div class="w-4 h-4 bg-yellow-400 rounded-full"></div>
-                                            <div class="flex-1 h-2 bg-gradient-to-r from-pink-400 to-purple-400 rounded mt-1"></div>
-                                        </div>
+                                <!-- Experimental hero section -->
+                                <div class="relative z-10 flex-1 flex flex-col justify-center items-center mb-3">
+                                    <div class="w-24 h-3 bg-gradient-to-r from-purple-400 to-pink-400 rounded transform -skew-x-6 mb-2"></div>
+                                    <div class="w-16 h-2 bg-cyan-400 rounded transform skew-x-3 mb-3"></div>
+                                    <div class="w-12 h-4 bg-gradient-to-r from-yellow-400 to-pink-400 rounded-full"></div>
+                                </div>
+                                <!-- Experimental interface elements -->
+                                <div class="relative z-10 flex justify-between items-end">
+                                    <div class="flex space-x-1">
+                                        <div class="w-3 h-6 bg-cyan-400 rounded transform rotate-12"></div>
+                                        <div class="w-3 h-4 bg-pink-400 rounded transform -rotate-6"></div>
+                                        <div class="w-3 h-8 bg-purple-400 rounded transform rotate-3"></div>
                                     </div>
-                                    <div class="w-8 h-full bg-gradient-to-b from-cyan-400 via-purple-400 to-pink-400 rounded-full ml-4 transform rotate-12"></div>
+                                    <div class="flex space-x-2">
+                                        <div class="w-6 h-6 bg-gradient-to-br from-yellow-400 to-pink-400 rounded-full transform rotate-45"></div>
+                                        <div class="w-4 h-4 bg-cyan-400 rounded transform -rotate-45"></div>
+                                    </div>
                                 </div>
                             </div>
                             <h3 class="text-lg font-semibold mb-2 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Ultra-Unique Experience</h3>
@@ -954,10 +1486,10 @@
                                     <span class="text-sm font-medium text-black">Instagram</span>
                                 </a>
                                 <a href="https://www.linkedin.com/in/hanukeyser/" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 rounded-lg px-4 py-2 hover:opacity-80 transition-colors touch-manipulation" style="background-color: #326da9;">
-                                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                                     </svg>
-                                    <span class="text-sm font-medium text-white">LinkedIn</span>
+                                    <span class="text-sm font-medium text-black">LinkedIn</span>
                                 </a>
                             </div>
                         </div>
@@ -990,6 +1522,59 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
+        </div>
+    </div>
+
+    <!-- Story Modal -->
+    <div id="storyModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" id="closeStoryModal">
+                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-2" style="color: #326da9;">Our Story</h3>
+                <p class="text-gray-600">The journey of digital rebellion</p>
+            </div>
+
+            <div class="space-y-4 text-gray-700 leading-relaxed">
+                <p>
+                    Born from a passion for digital rebellion, Hanu Studio is a one-person company on a mission to shake up the boring world of web design. We believe every brand deserves to stand out, not blend in with the crowd.
+                </p>
+                
+                <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0">
+                            <svg class="w-5 h-5 text-blue-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div class="ml-3">
+                            <h4 class="text-lg font-semibold text-blue-800 mb-2">Important Note</h4>
+                            <p class="text-blue-700">
+                                <strong>Hanu Studio operates as a part-time business.</strong> This means we take on a limited number of projects to ensure each client receives our full attention and highest quality work.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+
+                
+                <div class="bg-gray-50 p-4 rounded-lg border">
+                    <div class="text-center">
+                        <p class="text-sm font-medium text-gray-600 mb-1">Established 2025</p>
+                        <p class="text-sm text-gray-500">South Africa • Part-Time Studio</p>
+                        <p class="text-xs text-gray-400 mt-2 italic">"Quality over quantity is our motto!"</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -1150,13 +1735,15 @@ Message: ${formData.message}
         const declineCookies = document.getElementById('declineCookies');
         const closeCookies = document.getElementById('closeCookies');
 
-        // Show cookie notification after 2 seconds if not already accepted/declined
-        setTimeout(() => {
-            if (!localStorage.getItem('cookiePreference')) {
-                cookieNotification.classList.remove('translate-y-full', 'opacity-0');
-                cookieNotification.classList.add('translate-y-0', 'opacity-100');
-            }
-        }, 2000);
+        // Show cookie notification after page load if not already accepted/declined
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                if (!localStorage.getItem('cookiePreference')) {
+                    cookieNotification.classList.remove('translate-y-full', 'opacity-0');
+                    cookieNotification.classList.add('translate-y-0', 'opacity-100');
+                }
+            }, 1500);
+        });
 
         function hideCookieNotification() {
             cookieNotification.classList.remove('translate-y-0', 'opacity-100');
@@ -1178,6 +1765,37 @@ Message: ${formData.message}
         });
 
 
+
+        // Story Modal functionality
+        const storyModal = document.getElementById('storyModal');
+        const closeStoryModal = document.getElementById('closeStoryModal');
+        const storyCard = document.getElementById('storyCard');
+
+        // Open story modal
+        storyCard.addEventListener('click', function() {
+            storyModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Close story modal
+        function closeStoryModalFunc() {
+            storyModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        closeStoryModal.addEventListener('click', closeStoryModalFunc);
+        
+        storyModal.addEventListener('click', function(e) {
+            if (e.target === storyModal) {
+                closeStoryModalFunc();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && storyModal.classList.contains('active')) {
+                closeStoryModalFunc();
+            }
+        });
 
         // Service Modal functionality
         const serviceModal = document.getElementById('serviceModal');
@@ -1302,17 +1920,83 @@ This inquiry was submitted through the Hanu Studio website service modal.
             closeServiceModal();
         });
 
+        // Theme Toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+        const sunIcon = document.getElementById('sunIcon');
+        const moonIcon = document.getElementById('moonIcon');
+        const mobileSunIcon = document.getElementById('mobileSunIcon');
+        const mobileMoonIcon = document.getElementById('mobileMoonIcon');
+        const mobileThemeText = document.getElementById('mobileThemeText');
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        
+        // Apply theme on page load and update icons
+        if (currentTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+            updateThemeIcons(true);
+        } else {
+            updateThemeIcons(false);
+        }
+
+        function updateThemeIcons(isDark) {
+            if (isDark) {
+                // Show moon icons (dark mode active)
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+                mobileSunIcon.classList.add('hidden');
+                mobileMoonIcon.classList.remove('hidden');
+                mobileThemeText.textContent = 'Dark Mode';
+            } else {
+                // Show sun icons (light mode active)
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+                mobileSunIcon.classList.remove('hidden');
+                mobileMoonIcon.classList.add('hidden');
+                mobileThemeText.textContent = 'Light Mode';
+            }
+        }
+
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.contains('dark');
+            if (isDark) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                updateThemeIcons(false);
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                updateThemeIcons(true);
+            }
+        }
+
+        // Desktop theme toggle event
+        themeToggle.addEventListener('click', toggleTheme);
+
+        // Mobile theme toggle event
+        mobileThemeToggle.addEventListener('click', function() {
+            toggleTheme();
+            closeMobileMenu();
+        });
+
         // Back to Top Button functionality
         const backToTopBtn = document.getElementById('backToTop');
 
-        // Show/hide button based on scroll position
+        // Throttle scroll events for better performance
+        let scrollTimeout;
         window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
             }
-        });
+            scrollTimeout = setTimeout(() => {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            }, 10);
+        }, { passive: true });
 
         // Smooth scroll to top when clicked
         backToTopBtn.addEventListener('click', function() {
@@ -1322,5 +2006,5 @@ This inquiry was submitted through the Hanu Studio website service modal.
             });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'961a31e287a473de',t:'MTc1MjkyNzg1Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'962139e0a21173de',t:'MTc1MzAwMTU4NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
