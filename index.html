@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hanu Studio</title>
+	
+	<!-- Favicon -->
     <link rel="icon" href="Hanu Tab Icon Top & Bottom.png" type="image/png">
+	
+	<!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+	
     <style>
         html { 
             scroll-behavior: smooth; 
@@ -20,15 +25,6 @@
         /* CSS containment for better performance */
         .card {
             contain: layout style paint;
-        }
-
-        /* GPU acceleration for animations */
-        .animate-float,
-        .animate-pulse-slow,
-        .animate-bounce-slow,
-        .animate-wiggle {
-            will-change: transform;
-            transform: translateZ(0);
         }
 
         /* Custom Scrollbar Styling */
@@ -61,257 +57,62 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #f8fafc;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        /* Dark Mode Styles */
-        .dark {
-            background: #0f172a;
-            color: #e2e8f0;
-        }
-
-        .dark .card {
-            background: #1e293b;
-            border: 1px solid #334155;
-        }
-
-        .dark header {
-            background: rgba(15, 23, 42, 0.8);
-            border-color: rgba(51, 65, 85, 0.3);
-        }
-
-        .dark footer {
-            background: rgba(15, 23, 42, 0.8);
-            border-color: rgba(51, 65, 85, 0.3);
-        }
-
-        .dark #mobileMenu {
-            background: rgba(15, 23, 42, 0.9);
-            border-color: rgba(51, 65, 85, 0.3);
-        }
-
-        .dark .bg-gray-50 {
-            background: #1e293b !important;
-        }
-
-        .dark .bg-white {
-            background: #1e293b !important;
-        }
-
-        .dark .text-black {
-            color: #94a3b8 !important;
-        }
-
-        .dark .text-gray-700 {
-            color: #cbd5e1 !important;
-        }
-
-        .dark .text-gray-800 {
-            color: #e2e8f0 !important;
-        }
-
-        .dark .text-black {
-            color: #e2e8f0 !important;
-        }
-
-        .dark .border-gray-300 {
-            border-color: #475569 !important;
-        }
-
-        .dark .border-gray-200 {
-            border-color: #374151 !important;
-        }
-
-        .dark .border-gray-100 {
-            border-color: #374151 !important;
-        }
-
-        .dark input, .dark textarea {
-            background: #334155 !important;
-            color: #e2e8f0 !important;
-            border-color: #475569 !important;
-        }
-
-        .dark input::placeholder, .dark textarea::placeholder {
-            color: #94a3b8 !important;
-        }
-
-        .dark input:focus, .dark textarea:focus {
-            background: #475569 !important;
-            border-color: #3b82f6 !important;
-        }
-
-        /* Dark mode service cards */
-        .dark .group-hover\:bg-gradient-to-br {
-            background: linear-gradient(to bottom right, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9)) !important;
-        }
-
-        .dark .bg-blue-100 {
-            background: #1e3a8a !important;
-        }
-
-        .dark .bg-red-100 {
-            background: #7f1d1d !important;
-        }
-
-        .dark .bg-yellow-100 {
-            background: #78350f !important;
-        }
-
-        .dark .bg-purple-100 {
-            background: #581c87 !important;
-        }
-
-        .dark .bg-green-100 {
-            background: #14532d !important;
-        }
-
-
-
-
-
-        /* Dark mode scrollbar */
-        .dark ::-webkit-scrollbar-track {
-            background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
-        }
-
-        .dark ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #336da9 0%, #1f9dd1 50%, #336da9 100%);
-            border-color: #0f172a;
-        }
-
-        .dark ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%);
-        }
-
-        .dark html {
-            scrollbar-color: #336da9 #0f172a;
-        }
-
-        /* Dark mode modal */
-        .dark .modal-content {
-            background: rgba(30, 41, 59, 0.95);
-            border-color: rgba(71, 85, 105, 0.3);
-        }
-
-        .dark .modal-close {
-            background: rgba(30, 41, 59, 0.8);
-            border-color: rgba(71, 85, 105, 0.3);
-        }
-
-        .dark .modal-close:hover {
-            background: rgba(30, 41, 59, 1);
-        }
-
-        /* Dark mode cookie notification */
-        .dark #cookieNotification {
-            background: #1e293b;
-            border-color: #475569;
-        }
-
-        /* Dark mode back to top */
-        .dark .back-to-top {
-            background: rgba(30, 41, 59, 0.9);
-            border-color: rgba(71, 85, 105, 0.3);
-        }
-
-        .dark .back-to-top:hover {
-            background: rgba(30, 41, 59, 1);
-        }
-
-        /* Dark mode social media links */
-        .dark a[href*="instagram"] {
-            background: #fed121 !important;
-        }
-
-        .dark a[href*="linkedin"] {
-            background: #326da9 !important;
-        }
-
-        .dark a[href*="instagram"] svg {
+        /* Light mode text colors */
+        h1, h2, h3, h4, h5, h6 {
             color: #000000 !important;
         }
 
-        .dark a[href*="instagram"] span {
-            color: #fed121 !important;
+        p {
+            color: #000000 !important;
         }
 
-        .dark a[href*="linkedin"] svg {
-            color: #ffffff !important;
+        span {
+            color: #000000 !important;
         }
 
-        .dark a[href*="linkedin"] span {
-            color: #326da9 !important;
+        li {
+            color: #000000 !important;
         }
 
-        /* Dark mode navigation */
-        .dark nav a:hover {
-            color: #1e9bd5 !important;
+        label {
+            color: #000000 !important;
         }
 
-        .dark #themeToggle {
-            color: #1e9bd5 !important;
+        /* Green color scheme additions */
+        .text-green-600 {
+            color: #16a34a !important;
         }
 
-        .dark #themeToggle:hover {
-            color: #7cd6ff !important;
+        .bg-green-600 {
+            background-color: #16a34a !important;
         }
 
-        .dark #mobileThemeToggle {
-            color: #1e9bd5 !important;
+        .border-green-400 {
+            border-color: #4ade80 !important;
         }
 
-        .dark #mobileThemeToggle:hover {
-            color: #7cd6ff !important;
+        .bg-green-400 {
+            background-color: #4ade80 !important;
         }
 
-        .dark #mobileMenu a {
-            color: #e2e8f0 !important;
+        .bg-green-100 {
+            background-color: #dcfce7 !important;
         }
 
-        .dark #mobileMenu a:hover {
-            color: #7cd6ff !important;
-        }
-
-        /* Dark mode form elements */
-        .dark label {
-            color: #e2e8f0 !important;
-        }
-
-        .dark a[href^="mailto"] {
-            color: #60a5fa !important;
-        }
-
-        .dark a[href^="mailto"]:hover {
-            color: #3b82f6 !important;
-        }
-
-        .dark .text-white {
-            color: #ffffff !important;
-        }
-
-        .dark .bg-gray-800 {
-            background: #1f2937 !important;
-        }
-
-        .dark .bg-gray-800:hover {
-            background: #111827 !important;
-        }
-
-        .dark .bg-gradient-to-r.from-purple-600.to-pink-600 {
-            background: linear-gradient(to right, #a855f7, #ec4899);
-            -webkit-background-clip: text;
-            background-clip: text;
-        }
-        
         .card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
         }
 
         .btn-primary {
@@ -338,52 +139,7 @@
             transition: all 0.1s ease;
         }
 
-        /* Animations */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-8px) rotate(1deg); }
-        }
-        
-        @keyframes pulse-slow {
-            0%, 100% { opacity: 0.7; }
-            50% { opacity: 1; }
-        }
-        
-        @keyframes bounce-slow {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
-        }
-        
-        @keyframes wiggle {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(1deg); }
-            75% { transform: rotate(-1deg); }
-        }
-        
-        .animate-float { animation: float 4s ease-in-out infinite; }
-        .animate-pulse-slow { animation: pulse-slow 3s ease-in-out infinite; }
-        .animate-bounce-slow { animation: bounce-slow 3s ease-in-out infinite; }
-        .animate-wiggle { animation: wiggle 2s ease-in-out infinite; }
 
-        /* Reduce animations on mobile for better performance */
-        @media (max-width: 768px) {
-            .animate-float,
-            .animate-pulse-slow,
-            .animate-bounce-slow,
-            .animate-wiggle {
-                animation-duration: 6s;
-            }
-        }
-
-        /* Final optimizations */
-        @media (prefers-reduced-motion: reduce) {
-            .animate-float,
-            .animate-pulse-slow,
-            .animate-bounce-slow,
-            .animate-wiggle {
-                animation: none;
-            }
-        }
 
         /* Modal Styles */
         .modal-overlay {
@@ -410,11 +166,11 @@
         }
 
         .modal-content {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 20px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
             padding: 2rem;
             width: 100%;
             max-width: 500px;
@@ -443,8 +199,9 @@
             width: 44px;
             height: 44px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.8);
-            border: 1px solid rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -455,7 +212,7 @@
         }
 
         .modal-close:hover {
-            background: rgba(255, 255, 255, 1);
+            background: rgba(255, 255, 255, 0.2);
             transform: scale(1.05);
         }
 
@@ -494,9 +251,10 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -514,13 +272,301 @@
         }
 
         .back-to-top:hover {
-            background: rgba(255, 255, 255, 1);
+            background: rgba(255, 255, 255, 0.2);
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
         }
 
         .back-to-top:active {
             transform: scale(0.95);
+        }
+
+        /* Paint splash animations */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(var(--rotation, 0deg));
+            }
+            50% {
+                transform: translateY(-10px) rotate(var(--rotation, 0deg));
+            }
+        }
+
+        @keyframes float-delayed {
+            0%, 100% {
+                transform: translateY(0px) rotate(var(--rotation, 0deg));
+            }
+            50% {
+                transform: translateY(-15px) rotate(var(--rotation, 0deg));
+            }
+        }
+
+        @keyframes pulse-slow {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-float-delayed {
+            animation: float-delayed 8s ease-in-out infinite;
+            animation-delay: -2s;
+        }
+
+        .animate-pulse-slow {
+            animation: pulse-slow 4s ease-in-out infinite;
+        }
+
+        /* Portfolio Card Themes */
+        
+        /* Bakery Card Styles */
+        .bakery-light {
+            background: linear-gradient(to bottom right, #fff7ed, #fef3c7) !important;
+        }
+        
+        .bakery-dark {
+            background: linear-gradient(to bottom right, #451a03, #78350f) !important;
+        }
+        
+        .bakery-light .browser-bar {
+            background: #e5e7eb;
+        }
+        
+        .bakery-dark .browser-bar {
+            background: #374151;
+        }
+        
+        .bakery-light .theme-toggle-btn {
+            background: #f3f4f6;
+            color: #374151;
+        }
+        
+        .bakery-dark .theme-toggle-btn {
+            background: #4b5563;
+            color: #f9fafb;
+        }
+        
+        .bakery-light .bakery-text-primary {
+            color: #ea580c;
+        }
+        
+        .bakery-dark .bakery-text-primary {
+            color: #fed7aa;
+        }
+        
+        .bakery-light .bakery-text-secondary {
+            color: #6b7280;
+        }
+        
+        .bakery-dark .bakery-text-secondary {
+            color: #d1d5db;
+        }
+        
+        .bakery-light .bakery-product-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .bakery-dark .bakery-product-card {
+            background: #1f2937;
+            border: 1px solid #374151;
+        }
+        
+        /* Finance Card Styles */
+        .finance-light {
+            background: linear-gradient(to bottom right, #eff6ff, #f1f5f9) !important;
+        }
+        
+        .finance-dark {
+            background: linear-gradient(to bottom right, #0c1426, #1e293b) !important;
+        }
+        
+        .finance-light .browser-bar {
+            background: #e5e7eb;
+        }
+        
+        .finance-dark .browser-bar {
+            background: #374151;
+        }
+        
+        .finance-light .theme-toggle-btn {
+            background: #f3f4f6;
+            color: #374151;
+        }
+        
+        .finance-dark .theme-toggle-btn {
+            background: #4b5563;
+            color: #f9fafb;
+        }
+        
+        .finance-light .finance-text-primary {
+            color: #1e40af;
+        }
+        
+        .finance-dark .finance-text-primary {
+            color: #93c5fd;
+        }
+        
+        .finance-light .finance-text-secondary {
+            color: #6b7280;
+        }
+        
+        .finance-dark .finance-text-secondary {
+            color: #d1d5db;
+        }
+        
+        .finance-light .finance-border {
+            border-color: #e5e7eb;
+        }
+        
+        .finance-dark .finance-border {
+            border-color: #374151;
+        }
+        
+        .finance-light .finance-service-card {
+            background: #ffffff;
+        }
+        
+        .finance-dark .finance-service-card {
+            background: #1f2937;
+        }
+        
+        /* E-commerce Card Styles */
+        .ecommerce-light {
+            background: linear-gradient(to bottom right, #fdf4ff, #fce7f3) !important;
+        }
+        
+        .ecommerce-dark {
+            background: linear-gradient(to bottom right, #2d1b69, #581c87) !important;
+        }
+        
+        .ecommerce-light .browser-bar {
+            background: #e5e7eb;
+        }
+        
+        .ecommerce-dark .browser-bar {
+            background: #374151;
+        }
+        
+        .ecommerce-light .theme-toggle-btn {
+            background: #f3f4f6;
+            color: #374151;
+        }
+        
+        .ecommerce-dark .theme-toggle-btn {
+            background: #4b5563;
+            color: #f9fafb;
+        }
+        
+        .ecommerce-light .ecommerce-text-primary {
+            color: #7c3aed;
+        }
+        
+        .ecommerce-dark .ecommerce-text-primary {
+            color: #c4b5fd;
+        }
+        
+        .ecommerce-light .ecommerce-text-secondary {
+            color: #6b7280;
+        }
+        
+        .ecommerce-dark .ecommerce-text-secondary {
+            color: #d1d5db;
+        }
+        
+        .ecommerce-light .ecommerce-search-bar {
+            background: #ffffff;
+            color: #6b7280;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .ecommerce-dark .ecommerce-search-bar {
+            background: #1f2937;
+            color: #d1d5db;
+            border: 1px solid #374151;
+        }
+        
+        .ecommerce-light .ecommerce-product-card {
+            background: #ffffff;
+        }
+        
+        .ecommerce-dark .ecommerce-product-card {
+            background: #1f2937;
+        }
+        
+        /* Creative Card Styles */
+        .creative-light {
+            background: linear-gradient(to bottom right, #f9fafb, #e5e7eb) !important;
+        }
+        
+        .creative-dark {
+            background: linear-gradient(to bottom right, #111827, #000000) !important;
+        }
+        
+        .creative-light .browser-bar {
+            background: #e5e7eb;
+        }
+        
+        .creative-dark .browser-bar {
+            background: #374151;
+        }
+        
+        .creative-light .theme-toggle-btn {
+            background: #f3f4f6;
+            color: #374151;
+        }
+        
+        .creative-dark .theme-toggle-btn {
+            background: #4b5563;
+            color: #f9fafb;
+        }
+        
+        .creative-light .creative-text-primary {
+            color: #111827 !important;
+        }
+        
+        .creative-dark .creative-text-primary {
+            color: #ffffff !important;
+        }
+        
+        .creative-light .creative-text-secondary {
+            color: #6b7280 !important;
+        }
+        
+        .creative-dark .creative-text-secondary {
+            color: #d1d5db !important;
+        }
+        
+        /* Creative card special text colors */
+        .creative-light .creative-alex {
+            color: #7c3aed !important;
+        }
+        
+        .creative-dark .creative-alex {
+            color: #a78bfa !important;
+        }
+        
+        .creative-light .creative-storyteller {
+            color: #dc2626 !important;
+        }
+        
+        .creative-dark .creative-storyteller {
+            color: #f87171 !important;
+        }
+
+        /* Scrollbar hiding */
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
         }
 
         /* Touch-friendly interactions */
@@ -557,26 +603,18 @@
 </head>
 <body class="bg-white min-h-screen">
     <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 text-black shadow-lg backdrop-blur-md border-b border-blue-200/30 bg-blue-100/60">
+    <header class="fixed top-0 left-0 right-0 z-50 text-black shadow-lg backdrop-blur-md border-b border-white/20 bg-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16 sm:h-18 lg:h-20">
             <img src="Company Logo.png" alt="Hanu Logo" class="h-10 sm:h-12 md:h-14 w-auto" loading="eager" decoding="async">
-            
+
             <!-- Desktop Navigation -->
             <nav class="hidden md:flex items-center space-x-6 ml-auto">
-                <a href="#about" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-110" style="color: #1e9bd5;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">About Us</a>
-                <a href="#services" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-110" style="color: #1e9bd5;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Our Services</a>
-                <a href="#portfolio" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-110" style="color: #1e9bd5;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Portfolio</a>
-                <a href="#pricing" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-110" style="color: #1e9bd5;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Client Plans</a>
-                <a href="#contact" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-110" style="color: #1e9bd5;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Contact Us</a>
-                <!-- Theme Toggle Button -->
-                <button id="themeToggle" class="p-2 rounded-lg transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center" style="color: #1e9bd5;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">
-                    <svg id="sunIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                    </svg>
-                    <svg id="moonIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-                    </svg>
-                </button>
+                <a href="#home" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-105" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Home</a>
+                <a href="#about" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-105" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">About Us</a>
+                <a href="#services" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-105" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Our Services</a>
+                <a href="#portfolio" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-105" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Portfolio</a>
+                <a href="#pricing" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-105" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Client Plans</a>
+                <a href="#contact" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-105" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Contact Us</a>
             </nav>
 
             <!-- Mobile Menu Button -->
@@ -589,124 +627,225 @@
                 </svg>
             </button>
         </div>
-        
+
         <!-- Mobile Navigation -->
-        <div id="mobileMenu" class="md:hidden border-t border-blue-200/30 shadow-lg transform translate-y-0 opacity-0 scale-y-0 origin-top transition-all duration-300 ease-in-out overflow-hidden max-h-0 backdrop-blur-md bg-blue-100/60">
-            <div class="px-4 py-2 space-y-1">
-                <a href="#about" class="block py-2 px-3 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-sm lg:text-base rounded-lg min-h-[40px] flex items-center" style="color: #1e9bd5;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">About Us</a>
-                <a href="#services" class="block py-2 px-3 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-sm lg:text-base rounded-lg min-h-[40px] flex items-center" style="color: #1e9bd5;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Our Services</a>
-                <a href="#portfolio" class="block py-2 px-3 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-sm lg:text-base rounded-lg min-h-[40px] flex items-center" style="color: #1e9bd5;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Portfolio</a>
-                <a href="#pricing" class="block py-2 px-3 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-sm lg:text-base rounded-lg min-h-[40px] flex items-center" style="color: #1e9bd5;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Client Plans</a>
-                <a href="#contact" class="block py-2 px-3 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-sm lg:text-base rounded-lg min-h-[40px] flex items-center" style="color: #1e9bd5;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Contact Us</a>
-                
-                <!-- Mobile Theme Options -->
-                <div class="border-t border-blue-200/30 pt-2 mt-2 space-y-1">
-                    <div class="px-3 py-1">
-                        <span class="text-xs font-medium text-gray-500 uppercase tracking-wide">Theme</span>
-                    </div>
-                    <button id="mobileThemeToggle" class="flex items-center w-full py-2 px-3 hover:scale-105 transition-all duration-300 font-medium text-base rounded-lg min-h-[40px]" style="color: #1e9bd5;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">
-                        <svg id="mobileSunIcon" class="w-5 h-5 mr-3 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                        </svg>
-                        <svg id="mobileMoonIcon" class="w-5 h-5 mr-3 text-blue-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-                        </svg>
-                        <span id="mobileThemeText">Light Mode</span>
-                    </button>
-                </div>
+        <div id="mobileMenu" class="md:hidden border-t border-white/20 shadow-lg transform translate-y-0 opacity-0 scale-y-0 origin-top transition-all duration-300 ease-in-out overflow-hidden max-h-0 backdrop-blur-md bg-white/10">
+            <div class="px-4 py-4 flex flex-col items-center space-y-2">
+                <a href="#home" class="py-3 px-4 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-base rounded-lg min-h-[44px] flex items-center justify-center w-full max-w-xs text-center" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Home</a>
+                <a href="#about" class="py-3 px-4 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-base rounded-lg min-h-[44px] flex items-center justify-center w-full max-w-xs text-center" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">About Us</a>
+                <a href="#services" class="py-3 px-4 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-base rounded-lg min-h-[44px] flex items-center justify-center w-full max-w-xs text-center" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Our Services</a>
+                <a href="#portfolio" class="py-3 px-4 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-base rounded-lg min-h-[44px] flex items-center justify-center w-full max-w-xs text-center" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Portfolio</a>
+                <a href="#pricing" class="py-3 px-4 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-base rounded-lg min-h-[44px] flex items-center justify-center w-full max-w-xs text-center" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Client Plans</a>
+                <a href="#contact" class="py-3 px-4 hover:scale-105 hover:bg-white/10 transition-all duration-300 font-medium text-base rounded-lg min-h-[44px] flex items-center justify-center w-full max-w-xs text-center" style="color: #326da9;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#326da9'">Contact Us</a>
             </div>
         </div>
     </header>
 
-    <!-- Paint Splats -->
-    <div class="fixed inset-0 pointer-events-none z-10 overflow-hidden">
-        <!-- Paint Splat 1 - Top Left -->
-        <svg class="absolute -top-10 -left-10 w-32 h-32 opacity-80 animate-float" viewBox="0 0 100 100" fill="#326da9" style="animation-delay: 0s;">
-            <path d="M50,10 C60,15 70,25 75,35 C80,45 75,55 70,60 C65,65 55,70 45,65 C35,60 25,50 20,40 C15,30 20,20 30,15 C40,10 50,10 50,10 Z"/>
-        </svg>
-
-        <!-- Paint Splat 2 - Top Right -->
-        <svg class="absolute top-20 right-10 w-24 h-24 opacity-85 animate-pulse-slow" viewBox="0 0 100 100" fill="#fed121" style="animation-delay: 1s;">
-            <path d="M45,20 C55,18 65,22 70,30 C75,38 72,48 65,55 C58,62 48,65 38,62 C28,59 20,52 18,42 C16,32 22,22 32,20 C42,18 45,20 45,20 Z"/>
-        </svg>
-
-        <!-- Paint Splat 3 - Middle Left -->
-        <svg class="absolute top-1/2 -left-5 w-28 h-28 opacity-75 animate-bounce-slow" viewBox="0 0 100 100" fill="#ec343e" style="animation-delay: 2s;">
-            <path d="M30,25 C40,20 50,25 58,32 C66,39 70,49 65,58 C60,67 50,72 40,70 C30,68 22,60 20,50 C18,40 25,30 30,25 Z"/>
-        </svg>
-
-        <!-- Paint Splat 4 - Middle Right -->
-        <svg class="absolute top-1/3 right-5 w-20 h-20 opacity-80 animate-float" viewBox="0 0 100 100" fill="#1e9bd5" style="animation-delay: 3s;">
-            <path d="M40,30 C50,28 60,32 65,40 C70,48 68,58 60,65 C52,72 42,70 35,62 C28,54 30,44 35,36 C40,28 40,30 40,30 Z"/>
-        </svg>
-
-        <!-- Paint Splat 5 - Bottom Left -->
-        <svg class="absolute bottom-32 left-20 w-36 h-36 opacity-70 animate-wiggle" viewBox="0 0 100 100" fill="#7cd6ff" style="animation-delay: 4s;">
-            <path d="M25,35 C35,30 45,35 53,42 C61,49 65,59 60,68 C55,77 45,80 35,75 C25,70 18,60 20,50 C22,40 25,35 25,35 Z"/>
-        </svg>
-
-        <!-- Paint Splat 6 - Bottom Right -->
-        <svg class="absolute bottom-20 right-32 w-26 h-26 opacity-90 animate-pulse-slow" viewBox="0 0 100 100" fill="#fae4a0" style="animation-delay: 5s;">
-            <path d="M35,25 C45,22 55,28 62,36 C69,44 70,54 65,62 C60,70 50,72 40,68 C30,64 25,54 28,44 C31,34 35,25 35,25 Z"/>
-        </svg>
-
-        <!-- Paint Splat 7 - Center -->
-        <svg class="absolute top-2/3 left-1/2 transform -translate-x-1/2 w-22 h-22 opacity-65 animate-bounce-slow" viewBox="0 0 100 100" fill="#ff6f76" style="animation-delay: 6s;">
-            <path d="M42,28 C52,26 62,30 67,38 C72,46 70,56 62,63 C54,70 44,68 37,60 C30,52 32,42 37,34 C42,26 42,28 42,28 Z"/>
-        </svg>
-
-        <!-- Paint Splat 8 - Top Center -->
-        <svg class="absolute top-5 left-1/3 w-30 h-30 opacity-75 animate-float" viewBox="0 0 100 100" fill="#1e9bd5" style="animation-delay: 7s;">
-            <path d="M38,22 C48,20 58,24 63,32 C68,40 66,50 58,57 C50,64 40,62 33,54 C26,46 28,36 33,28 C38,20 38,22 38,22 Z"/>
-        </svg>
-
-        <!-- Paint Splat 9 - Middle Center -->
-        <svg class="absolute top-1/2 left-1/4 w-24 h-24 opacity-70 animate-wiggle" viewBox="0 0 100 100" fill="#fed121" style="animation-delay: 8s;">
-            <path d="M35,30 C45,25 55,30 62,37 C69,44 72,54 67,63 C62,72 52,75 42,70 C32,65 28,55 30,45 C32,35 35,30 35,30 Z"/>
-        </svg>
-
-        <!-- Paint Splat 10 - Bottom Center -->
-        <svg class="absolute bottom-10 right-1/4 w-28 h-28 opacity-85 animate-pulse-slow" viewBox="0 0 100 100" fill="#ec343e" style="animation-delay: 9s;">
-            <path d="M40,25 C50,23 60,27 65,35 C70,43 68,53 60,60 C52,67 42,65 35,57 C28,49 30,39 35,31 C40,23 40,25 40,25 Z"/>
-        </svg>
+    <!-- Paint Splashes Background -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <!-- Paint Splash 1 - Top Left -->
+        <div class="absolute -top-10 -left-10 w-32 h-32 opacity-20 animate-float">
+            <svg viewBox="0 0 100 100" class="w-full h-full animate-pulse-slow">
+                <path d="M20,50 Q30,20 50,30 Q70,10 80,40 Q90,60 70,70 Q50,80 40,60 Q20,70 20,50 Z" fill="#1e9bd5"/>
+            </svg>
+        </div>
+        
+        <!-- Paint Splash 2 - Top Right -->
+        <div class="absolute top-20 right-10 w-24 h-24 opacity-15 transform rotate-45 animate-float-delayed">
+            <svg viewBox="0 0 100 100" class="w-full h-full animate-pulse-slow">
+                <path d="M30,40 Q40,20 60,35 Q80,25 85,50 Q75,75 55,65 Q35,80 25,55 Q30,40 30,40 Z" fill="#ec343e"/>
+            </svg>
+        </div>
+        
+        <!-- Paint Splash 3 - Left Side -->
+        <div class="absolute top-1/4 -left-5 w-28 h-28 opacity-25 transform -rotate-12 animate-float">
+            <svg viewBox="0 0 100 100" class="w-full h-full animate-pulse-slow">
+                <path d="M25,45 Q35,25 55,35 Q75,20 85,45 Q80,70 60,65 Q40,75 30,55 Q25,45 25,45 Z" fill="#fed121"/>
+            </svg>
+        </div>
+        
+        <!-- Paint Splash 4 - Center Top -->
+        <div class="absolute top-32 left-1/2 transform -translate-x-1/2 w-20 h-20 opacity-20 animate-float-delayed">
+            <svg viewBox="0 0 100 100" class="w-full h-full animate-pulse-slow">
+                <path d="M35,50 Q45,30 65,40 Q85,35 80,55 Q70,75 50,70 Q30,65 35,50 Z" fill="#16a34a"/>
+            </svg>
+        </div>
+        
+        <!-- Paint Splash 5 - Right Side -->
+        <div class="absolute top-1/3 -right-8 w-36 h-36 opacity-15 transform rotate-90 animate-float">
+            <svg viewBox="0 0 100 100" class="w-full h-full animate-pulse-slow">
+                <path d="M20,55 Q30,25 55,40 Q80,20 90,50 Q85,80 60,75 Q35,85 25,60 Q20,55 20,55 Z" fill="#8b5cf6"/>
+            </svg>
+        </div>
+        
+        <!-- Paint Splash 6 - Center -->
+        <div class="absolute top-1/2 left-1/3 w-22 h-22 opacity-20 transform rotate-180 animate-float-delayed">
+            <svg viewBox="0 0 100 100" class="w-full h-full animate-pulse-slow">
+                <path d="M40,45 Q50,25 70,40 Q90,30 85,55 Q75,80 55,70 Q35,75 40,45 Z" fill="#1e9bd5"/>
+            </svg>
+        </div>
+        
+        <!-- Paint Splash 7 - Bottom Left -->
+        <div class="absolute bottom-32 left-16 w-30 h-30 opacity-25 transform -rotate-45 animate-float">
+            <svg viewBox="0 0 100 100" class="w-full h-full animate-pulse-slow">
+                <path d="M30,50 Q40,30 60,45 Q80,35 85,60 Q70,85 50,75 Q30,80 25,55 Q30,50 30,50 Z" fill="#ec343e"/>
+            </svg>
+        </div>
+        
+        <!-- Paint Splash 8 - Bottom Center -->
+        <div class="absolute bottom-20 left-1/2 transform -translate-x-1/2 w-26 h-26 opacity-20 animate-float-delayed">
+            <svg viewBox="0 0 100 100" class="w-full h-full animate-pulse-slow">
+                <path d="M35,40 Q45,20 65,35 Q85,25 90,50 Q80,75 60,70 Q40,80 30,55 Q35,40 35,40 Z" fill="#fed121"/>
+            </svg>
+        </div>
+        
+        <!-- Paint Splash 9 - Bottom Right -->
+        <div class="absolute bottom-40 -right-6 w-32 h-32 opacity-15 transform rotate-30 animate-float">
+            <svg viewBox="0 0 100 100" class="w-full h-full animate-pulse-slow">
+                <path d="M25,50 Q35,30 55,45 Q75,25 85,50 Q80,75 60,70 Q40,85 30,60 Q25,50 25,50 Z" fill="#16a34a"/>
+            </svg>
+        </div>
+        
+        <!-- Paint Splash 10 - Middle Left -->
+        <div class="absolute top-2/3 left-8 w-24 h-24 opacity-25 transform rotate-75 animate-float-delayed">
+            <svg viewBox="0 0 100 100" class="w-full h-full animate-pulse-slow">
+                <path d="M40,50 Q50,30 70,45 Q90,35 85,60 Q75,85 55,75 Q35,80 40,50 Z" fill="#8b5cf6"/>
+            </svg>
+        </div>
+        
+        <!-- Paint Splash 11 - Top Center Left -->
+        <div class="absolute top-16 left-1/4 w-18 h-18 opacity-20 transform rotate-120 animate-float">
+            <svg viewBox="0 0 100 100" class="w-full h-full animate-pulse-slow">
+                <path d="M30,45 Q40,25 60,40 Q80,30 85,55 Q70,80 50,70 Q30,75 30,45 Z" fill="#8b5cf6"/>
+            </svg>
+        </div>
+        
+        <!-- Paint Splash 12 - Top Center Right -->
+        <div class="absolute top-24 right-1/4 w-22 h-22 opacity-15 transform -rotate-30 animate-float-delayed">
+            <svg viewBox="0 0 100 100" class="w-full h-full animate-pulse-slow">
+                <path d="M35,50 Q45,30 65,45 Q85,35 80,60 Q65,85 45,75 Q25,80 35,50 Z" fill="#16a34a"/>
+            </svg>
+        </div>
+        
+        <!-- Paint Splash 13 - Middle Right -->
+        <div class="absolute top-1/2 right-12 w-20 h-20 opacity-20 transform rotate-60 animate-float">
+            <svg viewBox="0 0 100 100" class="w-full h-full animate-pulse-slow">
+                <path d="M40,40 Q50,20 70,35 Q90,25 85,50 Q75,75 55,65 Q35,70 40,40 Z" fill="#fed121"/>
+            </svg>
+        </div>
+        
+        <!-- Paint Splash 14 - Bottom Left Corner -->
+        <div class="absolute bottom-16 left-4 w-26 h-26 opacity-25 transform rotate-15 animate-float-delayed">
+            <svg viewBox="0 0 100 100" class="w-full h-full animate-pulse-slow">
+                <path d="M25,50 Q35,30 55,45 Q75,35 80,60 Q65,85 45,75 Q25,80 25,50 Z" fill="#1e9bd5"/>
+            </svg>
+        </div>
+        
+        <!-- Paint Splash 15 - Bottom Right Corner -->
+        <div class="absolute bottom-8 right-20 w-24 h-24 opacity-15 transform -rotate-60 animate-float">
+            <svg viewBox="0 0 100 100" class="w-full h-full animate-pulse-slow">
+                <path d="M30,45 Q40,25 60,40 Q80,30 85,55 Q70,80 50,70 Q30,75 30,45 Z" fill="#ec343e"/>
+            </svg>
+        </div>
+        
+        <!-- Paint Splash 16 - Center Left -->
+        <div class="absolute top-2/5 left-16 w-16 h-16 opacity-20 transform rotate-135 animate-float-delayed">
+            <svg viewBox="0 0 100 100" class="w-full h-full animate-pulse-slow">
+                <path d="M35,50 Q45,30 65,45 Q85,35 80,60 Q65,85 45,75 Q25,80 35,50 Z" fill="#8b5cf6"/>
+            </svg>
+        </div>
+        
+        <!-- Paint Splash 17 - Upper Right -->
+        <div class="absolute top-1/5 right-1/3 w-14 h-14 opacity-15 transform rotate-90 animate-float">
+            <svg viewBox="0 0 100 100" class="w-full h-full animate-pulse-slow">
+                <path d="M40,45 Q50,25 70,40 Q90,30 85,55 Q75,80 55,70 Q35,75 40,45 Z" fill="#16a34a"/>
+            </svg>
+        </div>
+        
+        <!-- Paint Splash 18 - Lower Center -->
+        <div class="absolute bottom-1/4 left-2/5 w-18 h-18 opacity-20 transform -rotate-45 animate-float-delayed">
+            <svg viewBox="0 0 100 100" class="w-full h-full animate-pulse-slow">
+                <path d="M30,50 Q40,30 60,45 Q80,35 85,60 Q70,85 50,75 Q30,80 30,50 Z" fill="#fed121"/>
+            </svg>
+        </div>
     </div>
 
     <!-- Main Content -->
     <main class="flex-1 relative z-20">
+        <!-- Home Section with Video -->
+        <section id="home" class="relative h-screen overflow-hidden">
+            <!-- Video Background -->
+            <div class="absolute inset-0 w-full h-full">
+                <!-- Desktop Video -->
+                <video 
+                    id="desktopVideo"
+                    class="hidden lg:block w-full h-full object-cover"
+                    autoplay 
+                    muted 
+                    loop 
+                    playsinline
+                    preload="metadata"
+                >
+                    <source src="HanuDesktop.mp4" type="video/mp4">
+                    <!-- Fallback gradient if video fails -->
+                </video>
+                
+                <!-- Tablet Video -->
+                <video 
+                    id="tabletVideo"
+                    class="hidden md:block lg:hidden w-full h-full object-cover"
+                    autoplay 
+                    muted 
+                    loop 
+                    playsinline
+                    preload="metadata"
+                >
+                    <source src="HanuTablet.mp4" type="video/mp4">
+                </video>
+                
+                <!-- Mobile Video -->
+                <video 
+                    id="mobileVideo"
+                    class="block md:hidden w-full h-full object-cover"
+                    autoplay 
+                    muted 
+                    loop 
+                    playsinline
+                    preload="metadata"
+                >
+                    <source src="HanuPhone.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
         <!-- About Us Section -->
-        <section id="about" class="py-12 sm:py-16 pt-20 sm:pt-24">
+        <section id="about" class="py-12 sm:py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="text-center mb-8 sm:mb-12">
-                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 lg:mb-6 px-4" style=style="color: black;">We Don't Just Build Websites, We Build Empires</h2>
+                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 lg:mb-6 px-4" style="color: black;">We Don't Just Build Websites, We Build Empires</h2>
                     <p class="text-black text-base sm:text-lg max-w-3xl mx-auto px-4">Ready to dominate your industry? We're the digital rebels who turn ordinary brands into legendary experiences that your competition will envy.</p>
                 </div>
-                
+
                 <!-- 4 Cards in 2x2 Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
                     <!-- Card 1: Our Story -->
                     <div class="card p-6 sm:p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer" id="storyCard">
                         <div class="flex items-center mb-4">
                             <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style=style="color: black;">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #1e9bd5;">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-bold" style=style="color: black;">Our Story</h3>
+                            <h3 class="text-xl font-bold" style="color: #1e9bd5;">Our Story</h3>
                         </div>
                         <p class="text-black leading-relaxed">
                             Born from a passion for digital rebellion, Hanu Studio is a one-person company on a mission to shake up the boring world of web design and create legendary digital experiences.
                         </p>
-                        <div class="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between">
-                            <span class="text-sm font-medium" style=style="color: black;">Est. 2025 • South Africa</span>
-                            <div class="flex items-center text-blue-600 text-sm font-medium">
-                                <span class="mr-1">Read More</span>
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </div>
+                        <div class="mt-4 pt-4 border-t border-gray-100">
+                            <span class="text-sm font-medium" style="color: #1e9bd5;">Est. 2025 • South Africa</span>
                         </div>
                     </div>
-                    
+
                     <!-- Card 2: Our Mission -->
                     <div class="card p-6 sm:p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                         <div class="flex items-center mb-4">
@@ -724,7 +863,7 @@
                             <span class="text-sm font-medium" style="color: #ed343f;">Making Brands Legendary</span>
                         </div>
                     </div>
-                    
+
                     <!-- Card 3: Team -->
                     <div class="card p-6 sm:p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                         <div class="flex items-center mb-4">
@@ -736,15 +875,12 @@
                             <h3 class="text-xl font-bold" style="color: #fdcf20;">Meet The Creator</h3>
                         </div>
                         <div class="text-center">
-                            <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full mx-auto mb-3 flex items-center justify-center">
-                                <span class="text-white font-bold text-lg">H</span>
-                            </div>
-                            <h4 class="font-semibold text-gray-800 mb-1">Hanu Keyser</h4>
-                            <p class="text-sm text-black mb-2">Founder & Digital Rebel</p>
-                            <p class="text-xs text-gray-500">The mastermind behind every pixel-perfect design and viral-worthy campaign.</p>
+                            <h4 class="font-semibold text-gray-800 mb-2 text-xl">Hanu Keyser</h4>
+                            <p class="text-lg text-black mb-3">Founder & Digital Rebel</p>
+                            <p class="text-sm text-gray-500">The mastermind behind every pixel-perfect design and viral-worthy campaign.</p>
                         </div>
                     </div>
-                    
+
                     <!-- Card 4: Our Values -->
                     <div class="card p-6 sm:p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                         <div class="flex items-center mb-4">
@@ -757,24 +893,24 @@
                         </div>
                         <div class="space-y-3">
                             <div class="flex items-center">
-                                <div class="w-2 h-2 bg-purple-400 rounded-full mr-3"></div>
-                                <span class="text-sm text-gray-700 font-medium">Bold & Fearless Design</span>
+                                <div class="w-2 h-2 bg-green-400 rounded-full mr-3"></div>
+                                <span class="text-sm text-black font-medium">Bold & Fearless Design</span>
                             </div>
                             <div class="flex items-center">
                                 <div class="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>
-                                <span class="text-sm text-gray-700 font-medium">Results That Actually Matter</span>
+                                <span class="text-sm text-black font-medium">Results That Actually Matter</span>
                             </div>
                             <div class="flex items-center">
-                                <div class="w-2 h-2 bg-pink-400 rounded-full mr-3"></div>
-                                <span class="text-sm text-gray-700 font-medium">Authentic Brand Stories</span>
+                                <div class="w-2 h-2 bg-red-400 rounded-full mr-3"></div>
+                                <span class="text-sm text-black font-medium">Authentic Brand Stories</span>
                             </div>
                             <div class="flex items-center">
                                 <div class="w-2 h-2 bg-yellow-400 rounded-full mr-3"></div>
-                                <span class="text-sm text-gray-700 font-medium">No Boring Templates</span>
+                                <span class="text-sm text-black font-medium">No Boring Templates</span>
                             </div>
                             <div class="flex items-center">
                                 <div class="w-2 h-2 bg-green-400 rounded-full mr-3"></div>
-                                <span class="text-sm text-gray-700 font-medium">Always Ahead of Trends</span>
+                                <span class="text-sm text-black font-medium">Always Ahead of Trends</span>
                             </div>
                         </div>
                     </div>
@@ -783,10 +919,10 @@
         </section>
 
         <!-- Services Section -->
-        <section id="services" class="py-12 sm:py-16 bg-gray-50">
+        <section id="services" class="py-12 sm:py-16 bg-gray-100">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-8 sm:mb-12">
-                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 lg:mb-6 px-4" style=style="color: black;">What We Do Best</h2>
+                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 lg:mb-6 px-4" style="color: black;">What We Do Best</h2>
                     <p class="text-black px-4 text-base sm:text-lg max-w-3xl mx-auto">Turning your digital dreams into reality with cutting-edge solutions that actually work</p>
                 </div>
 
@@ -818,7 +954,7 @@
                                     </div>
                                 </div>
                                 
-                                <button class="service-btn w-full text-white px-6 py-3 rounded-lg font-medium transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl mt-auto" style="background: linear-gradient(to right, #1e9bd5, #326da9); hover:background: linear-gradient(to right, #326da9, #7cd6ff);" data-service="Web Design & Development" data-theme="blue">
+                                <button class="service-btn w-full text-white px-6 py-3 rounded-lg font-medium transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl mt-auto" style="background: linear-gradient(to right, #1e9bd5, #326da9);" data-service="Web Design & Development" data-theme="blue">
                                     Get Started
                                 </button>
                             </div>
@@ -866,14 +1002,13 @@
                             <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                             
                             <div class="relative z-10 flex flex-col h-full">
-                                <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg" style="background: linear-gradient(to bottom right, #fed121, #fae4a0);">
+                                <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg" style="background: linear-gradient(to bottom right, #fed121, #fbbf24);">
                                     <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM7 3H5a2 2 0 00-2 2v12a4 4 0 004 4h2a2 2 0 002-2V5a2 2 0 00-2-2z"></path>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 3h2a2 2 0 012 2v12a4 4 0 01-4 4h-2a2 2 0 01-2-2V5a2 2 0 012-2z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"></path>
                                     </svg>
                                 </div>
                                 <h3 class="text-xl font-bold mb-4 group-hover:text-yellow-600 transition-colors duration-300" style="color: #fed121;">Logos That Hit Different</h3>
-                                <p class="text-black mb-6 leading-relaxed flex-grow">Iconic designs that stick in people's minds. We create visual identities so good, your customers will want to get them tattooed.</p>
+                                <p class="text-black mb-6 leading-relaxed flex-grow">Brand identities that stick in minds and wallets. We create logos that don't just look good – they make your customers remember you when it matters most.</p>
                                 
                                 <!-- Feature list -->
                                 <div class="space-y-2 mb-6 text-left">
@@ -883,12 +1018,12 @@
                                     </div>
                                     <div class="flex items-center text-sm text-black">
                                         <div class="w-2 h-2 bg-yellow-400 rounded-full mr-3"></div>
-                                        <span>Multiple Format Delivery</span>
+                                        <span>Complete Brand Guidelines</span>
                                     </div>
                                 </div>
                                 
-                                <button class="service-btn w-full text-white px-6 py-3 rounded-lg font-medium transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl mt-auto" style="background: linear-gradient(to right, #fed121, #fae4a0);" data-service="Logo Design" data-theme="yellow">
-                                    Create My Brand
+                                <button class="service-btn w-full text-white px-6 py-3 rounded-lg font-medium transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl mt-auto" style="background: linear-gradient(to right, #fed121, #fbbf24);" data-service="Logo Design" data-theme="yellow">
+                                    Make It Memorable
                                 </button>
                             </div>
                         </div>
@@ -900,30 +1035,546 @@
         <!-- Portfolio Section -->
         <section id="portfolio" class="py-12 sm:py-16 relative overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-4 lg:mb-6 px-4" style=style="color: black;">Work That Actually Slaps</h2>
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-4 lg:mb-6 px-4" style="color: black;">Work That Actually Slaps</h2>
                 <p class="text-black text-center mb-8 sm:mb-12 px-4 text-base sm:text-lg max-w-3xl mx-auto">Check out some of our recent projects that made our clients' competition jealous</p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 relative">
-                    <!-- Card 1: Empty Portfolio Card -->
+                    <!-- Card 1: Simple Bakery Website -->
                     <div class="relative group">
-                        <div class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10 h-64">
+                        <div class="card p-0 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10 h-80 overflow-hidden overflow-y-auto scrollbar-hide">
+                            
+                            <!-- Website Mockup -->
+                            <div id="bakery-card" class="bakery-light h-full relative transition-all duration-300">
+                                <!-- Browser Bar -->
+                                <div class="browser-bar h-6 flex items-center px-2 space-x-1">
+                                    <div class="w-2 h-2 bg-red-400 rounded-full"></div>
+                                    <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                                    <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                                    <div class="flex-1 bg-white rounded-sm mx-2 h-3 flex items-center px-1">
+                                        <div class="text-xs text-gray-400">sweetbakery.co.za</div>
+                                    </div>
+                                    <button class="theme-toggle-btn w-4 h-4 rounded-full flex items-center justify-center hover:scale-110 transition-transform" onclick="toggleBakeryTheme()">
+                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                                
+                                <!-- Website Content -->
+                                <div class="p-4 h-full">
+                                    <!-- Header -->
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div class="flex items-center space-x-2">
+                                            <div class="w-8 h-8 bg-orange-400 rounded-full flex items-center justify-center">
+                                                <span class="text-white text-xs font-bold">🥖</span>
+                                            </div>
+                                            <span class="font-bold bakery-text-primary">Sweet Bakery</span>
+                                        </div>
+                                        <div class="flex space-x-2 text-xs">
+                                            <span class="bakery-text-secondary">Home</span>
+                                            <span class="bakery-text-secondary">Menu</span>
+                                            <span class="bakery-text-secondary">Contact</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Hero Section -->
+                                    <div class="text-center mb-4">
+                                        <h1 class="text-lg font-bold bakery-text-primary mb-2">Fresh Baked Daily</h1>
+                                        <p class="text-xs bakery-text-secondary mb-3">Artisan breads and pastries made with love</p>
+                                        <div class="bg-orange-500 text-white px-3 py-1 rounded text-xs inline-block">Order Now</div>
+                                    </div>
+                                    
+                                    <!-- Product Grid -->
+                                    <div class="grid grid-cols-3 gap-2 mb-4">
+                                        <div class="bakery-product-card rounded p-2 text-center">
+                                            <div class="w-full h-8 bg-yellow-200 rounded mb-1"></div>
+                                            <div class="text-xs font-medium bakery-text-primary">Croissants</div>
+                                            <div class="text-xs bakery-text-secondary">R15</div>
+                                        </div>
+                                        <div class="bakery-product-card rounded p-2 text-center">
+                                            <div class="w-full h-8 bg-orange-200 rounded mb-1"></div>
+                                            <div class="text-xs font-medium bakery-text-primary">Sourdough</div>
+                                            <div class="text-xs bakery-text-secondary">R35</div>
+                                        </div>
+                                        <div class="bakery-product-card rounded p-2 text-center">
+                                            <div class="w-full h-8 bg-pink-200 rounded mb-1"></div>
+                                            <div class="text-xs font-medium bakery-text-primary">Cupcakes</div>
+                                            <div class="text-xs bakery-text-secondary">R25</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- About Section -->
+                                    <div class="mb-4">
+                                        <h3 class="text-sm font-bold bakery-text-primary mb-2">About Sweet Bakery</h3>
+                                        <p class="text-xs bakery-text-secondary mb-2">Family-owned bakery serving the community since 1985. We use only the finest ingredients and traditional baking methods.</p>
+                                        <div class="flex items-center text-xs bakery-text-secondary mb-2">
+                                            <span class="mr-2">⭐⭐⭐⭐⭐</span>
+                                            <span>4.8/5 (127 reviews)</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Opening Hours -->
+                                    <div class="mb-4">
+                                        <h4 class="text-xs font-bold bakery-text-primary mb-2">Opening Hours</h4>
+                                        <div class="text-xs bakery-text-secondary space-y-1">
+                                            <div class="flex justify-between">
+                                                <span>Mon - Fri</span>
+                                                <span>6:00 AM - 6:00 PM</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Saturday</span>
+                                                <span>7:00 AM - 4:00 PM</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Sunday</span>
+                                                <span>8:00 AM - 2:00 PM</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Contact Info -->
+                                    <div class="mb-4">
+                                        <h4 class="text-xs font-bold bakery-text-primary mb-2">Contact Us</h4>
+                                        <div class="text-xs bakery-text-secondary space-y-1">
+                                            <div>📍 123 Main Street, Cape Town</div>
+                                            <div>📞 021 123 4567</div>
+                                            <div>✉️ hello@sweetbakery.co.za</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Special Offers -->
+                                    <div class="bg-orange-100 rounded p-2 mb-4">
+                                        <h4 class="text-xs font-bold text-orange-700 mb-1">Today's Special</h4>
+                                        <p class="text-xs text-orange-600">Buy 2 croissants, get 1 free! Valid until 2 PM.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-center">
+                            <h3 class="text-lg font-bold text-black mb-2">Simple & Effective</h3>
+                            <p class="text-sm text-gray-600">Local Bakery Website</p>
                         </div>
                     </div>
 
-                    <!-- Card 2: Empty Portfolio Card -->
+                    <!-- Card 2: Corporate Financial Website -->
                     <div class="relative group">
-                        <div class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10 h-64">
+                        <div class="card p-0 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10 h-80 overflow-hidden overflow-y-auto scrollbar-hide">
+                            
+                            <!-- Website Mockup -->
+                            <div id="finance-card" class="finance-light h-full relative transition-all duration-300">
+                                <!-- Browser Bar -->
+                                <div class="browser-bar h-6 flex items-center px-2 space-x-1">
+                                    <div class="w-2 h-2 bg-red-400 rounded-full"></div>
+                                    <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                                    <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                                    <div class="flex-1 bg-white rounded-sm mx-2 h-3 flex items-center px-1">
+                                        <div class="text-xs text-gray-400">premiumfinance.co.za</div>
+                                    </div>
+                                    <button class="theme-toggle-btn w-4 h-4 rounded-full flex items-center justify-center hover:scale-110 transition-transform" onclick="toggleFinanceTheme()">
+                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                                
+                                <!-- Website Content -->
+                                <div class="p-4 h-full">
+                                    <!-- Header -->
+                                    <div class="flex items-center justify-between mb-4 pb-2 finance-border">
+                                        <div class="flex items-center space-x-2">
+                                            <div class="w-8 h-8 bg-blue-600 rounded flex items-center justify-center">
+                                                <span class="text-white text-xs font-bold">PF</span>
+                                            </div>
+                                            <span class="font-bold finance-text-primary">Premium Finance</span>
+                                        </div>
+                                        <div class="flex space-x-3 text-xs">
+                                            <span class="finance-text-secondary">Services</span>
+                                            <span class="finance-text-secondary">About</span>
+                                            <span class="finance-text-secondary">Contact</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Hero Section -->
+                                    <div class="mb-4">
+                                        <h1 class="text-lg font-bold finance-text-primary mb-2">Trusted Financial Solutions</h1>
+                                        <p class="text-xs finance-text-secondary mb-3">Professional advisory services for your business growth</p>
+                                        <div class="flex space-x-2">
+                                            <div class="bg-blue-600 text-white px-3 py-1 rounded text-xs">Get Consultation</div>
+                                            <div class="border border-blue-600 text-blue-600 px-3 py-1 rounded text-xs">Learn More</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Services Grid -->
+                                    <div class="grid grid-cols-2 gap-3 mb-4">
+                                        <div class="finance-service-card rounded p-3 finance-border">
+                                            <div class="w-6 h-6 bg-blue-100 rounded mb-2 flex items-center justify-center">
+                                                <span class="text-blue-600 text-xs">📊</span>
+                                            </div>
+                                            <div class="text-xs font-medium finance-text-primary">Investment Planning</div>
+                                            <div class="text-xs finance-text-secondary mt-1">Strategic portfolio management</div>
+                                        </div>
+                                        <div class="finance-service-card rounded p-3 finance-border">
+                                            <div class="w-6 h-6 bg-green-100 rounded mb-2 flex items-center justify-center">
+                                                <span class="text-green-600 text-xs">💼</span>
+                                            </div>
+                                            <div class="text-xs font-medium finance-text-primary">Business Loans</div>
+                                            <div class="text-xs finance-text-secondary mt-1">Competitive rates available</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Company Stats -->
+                                    <div class="mb-4">
+                                        <h3 class="text-sm font-bold finance-text-primary mb-2">Why Choose Premium Finance?</h3>
+                                        <div class="grid grid-cols-3 gap-2 text-center">
+                                            <div class="finance-service-card rounded p-2">
+                                                <div class="text-lg font-bold text-blue-600">15+</div>
+                                                <div class="text-xs finance-text-secondary">Years Experience</div>
+                                            </div>
+                                            <div class="finance-service-card rounded p-2">
+                                                <div class="text-lg font-bold text-green-600">500+</div>
+                                                <div class="text-xs finance-text-secondary">Happy Clients</div>
+                                            </div>
+                                            <div class="finance-service-card rounded p-2">
+                                                <div class="text-lg font-bold text-purple-600">R2B+</div>
+                                                <div class="text-xs finance-text-secondary">Managed Assets</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Services List -->
+                                    <div class="mb-4">
+                                        <h4 class="text-xs font-bold finance-text-primary mb-2">Our Services</h4>
+                                        <div class="text-xs finance-text-secondary space-y-1">
+                                            <div class="flex items-center">
+                                                <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
+                                                <span>Retirement Planning</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
+                                                <span>Tax Advisory Services</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
+                                                <span>Estate Planning</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
+                                                <span>Insurance Solutions</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Contact Information -->
+                                    <div class="mb-4">
+                                        <h4 class="text-xs font-bold finance-text-primary mb-2">Get In Touch</h4>
+                                        <div class="text-xs finance-text-secondary space-y-1">
+                                            <div>📍 Sandton City, Johannesburg</div>
+                                            <div>📞 011 234 5678</div>
+                                            <div>✉️ info@premiumfinance.co.za</div>
+                                            <div>🕒 Mon-Fri: 8:00 AM - 5:00 PM</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Certifications -->
+                                    <div class="bg-blue-50 rounded p-2">
+                                        <h4 class="text-xs font-bold text-blue-700 mb-1">Certified & Regulated</h4>
+                                        <p class="text-xs text-blue-600">FSP License #12345 | FAIS Compliant</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-center">
+                            <h3 class="text-lg font-bold text-black mb-2">Professional & Trustworthy</h3>
+                            <p class="text-sm text-gray-600">Corporate Finance Website</p>
                         </div>
                     </div>
 
-                    <!-- Card 3: Empty Portfolio Card -->
+                    <!-- Card 3: Modern E-Commerce Website -->
                     <div class="relative group">
-                        <div class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10 h-64">
+                        <div class="card p-0 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10 h-80 overflow-hidden overflow-y-auto scrollbar-hide">
+                            
+                            <!-- Website Mockup -->
+                            <div id="ecommerce-card" class="ecommerce-light h-full relative transition-all duration-300">
+                                <!-- Browser Bar -->
+                                <div class="browser-bar h-6 flex items-center px-2 space-x-1">
+                                    <div class="w-2 h-2 bg-red-400 rounded-full"></div>
+                                    <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                                    <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                                    <div class="flex-1 bg-white rounded-sm mx-2 h-3 flex items-center px-1">
+                                        <div class="text-xs text-gray-400">trendystore.co.za</div>
+                                    </div>
+                                    <button class="theme-toggle-btn w-4 h-4 rounded-full flex items-center justify-center hover:scale-110 transition-transform" onclick="toggleEcommerceTheme()">
+                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                                
+                                <!-- Website Content -->
+                                <div class="p-4 h-full">
+                                    <!-- Header -->
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div class="flex items-center space-x-2">
+                                            <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded flex items-center justify-center">
+                                                <span class="text-white text-xs font-bold">T</span>
+                                            </div>
+                                            <span class="font-bold ecommerce-text-primary">TrendyStore</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <div class="text-xs ecommerce-text-secondary">🔍</div>
+                                            <div class="text-xs ecommerce-text-secondary">❤️</div>
+                                            <div class="text-xs ecommerce-text-secondary">🛒 (3)</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Search & Filter -->
+                                    <div class="mb-3">
+                                        <div class="ecommerce-search-bar rounded-full px-3 py-1 text-xs mb-2">Search products...</div>
+                                        <div class="flex space-x-2 text-xs">
+                                            <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded-full">All</span>
+                                            <span class="ecommerce-text-secondary">Clothing</span>
+                                            <span class="ecommerce-text-secondary">Accessories</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Product Grid -->
+                                    <div class="grid grid-cols-2 gap-3 mb-4">
+                                        <div class="ecommerce-product-card rounded-lg p-2 shadow-sm">
+                                            <div class="w-full h-16 bg-gradient-to-br from-pink-200 to-purple-200 rounded mb-2 relative">
+                                                <div class="absolute top-1 right-1 text-xs">❤️</div>
+                                                <div class="absolute bottom-1 left-1 bg-red-500 text-white text-xs px-1 rounded">-20%</div>
+                                            </div>
+                                            <div class="text-xs font-medium ecommerce-text-primary">Summer Dress</div>
+                                            <div class="text-xs ecommerce-text-secondary line-through">R299</div>
+                                            <div class="text-xs font-bold text-purple-600">R239</div>
+                                            <div class="bg-purple-500 text-white text-xs px-2 py-1 rounded mt-1 text-center">Add to Cart</div>
+                                        </div>
+                                        <div class="ecommerce-product-card rounded-lg p-2 shadow-sm">
+                                            <div class="w-full h-16 bg-gradient-to-br from-blue-200 to-indigo-200 rounded mb-2 relative">
+                                                <div class="absolute top-1 right-1 text-xs">❤️</div>
+                                            </div>
+                                            <div class="text-xs font-medium ecommerce-text-primary">Designer Bag</div>
+                                            <div class="text-xs font-bold text-purple-600">R599</div>
+                                            <div class="bg-purple-500 text-white text-xs px-2 py-1 rounded mt-1 text-center">Add to Cart</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Featured Collections -->
+                                    <div class="mb-4">
+                                        <h3 class="text-sm font-bold ecommerce-text-primary mb-2">Featured Collections</h3>
+                                        <div class="space-y-2">
+                                            <div class="ecommerce-product-card rounded p-2 flex items-center space-x-2">
+                                                <div class="w-8 h-8 bg-gradient-to-br from-yellow-200 to-orange-200 rounded"></div>
+                                                <div class="flex-1">
+                                                    <div class="text-xs font-medium ecommerce-text-primary">Summer Collection</div>
+                                                    <div class="text-xs ecommerce-text-secondary">25 items • Up to 30% off</div>
+                                                </div>
+                                            </div>
+                                            <div class="ecommerce-product-card rounded p-2 flex items-center space-x-2">
+                                                <div class="w-8 h-8 bg-gradient-to-br from-green-200 to-teal-200 rounded"></div>
+                                                <div class="flex-1">
+                                                    <div class="text-xs font-medium ecommerce-text-primary">Accessories</div>
+                                                    <div class="text-xs ecommerce-text-secondary">18 items • New arrivals</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Customer Reviews -->
+                                    <div class="mb-4">
+                                        <h4 class="text-xs font-bold ecommerce-text-primary mb-2">Customer Reviews</h4>
+                                        <div class="space-y-2">
+                                            <div class="ecommerce-product-card rounded p-2">
+                                                <div class="flex items-center mb-1">
+                                                    <span class="text-xs">⭐⭐⭐⭐⭐</span>
+                                                    <span class="text-xs ecommerce-text-secondary ml-2">Sarah M.</span>
+                                                </div>
+                                                <p class="text-xs ecommerce-text-secondary">"Amazing quality and fast delivery!"</p>
+                                            </div>
+                                            <div class="ecommerce-product-card rounded p-2">
+                                                <div class="flex items-center mb-1">
+                                                    <span class="text-xs">⭐⭐⭐⭐⭐</span>
+                                                    <span class="text-xs ecommerce-text-secondary ml-2">Mike R.</span>
+                                                </div>
+                                                <p class="text-xs ecommerce-text-secondary">"Love the trendy styles!"</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Shipping Info -->
+                                    <div class="mb-4">
+                                        <h4 class="text-xs font-bold ecommerce-text-primary mb-2">Shipping & Returns</h4>
+                                        <div class="text-xs ecommerce-text-secondary space-y-1">
+                                            <div class="flex items-center">
+                                                <span class="w-2 h-2 bg-purple-400 rounded-full mr-2"></span>
+                                                <span>Free shipping over R500</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <span class="w-2 h-2 bg-purple-400 rounded-full mr-2"></span>
+                                                <span>30-day return policy</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <span class="w-2 h-2 bg-purple-400 rounded-full mr-2"></span>
+                                                <span>Express delivery available</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Newsletter Signup -->
+                                    <div class="bg-purple-100 rounded p-2">
+                                        <h4 class="text-xs font-bold text-purple-700 mb-1">Stay Updated</h4>
+                                        <p class="text-xs text-purple-600 mb-2">Get 10% off your first order!</p>
+                                        <div class="flex space-x-1">
+                                            <input type="email" placeholder="Email" class="flex-1 text-xs px-2 py-1 rounded border">
+                                            <button class="bg-purple-500 text-white text-xs px-2 py-1 rounded">Subscribe</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-center">
+                            <h3 class="text-lg font-bold text-black mb-2">Sleek & Modern</h3>
+                            <p class="text-sm text-gray-600">E-Commerce Platform</p>
                         </div>
                     </div>
 
-                    <!-- Card 4: Empty Portfolio Card -->
+                    <!-- Card 4: Creative Portfolio Website -->
                     <div class="relative group">
-                        <div class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10 h-64">
+                        <div class="card p-0 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10 h-80 overflow-hidden overflow-y-auto scrollbar-hide">
+                            
+                            <!-- Website Mockup -->
+                            <div id="creative-card" class="creative-light h-full relative transition-all duration-300">
+                                <!-- Browser Bar -->
+                                <div class="browser-bar h-6 flex items-center px-2 space-x-1">
+                                    <div class="w-2 h-2 bg-red-400 rounded-full"></div>
+                                    <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                                    <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                                    <div class="flex-1 bg-white rounded-sm mx-2 h-3 flex items-center px-1">
+                                        <div class="text-xs text-gray-400">alexcreative.co.za</div>
+                                    </div>
+                                    <button class="theme-toggle-btn w-4 h-4 rounded-full flex items-center justify-center hover:scale-110 transition-transform" onclick="toggleCreativeTheme()">
+                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                                
+                                <!-- Website Content -->
+                                <div class="p-4 h-full">
+                                    <!-- Header -->
+                                    <div class="flex items-center justify-between mb-6">
+                                        <div class="text-lg font-bold">
+                                            <span class="creative-alex">ALEX</span>
+                                            <span class="creative-text-primary">CREATIVE</span>
+                                        </div>
+                                        <div class="flex space-x-3 text-xs">
+                                            <span class="creative-text-secondary hover:text-purple-600 transition-colors">WORK</span>
+                                            <span class="creative-text-secondary hover:text-purple-600 transition-colors">ABOUT</span>
+                                            <span class="creative-text-secondary hover:text-purple-600 transition-colors">CONTACT</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Hero Section -->
+                                    <div class="mb-6">
+                                        <h1 class="text-2xl font-bold mb-2">
+                                            <span class="creative-text-primary">VISUAL</span><br>
+                                            <span class="creative-storyteller">STORYTELLER</span>
+                                        </h1>
+                                        <p class="text-xs creative-text-secondary mb-3">Bringing ideas to life through bold design</p>
+                                    </div>
+                                    
+                                    <!-- Portfolio Grid -->
+                                    <div class="grid grid-cols-2 gap-2 mb-4">
+                                        <div class="bg-gradient-to-br from-yellow-400 to-orange-500 h-12 rounded transform hover:scale-105 transition-transform relative">
+                                            <div class="absolute inset-0 flex items-center justify-center">
+                                                <span class="text-xs font-bold text-white">Brand Design</span>
+                                            </div>
+                                        </div>
+                                        <div class="bg-gradient-to-br from-purple-500 to-pink-500 h-12 rounded transform hover:scale-105 transition-transform relative">
+                                            <div class="absolute inset-0 flex items-center justify-center">
+                                                <span class="text-xs font-bold text-white">Web Design</span>
+                                            </div>
+                                        </div>
+                                        <div class="bg-gradient-to-br from-blue-500 to-cyan-500 h-12 rounded transform hover:scale-105 transition-transform relative">
+                                            <div class="absolute inset-0 flex items-center justify-center">
+                                                <span class="text-xs font-bold text-white">Photography</span>
+                                            </div>
+                                        </div>
+                                        <div class="bg-gradient-to-br from-green-400 to-emerald-500 h-12 rounded transform hover:scale-105 transition-transform relative">
+                                            <div class="absolute inset-0 flex items-center justify-center">
+                                                <span class="text-xs font-bold text-white">Illustration</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- About Section -->
+                                    <div class="mb-4">
+                                        <h3 class="text-sm font-bold creative-text-primary mb-2">About Alex</h3>
+                                        <p class="text-xs creative-text-secondary mb-2">Award-winning creative director with 8+ years of experience in visual storytelling and brand development.</p>
+                                        <div class="flex items-center space-x-4 text-xs creative-text-secondary">
+                                            <span>🏆 Design Awards: 12</span>
+                                            <span>👥 Happy Clients: 150+</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Recent Projects -->
+                                    <div class="mb-4">
+                                        <h4 class="text-xs font-bold creative-text-primary mb-2">Recent Projects</h4>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center space-x-2">
+                                                <div class="w-6 h-6 bg-gradient-to-br from-red-400 to-pink-500 rounded"></div>
+                                                <div class="flex-1">
+                                                    <div class="text-xs font-medium creative-text-primary">Nike Campaign</div>
+                                                    <div class="text-xs creative-text-secondary">Brand Identity • 2024</div>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <div class="w-6 h-6 bg-gradient-to-br from-blue-400 to-indigo-500 rounded"></div>
+                                                <div class="flex-1">
+                                                    <div class="text-xs font-medium creative-text-primary">Tech Startup</div>
+                                                    <div class="text-xs creative-text-secondary">Web Design • 2024</div>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <div class="w-6 h-6 bg-gradient-to-br from-green-400 to-teal-500 rounded"></div>
+                                                <div class="flex-1">
+                                                    <div class="text-xs font-medium creative-text-primary">Art Exhibition</div>
+                                                    <div class="text-xs creative-text-secondary">Visual Identity • 2023</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Skills -->
+                                    <div class="mb-4">
+                                        <h4 class="text-xs font-bold creative-text-primary mb-2">Skills & Tools</h4>
+                                        <div class="flex flex-wrap gap-1">
+                                            <span class="bg-yellow-400 text-black text-xs px-2 py-1 rounded">Photoshop</span>
+                                            <span class="bg-purple-500 text-white text-xs px-2 py-1 rounded">Illustrator</span>
+                                            <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Figma</span>
+                                            <span class="bg-green-500 text-white text-xs px-2 py-1 rounded">After Effects</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Contact -->
+                                    <div class="mb-4">
+                                        <h4 class="text-xs font-bold creative-text-primary mb-2">Let's Collaborate</h4>
+                                        <div class="text-xs creative-text-secondary space-y-1">
+                                            <div>✉️ alex@alexcreative.co.za</div>
+                                            <div>📱 +27 82 123 4567</div>
+                                            <div>📍 Cape Town, South Africa</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Animated Elements -->
+                                    <div class="absolute bottom-4 right-4">
+                                        <div class="w-3 h-3 bg-yellow-400 rounded-full animate-ping"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-center">
+                            <h3 class="text-lg font-bold text-black mb-2">Bold & Creative</h3>
+                            <p class="text-sm text-gray-600">Artist Portfolio Website</p>
                         </div>
                     </div>
                 </div>
@@ -931,16 +1582,16 @@
         </section>
 
         <!-- Pricing & Client Portal Section -->
-        <section id="pricing" class="py-16 bg-gray-50">
+        <section id="pricing" class="py-16 bg-gray-100">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 lg:items-start">
                     <!-- Pricing Section -->
                     <div class="space-y-8 flex flex-col h-full">
                         <div class="text-center lg:text-left">
-                            <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4" style=style="color: black;">Investment in Your Success</h2>
+                            <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4" style="color: black;">Investment in Your Success</h2>
                             <p class="text-black text-lg">Quality work that delivers results, not just pretty pixels</p>
                         </div>
-                        
+
                         <div class="space-y-6">
                             <!-- Web Design Package -->
                             <div class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-l-4" style="border-color: #1e9bd5;">
@@ -951,7 +1602,7 @@
                                     </div>
                                     <div class="text-right">
                                         <div class="text-2xl font-bold" style="color: #1e9bd5;">From R500</div>
-                                        <div class="text-sm" style=style="color: black;">Starting price</div>
+                                        <div class="text-sm" style="color: black;">Starting price</div>
                                     </div>
                                 </div>
                                 <div class="space-y-2 text-sm text-black">
@@ -1018,12 +1669,12 @@
                         <div class="rounded-lg p-4" style="background-color: #fae4a0; border: 1px solid #fed121;">
                             <div class="flex items-start">
                                 <div class="flex-shrink-0">
-                                    <svg class="w-5 h-5 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style=style="color: black;">
+                                    <svg class="w-5 h-5 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: black;">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                     </svg>
                                 </div>
                                 <div class="ml-3">
-                                    <p class="text-sm" style=style="color: black;">
+                                    <p class="text-sm" style="color: black;">
                                         <strong>Custom quotes available.</strong> Every project is unique, so pricing may vary based on your specific requirements and timeline.
                                     </p>
                                 </div>
@@ -1032,9 +1683,9 @@
                     </div>
 
                     <!-- Client Portal Section -->
-                    <div id="client-portal" class="space-y-8 flex flex-col h-full">
+                    <div class="space-y-8 flex flex-col h-full">
                         <div class="text-center lg:text-left">
-                            <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4" style=style="color: black;">Client Portal</h2>
+                            <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4" style="color: black;">Client Portal</h2>
                             <p class="text-black text-lg">Stay updated on your project's progress</p>
                         </div>
 
@@ -1044,13 +1695,13 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
                             </div>
-                            
+
                             <div class="flex-1 flex flex-col">
-                                <h3 class="text-2xl font-bold mb-4" style=style="color: black;">Check Your Project Status</h3>
+                                <h3 class="text-2xl font-bold mb-4" style="color: black;">Check Your Project Status</h3>
                                 <p class="text-black mb-6 leading-relaxed flex-1">
                                     Already working with us? Get instant updates on your project's progress. Simply enter your details and we'll send you a comprehensive status update.
                                 </p>
-                                
+
                                 <div class="space-y-4 mb-8">
                                     <div class="flex items-center justify-center text-sm text-black">
                                         <div class="w-2 h-2 rounded-full mr-3" style="background-color: #1e9bd5;"></div>
@@ -1061,7 +1712,7 @@
                                         <span>Direct communication with our team</span>
                                     </div>
                                 </div>
-                                
+
                                 <button id="clientPortalMainBtn" class="w-full text-white px-8 py-4 rounded-lg font-medium transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl min-h-[44px] touch-manipulation mt-auto" style="background: linear-gradient(to right, #1e9bd5, #326da9);" onmouseover="this.style.background='linear-gradient(to right, #326da9, #7cd6ff)'" onmouseout="this.style.background='linear-gradient(to right, #1e9bd5, #326da9)'">
                                     Access Client Portal
                                 </button>
@@ -1069,16 +1720,16 @@
                         </div>
 
                         <div class="rounded-lg p-6" style="background-color: #7cd6ff; border: 1px solid #1e9bd5;">
-                            <h4 class="font-semibold mb-3 flex items-center" style=style="color: black;">
+                            <h4 class="font-semibold mb-3 flex items-center" style="color: black;">
                                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                                 </svg>
                                 For Existing Clients Only
                             </h4>
-                            <p class="text-sm mb-4" style=style="color: black;">
+                            <p class="text-sm mb-4" style="color: black;">
                                 This portal is exclusively for clients with active projects.
                             </p>
-                            <div class="space-y-2 text-sm" style=style="color: black;">
+                            <div class="space-y-2 text-sm" style="color: black;">
                                 <div class="flex items-center">
                                     <div class="w-1.5 h-1.5 rounded-full mr-2" style="background-color: #1e9bd5;"></div>
                                     <span>Secure and private access</span>
@@ -1097,8 +1748,9 @@
         <!-- Contact Section -->
         <section id="contact" class="py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-4 lg:mb-6" style=style="color: black;">Let's Make Magic Happen</h2>
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-4 lg:mb-6" style="color: black;">Let's Make Magic Happen</h2>
                 <p class="text-black text-center mb-12 px-4 text-lg max-w-3xl mx-auto">Ready to level up your digital game? Drop us a line and let's create something amazing together!</p>
+                
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <!-- Contact Form -->
                     <div class="card p-8">
@@ -1107,6 +1759,7 @@
                                 <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
                                 <input type="text" id="name" name="name" placeholder="Enter your full name" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
                             </div>
+                            
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
                                     <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Your Email</label>
@@ -1117,13 +1770,16 @@
                                     <input type="text" id="subject" name="subject" placeholder="What's this about?" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
                                 </div>
                             </div>
+                            
                             <div>
                                 <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
                                 <textarea id="message" name="message" placeholder="Tell us about your project or inquiry..." rows="5" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none transition-colors"></textarea>
                             </div>
+                            
                             <button type="submit" class="btn-primary w-full py-3 touch-manipulation">Send Message</button>
                         </form>
                     </div>
+                    
                     <!-- Contact Info -->
                     <div class="card p-8">
                         <div class="space-y-6">
@@ -1162,7 +1818,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="pt-6 mt-6 border-t border-gray-200">
                             <h4 class="font-semibold text-gray-800 mb-3">Our Services</h4>
                             <ul class="space-y-2 text-black">
@@ -1171,7 +1827,7 @@
                                 <li>• Logo Design</li>
                             </ul>
                         </div>
-                        
+
                         <div class="pt-6 mt-6 border-t border-gray-200">
                             <h4 class="font-semibold text-gray-800 mb-3">Follow Us</h4>
                             <div class="flex flex-wrap gap-3">
@@ -1190,13 +1846,14 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
     </main>
 
     <!-- Cookie Notification -->
-    <div id="cookieNotification" class="fixed bottom-4 right-4 left-4 sm:right-4 sm:left-auto sm:max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg p-4 z-50 transform translate-y-full opacity-0 transition-all duration-300 ease-in-out">
+    <div id="cookieNotification" class="fixed bottom-4 right-4 left-4 sm:right-4 sm:left-auto sm:max-w-sm backdrop-blur-md border rounded-lg shadow-lg p-4 z-50 transform translate-y-full opacity-0 transition-all duration-300 ease-in-out" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.15);">
         <div class="flex items-start space-x-3">
             <div class="flex-shrink-0 mt-0.5">
                 <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1226,14 +1883,14 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
-            
+
             <div class="text-center mb-6">
                 <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                     <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                     </svg>
                 </div>
-                <h3 class="text-2xl font-bold mb-2" style=style="color: black;">Our Story</h3>
+                <h3 class="text-2xl font-bold mb-2" style="color: black;">Our Story</h3>
                 <p class="text-black">The journey of digital rebellion</p>
             </div>
 
@@ -1253,7 +1910,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="bg-gray-50 p-4 rounded-lg border">
                     <div class="text-center">
                         <p class="text-sm font-medium text-black mb-1">Established 2025</p>
@@ -1273,14 +1930,14 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
-            
+
             <div class="text-center mb-6">
                 <div class="w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg" style="background: linear-gradient(to bottom right, #7cd6ff, #1e9bd5);">
                     <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                 </div>
-                <h3 class="text-2xl font-bold mb-2" style=style="color: black;">Check Your Project Status</h3>
+                <h3 class="text-2xl font-bold mb-2" style="color: black;">Check Your Project Status</h3>
                 <p class="text-black">Enter your details below and we'll send you an update on your project progress.</p>
             </div>
 
@@ -1312,7 +1969,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
-            
+
             <div class="text-center mb-6">
                 <div id="modalIcon" class="w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                     <svg id="modalIconSvg" class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1352,85 +2009,322 @@
     </button>
 
     <!-- Footer -->
-    <footer class="text-black shadow-lg backdrop-blur-md border-t border-blue-200/30 bg-blue-100/60">
+    <footer class="text-black shadow-lg backdrop-blur-md border-t border-white/20 bg-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center h-16 sm:h-18 lg:h-20 flex items-center justify-center">
             <p class="text-sm">© 2025 Hanu. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Email functionality
-        function sendEmail(formData, type) {
-            const subject = encodeURIComponent(`${type} from ${formData.name}`);
-            const body = encodeURIComponent(`
-Name: ${formData.name}
-Email: ${formData.email}
-Subject: ${formData.subject}
-Message: ${formData.message}
-            `);
-            const mailtoLink = `mailto:hanu@hanu.co.za?subject=${subject}&body=${body}`;
-            window.location.href = mailtoLink;
-        }
-
-        // Contact form
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            sendEmail(data, 'Contact Form');
-            this.reset();
-        });
-
-        // Mobile menu toggle
+        // Mobile Menu
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         const hamburgerIcon = document.getElementById('hamburgerIcon');
         const closeIcon = document.getElementById('closeIcon');
 
-        function openMobileMenu() {
-            mobileMenu.classList.remove('opacity-0', 'scale-y-0', 'max-h-0');
-            mobileMenu.classList.add('opacity-100', 'scale-y-100', 'max-h-96');
-            hamburgerIcon.classList.add('hidden');
-            closeIcon.classList.remove('hidden');
-        }
-
-        function closeMobileMenu() {
-            mobileMenu.classList.remove('opacity-100', 'scale-y-100', 'max-h-96');
-            mobileMenu.classList.add('opacity-0', 'scale-y-0', 'max-h-0');
-            hamburgerIcon.classList.remove('hidden');
-            closeIcon.classList.add('hidden');
-        }
-
-        mobileMenuBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            if (mobileMenu.classList.contains('opacity-0')) {
-                openMobileMenu();
+        mobileMenuBtn.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.contains('opacity-100');
+            
+            if (isOpen) {
+                // Close menu
+                mobileMenu.classList.remove('opacity-100', 'scale-y-100', 'max-h-96');
+                mobileMenu.classList.add('opacity-0', 'scale-y-0', 'max-h-0');
+                hamburgerIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
             } else {
-                closeMobileMenu();
+                // Open menu
+                mobileMenu.classList.remove('opacity-0', 'scale-y-0', 'max-h-0');
+                mobileMenu.classList.add('opacity-100', 'scale-y-100', 'max-h-96');
+                hamburgerIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
             }
         });
 
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('#mobileMenu a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                closeMobileMenu();
+        // Close mobile menu when clicking on links
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('opacity-100', 'scale-y-100', 'max-h-96');
+                mobileMenu.classList.add('opacity-0', 'scale-y-0', 'max-h-0');
+                hamburgerIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
             });
         });
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(e) {
-            const isClickInsideMenu = mobileMenu.contains(e.target);
-            const isClickOnMenuButton = mobileMenuBtn.contains(e.target);
-            if (!isClickInsideMenu && !isClickOnMenuButton && !mobileMenu.classList.contains('opacity-0')) {
-                closeMobileMenu();
+        // Service Modal Management
+        const serviceModal = document.getElementById('serviceModal');
+        const closeModal = document.getElementById('closeModal');
+        const modalIcon = document.getElementById('modalIcon');
+        const modalIconSvg = document.getElementById('modalIconSvg');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalSubtitle = document.getElementById('modalSubtitle');
+        const modalService = document.getElementById('modalService');
+        const modalSubmitBtn = document.getElementById('modalSubmitBtn');
+        const serviceForm = document.getElementById('serviceForm');
+
+        // Service button configurations
+        const serviceConfigs = {
+            'Web Design & Development': {
+                icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
+                title: 'Website Design & Development',
+                subtitle: 'Let\'s create a website that converts visitors into customers!',
+                background: 'linear-gradient(to bottom right, #1e9bd5, #326da9)',
+                buttonStyle: 'background: linear-gradient(to right, #1e9bd5, #326da9);'
+            },
+            'Social Media Management': {
+                icon: 'M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z',
+                title: 'Social Media Management',
+                subtitle: 'Ready to make your brand the main character on social media?',
+                background: 'linear-gradient(to bottom right, #ec343e, #ff6f76)',
+                buttonStyle: 'background: linear-gradient(to right, #ec343e, #ff6f76);'
+            },
+            'Logo Design': {
+                icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z',
+                title: 'Logo & Brand Identity',
+                subtitle: 'Let\'s create a logo that sticks in minds and wallets!',
+                background: 'linear-gradient(to bottom right, #fed121, #fbbf24)',
+                buttonStyle: 'background: linear-gradient(to right, #fed121, #fbbf24);'
+            },
+
+        };
+
+        // Service buttons event listeners
+        const serviceButtons = document.querySelectorAll('.service-btn');
+        serviceButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const service = button.getAttribute('data-service');
+                const config = serviceConfigs[service];
+                
+                if (config) {
+                    // Update modal content
+                    modalIconSvg.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${config.icon}"></path>`;
+                    modalIcon.style.background = config.background;
+                    modalTitle.textContent = config.title;
+                    modalSubtitle.textContent = config.subtitle;
+                    modalService.value = service;
+                    modalSubmitBtn.style.cssText = config.buttonStyle;
+                    
+                    // Show modal
+                    serviceModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        // Close modal functionality
+        function closeServiceModal() {
+            serviceModal.classList.remove('active');
+            document.body.style.overflow = '';
+            serviceForm.reset();
+        }
+
+        closeModal.addEventListener('click', closeServiceModal);
+
+        serviceModal.addEventListener('click', (e) => {
+            if (e.target === serviceModal) {
+                closeServiceModal();
             }
         });
 
-        // Close mobile menu on escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && !mobileMenu.classList.contains('opacity-0')) {
-                closeMobileMenu();
+        // Service form submission
+        serviceForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(serviceForm);
+            const service = formData.get('service');
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const message = formData.get('message');
+            
+            // Create mailto link
+            const subject = `${service} Inquiry from ${name}`;
+            const body = `Hi Hanu,
+
+I'm interested in your ${service} service.
+
+Name: ${name}
+Email: ${email}
+
+Project Details:
+${message}
+
+Looking forward to hearing from you!
+
+Best regards,
+${name}`;
+            
+            const mailtoLink = `mailto:hanu@hanu.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoLink;
+            
+            closeServiceModal();
+        });
+
+        // Story Modal Management
+        const storyCard = document.getElementById('storyCard');
+        const storyModal = document.getElementById('storyModal');
+        const closeStoryModal = document.getElementById('closeStoryModal');
+
+        storyCard.addEventListener('click', () => {
+            storyModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        function closeStoryModalFunc() {
+            storyModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        closeStoryModal.addEventListener('click', closeStoryModalFunc);
+
+        storyModal.addEventListener('click', (e) => {
+            if (e.target === storyModal) {
+                closeStoryModalFunc();
             }
+        });
+
+        // Client Portal Modal Management
+        const clientPortalMainBtn = document.getElementById('clientPortalMainBtn');
+        const clientPortalModal = document.getElementById('clientPortalModal');
+        const closeClientPortalModal = document.getElementById('closeClientPortalModal');
+        const clientPortalForm = document.getElementById('clientPortalForm');
+
+        clientPortalMainBtn.addEventListener('click', () => {
+            clientPortalModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        function closeClientPortalModalFunc() {
+            clientPortalModal.classList.remove('active');
+            document.body.style.overflow = '';
+            clientPortalForm.reset();
+        }
+
+        closeClientPortalModal.addEventListener('click', closeClientPortalModalFunc);
+
+        clientPortalModal.addEventListener('click', (e) => {
+            if (e.target === clientPortalModal) {
+                closeClientPortalModalFunc();
+            }
+        });
+
+        // Client Portal form submission
+        clientPortalForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(clientPortalForm);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const projectReference = formData.get('projectReference');
+            
+            // Create mailto link
+            const subject = `Project Status Request - ${projectReference}`;
+            const body = `Hi Hanu,
+
+I would like to request an update on my project status.
+
+Client Details:
+Name: ${name}
+Email: ${email}
+Project Reference: ${projectReference}
+
+Please send me an update on the current progress of my project.
+
+Thank you!
+
+Best regards,
+${name}`;
+            
+            const mailtoLink = `mailto:hanu@hanu.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoLink;
+            
+            closeClientPortalModalFunc();
+        });
+
+        // Contact Form Management
+        const contactForm = document.getElementById('contactForm');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(contactForm);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            // Create mailto link
+            const mailtoSubject = `${subject} - From ${name}`;
+            const mailtoBody = `Hi Hanu,
+
+${message}
+
+Contact Details:
+Name: ${name}
+Email: ${email}
+
+Looking forward to your response!
+
+Best regards,
+${name}`;
+            
+            const mailtoLink = `mailto:hanu@hanu.co.za?subject=${encodeURIComponent(mailtoSubject)}&body=${encodeURIComponent(mailtoBody)}`;
+            window.location.href = mailtoLink;
+            
+            contactForm.reset();
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Cookie Notification Management
+        const cookieNotification = document.getElementById('cookieNotification');
+        const acceptCookies = document.getElementById('acceptCookies');
+        const declineCookies = document.getElementById('declineCookies');
+        const closeCookies = document.getElementById('closeCookies');
+
+        // Show cookie notification after 2 seconds if not already accepted/declined
+        setTimeout(() => {
+            const cookieConsent = localStorage.getItem('cookieConsent');
+            if (!cookieConsent) {
+                cookieNotification.classList.remove('translate-y-full', 'opacity-0');
+                cookieNotification.classList.add('translate-y-0', 'opacity-100');
+            }
+        }, 2000);
+
+        function hideCookieNotification() {
+            cookieNotification.classList.remove('translate-y-0', 'opacity-100');
+            cookieNotification.classList.add('translate-y-full', 'opacity-0');
+        }
+
+        acceptCookies.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'accepted');
+            hideCookieNotification();
+        });
+
+        declineCookies.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'declined');
+            hideCookieNotification();
+        });
+
+        closeCookies.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'dismissed');
+            hideCookieNotification();
         });
 
         // Smooth scrolling for navigation links
@@ -1439,8 +2333,16 @@ Message: ${formData.message}
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    const headerHeight = 80; // 80px offset to stop above section headings
-                    const targetPosition = target.offsetTop - headerHeight;
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    let targetPosition;
+                    
+                    // Special handling for home section
+                    if (this.getAttribute('href') === '#home') {
+                        targetPosition = 0;
+                    } else {
+                        targetPosition = target.offsetTop - headerHeight;
+                    }
+                    
                     window.scrollTo({
                         top: targetPosition,
                         behavior: 'smooth'
@@ -1449,361 +2351,101 @@ Message: ${formData.message}
             });
         });
 
-        // Cookie notification functionality
-        const cookieNotification = document.getElementById('cookieNotification');
-        const acceptCookies = document.getElementById('acceptCookies');
-        const declineCookies = document.getElementById('declineCookies');
-        const closeCookies = document.getElementById('closeCookies');
-
-        // Show cookie notification after page load if not already accepted/declined
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                if (!localStorage.getItem('cookiePreference')) {
-                    cookieNotification.classList.remove('translate-y-full', 'opacity-0');
-                    cookieNotification.classList.add('translate-y-0', 'opacity-100');
+        // Keyboard accessibility for modals
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (serviceModal.classList.contains('active')) {
+                    closeServiceModal();
                 }
-            }, 1500);
-        });
-
-        function hideCookieNotification() {
-            cookieNotification.classList.remove('translate-y-0', 'opacity-100');
-            cookieNotification.classList.add('translate-y-full', 'opacity-0');
-        }
-
-        acceptCookies.addEventListener('click', function() {
-            localStorage.setItem('cookiePreference', 'accepted');
-            hideCookieNotification();
-        });
-
-        declineCookies.addEventListener('click', function() {
-            localStorage.setItem('cookiePreference', 'declined');
-            hideCookieNotification();
-        });
-
-        closeCookies.addEventListener('click', function() {
-            hideCookieNotification();
-        });
-
-        // Story Modal functionality
-        const storyModal = document.getElementById('storyModal');
-        const closeStoryModal = document.getElementById('closeStoryModal');
-        const storyCard = document.getElementById('storyCard');
-
-        // Open story modal
-        storyCard.addEventListener('click', function() {
-            storyModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-
-        // Close story modal
-        function closeStoryModalFunc() {
-            storyModal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        closeStoryModal.addEventListener('click', closeStoryModalFunc);
-        
-        storyModal.addEventListener('click', function(e) {
-            if (e.target === storyModal) {
-                closeStoryModalFunc();
+                if (storyModal.classList.contains('active')) {
+                    closeStoryModalFunc();
+                }
+                if (clientPortalModal.classList.contains('active')) {
+                    closeClientPortalModalFunc();
+                }
             }
         });
 
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && storyModal.classList.contains('active')) {
-                closeStoryModalFunc();
+        // Portfolio Card Theme Functions
+        function toggleBakeryTheme() {
+            const card = document.getElementById('bakery-card');
+            if (card.classList.contains('bakery-light')) {
+                card.classList.remove('bakery-light');
+                card.classList.add('bakery-dark');
+            } else {
+                card.classList.remove('bakery-dark');
+                card.classList.add('bakery-light');
             }
-        });
-
-        // Service Modal functionality
-        const serviceModal = document.getElementById('serviceModal');
-        const closeModal = document.getElementById('closeModal');
-        const serviceForm = document.getElementById('serviceForm');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalSubtitle = document.getElementById('modalSubtitle');
-        const modalIcon = document.getElementById('modalIcon');
-        const modalIconSvg = document.getElementById('modalIconSvg');
-        const modalSubmitBtn = document.getElementById('modalSubmitBtn');
-        const modalService = document.getElementById('modalService');
-
-        // Service button configurations
-        const serviceConfigs = {
-            blue: {
-                title: 'Get Started with Web Design',
-                subtitle: 'Let\'s create a website that converts visitors into customers!',
-                icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
-                iconBg: 'bg-gradient-to-br from-blue-400 to-blue-600',
-                submitText: 'Start My Website Project',
-                submitBg: 'text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl min-h-[44px] touch-manipulation',
-                submitStyle: 'background: linear-gradient(to right, #1e9bd5, #326da9);',
-                submitHover: 'onmouseover="this.style.background=\'linear-gradient(to right, #326da9, #7cd6ff)\'" onmouseout="this.style.background=\'linear-gradient(to right, #1e9bd5, #326da9)\'"'
-            },
-            red: {
-                title: 'Let\'s Go Viral Together',
-                subtitle: 'Ready to dominate social media? Tell us about your brand!',
-                icon: 'M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z',
-                iconBg: 'bg-gradient-to-br from-red-400 to-red-600',
-                submitText: 'Launch My Social Media',
-                submitBg: 'text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl min-h-[44px] touch-manipulation',
-                submitStyle: 'background: linear-gradient(to right, #ec343e, #ff6f76);',
-                submitHover: 'onmouseover="this.style.background=\'linear-gradient(to right, #ff6f76, #ec343e)\'" onmouseout="this.style.background=\'linear-gradient(to right, #ec343e, #ff6f76)\'"'
-            },
-            yellow: {
-                title: 'Create Your Brand Identity',
-                subtitle: 'Let\'s design a logo that makes your customers want to get it tattooed!',
-                icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM7 3H5a2 2 0 00-2 2v12a4 4 0 004 4h2a2 2 0 002-2V5a2 2 0 00-2-2z M16 3h2a2 2 0 012 2v12a4 4 0 01-4 4h-2a2 2 0 01-2-2V5a2 2 0 012-2z',
-                iconBg: 'bg-gradient-to-br from-yellow-400 to-yellow-600',
-                submitText: 'Design My Brand',
-                submitBg: 'text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl min-h-[44px] touch-manipulation',
-                submitStyle: 'background: linear-gradient(to right, #fed121, #fae4a0);',
-                submitHover: 'onmouseover="this.style.background=\'linear-gradient(to right, #fae4a0, #fed121)\'" onmouseout="this.style.background=\'linear-gradient(to right, #fed121, #fae4a0)\'"'
-            }
-        };
-
-        // Open modal function
-        function openServiceModal(service, theme) {
-            const config = serviceConfigs[theme];
-            
-            // Update modal content
-            modalTitle.textContent = config.title;
-            modalSubtitle.textContent = config.subtitle;
-            modalService.value = service;
-            
-            // Update icon
-            modalIcon.className = `w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg ${config.iconBg}`;
-            modalIconSvg.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${config.icon}"></path>`;
-            
-            // Update submit button
-            modalSubmitBtn.textContent = config.submitText;
-            modalSubmitBtn.className = `w-full ${config.submitBg}`;
-            modalSubmitBtn.setAttribute('style', config.submitStyle);
-            modalSubmitBtn.setAttribute('onmouseover', config.submitHover.split(' ')[0].replace('onmouseover="', '').replace('"', ''));
-            modalSubmitBtn.setAttribute('onmouseout', config.submitHover.split(' ')[1].replace('onmouseout="', '').replace('"', ''));
-            
-            // Show modal
-            serviceModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
         }
 
-        // Close modal function
-        function closeServiceModal() {
-            serviceModal.classList.remove('active');
-            document.body.style.overflow = '';
-            serviceForm.reset();
+        function toggleFinanceTheme() {
+            const card = document.getElementById('finance-card');
+            if (card.classList.contains('finance-light')) {
+                card.classList.remove('finance-light');
+                card.classList.add('finance-dark');
+            } else {
+                card.classList.remove('finance-dark');
+                card.classList.add('finance-light');
+            }
         }
 
-        // Event listeners for service buttons
-        document.querySelectorAll('.service-btn').forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                const service = this.getAttribute('data-service');
-                const theme = this.getAttribute('data-theme');
-                openServiceModal(service, theme);
+        function toggleEcommerceTheme() {
+            const card = document.getElementById('ecommerce-card');
+            if (card.classList.contains('ecommerce-light')) {
+                card.classList.remove('ecommerce-light');
+                card.classList.add('ecommerce-dark');
+            } else {
+                card.classList.remove('ecommerce-dark');
+                card.classList.add('ecommerce-light');
+            }
+        }
+
+        function toggleCreativeTheme() {
+            const card = document.getElementById('creative-card');
+            if (card.classList.contains('creative-light')) {
+                card.classList.remove('creative-light');
+                card.classList.add('creative-dark');
+            } else {
+                card.classList.remove('creative-dark');
+                card.classList.add('creative-light');
+            }
+        }
+
+        // Video error handling and fallback
+        const videos = document.querySelectorAll('video');
+        videos.forEach(video => {
+            video.addEventListener('error', function() {
+                // Hide video and show fallback background
+                this.style.display = 'none';
+                const fallback = this.parentElement.querySelector('.absolute.inset-0.bg-gradient-to-br');
+                if (fallback) {
+                    fallback.style.display = 'block';
+                }
+            });
+            
+            // Ensure video plays on mobile devices
+            video.addEventListener('canplay', function() {
+                this.play().catch(e => {
+                    console.log('Video autoplay failed:', e);
+                });
             });
         });
 
-        // Close modal events
-        closeModal.addEventListener('click', closeServiceModal);
-        
-        serviceModal.addEventListener('click', function(e) {
-            if (e.target === serviceModal) {
-                closeServiceModal();
-            }
-        });
+        // Preload critical resources
+        const preloadLinks = [
+            'Company Logo.png',
+            'Hanu Tab Icon Top & Bottom.png'
+        ];
 
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && serviceModal.classList.contains('active')) {
-                closeServiceModal();
-            }
-        });
-
-        // Service form submission
-        serviceForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Create detailed email content
-            const subject = encodeURIComponent(`${data.service} Inquiry from ${data.name}`);
-            const body = encodeURIComponent(`
-New Service Inquiry - ${data.service}
-
-Client Details:
-- Name: ${data.name}
-- Email: ${data.email}
-- Service Requested: ${data.service}
-
-Project Description:
-${data.message}
-
----
-This inquiry was submitted through the Hanu Studio website service modal.
-            `);
-            const mailtoLink = `mailto:hanu@hanu.co.za?subject=${subject}&body=${body}`;
-            window.location.href = mailtoLink;
-            
-            // Show success message before closing
-            alert('Thank you! Your request has been sent. We\'ll get back to you soon!');
-            closeServiceModal();
-        });
-
-        // Client Portal functionality
-        const clientPortalModal = document.getElementById('clientPortalModal');
-        const closeClientPortalModal = document.getElementById('closeClientPortalModal');
-        const clientPortalForm = document.getElementById('clientPortalForm');
-
-        // Open client portal modal
-        function openClientPortalModal() {
-            clientPortalModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        // Close client portal modal
-        function closeClientPortalModalFunc() {
-            clientPortalModal.classList.remove('active');
-            document.body.style.overflow = '';
-            clientPortalForm.reset();
-        }
-
-        // Event listeners for client portal buttons
-        
-        // Main client portal button in the pricing section
-        const clientPortalMainBtn = document.getElementById('clientPortalMainBtn');
-        if (clientPortalMainBtn) {
-            clientPortalMainBtn.addEventListener('click', openClientPortalModal);
-        }
-
-        // Close modal events
-        closeClientPortalModal.addEventListener('click', closeClientPortalModalFunc);
-        
-        clientPortalModal.addEventListener('click', function(e) {
-            if (e.target === clientPortalModal) {
-                closeClientPortalModalFunc();
-            }
-        });
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && clientPortalModal.classList.contains('active')) {
-                closeClientPortalModalFunc();
-            }
-        });
-
-        // Client portal form submission
-        clientPortalForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Create detailed email content for project status request
-            const subject = encodeURIComponent(`Project Status Request from ${data.name}`);
-            const body = encodeURIComponent(`
-Project Status Update Request
-
-Client Details:
-- Name: ${data.name}
-- Email: ${data.email}
-- Project Reference: ${data.projectReference}
-
----
-This request was submitted through the Hanu Studio Client Portal.
-Please provide an update on this client's project status.
-            `);
-            const mailtoLink = `mailto:hanu@hanu.co.za?subject=${subject}&body=${body}`;
-            window.location.href = mailtoLink;
-            
-            // Show success message before closing
-            alert('Thank you! Your project status request has been sent. We\'ll get back to you with an update soon!');
-            closeClientPortalModalFunc();
-        });
-
-        // Theme Toggle functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const mobileThemeToggle = document.getElementById('mobileThemeToggle');
-        const sunIcon = document.getElementById('sunIcon');
-        const moonIcon = document.getElementById('moonIcon');
-        const mobileSunIcon = document.getElementById('mobileSunIcon');
-        const mobileMoonIcon = document.getElementById('mobileMoonIcon');
-        const mobileThemeText = document.getElementById('mobileThemeText');
-
-        // Check for saved theme preference or default to light mode
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        
-        // Apply theme on page load and update icons
-        if (currentTheme === 'dark') {
-            document.documentElement.classList.add('dark');
-            updateThemeIcons(true);
-        } else {
-            updateThemeIcons(false);
-        }
-
-        function updateThemeIcons(isDark) {
-            if (isDark) {
-                // Show moon icons (dark mode active)
-                sunIcon.classList.add('hidden');
-                moonIcon.classList.remove('hidden');
-                mobileSunIcon.classList.add('hidden');
-                mobileMoonIcon.classList.remove('hidden');
-                mobileThemeText.textContent = 'Dark Mode';
-            } else {
-                // Show sun icons (light mode active)
-                sunIcon.classList.remove('hidden');
-                moonIcon.classList.add('hidden');
-                mobileSunIcon.classList.remove('hidden');
-                mobileMoonIcon.classList.add('hidden');
-                mobileThemeText.textContent = 'Light Mode';
-            }
-        }
-
-        function toggleTheme() {
-            const isDark = document.documentElement.classList.contains('dark');
-            if (isDark) {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-                updateThemeIcons(false);
-            } else {
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-                updateThemeIcons(true);
-            }
-        }
-
-        // Desktop theme toggle event
-        themeToggle.addEventListener('click', toggleTheme);
-
-        // Mobile theme toggle event
-        mobileThemeToggle.addEventListener('click', function() {
-            toggleTheme();
-            closeMobileMenu();
-        });
-
-        // Back to Top Button functionality
-        const backToTopBtn = document.getElementById('backToTop');
-
-        // Throttle scroll events for better performance
-        let scrollTimeout;
-        window.addEventListener('scroll', function() {
-            if (scrollTimeout) {
-                clearTimeout(scrollTimeout);
-            }
-            scrollTimeout = setTimeout(() => {
-                if (window.pageYOffset > 300) {
-                    backToTopBtn.classList.add('visible');
-                } else {
-                    backToTopBtn.classList.remove('visible');
-                }
-            }, 10);
-        }, { passive: true });
-
-        // Smooth scroll to top when clicked
-        backToTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+        preloadLinks.forEach(src => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'image';
+            link.href = src;
+            document.head.appendChild(link);
         });
     </script>
-
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96242285c6e973b1',t:'MTc1MzAzMjA4NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'962b2dd5706273dc',t:'MTc1MzEwNTk0OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 
 </body>
 </html>
