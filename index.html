@@ -1039,562 +1039,722 @@
             </div>
         </section>
 
-        <!-- Portfolio Section -->
-        <section id="portfolio" class="py-8 sm:py-12 relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-4 lg:mb-6 px-4" style="color: black;">Work That Actually Slaps</h2>
-                <p class="text-black text-center mb-8 sm:mb-12 px-4 text-base sm:text-lg max-w-3xl mx-auto">Check out some of our recent projects that made our clients' competition jealous</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 relative">
-                    <!-- Card 1: Simple Bakery Website -->
-                    <div class="relative group">
-                        <div class="card p-0 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10 h-80 overflow-hidden overflow-y-auto scrollbar-hide">
+ <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">My Portfolio</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Here are some of my recent projects showcasing different industries and design approaches
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- Card 1: Luxury Hotel Website -->
+                <div class="relative group">
+                    <div class="card p-0 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10 h-80 overflow-hidden">
+                        <div id="hotel-card" class="hotel-light h-full relative transition-all duration-300 overflow-y-auto" style="scrollbar-width: thin; scrollbar-color: #d4af37 #f8f9fa;">
+                            <!-- Custom scrollbar styles for this card -->
+                            <style>
+                                #hotel-card::-webkit-scrollbar {
+                                    width: 6px;
+                                }
+                                #hotel-card::-webkit-scrollbar-track {
+                                    background: #f8f9fa;
+                                    border-radius: 3px;
+                                }
+                                #hotel-card::-webkit-scrollbar-thumb {
+                                    background: #d4af37;
+                                    border-radius: 3px;
+                                }
+                                #hotel-card::-webkit-scrollbar-thumb:hover {
+                                    background: #b8941f;
+                                }
+                            </style>
                             
-                            <!-- Website Mockup -->
-                            <div id="bakery-card" class="bakery-light h-full relative transition-all duration-300">
-                                <!-- Browser Bar -->
-                                <div class="browser-bar h-6 flex items-center px-2 space-x-1">
-                                    <div class="w-2 h-2 bg-red-400 rounded-full"></div>
-                                    <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                                    <div class="w-2 h-2 bg-green-400 rounded-full"></div>
-                                    <div class="flex-1 bg-white rounded-sm mx-2 h-3 flex items-center px-1">
-                                        <div class="text-xs text-gray-400">sweetbakery.co.za</div>
-                                    </div>
-                                    <button class="theme-toggle-btn w-4 h-4 rounded-full flex items-center justify-center hover:scale-110 transition-transform" onclick="toggleBakeryTheme()">
-                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-                                        </svg>
-                                    </button>
+                            <!-- Browser Bar -->
+                            <div class="browser-bar h-6 flex items-center px-2 space-x-1 bg-gray-200">
+                                <div class="w-2 h-2 bg-red-400 rounded-full"></div>
+                                <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                                <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                                <div class="flex-1 bg-white rounded-sm mx-2 h-3 flex items-center px-1">
+                                    <div class="text-xs text-gray-400">grandpalacehotel.com</div>
                                 </div>
-                                
-                                <!-- Website Content -->
-                                <div class="p-4 h-full">
-                                    <!-- Header -->
-                                    <div class="flex items-center justify-between mb-4">
-                                        <div class="flex items-center space-x-2">
-                                            <div class="w-8 h-8 bg-orange-400 rounded-full flex items-center justify-center">
-                                                <span class="text-white text-xs font-bold">🥖</span>
-                                            </div>
-                                            <span class="font-bold bakery-text-primary">Sweet Bakery</span>
-                                        </div>
-                                        <div class="flex space-x-2 text-xs">
-                                            <span class="bakery-text-secondary">Home</span>
-                                            <span class="bakery-text-secondary">Menu</span>
-                                            <span class="bakery-text-secondary">Contact</span>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Hero Section -->
-                                    <div class="text-center mb-4">
-                                        <h1 class="text-lg font-bold bakery-text-primary mb-2">Fresh Baked Daily</h1>
-                                        <p class="text-xs bakery-text-secondary mb-3">Artisan breads and pastries made with love</p>
-                                        <div class="bg-orange-500 text-white px-3 py-1 rounded text-xs inline-block">Order Now</div>
-                                    </div>
-                                    
-                                    <!-- Product Grid -->
-                                    <div class="grid grid-cols-3 gap-2 mb-4">
-                                        <div class="bakery-product-card rounded p-2 text-center">
-                                            <div class="w-full h-8 bg-yellow-200 rounded mb-1"></div>
-                                            <div class="text-xs font-medium bakery-text-primary">Croissants</div>
-                                            <div class="text-xs bakery-text-secondary">R15</div>
-                                        </div>
-                                        <div class="bakery-product-card rounded p-2 text-center">
-                                            <div class="w-full h-8 bg-orange-200 rounded mb-1"></div>
-                                            <div class="text-xs font-medium bakery-text-primary">Sourdough</div>
-                                            <div class="text-xs bakery-text-secondary">R35</div>
-                                        </div>
-                                        <div class="bakery-product-card rounded p-2 text-center">
-                                            <div class="w-full h-8 bg-pink-200 rounded mb-1"></div>
-                                            <div class="text-xs font-medium bakery-text-primary">Cupcakes</div>
-                                            <div class="text-xs bakery-text-secondary">R25</div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- About Section -->
-                                    <div class="mb-4">
-                                        <h3 class="text-sm font-bold bakery-text-primary mb-2">About Sweet Bakery</h3>
-                                        <p class="text-xs bakery-text-secondary mb-2">Family-owned bakery serving the community since 1985. We use only the finest ingredients and traditional baking methods.</p>
-                                        <div class="flex items-center text-xs bakery-text-secondary mb-2">
-                                            <span class="mr-2">⭐⭐⭐⭐⭐</span>
-                                            <span>4.8/5 (127 reviews)</span>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Opening Hours -->
-                                    <div class="mb-4">
-                                        <h4 class="text-xs font-bold bakery-text-primary mb-2">Opening Hours</h4>
-                                        <div class="text-xs bakery-text-secondary space-y-1">
-                                            <div class="flex justify-between">
-                                                <span>Mon - Fri</span>
-                                                <span>6:00 AM - 6:00 PM</span>
-                                            </div>
-                                            <div class="flex justify-between">
-                                                <span>Saturday</span>
-                                                <span>7:00 AM - 4:00 PM</span>
-                                            </div>
-                                            <div class="flex justify-between">
-                                                <span>Sunday</span>
-                                                <span>8:00 AM - 2:00 PM</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Contact Info -->
-                                    <div class="mb-4">
-                                        <h4 class="text-xs font-bold bakery-text-primary mb-2">Contact Us</h4>
-                                        <div class="text-xs bakery-text-secondary space-y-1">
-                                            <div>📍 123 Main Street, Cape Town</div>
-                                            <div>📞 021 123 4567</div>
-                                            <div>✉️ hello@sweetbakery.co.za</div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Special Offers -->
-                                    <div class="bg-orange-100 rounded p-2 mb-4">
-                                        <h4 class="text-xs font-bold text-orange-700 mb-1">Today's Special</h4>
-                                        <p class="text-xs text-orange-600">Buy 2 croissants, get 1 free! Valid until 2 PM.</p>
-                                    </div>
-                                </div>
-                                
-
+                                <button class="theme-toggle-btn w-4 h-4 rounded-full flex items-center justify-center hover:scale-110 transition-transform bg-gray-300 text-gray-600" onclick="toggleHotelTheme()">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                                    </svg>
+                                </button>
                             </div>
-                        </div>
-                        <div class="mt-4 text-center">
-                            <h3 class="text-lg font-bold text-black mb-2">Simple & Effective</h3>
-                            <p class="text-sm text-gray-600">Local Bakery Website</p>
+                            
+                            <!-- Website Content -->
+                            <div class="p-4 bg-gradient-to-b from-amber-50 to-white min-h-full">
+                                <!-- Header -->
+                                <div class="flex items-center justify-between mb-4 pb-2 border-b border-amber-200">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-8 h-8 bg-gradient-to-br from-amber-400 to-amber-600 rounded flex items-center justify-center">
+                                            <span class="text-white text-xs font-bold">👑</span>
+                                        </div>
+                                        <span class="font-bold text-amber-800">GRAND PALACE</span>
+                                    </div>
+                                    <div class="flex space-x-3 text-xs text-amber-700">
+                                        <span>ROOMS</span>
+                                        <span>DINING</span>
+                                        <span>SPA</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Hero Section -->
+                                <div class="text-center mb-6">
+                                    <h1 class="text-lg font-bold text-amber-800 mb-2">Luxury Redefined</h1>
+                                    <p class="text-xs text-amber-600 mb-3">Experience unparalleled elegance in the heart of the city</p>
+                                    <div class="bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 py-2 rounded-full text-xs inline-block shadow-lg">Book Your Stay</div>
+                                </div>
+                                
+                                <!-- Room Showcase -->
+                                <div class="grid grid-cols-2 gap-3 mb-6">
+                                    <div class="bg-white rounded-lg p-3 shadow-sm border border-amber-100">
+                                        <div class="w-full h-12 bg-gradient-to-br from-amber-100 to-amber-200 rounded mb-2 flex items-center justify-center">
+                                            <span class="text-amber-700 text-xs font-bold">🛏️ SUITE</span>
+                                        </div>
+                                        <div class="text-xs font-medium text-amber-800">Presidential Suite</div>
+                                        <div class="text-xs text-amber-600">From $899/night</div>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-3 shadow-sm border border-amber-100">
+                                        <div class="w-full h-12 bg-gradient-to-br from-blue-100 to-blue-200 rounded mb-2 flex items-center justify-center">
+                                            <span class="text-blue-700 text-xs font-bold">🌊 VIEW</span>
+                                        </div>
+                                        <div class="text-xs font-medium text-amber-800">Ocean View</div>
+                                        <div class="text-xs text-amber-600">From $549/night</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Amenities -->
+                                <div class="mb-6">
+                                    <h3 class="text-sm font-bold text-amber-800 mb-3">World-Class Amenities</h3>
+                                    <div class="grid grid-cols-2 gap-2 text-xs">
+                                        <div class="flex items-center text-amber-700">
+                                            <span class="w-2 h-2 bg-amber-400 rounded-full mr-2"></span>
+                                            <span>Michelin Star Dining</span>
+                                        </div>
+                                        <div class="flex items-center text-amber-700">
+                                            <span class="w-2 h-2 bg-amber-400 rounded-full mr-2"></span>
+                                            <span>Rooftop Infinity Pool</span>
+                                        </div>
+                                        <div class="flex items-center text-amber-700">
+                                            <span class="w-2 h-2 bg-amber-400 rounded-full mr-2"></span>
+                                            <span>Award-Winning Spa</span>
+                                        </div>
+                                        <div class="flex items-center text-amber-700">
+                                            <span class="w-2 h-2 bg-amber-400 rounded-full mr-2"></span>
+                                            <span>24/7 Concierge</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Guest Reviews -->
+                                <div class="mb-6">
+                                    <h4 class="text-sm font-bold text-amber-800 mb-3">Guest Reviews</h4>
+                                    <div class="space-y-3">
+                                        <div class="bg-white rounded-lg p-3 shadow-sm border border-amber-100">
+                                            <div class="flex items-center mb-2">
+                                                <span class="text-xs text-amber-500">⭐⭐⭐⭐⭐</span>
+                                                <span class="text-xs text-amber-600 ml-2">Sarah M.</span>
+                                            </div>
+                                            <p class="text-xs text-amber-700">"Absolutely breathtaking experience. The service was impeccable!"</p>
+                                        </div>
+                                        <div class="bg-white rounded-lg p-3 shadow-sm border border-amber-100">
+                                            <div class="flex items-center mb-2">
+                                                <span class="text-xs text-amber-500">⭐⭐⭐⭐⭐</span>
+                                                <span class="text-xs text-amber-600 ml-2">James R.</span>
+                                            </div>
+                                            <p class="text-xs text-amber-700">"The spa treatments were divine. Will definitely return!"</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Special Offers -->
+                                <div class="mb-6">
+                                    <h4 class="text-sm font-bold text-amber-800 mb-3">Special Offers</h4>
+                                    <div class="bg-gradient-to-r from-amber-100 to-amber-50 rounded-lg p-3 border border-amber-200">
+                                        <div class="text-xs font-bold text-amber-800 mb-1">🎉 Grand Opening Special</div>
+                                        <p class="text-xs text-amber-700 mb-2">Book 3 nights, get the 4th night free!</p>
+                                        <div class="text-xs text-amber-600">Valid until March 31st</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Contact & Location -->
+                                <div class="mb-4">
+                                    <h4 class="text-sm font-bold text-amber-800 mb-3">Contact & Location</h4>
+                                    <div class="text-xs text-amber-700 space-y-1">
+                                        <div>📍 123 Luxury Boulevard, City Center</div>
+                                        <div>📞 +1 (555) 123-GRAND</div>
+                                        <div>✉️ reservations@grandpalace.com</div>
+                                        <div>🕒 Check-in: 3:00 PM | Check-out: 12:00 PM</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div class="mt-4 text-center">
+                        <h3 class="text-lg font-bold text-black mb-2">Elegant & Luxurious</h3>
+                        <p class="text-sm text-gray-600 mb-3">Grand Palace Hotel Website</p>
+                        <a href="#" onclick="window.open('https://example.com/hotel-demo', '_blank'); return false;" class="inline-flex items-center px-4 py-2 bg-amber-600 text-white text-sm font-medium rounded-lg hover:bg-amber-700 transition-colors">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                            View Full Site
+                        </a>
+                    </div>
+                </div>
 
-                    <!-- Card 2: Corporate Financial Website -->
-                    <div class="relative group">
-                        <div class="card p-0 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10 h-80 overflow-hidden overflow-y-auto scrollbar-hide">
+                <!-- Card 2: Fitness Gym Website -->
+                <div class="relative group">
+                    <div class="card p-0 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10 h-80 overflow-hidden">
+                        <div id="gym-card" class="gym-light h-full relative transition-all duration-300 overflow-y-auto" style="scrollbar-width: thin; scrollbar-color: #ef4444 #f1f5f9;">
+                            <!-- Custom scrollbar styles for this card -->
+                            <style>
+                                #gym-card::-webkit-scrollbar {
+                                    width: 6px;
+                                }
+                                #gym-card::-webkit-scrollbar-track {
+                                    background: #f1f5f9;
+                                    border-radius: 3px;
+                                }
+                                #gym-card::-webkit-scrollbar-thumb {
+                                    background: #ef4444;
+                                    border-radius: 3px;
+                                }
+                                #gym-card::-webkit-scrollbar-thumb:hover {
+                                    background: #dc2626;
+                                }
+                            </style>
                             
-                            <!-- Website Mockup -->
-                            <div id="finance-card" class="finance-light h-full relative transition-all duration-300">
-                                <!-- Browser Bar -->
-                                <div class="browser-bar h-6 flex items-center px-2 space-x-1">
-                                    <div class="w-2 h-2 bg-red-400 rounded-full"></div>
-                                    <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                                    <div class="w-2 h-2 bg-green-400 rounded-full"></div>
-                                    <div class="flex-1 bg-white rounded-sm mx-2 h-3 flex items-center px-1">
-                                        <div class="text-xs text-gray-400">premiumfinance.co.za</div>
-                                    </div>
-                                    <button class="theme-toggle-btn w-4 h-4 rounded-full flex items-center justify-center hover:scale-110 transition-transform" onclick="toggleFinanceTheme()">
-                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-                                        </svg>
-                                    </button>
+                            <!-- Browser Bar -->
+                            <div class="browser-bar h-6 flex items-center px-2 space-x-1 bg-gray-200">
+                                <div class="w-2 h-2 bg-red-400 rounded-full"></div>
+                                <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                                <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                                <div class="flex-1 bg-white rounded-sm mx-2 h-3 flex items-center px-1">
+                                    <div class="text-xs text-gray-400">ironpumpgym.com</div>
                                 </div>
-                                
-                                <!-- Website Content -->
-                                <div class="p-4 h-full">
-                                    <!-- Header -->
-                                    <div class="flex items-center justify-between mb-4 pb-2 border-b-2 border-gray-300">
-                                        <div class="flex items-center space-x-2">
-                                            <div class="w-8 h-8 bg-blue-600 rounded flex items-center justify-center">
-                                                <span class="text-white text-xs font-bold">PF</span>
-                                            </div>
-                                            <span class="font-bold finance-text-primary">Premium Finance</span>
-                                        </div>
-                                        <div class="flex space-x-3 text-xs">
-                                            <span class="finance-text-secondary">Services</span>
-                                            <span class="finance-text-secondary">About</span>
-                                            <span class="finance-text-secondary">Contact</span>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Hero Section -->
-                                    <div class="mb-4">
-                                        <h1 class="text-lg font-bold finance-text-primary mb-2">Trusted Financial Solutions</h1>
-                                        <p class="text-xs finance-text-secondary mb-3">Professional advisory services for your business growth</p>
-                                        <div class="flex space-x-2">
-                                            <div class="bg-blue-600 text-white px-3 py-1 rounded text-xs">Get Consultation</div>
-                                            <div class="border border-blue-600 text-blue-600 px-3 py-1 rounded text-xs">Learn More</div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Services Grid -->
-                                    <div class="grid grid-cols-2 gap-3 mb-4">
-                                        <div class="finance-service-card rounded p-3 finance-border">
-                                            <div class="w-6 h-6 bg-blue-100 rounded mb-2 flex items-center justify-center">
-                                                <span class="text-blue-600 text-xs">📊</span>
-                                            </div>
-                                            <div class="text-xs font-medium finance-text-primary">Investment Planning</div>
-                                            <div class="text-xs finance-text-secondary mt-1">Strategic portfolio management</div>
-                                        </div>
-                                        <div class="finance-service-card rounded p-3 finance-border">
-                                            <div class="w-6 h-6 bg-green-100 rounded mb-2 flex items-center justify-center">
-                                                <span class="text-green-600 text-xs">💼</span>
-                                            </div>
-                                            <div class="text-xs font-medium finance-text-primary">Business Loans</div>
-                                            <div class="text-xs finance-text-secondary mt-1">Competitive rates available</div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Company Stats -->
-                                    <div class="mb-4">
-                                        <h3 class="text-sm font-bold finance-text-primary mb-2">Why Choose Premium Finance?</h3>
-                                        <div class="grid grid-cols-3 gap-2 text-center">
-                                            <div class="finance-service-card rounded p-2">
-                                                <div class="text-lg font-bold text-blue-600">15+</div>
-                                                <div class="text-xs finance-text-secondary">Years Experience</div>
-                                            </div>
-                                            <div class="finance-service-card rounded p-2">
-                                                <div class="text-lg font-bold text-green-600">500+</div>
-                                                <div class="text-xs finance-text-secondary">Happy Clients</div>
-                                            </div>
-                                            <div class="finance-service-card rounded p-2">
-                                                <div class="text-lg font-bold text-purple-600">R2B+</div>
-                                                <div class="text-xs finance-text-secondary">Managed Assets</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Services List -->
-                                    <div class="mb-4">
-                                        <h4 class="text-xs font-bold finance-text-primary mb-2">Our Services</h4>
-                                        <div class="text-xs finance-text-secondary space-y-1">
-                                            <div class="flex items-center">
-                                                <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
-                                                <span>Retirement Planning</span>
-                                            </div>
-                                            <div class="flex items-center">
-                                                <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
-                                                <span>Tax Advisory Services</span>
-                                            </div>
-                                            <div class="flex items-center">
-                                                <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
-                                                <span>Estate Planning</span>
-                                            </div>
-                                            <div class="flex items-center">
-                                                <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
-                                                <span>Insurance Solutions</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Contact Information -->
-                                    <div class="mb-4">
-                                        <h4 class="text-xs font-bold finance-text-primary mb-2">Get In Touch</h4>
-                                        <div class="text-xs finance-text-secondary space-y-1">
-                                            <div>📍 Sandton City, Johannesburg</div>
-                                            <div>📞 011 234 5678</div>
-                                            <div>✉️ info@premiumfinance.co.za</div>
-                                            <div>🕒 Mon-Fri: 8:00 AM - 5:00 PM</div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Certifications -->
-                                    <div class="bg-blue-50 rounded p-2">
-                                        <h4 class="text-xs font-bold text-blue-700 mb-1">Certified & Regulated</h4>
-                                        <p class="text-xs text-blue-600">FSP License #12345 | FAIS Compliant</p>
-                                    </div>
-                                </div>
-                                
-
+                                <button class="theme-toggle-btn w-4 h-4 rounded-full flex items-center justify-center hover:scale-110 transition-transform bg-gray-300 text-gray-600" onclick="toggleGymTheme()">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                                    </svg>
+                                </button>
                             </div>
-                        </div>
-                        <div class="mt-4 text-center">
-                            <h3 class="text-lg font-bold text-black mb-2">Professional & Trustworthy</h3>
-                            <p class="text-sm text-gray-600">Corporate Finance Website</p>
+                            
+                            <!-- Website Content -->
+                            <div class="p-4 bg-gradient-to-b from-red-50 to-gray-50 min-h-full">
+                                <!-- Header -->
+                                <div class="flex items-center justify-between mb-4 pb-2 border-b-2 border-red-200">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-8 h-8 bg-gradient-to-br from-red-500 to-red-700 rounded flex items-center justify-center">
+                                            <span class="text-white text-xs font-bold">💪</span>
+                                        </div>
+                                        <span class="font-bold text-red-700">IRON PUMP GYM</span>
+                                    </div>
+                                    <div class="flex space-x-3 text-xs text-red-600">
+                                        <span>CLASSES</span>
+                                        <span>TRAINERS</span>
+                                        <span>PLANS</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Hero Section -->
+                                <div class="text-center mb-6">
+                                    <h1 class="text-lg font-bold text-red-800 mb-2">Transform Your Body</h1>
+                                    <p class="text-xs text-red-600 mb-3">Where champions are made. Join the strongest community.</p>
+                                    <div class="bg-gradient-to-r from-red-500 to-red-600 text-white px-4 py-2 rounded-full text-xs inline-block shadow-lg">Start Your Journey</div>
+                                </div>
+                                
+                                <!-- Membership Plans -->
+                                <div class="grid grid-cols-2 gap-3 mb-6">
+                                    <div class="bg-white rounded-lg p-3 shadow-sm border-l-4 border-red-500">
+                                        <div class="text-xs font-bold text-red-700 mb-1">BASIC</div>
+                                        <div class="text-lg font-bold text-gray-800">$29</div>
+                                        <div class="text-xs text-gray-600 mb-2">/month</div>
+                                        <div class="text-xs text-gray-700">
+                                            <div>• Gym Access</div>
+                                            <div>• Locker Room</div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gradient-to-br from-red-500 to-red-600 rounded-lg p-3 shadow-lg text-white">
+                                        <div class="text-xs font-bold mb-1">PREMIUM</div>
+                                        <div class="text-lg font-bold">$59</div>
+                                        <div class="text-xs mb-2">/month</div>
+                                        <div class="text-xs">
+                                            <div>• All Classes</div>
+                                            <div>• Personal Training</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Class Schedule -->
+                                <div class="mb-6">
+                                    <h3 class="text-sm font-bold text-red-800 mb-3">Today's Classes</h3>
+                                    <div class="space-y-2">
+                                        <div class="bg-white rounded-lg p-3 shadow-sm border border-red-100">
+                                            <div class="flex justify-between items-center">
+                                                <div>
+                                                    <div class="text-xs font-medium text-red-700">HIIT Cardio</div>
+                                                    <div class="text-xs text-gray-600">with Sarah</div>
+                                                </div>
+                                                <div class="text-xs font-bold text-red-600">6:00 AM</div>
+                                            </div>
+                                        </div>
+                                        <div class="bg-white rounded-lg p-3 shadow-sm border border-red-100">
+                                            <div class="flex justify-between items-center">
+                                                <div>
+                                                    <div class="text-xs font-medium text-red-700">Strength Training</div>
+                                                    <div class="text-xs text-gray-600">with Mike</div>
+                                                </div>
+                                                <div class="text-xs font-bold text-red-600">7:30 AM</div>
+                                            </div>
+                                        </div>
+                                        <div class="bg-white rounded-lg p-3 shadow-sm border border-red-100">
+                                            <div class="flex justify-between items-center">
+                                                <div>
+                                                    <div class="text-xs font-medium text-red-700">Yoga Flow</div>
+                                                    <div class="text-xs text-gray-600">with Emma</div>
+                                                </div>
+                                                <div class="text-xs font-bold text-red-600">6:00 PM</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Trainer Spotlight -->
+                                <div class="mb-6">
+                                    <h4 class="text-sm font-bold text-red-800 mb-3">Meet Our Trainers</h4>
+                                    <div class="bg-white rounded-lg p-3 shadow-sm border border-red-100">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-12 h-12 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center">
+                                                <span class="text-white text-xs font-bold">MS</span>
+                                            </div>
+                                            <div>
+                                                <div class="text-xs font-bold text-red-700">Mike Steel</div>
+                                                <div class="text-xs text-gray-600">Certified Personal Trainer</div>
+                                                <div class="text-xs text-gray-500">5+ years experience</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Success Stories -->
+                                <div class="mb-6">
+                                    <h4 class="text-sm font-bold text-red-800 mb-3">Success Stories</h4>
+                                    <div class="bg-gradient-to-r from-red-50 to-red-100 rounded-lg p-3 border border-red-200">
+                                        <div class="text-xs font-bold text-red-700 mb-1">💪 John's Transformation</div>
+                                        <p class="text-xs text-red-600 mb-2">"Lost 30 lbs in 3 months! The trainers here are amazing."</p>
+                                        <div class="flex items-center text-xs text-red-500">
+                                            <span>⭐⭐⭐⭐⭐</span>
+                                            <span class="ml-2">- John D.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Gym Stats -->
+                                <div class="mb-6">
+                                    <h4 class="text-sm font-bold text-red-800 mb-3">Why Choose Iron Pump?</h4>
+                                    <div class="grid grid-cols-3 gap-2 text-center">
+                                        <div class="bg-white rounded-lg p-2 shadow-sm">
+                                            <div class="text-lg font-bold text-red-600">500+</div>
+                                            <div class="text-xs text-gray-600">Members</div>
+                                        </div>
+                                        <div class="bg-white rounded-lg p-2 shadow-sm">
+                                            <div class="text-lg font-bold text-red-600">24/7</div>
+                                            <div class="text-xs text-gray-600">Access</div>
+                                        </div>
+                                        <div class="bg-white rounded-lg p-2 shadow-sm">
+                                            <div class="text-lg font-bold text-red-600">15+</div>
+                                            <div class="text-xs text-gray-600">Classes</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Contact Info -->
+                                <div class="mb-4">
+                                    <h4 class="text-sm font-bold text-red-800 mb-3">Visit Us Today</h4>
+                                    <div class="text-xs text-red-700 space-y-1">
+                                        <div>📍 456 Fitness Street, Downtown</div>
+                                        <div>📞 (555) 123-PUMP</div>
+                                        <div>✉️ info@ironpumpgym.com</div>
+                                        <div>🕒 Open 24/7 • 365 days a year</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div class="mt-4 text-center">
+                        <h3 class="text-lg font-bold text-black mb-2">Bold & Energetic</h3>
+                        <p class="text-sm text-gray-600 mb-3">Iron Pump Fitness Gym</p>
+                        <a href="#" onclick="window.open('https://example.com/gym-demo', '_blank'); return false;" class="inline-flex items-center px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-lg hover:bg-red-700 transition-colors">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                            View Full Site
+                        </a>
+                    </div>
+                </div>
 
-                    <!-- Card 3: Modern E-Commerce Website -->
-                    <div class="relative group">
-                        <div class="card p-0 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10 h-80 overflow-hidden overflow-y-auto scrollbar-hide">
+                <!-- Card 3: Tech Startup Website -->
+                <div class="relative group">
+                    <div class="card p-0 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10 h-80 overflow-hidden">
+                        <div id="tech-card" class="tech-light h-full relative transition-all duration-300 overflow-y-auto" style="scrollbar-width: thin; scrollbar-color: #3b82f6 #f8fafc;">
+                            <!-- Custom scrollbar styles for this card -->
+                            <style>
+                                #tech-card::-webkit-scrollbar {
+                                    width: 6px;
+                                }
+                                #tech-card::-webkit-scrollbar-track {
+                                    background: #f8fafc;
+                                    border-radius: 3px;
+                                }
+                                #tech-card::-webkit-scrollbar-thumb {
+                                    background: #3b82f6;
+                                    border-radius: 3px;
+                                }
+                                #tech-card::-webkit-scrollbar-thumb:hover {
+                                    background: #2563eb;
+                                }
+                            </style>
                             
-                            <!-- Website Mockup -->
-                            <div id="ecommerce-card" class="ecommerce-light h-full relative transition-all duration-300">
-                                <!-- Browser Bar -->
-                                <div class="browser-bar h-6 flex items-center px-2 space-x-1">
-                                    <div class="w-2 h-2 bg-red-400 rounded-full"></div>
-                                    <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                                    <div class="w-2 h-2 bg-green-400 rounded-full"></div>
-                                    <div class="flex-1 bg-white rounded-sm mx-2 h-3 flex items-center px-1">
-                                        <div class="text-xs text-gray-400">trendystore.co.za</div>
-                                    </div>
-                                    <button class="theme-toggle-btn w-4 h-4 rounded-full flex items-center justify-center hover:scale-110 transition-transform" onclick="toggleEcommerceTheme()">
-                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-                                        </svg>
-                                    </button>
+                            <!-- Browser Bar -->
+                            <div class="browser-bar h-6 flex items-center px-2 space-x-1 bg-gray-200">
+                                <div class="w-2 h-2 bg-red-400 rounded-full"></div>
+                                <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                                <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                                <div class="flex-1 bg-white rounded-sm mx-2 h-3 flex items-center px-1">
+                                    <div class="text-xs text-gray-400">nexusai.tech</div>
                                 </div>
-                                
-                                <!-- Website Content -->
-                                <div class="p-4 h-full">
-                                    <!-- Header -->
-                                    <div class="flex items-center justify-between mb-4">
-                                        <div class="flex items-center space-x-2">
-                                            <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded flex items-center justify-center">
-                                                <span class="text-white text-xs font-bold">T</span>
-                                            </div>
-                                            <span class="font-bold ecommerce-text-primary">TrendyStore</span>
-                                        </div>
-                                        <div class="flex items-center space-x-2">
-                                            <div class="text-xs ecommerce-text-secondary">🔍</div>
-                                            <div class="text-xs ecommerce-text-secondary">❤️</div>
-                                            <div class="text-xs ecommerce-text-secondary">🛒 (3)</div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Search & Filter -->
-                                    <div class="mb-3">
-                                        <div class="ecommerce-search-bar rounded-full px-3 py-1 text-xs mb-2">Search products...</div>
-                                        <div class="flex space-x-2 text-xs">
-                                            <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded-full">All</span>
-                                            <span class="ecommerce-text-secondary">Clothing</span>
-                                            <span class="ecommerce-text-secondary">Accessories</span>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Product Grid -->
-                                    <div class="grid grid-cols-2 gap-3 mb-4">
-                                        <div class="ecommerce-product-card rounded-lg p-2 shadow-sm">
-                                            <div class="w-full h-16 bg-gradient-to-br from-pink-200 to-purple-200 rounded mb-2 relative">
-                                                <div class="absolute top-1 right-1 text-xs">❤️</div>
-                                                <div class="absolute bottom-1 left-1 bg-red-500 text-white text-xs px-1 rounded">-20%</div>
-                                            </div>
-                                            <div class="text-xs font-medium ecommerce-text-primary">Summer Dress</div>
-                                            <div class="text-xs ecommerce-text-secondary line-through">R299</div>
-                                            <div class="text-xs font-bold text-purple-600">R239</div>
-                                            <div class="bg-purple-500 text-white text-xs px-2 py-1 rounded mt-1 text-center">Add to Cart</div>
-                                        </div>
-                                        <div class="ecommerce-product-card rounded-lg p-2 shadow-sm">
-                                            <div class="w-full h-16 bg-gradient-to-br from-blue-200 to-indigo-200 rounded mb-2 relative">
-                                                <div class="absolute top-1 right-1 text-xs">❤️</div>
-                                            </div>
-                                            <div class="text-xs font-medium ecommerce-text-primary">Designer Bag</div>
-                                            <div class="text-xs font-bold text-purple-600">R599</div>
-                                            <div class="bg-purple-500 text-white text-xs px-2 py-1 rounded mt-1 text-center">Add to Cart</div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Featured Collections -->
-                                    <div class="mb-4">
-                                        <h3 class="text-sm font-bold ecommerce-text-primary mb-2">Featured Collections</h3>
-                                        <div class="space-y-2">
-                                            <div class="ecommerce-product-card rounded p-2 flex items-center space-x-2">
-                                                <div class="w-8 h-8 bg-gradient-to-br from-yellow-200 to-orange-200 rounded"></div>
-                                                <div class="flex-1">
-                                                    <div class="text-xs font-medium ecommerce-text-primary">Summer Collection</div>
-                                                    <div class="text-xs ecommerce-text-secondary">25 items • Up to 30% off</div>
-                                                </div>
-                                            </div>
-                                            <div class="ecommerce-product-card rounded p-2 flex items-center space-x-2">
-                                                <div class="w-8 h-8 bg-gradient-to-br from-green-200 to-teal-200 rounded"></div>
-                                                <div class="flex-1">
-                                                    <div class="text-xs font-medium ecommerce-text-primary">Accessories</div>
-                                                    <div class="text-xs ecommerce-text-secondary">18 items • New arrivals</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Customer Reviews -->
-                                    <div class="mb-4">
-                                        <h4 class="text-xs font-bold ecommerce-text-primary mb-2">Customer Reviews</h4>
-                                        <div class="space-y-2">
-                                            <div class="ecommerce-product-card rounded p-2">
-                                                <div class="flex items-center mb-1">
-                                                    <span class="text-xs">⭐⭐⭐⭐⭐</span>
-                                                    <span class="text-xs ecommerce-text-secondary ml-2">Sarah M.</span>
-                                                </div>
-                                                <p class="text-xs ecommerce-text-secondary">"Amazing quality and fast delivery!"</p>
-                                            </div>
-                                            <div class="ecommerce-product-card rounded p-2">
-                                                <div class="flex items-center mb-1">
-                                                    <span class="text-xs">⭐⭐⭐⭐⭐</span>
-                                                    <span class="text-xs ecommerce-text-secondary ml-2">Mike R.</span>
-                                                </div>
-                                                <p class="text-xs ecommerce-text-secondary">"Love the trendy styles!"</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Shipping Info -->
-                                    <div class="mb-4">
-                                        <h4 class="text-xs font-bold ecommerce-text-primary mb-2">Shipping & Returns</h4>
-                                        <div class="text-xs ecommerce-text-secondary space-y-1">
-                                            <div class="flex items-center">
-                                                <span class="w-2 h-2 bg-purple-400 rounded-full mr-2"></span>
-                                                <span>Free shipping over R500</span>
-                                            </div>
-                                            <div class="flex items-center">
-                                                <span class="w-2 h-2 bg-purple-400 rounded-full mr-2"></span>
-                                                <span>30-day return policy</span>
-                                            </div>
-                                            <div class="flex items-center">
-                                                <span class="w-2 h-2 bg-purple-400 rounded-full mr-2"></span>
-                                                <span>Express delivery available</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Newsletter Signup -->
-                                    <div class="bg-purple-100 rounded p-2">
-                                        <h4 class="text-xs font-bold text-purple-700 mb-1">Stay Updated</h4>
-                                        <p class="text-xs text-purple-600 mb-2">Get 10% off your first order!</p>
-                                        <div class="flex space-x-1">
-                                            <input type="email" placeholder="Email" class="flex-1 text-xs px-2 py-1 rounded border">
-                                            <button class="bg-purple-500 text-white text-xs px-2 py-1 rounded">Subscribe</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-
+                                <button class="theme-toggle-btn w-4 h-4 rounded-full flex items-center justify-center hover:scale-110 transition-transform bg-gray-300 text-gray-600" onclick="toggleTechTheme()">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                                    </svg>
+                                </button>
                             </div>
-                        </div>
-                        <div class="mt-4 text-center">
-                            <h3 class="text-lg font-bold text-black mb-2">Sleek & Modern</h3>
-                            <p class="text-sm text-gray-600">E-Commerce Platform</p>
+                            
+                            <!-- Website Content -->
+                            <div class="p-4 bg-gradient-to-b from-blue-50 to-indigo-50 min-h-full">
+                                <!-- Header -->
+                                <div class="flex items-center justify-between mb-4 pb-2 border-b border-blue-200">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-indigo-600 rounded flex items-center justify-center">
+                                            <span class="text-white text-xs font-bold">🚀</span>
+                                        </div>
+                                        <span class="font-bold text-blue-800">NEXUS AI</span>
+                                    </div>
+                                    <div class="flex space-x-3 text-xs text-blue-600">
+                                        <span>PRODUCT</span>
+                                        <span>PRICING</span>
+                                        <span>DOCS</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Hero Section -->
+                                <div class="text-center mb-6">
+                                    <h1 class="text-lg font-bold text-blue-900 mb-2">AI That Actually Works</h1>
+                                    <p class="text-xs text-blue-700 mb-3">Transform your business with cutting-edge artificial intelligence</p>
+                                    <div class="flex space-x-2 justify-center">
+                                        <div class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-3 py-2 rounded-lg text-xs shadow-lg">Start Free Trial</div>
+                                        <div class="border border-blue-500 text-blue-600 px-3 py-2 rounded-lg text-xs">Watch Demo</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Features Grid -->
+                                <div class="grid grid-cols-2 gap-3 mb-6">
+                                    <div class="bg-white rounded-lg p-3 shadow-sm border border-blue-100">
+                                        <div class="w-8 h-8 bg-gradient-to-br from-green-400 to-green-600 rounded-lg mb-2 flex items-center justify-center">
+                                            <span class="text-white text-xs">🧠</span>
+                                        </div>
+                                        <div class="text-xs font-bold text-blue-800">Smart Analytics</div>
+                                        <div class="text-xs text-blue-600 mt-1">Real-time insights powered by ML</div>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-3 shadow-sm border border-blue-100">
+                                        <div class="w-8 h-8 bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg mb-2 flex items-center justify-center">
+                                            <span class="text-white text-xs">⚡</span>
+                                        </div>
+                                        <div class="text-xs font-bold text-blue-800">Auto Scaling</div>
+                                        <div class="text-xs text-blue-600 mt-1">Scales with your business needs</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Stats Section -->
+                                <div class="mb-6">
+                                    <h3 class="text-sm font-bold text-blue-800 mb-3">Trusted by Industry Leaders</h3>
+                                    <div class="grid grid-cols-3 gap-2 text-center">
+                                        <div class="bg-white rounded-lg p-2 shadow-sm border border-blue-100">
+                                            <div class="text-lg font-bold text-blue-600">99.9%</div>
+                                            <div class="text-xs text-blue-700">Uptime</div>
+                                        </div>
+                                        <div class="bg-white rounded-lg p-2 shadow-sm border border-blue-100">
+                                            <div class="text-lg font-bold text-green-600">10K+</div>
+                                            <div class="text-xs text-blue-700">Users</div>
+                                        </div>
+                                        <div class="bg-white rounded-lg p-2 shadow-sm border border-blue-100">
+                                            <div class="text-lg font-bold text-purple-600">50M+</div>
+                                            <div class="text-xs text-blue-700">API Calls</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- API Demo -->
+                                <div class="mb-6">
+                                    <h4 class="text-sm font-bold text-blue-800 mb-3">Simple Integration</h4>
+                                    <div class="bg-gray-900 rounded-lg p-3 text-xs">
+                                        <div class="text-green-400 mb-1">// Get started in seconds</div>
+                                        <div class="text-blue-300">import { NexusAI } from 'nexus-ai';</div>
+                                        <div class="text-white mt-1">const ai = new NexusAI(apiKey);</div>
+                                        <div class="text-yellow-300 mt-1">ai.analyze(data).then(result => {</div>
+                                        <div class="text-white ml-2">console.log(result);</div>
+                                        <div class="text-yellow-300">});</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Customer Testimonials -->
+                                <div class="mb-6">
+                                    <h4 class="text-sm font-bold text-blue-800 mb-3">What Our Customers Say</h4>
+                                    <div class="space-y-3">
+                                        <div class="bg-white rounded-lg p-3 shadow-sm border border-blue-100">
+                                            <div class="flex items-center mb-2">
+                                                <div class="w-6 h-6 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mr-2">
+                                                    <span class="text-white text-xs">JD</span>
+                                                </div>
+                                                <div>
+                                                    <div class="text-xs font-bold text-blue-800">Jane Doe</div>
+                                                    <div class="text-xs text-blue-600">CTO, TechCorp</div>
+                                                </div>
+                                            </div>
+                                            <p class="text-xs text-blue-700">"Nexus AI transformed our data processing. 10x faster results!"</p>
+                                            <div class="text-xs text-blue-500 mt-1">⭐⭐⭐⭐⭐</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Pricing Preview -->
+                                <div class="mb-6">
+                                    <h4 class="text-sm font-bold text-blue-800 mb-3">Flexible Pricing</h4>
+                                    <div class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg p-3 text-white">
+                                        <div class="text-xs font-bold mb-1">Starter Plan</div>
+                                        <div class="text-lg font-bold">$29<span class="text-sm">/month</span></div>
+                                        <div class="text-xs opacity-90 mt-1">Perfect for small teams</div>
+                                        <div class="text-xs mt-2">
+                                            <div>• 10K API calls/month</div>
+                                            <div>• Email support</div>
+                                            <div>• Basic analytics</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Contact CTA -->
+                                <div class="mb-4">
+                                    <h4 class="text-sm font-bold text-blue-800 mb-3">Ready to Get Started?</h4>
+                                    <div class="text-xs text-blue-700 space-y-1">
+                                        <div>📧 hello@nexusai.tech</div>
+                                        <div>📞 1-800-NEXUS-AI</div>
+                                        <div>💬 Live chat available 24/7</div>
+                                        <div>📚 Comprehensive documentation</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div class="mt-4 text-center">
+                        <h3 class="text-lg font-bold text-black mb-2">Modern & Innovative</h3>
+                        <p class="text-sm text-gray-600 mb-3">Nexus AI Tech Startup</p>
+                        <a href="#" onclick="window.open('https://example.com/tech-demo', '_blank'); return false;" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                            View Full Site
+                        </a>
+                    </div>
+                </div>
 
-                    <!-- Card 4: Creative Portfolio Website -->
-                    <div class="relative group">
-                        <div class="card p-0 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10 h-80 overflow-hidden overflow-y-auto scrollbar-hide">
+                <!-- Card 4: Fine Dining Restaurant -->
+                <div class="relative group">
+                    <div class="card p-0 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative z-10 h-80 overflow-hidden">
+                        <div id="restaurant-card" class="restaurant-light h-full relative transition-all duration-300 overflow-y-auto" style="scrollbar-width: thin; scrollbar-color: #059669 #f0fdf4;">
+                            <!-- Custom scrollbar styles for this card -->
+                            <style>
+                                #restaurant-card::-webkit-scrollbar {
+                                    width: 6px;
+                                }
+                                #restaurant-card::-webkit-scrollbar-track {
+                                    background: #f0fdf4;
+                                    border-radius: 3px;
+                                }
+                                #restaurant-card::-webkit-scrollbar-thumb {
+                                    background: #059669;
+                                    border-radius: 3px;
+                                }
+                                #restaurant-card::-webkit-scrollbar-thumb:hover {
+                                    background: #047857;
+                                }
+                            </style>
                             
-                            <!-- Website Mockup -->
-                            <div id="creative-card" class="creative-light h-full relative transition-all duration-300">
-                                <!-- Browser Bar -->
-                                <div class="browser-bar h-6 flex items-center px-2 space-x-1">
-                                    <div class="w-2 h-2 bg-red-400 rounded-full"></div>
-                                    <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                                    <div class="w-2 h-2 bg-green-400 rounded-full"></div>
-                                    <div class="flex-1 bg-white rounded-sm mx-2 h-3 flex items-center px-1">
-                                        <div class="text-xs text-gray-400">alexcreative.co.za</div>
-                                    </div>
-                                    <button class="theme-toggle-btn w-4 h-4 rounded-full flex items-center justify-center hover:scale-110 transition-transform" onclick="toggleCreativeTheme()">
-                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-                                        </svg>
-                                    </button>
+                            <!-- Browser Bar -->
+                            <div class="browser-bar h-6 flex items-center px-2 space-x-1 bg-gray-200">
+                                <div class="w-2 h-2 bg-red-400 rounded-full"></div>
+                                <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                                <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                                <div class="flex-1 bg-white rounded-sm mx-2 h-3 flex items-center px-1">
+                                    <div class="text-xs text-gray-400">bellavista.restaurant</div>
                                 </div>
-                                
-                                <!-- Website Content -->
-                                <div class="p-4 h-full">
-                                    <!-- Header -->
-                                    <div class="flex items-center justify-between mb-6">
-                                        <div class="text-lg font-bold">
-                                            <span class="creative-alex">ALEX</span>
-                                            <span class="creative-text-primary">CREATIVE</span>
+                                <button class="theme-toggle-btn w-4 h-4 rounded-full flex items-center justify-center hover:scale-110 transition-transform bg-gray-300 text-gray-600" onclick="toggleRestaurantTheme()">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            
+                            <!-- Website Content -->
+                            <div class="p-4 bg-gradient-to-b from-green-50 to-emerald-50 min-h-full">
+                                <!-- Header -->
+                                <div class="flex items-center justify-between mb-4 pb-2 border-b border-green-200">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-8 h-8 bg-gradient-to-br from-green-600 to-emerald-700 rounded flex items-center justify-center">
+                                            <span class="text-white text-xs font-bold">🍽️</span>
                                         </div>
-                                        <div class="flex space-x-3 text-xs">
-                                            <span class="creative-text-secondary hover:text-purple-600 transition-colors">WORK</span>
-                                            <span class="creative-text-secondary hover:text-purple-600 transition-colors">ABOUT</span>
-                                            <span class="creative-text-secondary hover:text-purple-600 transition-colors">CONTACT</span>
-                                        </div>
+                                        <span class="font-bold text-green-800">BELLA VISTA</span>
                                     </div>
-                                    
-                                    <!-- Hero Section -->
-                                    <div class="mb-6">
-                                        <h1 class="text-2xl font-bold mb-2">
-                                            <span class="creative-text-primary">VISUAL</span><br>
-                                            <span class="creative-storyteller">STORYTELLER</span>
-                                        </h1>
-                                        <p class="text-xs creative-text-secondary mb-3">Bringing ideas to life through bold design</p>
-                                    </div>
-                                    
-                                    <!-- Portfolio Grid -->
-                                    <div class="grid grid-cols-2 gap-2 mb-4">
-                                        <div class="bg-gradient-to-br from-yellow-400 to-orange-500 h-12 rounded transform hover:scale-105 transition-transform relative">
-                                            <div class="absolute inset-0 flex items-center justify-center">
-                                                <span class="text-xs font-bold text-white">Brand Design</span>
-                                            </div>
-                                        </div>
-                                        <div class="bg-gradient-to-br from-purple-500 to-pink-500 h-12 rounded transform hover:scale-105 transition-transform relative">
-                                            <div class="absolute inset-0 flex items-center justify-center">
-                                                <span class="text-xs font-bold text-white">Web Design</span>
-                                            </div>
-                                        </div>
-                                        <div class="bg-gradient-to-br from-blue-500 to-cyan-500 h-12 rounded transform hover:scale-105 transition-transform relative">
-                                            <div class="absolute inset-0 flex items-center justify-center">
-                                                <span class="text-xs font-bold text-white">Photography</span>
-                                            </div>
-                                        </div>
-                                        <div class="bg-gradient-to-br from-green-400 to-emerald-500 h-12 rounded transform hover:scale-105 transition-transform relative">
-                                            <div class="absolute inset-0 flex items-center justify-center">
-                                                <span class="text-xs font-bold text-white">Illustration</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- About Section -->
-                                    <div class="mb-4">
-                                        <h3 class="text-sm font-bold creative-text-primary mb-2">About Alex</h3>
-                                        <p class="text-xs creative-text-secondary mb-2">Award-winning creative director with 8+ years of experience in visual storytelling and brand development.</p>
-                                        <div class="flex items-center space-x-4 text-xs creative-text-secondary">
-                                            <span>🏆 Design Awards: 12</span>
-                                            <span>👥 Happy Clients: 150+</span>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Recent Projects -->
-                                    <div class="mb-4">
-                                        <h4 class="text-xs font-bold creative-text-primary mb-2">Recent Projects</h4>
-                                        <div class="space-y-2">
-                                            <div class="flex items-center space-x-2">
-                                                <div class="w-6 h-6 bg-gradient-to-br from-red-400 to-pink-500 rounded"></div>
-                                                <div class="flex-1">
-                                                    <div class="text-xs font-medium creative-text-primary">Nike Campaign</div>
-                                                    <div class="text-xs creative-text-secondary">Brand Identity • 2024</div>
-                                                </div>
-                                            </div>
-                                            <div class="flex items-center space-x-2">
-                                                <div class="w-6 h-6 bg-gradient-to-br from-blue-400 to-indigo-500 rounded"></div>
-                                                <div class="flex-1">
-                                                    <div class="text-xs font-medium creative-text-primary">Tech Startup</div>
-                                                    <div class="text-xs creative-text-secondary">Web Design • 2024</div>
-                                                </div>
-                                            </div>
-                                            <div class="flex items-center space-x-2">
-                                                <div class="w-6 h-6 bg-gradient-to-br from-green-400 to-teal-500 rounded"></div>
-                                                <div class="flex-1">
-                                                    <div class="text-xs font-medium creative-text-primary">Art Exhibition</div>
-                                                    <div class="text-xs creative-text-secondary">Visual Identity • 2023</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Skills -->
-                                    <div class="mb-4">
-                                        <h4 class="text-xs font-bold creative-text-primary mb-2">Skills & Tools</h4>
-                                        <div class="flex flex-wrap gap-1">
-                                            <span class="bg-yellow-400 text-black text-xs px-2 py-1 rounded">Photoshop</span>
-                                            <span class="bg-purple-500 text-white text-xs px-2 py-1 rounded">Illustrator</span>
-                                            <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Figma</span>
-                                            <span class="bg-green-500 text-white text-xs px-2 py-1 rounded">After Effects</span>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Contact -->
-                                    <div class="mb-4">
-                                        <h4 class="text-xs font-bold creative-text-primary mb-2">Let's Collaborate</h4>
-                                        <div class="text-xs creative-text-secondary space-y-1">
-                                            <div>✉️ alex@alexcreative.co.za</div>
-                                            <div>📱 +27 82 123 4567</div>
-                                            <div>📍 Cape Town, South Africa</div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Animated Elements -->
-                                    <div class="absolute bottom-4 right-4">
-                                        <div class="w-3 h-3 bg-yellow-400 rounded-full animate-ping"></div>
+                                    <div class="flex space-x-3 text-xs text-green-700">
+                                        <span>MENU</span>
+                                        <span>RESERVE</span>
+                                        <span>EVENTS</span>
                                     </div>
                                 </div>
                                 
-
+                                <!-- Hero Section -->
+                                <div class="text-center mb-6">
+                                    <h1 class="text-lg font-bold text-green-900 mb-2">Authentic Italian Cuisine</h1>
+                                    <p class="text-xs text-green-700 mb-3">Experience the finest flavors of Italy in an elegant atmosphere</p>
+                                    <div class="bg-gradient-to-r from-green-600 to-emerald-700 text-white px-4 py-2 rounded-full text-xs inline-block shadow-lg">Make Reservation</div>
+                                </div>
+                                
+                                <!-- Featured Dishes -->
+                                <div class="grid grid-cols-2 gap-3 mb-6">
+                                    <div class="bg-white rounded-lg p-3 shadow-sm border border-green-100">
+                                        <div class="w-full h-12 bg-gradient-to-br from-orange-200 to-red-200 rounded mb-2 flex items-center justify-center">
+                                            <span class="text-orange-800 text-xs font-bold">🍝 PASTA</span>
+                                        </div>
+                                        <div class="text-xs font-bold text-green-800">Truffle Carbonara</div>
+                                        <div class="text-xs text-green-600">$28</div>
+                                        <div class="text-xs text-green-500 mt-1">Chef's Special</div>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-3 shadow-sm border border-green-100">
+                                        <div class="w-full h-12 bg-gradient-to-br from-red-200 to-red-300 rounded mb-2 flex items-center justify-center">
+                                            <span class="text-red-800 text-xs font-bold">🥩 MEAT</span>
+                                        </div>
+                                        <div class="text-xs font-bold text-green-800">Osso Buco</div>
+                                        <div class="text-xs text-green-600">$42</div>
+                                        <div class="text-xs text-green-500 mt-1">Signature Dish</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Restaurant Info -->
+                                <div class="mb-6">
+                                    <h3 class="text-sm font-bold text-green-800 mb-3">Why Bella Vista?</h3>
+                                    <div class="grid grid-cols-2 gap-2 text-xs">
+                                        <div class="flex items-center text-green-700">
+                                            <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                            <span>Michelin Recommended</span>
+                                        </div>
+                                        <div class="flex items-center text-green-700">
+                                            <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                            <span>Fresh Daily Ingredients</span>
+                                        </div>
+                                        <div class="flex items-center text-green-700">
+                                            <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                            <span>Award-Winning Chef</span>
+                                        </div>
+                                        <div class="flex items-center text-green-700">
+                                            <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                            <span>Private Dining</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Chef's Message -->
+                                <div class="mb-6">
+                                    <h4 class="text-sm font-bold text-green-800 mb-3">From Our Chef</h4>
+                                    <div class="bg-white rounded-lg p-3 shadow-sm border border-green-100">
+                                        <div class="flex items-center mb-2">
+                                            <div class="w-8 h-8 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mr-2">
+                                                <span class="text-white text-xs font-bold">MC</span>
+                                            </div>
+                                            <div>
+                                                <div class="text-xs font-bold text-green-800">Marco Castellano</div>
+                                                <div class="text-xs text-green-600">Executive Chef</div>
+                                            </div>
+                                        </div>
+                                        <p class="text-xs text-green-700">"Every dish tells a story of tradition, passion, and the finest Italian ingredients."</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Wine Selection -->
+                                <div class="mb-6">
+                                    <h4 class="text-sm font-bold text-green-800 mb-3">Wine Selection</h4>
+                                    <div class="space-y-2">
+                                        <div class="bg-white rounded-lg p-2 shadow-sm border border-green-100 flex justify-between items-center">
+                                            <div>
+                                                <div class="text-xs font-medium text-green-800">Chianti Classico 2019</div>
+                                                <div class="text-xs text-green-600">Tuscany, Italy</div>
+                                            </div>
+                                            <div class="text-xs font-bold text-green-700">$65</div>
+                                        </div>
+                                        <div class="bg-white rounded-lg p-2 shadow-sm border border-green-100 flex justify-between items-center">
+                                            <div>
+                                                <div class="text-xs font-medium text-green-800">Barolo 2018</div>
+                                                <div class="text-xs text-green-600">Piedmont, Italy</div>
+                                            </div>
+                                            <div class="text-xs font-bold text-green-700">$95</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Reviews -->
+                                <div class="mb-6">
+                                    <h4 class="text-sm font-bold text-green-800 mb-3">Guest Reviews</h4>
+                                    <div class="bg-green-50 rounded-lg p-3 border border-green-200">
+                                        <div class="flex items-center mb-2">
+                                            <span class="text-xs text-yellow-500">⭐⭐⭐⭐⭐</span>
+                                            <span class="text-xs text-green-700 ml-2">- Maria S.</span>
+                                        </div>
+                                        <p class="text-xs text-green-700">"Absolutely divine! The truffle carbonara was perfection. Will definitely return!"</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Hours & Contact -->
+                                <div class="mb-4">
+                                    <h4 class="text-sm font-bold text-green-800 mb-3">Visit Us</h4>
+                                    <div class="text-xs text-green-700 space-y-1">
+                                        <div>📍 123 Via Roma, Little Italy</div>
+                                        <div>📞 (555) 123-BELLA</div>
+                                        <div>✉️ reservations@bellavista.com</div>
+                                        <div>🕒 Tue-Sun: 5:00 PM - 11:00 PM</div>
+                                        <div>🚫 Closed Mondays</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="mt-4 text-center">
-                            <h3 class="text-lg font-bold text-black mb-2">Bold & Creative</h3>
-                            <p class="text-sm text-gray-600">Artist Portfolio Website</p>
-                        </div>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <h3 class="text-lg font-bold text-black mb-2">Elegant & Sophisticated</h3>
+                        <p class="text-sm text-gray-600 mb-3">Bella Vista Fine Dining</p>
+                        <a href="#" onclick="window.open('https://example.com/restaurant-demo', '_blank'); return false;" class="inline-flex items-center px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition-colors">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                            View Full Site
+                        </a>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
         <!-- Pricing & Client Portal Section -->
         <section id="pricing" class="py-8 sm:py-12 bg-gray-100">
