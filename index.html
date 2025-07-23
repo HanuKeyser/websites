@@ -1047,15 +1047,12 @@ a:focus {
 
 <!-- Home Section with Video -->
 <section id="home" class="relative h-screen overflow-hidden">
-
   <!-- Video Background -->
   <div class="absolute inset-0 w-full h-full">
-
     <!-- Desktop Video -->
     <video
       id="desktopVideo"
       class="hidden lg:block w-full h-full object-cover"
-      autoplay
       muted
       playsinline
       preload="none"
@@ -1068,7 +1065,6 @@ a:focus {
     <video
       id="tabletVideo"
       class="hidden md:block lg:hidden w-full h-full object-cover"
-      autoplay
       muted
       playsinline
       preload="none"
@@ -1081,7 +1077,6 @@ a:focus {
     <video
       id="mobileVideo"
       class="block md:hidden w-full h-full object-cover"
-      autoplay
       muted
       playsinline
       preload="none"
@@ -1089,9 +1084,34 @@ a:focus {
     >
       <source src="HanuPhone.mp4" type="video/mp4">
     </video>
-
   </div>
 </section>
+
+<!-- JavaScript to delay playback -->
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const desktopVideo = document.getElementById('desktopVideo');
+    const tabletVideo = document.getElementById('tabletVideo');
+    const mobileVideo = document.getElementById('mobileVideo');
+
+    const playWithDelay = (video) => {
+      if (!video) return;
+      setTimeout(() => {
+        video.play().catch(err => {
+          console.warn('Autoplay might be blocked:', err);
+        });
+      }, 5000); // 5 seconds delay
+    };
+
+    if (window.innerWidth >= 1024) {
+      playWithDelay(desktopVideo);
+    } else if (window.innerWidth >= 768) {
+      playWithDelay(tabletVideo);
+    } else {
+      playWithDelay(mobileVideo);
+    }
+  });
+</script>
 
 <!-- About Us Section -->
 <section id="about" class="py-8 sm:py-12">
