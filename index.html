@@ -1046,56 +1046,26 @@ a:focus {
 <main class="flex-1 relative z-20">
 
 <!-- Home Section with Video -->
-<section id="home" class="relative h-screen overflow-hidden">
+<section id="home" class="relative h-screen overflow-hidden bg-black">
 
   <!-- Video Background -->
-  <div class="absolute inset-0 w-full h-full">
-
-    <!-- Desktop Video -->
+  <div class="absolute inset-0 w-full h-full flex items-center justify-center">
     <video
-      id="desktopVideo"
-      class="hidden lg:block w-full h-full object-cover"
+      id="responsiveVideo"
+      class="w-full h-full object-contain"
       autoplay
       muted
-      loop
       playsinline
-      preload="none"
-      loading="lazy"
+      loop
+      preload="auto"
     >
       <source src="HanuDesktop.mp4" type="video/mp4">
-      <!-- Fallback gradient if video fails -->
+      Your browser does not support the video tag.
     </video>
-
-    <!-- Tablet Video -->
-    <video
-      id="tabletVideo"
-      class="hidden md:block lg:hidden w-full h-full object-cover"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="none"
-      loading="lazy"
-    >
-      <source src="HanuTablet.mp4" type="video/mp4">
-    </video>
-
-    <!-- Mobile Video -->
-    <video
-      id="mobileVideo"
-      class="block md:hidden w-full h-full object-cover"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="none"
-      loading="lazy"
-    >
-      <source src="HanuPhone.mp4" type="video/mp4">
-    </video>
-
   </div>
+
 </section>
+
 
 <!-- About Us Section -->
 <section id="about" class="py-8 sm:py-12">
