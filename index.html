@@ -1045,14 +1045,13 @@ a:focus {
 <!-- Main Content -->
 <main class="flex-1 relative z-20">
 
-<!-- Home Section with Video -->
-<section id="home" class="relative h-screen overflow-hidden bg-black">
-
-  <!-- Video Background -->
-  <div class="absolute inset-0 w-full h-full flex items-center justify-center">
+<!-- Fullscreen Video on Top -->
+<section id="home" class="w-full overflow-hidden bg-black">
+  <!-- Video at the top -->
+  <div class="w-full h-screen">
     <video
       id="responsiveVideo"
-      class="w-full h-full object-contain"
+      class="w-full h-full object-fill"
       autoplay
       muted
       playsinline
@@ -1064,7 +1063,15 @@ a:focus {
     </video>
   </div>
 
+  <!-- Content below video -->
+  <div class="w-full px-4 py-12 text-center bg-white">
+    <h1 class="text-3xl font-bold mb-4">Welcome to My Site</h1>
+    <p class="text-lg text-gray-700 max-w-xl mx-auto">
+      This is a clean section that appears *below* the full-screen video.
+    </p>
+  </div>
 </section>
+
 
 
 <!-- About Us Section -->
