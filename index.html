@@ -1045,34 +1045,57 @@ a:focus {
 <!-- Main Content -->
 <main class="flex-1 relative z-20">
 
-<!-- Fullscreen Video on Top -->
-<section id="home" class="w-full overflow-hidden bg-black">
-  <!-- Video at the top -->
-  <div class="w-full h-screen">
+<!-- Home Section with Video -->
+<section id="home" class="relative h-screen overflow-hidden">
+
+  <!-- Video Background -->
+  <div class="absolute inset-0 w-full h-full">
+
+    <!-- Desktop Video -->
     <video
-      id="responsiveVideo"
-      class="w-full h-full object-fill"
+      id="desktopVideo"
+      class="hidden lg:block w-full h-full object-cover"
       autoplay
       muted
-      playsinline
       loop
-      preload="auto"
+      playsinline
+      preload="none"
+      loading="lazy"
     >
       <source src="HanuDesktop.mp4" type="video/mp4">
-      Your browser does not support the video tag.
+      <!-- Fallback gradient if video fails -->
     </video>
-  </div>
 
-  <!-- Content below video -->
-  <div class="w-full px-4 py-12 text-center bg-white">
-    <h1 class="text-3xl font-bold mb-4">Welcome to My Site</h1>
-    <p class="text-lg text-gray-700 max-w-xl mx-auto">
-      This is a clean section that appears *below* the full-screen video.
-    </p>
+    <!-- Tablet Video -->
+    <video
+      id="tabletVideo"
+      class="hidden md:block lg:hidden w-full h-full object-cover"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="none"
+      loading="lazy"
+    >
+      <source src="HanuTablet.mp4" type="video/mp4">
+    </video>
+
+    <!-- Mobile Video -->
+    <video
+      id="mobileVideo"
+      class="block md:hidden w-full h-full object-cover"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="none"
+      loading="lazy"
+    >
+      <source src="HanuPhone.mp4" type="video/mp4">
+    </video>
+
   </div>
 </section>
-
-
 
 <!-- About Us Section -->
 <section id="about" class="py-8 sm:py-12">
