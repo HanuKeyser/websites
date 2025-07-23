@@ -1087,32 +1087,6 @@ a:focus {
   </div>
 </section>
 
-<!-- JavaScript to delay playback -->
-<script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const desktopVideo = document.getElementById('desktopVideo');
-    const tabletVideo = document.getElementById('tabletVideo');
-    const mobileVideo = document.getElementById('mobileVideo');
-
-    const playWithDelay = (video) => {
-      if (!video) return;
-      setTimeout(() => {
-        video.play().catch(err => {
-          console.warn('Autoplay might be blocked:', err);
-        });
-      }, 5000); // 5 seconds delay
-    };
-
-    if (window.innerWidth >= 1024) {
-      playWithDelay(desktopVideo);
-    } else if (window.innerWidth >= 768) {
-      playWithDelay(tabletVideo);
-    } else {
-      playWithDelay(mobileVideo);
-    }
-  });
-</script>
-
 <!-- About Us Section -->
 <section id="about" class="py-8 sm:py-12">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -3230,6 +3204,29 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+  window.addEventListener('DOMContentLoaded', () => {
+    const desktopVideo = document.getElementById('desktopVideo');
+    const tabletVideo = document.getElementById('tabletVideo');
+    const mobileVideo = document.getElementById('mobileVideo');
+
+    const playWithDelay = (video) => {
+      if (!video) return;
+      setTimeout(() => {
+        video.play().catch(err => {
+          console.warn('Autoplay might be blocked:', err);
+        });
+      }, 5000); // 5 seconds delay
+    };
+
+    if (window.innerWidth >= 1024) {
+      playWithDelay(desktopVideo);
+    } else if (window.innerWidth >= 768) {
+      playWithDelay(tabletVideo);
+    } else {
+      playWithDelay(mobileVideo);
+    }
+  });
+	
 // Video error handling
 document.addEventListener('DOMContentLoaded', function() {
     const videos = document.querySelectorAll('video');
