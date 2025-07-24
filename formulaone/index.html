@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apex Racing Labs - Formula One Innovation & Technology</title>
+    <title>Hanu Studio Racing - Formula One Innovation & Technology</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
         
         * {
             font-family: 'Rajdhani', sans-serif;
+            color: inherit;
         }
         
         .orbitron {
             font-family: 'Orbitron', monospace;
+            color: inherit;
+        }
+        
+        body {
+            color: white;
         }
         
         .hero-gradient {
@@ -490,30 +496,161 @@
                 <div class="flex items-center space-x-4">
                     <div class="relative">
                         <div class="w-14 h-14 bg-gradient-to-r from-red-500 to-black rounded-3xl flex items-center justify-center">
-                            <span class="text-white font-black text-2xl orbitron">A</span>
+                            <span class="text-white font-black text-2xl orbitron">H</span>
                         </div>
                         <div class="absolute inset-0 w-14 h-14 bg-gradient-to-r from-red-500 to-black rounded-3xl pulse-ring"></div>
                     </div>
                     <div>
-                        <span class="text-2xl lg:text-3xl font-black f1-gradient orbitron">Hanu Studio Racing</span>
+                        <span class="text-2xl lg:text-3xl font-black text-white orbitron">Hanu Studio Racing</span>
                         <div class="text-xs text-gray-400 font-medium">Formula One Innovation</div>
                     </div>
                 </div>
                 
                 <nav class="hidden lg:flex items-center space-x-8">
-                    <a href="#about" class="text-gray-300 hover:text-red-500 transition-colors playful-hover font-semibold">Technology</a>
-                    <a href="#team" class="text-gray-300 hover:text-red-500 transition-colors playful-hover font-semibold">Drivers</a>
-                    <a href="#reviews" class="text-gray-300 hover:text-red-500 transition-colors playful-hover font-semibold">Reviews</a>
-                    <a href="#news" class="text-gray-300 hover:text-red-500 transition-colors playful-hover font-semibold">Race News</a>
-                    <a href="#faq" class="text-gray-300 hover:text-red-500 transition-colors playful-hover font-semibold">FAQ</a>
-                    <a href="#contact" class="text-gray-300 hover:text-red-500 transition-colors playful-hover font-semibold">Contact</a>
+                    <a href="#" class="nav-link text-gray-300 transition-colors font-semibold" data-target="top">Garage</a>
+                    <a href="#about" class="nav-link text-gray-300 transition-colors font-semibold">Speed Lab</a>
+                    <a href="#team" class="nav-link text-gray-300 transition-colors font-semibold">Champions</a>
+                    <a href="#reviews" class="nav-link text-gray-300 transition-colors font-semibold">Legends Speak</a>
+                    <a href="#news" class="nav-link text-gray-300 transition-colors font-semibold">Race Pulse</a>
+                    <a href="#faq" class="nav-link text-gray-300 transition-colors font-semibold">Pit Stop Q&A</a>
+                    <a href="#contact" class="nav-link text-gray-300 transition-colors font-semibold">Mission Control</a>
                 </nav>
                 
-                <div class="flex items-center space-x-4">
-                    <button class="text-gray-300 hover:text-red-500 transition-colors font-semibold">Pit Lane</button>
-                    <button class="magnetic-button bg-gradient-to-r from-red-500 to-black text-white px-6 py-3 rounded-full font-bold orbitron">
-                        Join Team
+                <!-- Mobile menu button -->
+                <div class="lg:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-red-500 transition-colors p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
                     </button>
+                </div>
+                
+
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="lg:hidden fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 ease-in-out">
+            <div class="flex h-full">
+                <!-- Backdrop -->
+                <div class="flex-1 bg-gray-900 bg-opacity-95" id="mobile-menu-backdrop"></div>
+                
+                <!-- Menu Panel -->
+                <div class="w-full bg-gray-900 shadow-2xl border-l-2 border-red-500/20">
+                    <div class="flex items-center justify-between p-6 border-b border-gray-800">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-gradient-to-r from-red-500 to-black rounded-2xl flex items-center justify-center">
+                                <span class="text-white font-black text-lg orbitron">H</span>
+                            </div>
+                            <span class="text-xl font-black f1-gradient orbitron">Hanu Studio</span>
+                        </div>
+                        <button id="mobile-menu-close" class="text-gray-400 hover:text-red-500 transition-colors p-2">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <nav class="p-6">
+                        <div class="space-y-4">
+                            <a href="#" class="mobile-nav-link nav-link flex items-center space-x-4 p-4 rounded-xl transition-colors group" data-target="top">
+                                <div class="w-10 h-10 bg-gradient-to-r from-red-500/20 to-black/20 rounded-lg flex items-center justify-center group-hover:from-red-500/30 group-hover:to-black/30 transition-colors">
+                                    <span class="text-lg">🏠</span>
+                                </div>
+                                <div>
+                                    <div class="text-white font-semibold orbitron">Garage</div>
+                                    <div class="text-gray-400 text-sm">Back to Top</div>
+                                </div>
+                            </a>
+                            
+                            <a href="#about" class="mobile-nav-link nav-link flex items-center space-x-4 p-4 rounded-xl transition-colors group">
+                                <div class="w-10 h-10 bg-gradient-to-r from-red-500/20 to-black/20 rounded-lg flex items-center justify-center transition-colors">
+                                    <span class="text-lg">SL</span>
+                                </div>
+                                <div>
+                                    <div class="text-white font-semibold orbitron">Speed Lab</div>
+                                    <div class="text-gray-400 text-sm">Racing Innovation</div>
+                                </div>
+                            </a>
+                            
+                            <a href="#team" class="mobile-nav-link nav-link flex items-center space-x-4 p-4 rounded-xl transition-colors group">
+                                <div class="w-10 h-10 bg-gradient-to-r from-red-500/20 to-black/20 rounded-lg flex items-center justify-center transition-colors">
+                                    <span class="text-lg">CH</span>
+                                </div>
+                                <div>
+                                    <div class="text-white font-semibold orbitron">Champions</div>
+                                    <div class="text-gray-400 text-sm">Elite Racing Team</div>
+                                </div>
+                            </a>
+                            
+                            <a href="#reviews" class="mobile-nav-link nav-link flex items-center space-x-4 p-4 rounded-xl transition-colors group">
+                                <div class="w-10 h-10 bg-gradient-to-r from-red-500/20 to-black/20 rounded-lg flex items-center justify-center transition-colors">
+                                    <span class="text-lg">LS</span>
+                                </div>
+                                <div>
+                                    <div class="text-white font-semibold orbitron">Legends Speak</div>
+                                    <div class="text-gray-400 text-sm">Racing Legends</div>
+                                </div>
+                            </a>
+                            
+                            <a href="#news" class="mobile-nav-link nav-link flex items-center space-x-4 p-4 rounded-xl transition-colors group">
+                                <div class="w-10 h-10 bg-gradient-to-r from-red-500/20 to-black/20 rounded-lg flex items-center justify-center transition-colors">
+                                    <span class="text-lg">RP</span>
+                                </div>
+                                <div>
+                                    <div class="text-white font-semibold orbitron">Race Pulse</div>
+                                    <div class="text-gray-400 text-sm">Latest Updates</div>
+                                </div>
+                            </a>
+                            
+                            <a href="#faq" class="mobile-nav-link nav-link flex items-center space-x-4 p-4 rounded-xl transition-colors group">
+                                <div class="w-10 h-10 bg-gradient-to-r from-red-500/20 to-black/20 rounded-lg flex items-center justify-center transition-colors">
+                                    <span class="text-lg">QA</span>
+                                </div>
+                                <div>
+                                    <div class="text-white font-semibold orbitron">Pit Stop Q&A</div>
+                                    <div class="text-gray-400 text-sm">Get Answers</div>
+                                </div>
+                            </a>
+                            
+                            <a href="#contact" class="mobile-nav-link nav-link flex items-center space-x-4 p-4 rounded-xl transition-colors group">
+                                <div class="w-10 h-10 bg-gradient-to-r from-red-500/20 to-black/20 rounded-lg flex items-center justify-center transition-colors">
+                                    <span class="text-lg">MC</span>
+                                </div>
+                                <div>
+                                    <div class="text-white font-semibold orbitron">Mission Control</div>
+                                    <div class="text-gray-400 text-sm">Get In Touch</div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="mt-8 pt-6 border-t border-gray-800">
+                            <a href="#" class="nav-link w-full bg-gradient-to-r from-red-500 to-black text-white px-6 py-4 rounded-full font-bold orbitron mb-4 text-center block" data-target="top">
+                                🏠 Back to Garage
+                            </a>
+                            
+                            <div class="text-center">
+                                <div class="text-gray-400 text-sm mb-3">Follow Our Racing</div>
+                                <div class="flex justify-center space-x-3">
+                                    <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
+                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M24 4.557c-.883.392-1.832.656-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="w-10 h-10 bg-gradient-to-r from-red-600 to-red-700 rounded-lg flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
+                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
+                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -852,7 +989,7 @@
                     <div class="flex mb-4">
                         <span class="text-yellow-400">★★★★★</span>
                     </div>
-                    <p class="text-gray-300 italic">"Apex Racing Labs represents the pinnacle of Formula One engineering. Their attention to aerodynamic detail and hybrid system optimization is unmatched in the sport."</p>
+                    <p class="text-gray-300 italic">"Hanu Studio Racing represents the pinnacle of Formula One engineering. Their attention to aerodynamic detail and hybrid system optimization is unmatched in the sport."</p>
                 </div>
                 
                 <div class="interactive-card glass-effect rounded-2xl p-6 lg:p-8 scroll-reveal">
@@ -868,7 +1005,7 @@
                     <div class="flex mb-4">
                         <span class="text-yellow-400">★★★★★</span>
                     </div>
-                    <p class="text-gray-300 italic">"The precision and innovation at Apex Racing Labs reminds me why I fell in love with Formula One. They're not just building cars—they're crafting dreams."</p>
+                    <p class="text-gray-300 italic">"The precision and innovation at Hanu Studio Racing reminds me why I fell in love with Formula One. They're not just building cars—they're crafting dreams."</p>
                 </div>
                 
                 <div class="interactive-card glass-effect rounded-2xl p-6 lg:p-8 scroll-reveal">
@@ -884,7 +1021,7 @@
                     <div class="flex mb-4">
                         <span class="text-yellow-400">★★★★★</span>
                     </div>
-                    <p class="text-gray-300 italic">"Safety and performance go hand in hand at Apex Racing Labs. Their commitment to driver protection while maximizing speed is exemplary."</p>
+                    <p class="text-gray-300 italic">"Safety and performance go hand in hand at Hanu Studio Racing. Their commitment to driver protection while maximizing speed is exemplary."</p>
                 </div>
                 
                 <div class="interactive-card glass-effect rounded-2xl p-6 lg:p-8 scroll-reveal">
@@ -900,7 +1037,7 @@
                     <div class="flex mb-4">
                         <span class="text-yellow-400">★★★★★</span>
                     </div>
-                    <p class="text-gray-300 italic">"The technical excellence at Apex Racing Labs is what Formula One needs. Every component is engineered for victory, just as it should be."</p>
+                    <p class="text-gray-300 italic">"The technical excellence at Hanu Studio Racing is what Formula One needs. Every component is engineered for victory, just as it should be."</p>
                 </div>
                 
                 <div class="interactive-card glass-effect rounded-2xl p-6 lg:p-8 scroll-reveal">
@@ -916,7 +1053,7 @@
                     <div class="flex mb-4">
                         <span class="text-yellow-400">★★★★★</span>
                     </div>
-                    <p class="text-gray-300 italic">"Working with Apex Racing Labs has elevated my understanding of what's possible in Formula One. Their innovation drives the entire sport forward."</p>
+                    <p class="text-gray-300 italic">"Working with Hanu Studio Racing has elevated my understanding of what's possible in Formula One. Their innovation drives the entire sport forward."</p>
                 </div>
                 
                 <div class="interactive-card glass-effect rounded-2xl p-6 lg:p-8 scroll-reveal">
@@ -932,7 +1069,7 @@
                     <div class="flex mb-4">
                         <span class="text-yellow-400">★★★★★</span>
                     </div>
-                    <p class="text-gray-300 italic">"Apex Racing Labs consistently pushes the boundaries of what's technically possible in Formula One. Their engineering philosophy is championship-caliber."</p>
+                    <p class="text-gray-300 italic">"Hanu Studio Racing consistently pushes the boundaries of what's technically possible in Formula One. Their engineering philosophy is championship-caliber."</p>
                 </div>
             </div>
         </div>
@@ -1214,7 +1351,7 @@
                                     </div>
                                     <div>
                                         <h4 class="font-bold mb-1 orbitron">Email</h4>
-                                        <p class="text-gray-400">info@apexracinglabs.com<br>careers@apexracinglabs.com</p>
+                                        <p class="text-gray-400">info@hanustudioracing.com<br>careers@hanustudioracing.com</p>
                                     </div>
                                 </div>
                             </div>
@@ -1243,7 +1380,7 @@
                             <div class="flex space-x-4">
                                 <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
                                     <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                                        <path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647z"/>
                                     </svg>
                                 </div>
                                 <div class="w-12 h-12 bg-gradient-to-r from-blue-400 to-blue-500 rounded-xl flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
@@ -1278,7 +1415,7 @@
                 <div class="lg:col-span-2">
                     <div class="flex items-center space-x-4 mb-6">
                         <div class="w-14 h-14 bg-gradient-to-r from-red-500 to-black rounded-3xl flex items-center justify-center">
-                            <span class="text-white font-black text-2xl orbitron">A</span>
+                            <span class="text-white font-black text-2xl orbitron">H</span>
                         </div>
                         <div>
                             <span class="text-2xl lg:text-3xl font-black f1-gradient orbitron">Hanu Studio Racing</span>
@@ -1289,26 +1426,26 @@
                         Racing into the future through championship-winning technology, revolutionary aerodynamics, and the relentless pursuit of Formula One excellence.
                     </p>
                     <div class="flex space-x-4">
-                        <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
+                        <a href="#" class="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
                             <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647z"/>
                             </svg>
-                        </div>
-                        <div class="w-10 h-10 bg-gradient-to-r from-blue-400 to-blue-500 rounded-lg flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gradient-to-r from-blue-400 to-blue-500 rounded-lg flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
                             <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
                             </svg>
-                        </div>
-                        <div class="w-10 h-10 bg-gradient-to-r from-red-600 to-red-700 rounded-lg flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gradient-to-r from-red-600 to-red-700 rounded-lg flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
                             <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                             </svg>
-                        </div>
-                        <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
                             <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z"/>
                             </svg>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 
@@ -1360,6 +1497,13 @@
             </div>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-r from-red-500 to-black rounded-full flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all duration-300 opacity-0 pointer-events-none z-50">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+        </svg>
+    </button>
 
     <script>
         // Racing particle system
@@ -1456,22 +1600,117 @@
             }
         }
 
+        // Mobile menu functionality
+        function initMobileMenu() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuClose = document.getElementById('mobile-menu-close');
+            const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            
+            // Open mobile menu
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.remove('translate-x-full');
+                mobileMenu.classList.add('translate-x-0');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            // Close mobile menu function
+            function closeMobileMenu() {
+                mobileMenu.classList.remove('translate-x-0');
+                mobileMenu.classList.add('translate-x-full');
+                document.body.style.overflow = '';
+            }
+            
+            // Close mobile menu events
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
+            mobileMenuBackdrop.addEventListener('click', closeMobileMenu);
+            
+            // Mobile nav links are handled by the main nav-link event listener
+            
+            // Close menu on escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !mobileMenu.classList.contains('translate-x-full')) {
+                    closeMobileMenu();
+                }
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 1024) { // lg breakpoint
+                    closeMobileMenu();
+                }
+            });
+        }
+
+        // Back to top button functionality
+        function initBackToTop() {
+            const backToTopButton = document.getElementById('back-to-top');
+            
+            // Show/hide button based on scroll position
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.style.opacity = '1';
+                    backToTopButton.style.pointerEvents = 'auto';
+                } else {
+                    backToTopButton.style.opacity = '0';
+                    backToTopButton.style.pointerEvents = 'none';
+                }
+            });
+            
+            // Smooth scroll to top
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
         // Initialize everything
         document.addEventListener('DOMContentLoaded', () => {
             createRacingParticles();
             initMagneticButtons();
             initContactForm();
+            initMobileMenu();
+            initBackToTop();
             
-            // Smooth scrolling
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            // Enhanced smooth scrolling with offset for fixed header
+            document.querySelectorAll('.nav-link').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
+                    const targetId = this.getAttribute('href');
+                    const dataTarget = this.getAttribute('data-target');
+                    
+                    // Handle home link (scroll to top)
+                    if (dataTarget === 'top' || targetId === '#') {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
                         });
+                    } else {
+                        const target = document.querySelector(targetId);
+                        
+                        if (target) {
+                            // Calculate offset for fixed header
+                            const headerHeight = 80;
+                            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                            
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('translate-x-full')) {
+                        setTimeout(() => {
+                            mobileMenu.classList.remove('translate-x-0');
+                            mobileMenu.classList.add('translate-x-full');
+                            document.body.style.overflow = '';
+                        }, 100);
                     }
                 });
             });
@@ -1481,5 +1720,5 @@
         window.addEventListener('scroll', revealOnScroll);
         window.addEventListener('load', revealOnScroll);
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96431bb7e00a0d06',t:'MTc1MzM1Njg2NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96435ec6b34b4eca',t:'MTc1MzM1OTYxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
