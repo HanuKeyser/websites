@@ -1,361 +1,329 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&family=Varela+Round&display=swap" rel="stylesheet">
-    <style>
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 10px;
-            border: 2px solid #f1f1f1;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
-        }
-        
-        /* Firefox */
-        * {
-            scrollbar-width: thin;
-            scrollbar-color: #667eea #f1f1f1;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Hanu Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&family=Varela+Round&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scrollbar-width: thin;
+      scrollbar-color: #667eea #f1f1f1;
+    }
 
-        @media (max-width: 768px) {
-            .slide {
-                flex-direction: column !important;
-            }
-            .slide > div {
-                width: 100% !important;
-                height: 50% !important;
-            }
-            .slide h1 {
-                font-size: clamp(1.5rem, 6vw, 2.5rem) !important;
-            }
-            .slide p {
-                font-size: clamp(0.9rem, 4vw, 1.1rem) !important;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .slide > div {
-                padding: 3% !important;
-            }
-            .slide h1 {
-                margin-bottom: 20px !important;
-            }
-        }
-    </style>
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 10px;
+      border: 2px solid #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+    }
+
+    body {
+      font-family: 'Varela Round', sans-serif;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: transparent;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    #dropdownMenu {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: white;
+      border-radius: 8px;
+      min-width: 120px;
+      display: none;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      z-index: 1001;
+    }
+
+    #dropdownMenu a {
+      display: block;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: #000;
+      text-align: right;
+      font-family: 'Varela Round', sans-serif;
+    }
+
+    main {
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #slideContainer {
+      width: 400%;
+      height: 100%;
+      display: flex;
+      transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      touch-action: pan-y;
+    }
+
+    .slide {
+      width: 25%;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      position: relative;
+      color: #000;
+    }
+
+    .slide > div {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5%;
+      transition: opacity 0.6s ease-in-out;
+      text-align: center;
+    }
+
+    .slide h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      margin-bottom: 30px;
+      font-family: 'Rubik Moonrocks', cursive;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    .slide p {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: #000;
+      opacity: 0.5;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .dot.active {
+      opacity: 1;
+    }
+
+    .dots-container {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 15px;
+      z-index: 100;
+    }
+
+    @media (max-width: 768px) {
+      .slide {
+        flex-direction: column !important;
+        width: 100% !important;
+      }
+
+      .slide > div {
+        width: 100% !important;
+        height: 50% !important;
+        padding: 4% !important;
+      }
+
+      #slideContainer {
+        width: 400%;
+      }
+    }
+  </style>
 </head>
-<body style="margin: 0; padding: 0; box-sizing: border-box;">
-    <header id="mainHeader" style="position: fixed; top: 0; left: 0; right: 0; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; font-family: 'Varela Round', sans-serif; z-index: 1000; background: transparent; transition: all 0.3s ease;">
-        <img id="headerLogo" src="#" alt="Hanu Studio" style="height: clamp(32px, 5vw, 40px); font-size: 24px; font-weight: bold; color: #000; transition: opacity 0.3s ease;">
-        <div style="position: relative;">
-            <button id="navDropdown" style="background: none; border: none; cursor: pointer; padding: 8px; display: flex; align-items: center;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="3" y1="6" x2="21" y2="6"></line>
-                    <line x1="9" y1="12" x2="21" y2="12"></line>
-                    <line x1="15" y1="18" x2="21" y2="18"></line>
-                </svg>
-            </button>
-            <div id="dropdownMenu" style="position: absolute; top: 100%; right: 0; min-width: 120px; display: none; z-index: 1001;">
-                <a href="#" onclick="scrollToTop(); return false;" style="display: block; padding: 8px 0; text-decoration: none; color: #000; text-align: right; transition: opacity 0.2s; font-family: 'Varela Round', sans-serif;">Home</a>
-            </div>
+<body>
+
+<header id="mainHeader" style="display: flex; justify-content: space-between; align-items: center; padding: 16px;">
+  <img id="headerLogo" src="#" alt="Hanu Studio" style="height: clamp(32px, 5vw, 40px);" />
+
+  <div style="position: relative;">
+    <button id="navDropdown" style="background: none; border: none; cursor: pointer;">
+      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="9" y1="12" x2="21" y2="12"></line>
+        <line x1="15" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+    <div id="dropdownMenu">
+      <a href="#" onclick="scrollToTop(); return false;" style="background: none; border: none; text-decoration: none; padding: 8px 12px; display: inline-block;">Home</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div id="slideContainer">
+    <!-- Slide 1 -->
+    <div class="slide">
+      <div style="background: #f8f9fa;">
+        <div>
+          <h1>Welcome to Hanu Studio</h1>
+          <p>We're the creative wizards who turn your wildest digital dreams into reality! Ready to make some magic happen?</p>
         </div>
-    </header>
+      </div>
+      <div style="background: #e9ecef;">
+        <div>Right side content</div>
+      </div>
+    </div>
 
-    <!-- Home Section with Slides -->
-    <main style="height: 100vh; position: relative; overflow: hidden;">
-        <div id="slideContainer" style="display: flex; height: 100%; transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); width: 400%;">
-            <!-- Slide 1: Intro -->
-            <div class="slide" style="width: 25%; height: 100%; position: relative; color: #000000; display: flex; flex-direction: row;">
-                <!-- Left Side -->
-                <div style="width: 50%; height: 100%; display: flex; align-items: center; justify-content: center; padding: 5%; transition: opacity 0.6s ease-in-out; background-color: #f8f9fa;">
-                    <div style="max-width: 100%; text-align: center;">
-                        <h1 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; margin-bottom: 30px; font-family: 'Rubik Moonrocks', cursive; line-height: 1.2; letter-spacing: 0.02em;">Welcome to Hanu Studio</h1>
-                        <p style="font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.7; color: #000000; font-weight: 300; font-family: 'Varela Round', sans-serif;">We're the creative wizards who turn your wildest digital dreams into reality!</p>
-						<p style="font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.7; color: #000000; font-weight: 300; font-family: 'Varela Round', sans-serif;">Ready to make some magic happen?</p>
-					</div>
-                </div>
-                <!-- Right Side -->
-                <div style="width: 50%; height: 100%; display: flex; align-items: center; justify-content: center; padding: 5%; transition: opacity 0.6s ease-in-out; background-color: #e9ecef; position: relative;">
-                    <div style="text-align: center; color: #000;">
-                        Right side content
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Slide 2: Web Design -->
-            <div class="slide" style="width: 25%; height: 100%; position: relative; color: #000000; display: flex; flex-direction: row;">
-                <!-- Left Side -->
-                <div style="width: 50%; height: 100%; display: flex; align-items: center; justify-content: center; padding: 5%; transition: opacity 0.6s ease-in-out; background-color: #e3f2fd;">
-                    <div style="max-width: 100%; text-align: center;">
-                        <h1 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; margin-bottom: 30px; font-family: 'Rubik Moonrocks', cursive; line-height: 1.2; letter-spacing: 0.02em;">Web Design That Wows!</h1>
-                        <p style="font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.7; color: #000000; font-weight: 300; font-family: 'Varela Round', sans-serif;">Stunning websites that make your visitors go "WOW!" and turn them into raving fans.</p>
-						<p style="font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.7; color: #000000; font-weight: 300; font-family: 'Varela Round', sans-serif;">Mobile-friendly, lightning-fast, and absolutely gorgeous!</p>
-                    </div>
-                </div>
-                <!-- Right Side -->
-                <div style="width: 50%; height: 100%; display: flex; align-items: center; justify-content: center; padding: 5%; transition: opacity 0.6s ease-in-out; background-color: #bbdefb; position: relative;">
-                    <div style="text-align: center; color: #000;">
-                        Right side content
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 3: Social Media Management -->
-            <div class="slide" style="width: 25%; height: 100%; position: relative; color: #000000; display: flex; flex-direction: row;">
-                <!-- Left Side -->
-                <div style="width: 50%; height: 100%; display: flex; align-items: center; justify-content: center; padding: 5%; transition: opacity 0.6s ease-in-out; background-color: #f3e5f5;">
-                    <div style="max-width: 100%; text-align: center;">
-                        <h1 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; margin-bottom: 30px; font-family: 'Rubik Moonrocks', cursive; line-height: 1.2; letter-spacing: 0.02em;">Social Media Magic!</h1>
-                        <p style="font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.7; color: #000000; font-weight: 300; font-family: 'Varela Round', sans-serif;">Let's make your brand the talk of the town!</p>
-						<p style="font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.7; color: #000000; font-weight: 300; font-family: 'Varela Round', sans-serif;">We create scroll-stopping content that gets hearts racing and followers growing like crazy!</p>
-                    </div>
-                </div>
-                <!-- Right Side -->
-                <div style="width: 50%; height: 100%; display: flex; align-items: center; justify-content: center; padding: 5%; transition: opacity 0.6s ease-in-out; background-color: #e1bee7; position: relative;">
-                    <div style="text-align: center; color: #000;">
-                        Right side content
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 4: Logo Design -->
-            <div class="slide" style="width: 25%; height: 100%; position: relative; color: #000000; display: flex; flex-direction: row;">
-                <!-- Left Side -->
-                <div style="width: 50%; height: 100%; display: flex; align-items: center; justify-content: center; padding: 5%; transition: opacity 0.6s ease-in-out; background-color: #e8f5e8;">
-                    <div style="max-width: 100%; text-align: center;">
-                        <h1 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; margin-bottom: 30px; font-family: 'Rubik Moonrocks', cursive; line-height: 1.2; letter-spacing: 0.02em;">Logo Design That Rocks!</h1>
-                        <p style="font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.7; color: #000000; font-weight: 300; font-family: 'Varela Round', sans-serif;">Unforgettable logos that make your brand impossible to ignore!</p>
-						<p style="font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.7; color: #000000; font-weight: 300; font-family: 'Varela Round', sans-serif;">We craft visual identities that stick in minds and hearts forever. Pure creative genius!</p>
-                    </div>
-                </div>
-                <!-- Right Side -->
-                <div style="width: 50%; height: 100%; display: flex; align-items: center; justify-content: center; padding: 5%; transition: opacity 0.6s ease-in-out; background-color: #c8e6c9; position: relative;">
-                    <div style="text-align: center; color: #000;">
-                        Right side content
-                    </div>
-                </div>
-            </div>
+    <!-- Slide 2 -->
+    <div class="slide">
+      <div style="background: #e3f2fd;">
+        <div>
+          <h1>Web Design That Wows!</h1>
+          <p>Stunning websites that make your visitors go "WOW!" and turn them into raving fans. Mobile-friendly, lightning-fast, and absolutely gorgeous!</p>
         </div>
+      </div>
+      <div style="background: #bbdefb;">
+        <div>Right side content</div>
+      </div>
+    </div>
 
-        <!-- Slide Navigation Dots -->
-        <div style="position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 15px; z-index: 100;">
-            <span class="dot" data-slide="0" style="width: 16px; height: 16px; border-radius: 50%; background-color: #000000; cursor: pointer; transition: all 0.3s ease; opacity: 1; display: inline-block; min-width: 16px; min-height: 16px;"></span>
-            <span class="dot" data-slide="1" style="width: 16px; height: 16px; border-radius: 50%; background-color: #000000; cursor: pointer; transition: all 0.3s ease; opacity: 0.5; display: inline-block; min-width: 16px; min-height: 16px;"></span>
-            <span class="dot" data-slide="2" style="width: 16px; height: 16px; border-radius: 50%; background-color: #000000; cursor: pointer; transition: all 0.3s ease; opacity: 0.5; display: inline-block; min-width: 16px; min-height: 16px;"></span>
-            <span class="dot" data-slide="3" style="width: 16px; height: 16px; border-radius: 50%; background-color: #000000; cursor: pointer; transition: all 0.3s ease; opacity: 0.5; display: inline-block; min-width: 16px; min-height: 16px;"></span>
+    <!-- Slide 3 -->
+    <div class="slide">
+      <div style="background: #f3e5f5;">
+        <div>
+          <h1>Social Media Magic!</h1>
+          <p>Let's make your brand the talk of the town! We create scroll-stopping content that gets hearts racing and followers growing like crazy!</p>
         </div>
-    </main>
+      </div>
+      <div style="background: #e1bee7;">
+        <div>Right side content</div>
+      </div>
+    </div>
 
-    <script>
-        // Wait for DOM to be fully loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            const dropdownButton = document.getElementById('navDropdown');
-            const dropdownMenu = document.getElementById('dropdownMenu');
-            const slideContainer = document.getElementById('slideContainer');
-            const dots = document.querySelectorAll('.dot');
-            const header = document.getElementById('mainHeader');
-            const headerLogo = document.getElementById('headerLogo');
-            let currentSlide = 0;
-            let startX = 0;
-            let isDragging = false;
+    <!-- Slide 4 -->
+    <div class="slide">
+      <div style="background: #e8f5e8;">
+        <div>
+          <h1>Logo Design That Rocks!</h1>
+          <p>Unforgettable logos that make your brand impossible to ignore! We craft visual identities that stick in minds and hearts forever.</p>
+        </div>
+      </div>
+      <div style="background: #c8e6c9;">
+        <div>Right side content</div>
+      </div>
+    </div>
+  </div>
 
-            // Scroll to top function
-            window.scrollToTop = function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-                // Close dropdown after clicking
-                dropdownMenu.style.display = 'none';
-            }
-
-            // Header scroll behavior
-            window.addEventListener('scroll', function() {
-                const scrollY = window.scrollY;
-                const homeHeight = window.innerHeight;
-                
-                if (scrollY > homeHeight * 0.1) {
-                    headerLogo.style.opacity = '0';
-                } else {
-                    headerLogo.style.opacity = '1';
-                }
-            });
-
-            // Dropdown functionality
-            if (dropdownButton && dropdownMenu) {
-                dropdownButton.addEventListener('click', function() {
-                    if (dropdownMenu.style.display === 'none' || dropdownMenu.style.display === '') {
-                        dropdownMenu.style.display = 'block';
-                    } else {
-                        dropdownMenu.style.display = 'none';
-                    }
-                });
-
-                // Close dropdown when clicking outside
-                document.addEventListener('click', function(event) {
-                    if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
-                        dropdownMenu.style.display = 'none';
-                    }
-                });
-
-                // Add hover effects to dropdown items
-                const dropdownItems = dropdownMenu.querySelectorAll('a');
-                dropdownItems.forEach(item => {
-                    item.addEventListener('mouseenter', function() {
-                        this.style.opacity = '0.7';
-                    });
-                    item.addEventListener('mouseleave', function() {
-                        this.style.opacity = '1';
-                    });
-                });
-            }
-
-            // Slide functionality
-            function updateSlide() {
-                slideContainer.style.transform = `translateX(-${currentSlide * 25}%)`;
-                
-                // Update dots
-                dots.forEach((dot, index) => {
-                    dot.style.opacity = index === currentSlide ? '1' : '0.5';
-                });
-            }
-
-            window.nextSlide = function() {
-                currentSlide = (currentSlide + 1) % 4;
-                updateSlide();
-            }
-
-            window.prevSlide = function() {
-                currentSlide = (currentSlide - 1 + 4) % 4;
-                updateSlide();
-            }
-
-            // Dot navigation
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', function() {
-                    currentSlide = index;
-                    updateSlide();
-                });
-            });
-
-            // Touch/Mouse events for swiping
-            slideContainer.addEventListener('mousedown', handleStart);
-            slideContainer.addEventListener('touchstart', handleStart);
-            slideContainer.addEventListener('mousemove', handleMove);
-            slideContainer.addEventListener('touchmove', handleMove);
-            slideContainer.addEventListener('mouseup', handleEnd);
-            slideContainer.addEventListener('touchend', handleEnd);
-            slideContainer.addEventListener('mouseleave', handleEnd);
-
-            function handleStart(e) {
-                isDragging = true;
-                startX = e.type === 'mousedown' ? e.clientX : e.touches[0].clientX;
-                slideContainer.style.transition = 'none';
-            }
-
-            function handleMove(e) {
-                if (!isDragging) return;
-                e.preventDefault();
-                
-                const currentX = e.type === 'mousemove' ? e.clientX : e.touches[0].clientX;
-                const diffX = startX - currentX;
-                const threshold = window.innerWidth > 768 ? 50 : 30; // Smaller threshold for mobile
-
-                if (Math.abs(diffX) > threshold) {
-                    if (diffX > 0) {
-                        nextSlide();
-                    } else {
-                        prevSlide();
-                    }
-                    isDragging = false;
-                    slideContainer.style.transition = 'transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-                }
-            }
-
-            function handleEnd() {
-                isDragging = false;
-                slideContainer.style.transition = 'transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-            }
-
-            // Keyboard navigation
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'ArrowLeft') {
-                    prevSlide();
-                } else if (e.key === 'ArrowRight') {
-                    nextSlide();
-                }
-            });
-
-            // Auto-advance slides (optional)
-            setInterval(nextSlide, 10000);
-
-        });
-    </script>
+  <div class="dots-container">
+    <span class="dot active" data-slide="0"></span>
+    <span class="dot" data-slide="1"></span>
+    <span class="dot" data-slide="2"></span>
+    <span class="dot" data-slide="3"></span>
+  </div>
+</main>
 
 <script>
-  (function () {
-    function c() {
-      var b = a.contentDocument || a.contentWindow.document;
-      if (b) {
-        var d = b.createElement('script');
-        d.innerHTML = `
-          window.__CF$cv$params = {
-            r: '964abee753afc6ca',
-            t: 'MTc1MzQzNjk0OS4wMDAwMDA='
-          };
-          var a = document.createElement('script');
-          a.nonce = '';
-          a.src = '/cdn-cgi/challenge-platform/scripts/jsd/main.js';
-          document.getElementsByTagName('head')[0].appendChild(a);
-        `;
-        b.getElementsByTagName('head')[0].appendChild(d);
-      }
+  document.addEventListener('DOMContentLoaded', () => {
+    const dropdownButton = document.getElementById('navDropdown');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    const slideContainer = document.getElementById('slideContainer');
+    const dots = document.querySelectorAll('.dot');
+    const headerLogo = document.getElementById('headerLogo');
+    let currentSlide = 0;
+    let startX = 0;
+    let isDragging = false;
+
+    // Header logo fade on scroll
+    window.addEventListener('scroll', () => {
+      headerLogo.style.opacity = window.scrollY > window.innerHeight * 0.1 ? '0' : '1';
+    });
+
+    // Dropdown toggle
+    dropdownButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!dropdownMenu.contains(e.target)) dropdownMenu.style.display = 'none';
+    });
+
+    window.scrollToTop = () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      dropdownMenu.style.display = 'none';
+    };
+
+    function updateSlide() {
+      slideContainer.style.transform = `translateX(-${currentSlide * 25}%)`;
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[currentSlide].classList.add('active');
     }
 
-    if (document.body) {
-      var a = document.createElement('iframe');
-      a.height = 1;
-      a.width = 1;
-      a.style.position = 'absolute';
-      a.style.top = 0;
-      a.style.left = 0;
-      a.style.border = 'none';
-      a.style.visibility = 'hidden';
-      document.body.appendChild(a);
-
-      if (document.readyState !== 'loading') {
-        c();
-      } else if (window.addEventListener) {
-        document.addEventListener('DOMContentLoaded', c);
-      } else {
-        var e = document.onreadystatechange || function () {};
-        document.onreadystatechange = function (b) {
-          e(b);
-          if (document.readyState !== 'loading') {
-            document.onreadystatechange = e;
-            c();
-          }
-        };
-      }
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % 4;
+      updateSlide();
     }
-  })();
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + 4) % 4;
+      updateSlide();
+    }
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentSlide = index;
+        updateSlide();
+      });
+    });
+
+    // Swipe detection
+    slideContainer.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      startX = e.touches[0].clientX;
+    });
+
+    slideContainer.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      const currentX = e.touches[0].clientX;
+      const diffX = startX - currentX;
+      if (Math.abs(diffX) > 30) {
+        if (diffX > 0) nextSlide();
+        else prevSlide();
+        isDragging = false;
+      }
+    });
+
+    slideContainer.addEventListener('touchend', () => isDragging = false);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') prevSlide();
+      else if (e.key === 'ArrowRight') nextSlide();
+    });
+
+    setInterval(nextSlide, 10000);
+  });
 </script>
 
 </body>
