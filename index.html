@@ -50,6 +50,12 @@ display: flex;
 flex-direction: column;
 position: relative;
 line-height: 1.6;
+transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.light-theme {
+background: whitesmoke;
+color: #000000;
 }
 
 /* Parallax Background */
@@ -64,7 +70,16 @@ background: radial-gradient(circle at 20% 80%, rgba(74, 144, 226, 0.1) 0%, trans
             #0a0a0a;
 z-index: -1;
 will-change: transform;
+transition: background 0.3s ease;
 }
+
+body.light-theme .parallax-bg {
+background: radial-gradient(circle at 20% 80%, rgba(74, 144, 226, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(107, 182, 255, 0.1) 0%, transparent 50%),
+            whitesmoke;
+}
+
+
 
 /* Slide background styles */
 .slide-bg-1 {
@@ -102,11 +117,7 @@ cursor: pointer;
 transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-#navDropdown:hover {
-transform: translateY(-2px) scale(1.05);
-box-shadow: 0 12px 40px rgba(107, 182, 255, 0.4);
-background: linear-gradient(135deg, #5BA0F2 0%, #7BC6FF 100%);
-}
+
 
 #navDropdown svg {
 stroke: white;
@@ -128,6 +139,11 @@ border: 1px solid rgba(74, 144, 226, 0.2);
 z-index: 1001;
 overflow: hidden;
 animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+transition: background 0.3s ease;
+}
+
+body.light-theme #dropdownMenu {
+background: rgba(245, 245, 245, 0.95);
 }
 
 @keyframes slideDown {
@@ -153,27 +169,11 @@ transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 position: relative;
 }
 
-#dropdownMenu a:hover {
-background: linear-gradient(135deg, rgba(74, 144, 226, 0.1) 0%, rgba(107, 182, 255, 0.1) 100%);
-color: #4A90E2;
-transform: translateX(4px);
+body.light-theme #dropdownMenu a {
+color: #000000;
 }
 
-#dropdownMenu a::before {
-content: '';
-position: absolute;
-left: 0;
-top: 0;
-height: 100%;
-width: 3px;
-background: linear-gradient(135deg, #4A90E2 0%, #6BB6FF 100%);
-transform: scaleY(0);
-transition: transform 0.3s ease;
-}
 
-#dropdownMenu a:hover::before {
-transform: scaleY(1);
-}
 
 /* Full Screen Sections */
 .home-section {
@@ -181,6 +181,11 @@ height: 100vh;
 overflow: hidden;
 position: relative;
 background: #0a0a0a;
+transition: background 0.3s ease;
+}
+
+body.light-theme .home-section {
+background: whitesmoke;
 }
 
 #slideContainer {
@@ -212,7 +217,6 @@ position: relative;
 overflow: hidden;
 backdrop-filter: blur(10px);
 -webkit-backdrop-filter: blur(10px);
-border: 1px solid rgba(74, 144, 226, 0.1);
 }
 
 .slide h1 {
@@ -237,8 +241,13 @@ font-weight: 400;
 position: relative;
 z-index: 2;
 text-align: center;
-color: rgba(255, 255, 255, 0.9);
+color: #ffffff;
 animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+transition: color 0.3s ease;
+}
+
+body.light-theme .slide p {
+color: #000000;
 }
 
 @keyframes fadeInUp {
@@ -269,10 +278,7 @@ transform: scale(1.3);
 box-shadow: 0 0 20px rgba(74, 144, 226, 0.5);
 }
 
-.dot:hover {
-background: linear-gradient(135deg, #5BA0F2 0%, #7BC6FF 100%);
-transform: scale(1.1);
-}
+
 
 .dots-container {
 position: absolute;
@@ -288,8 +294,13 @@ z-index: 100;
 .about-section {
 min-height: 100vh;
 padding: 60px 0;
-background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+background: #0a0a0a;
 position: relative;
+transition: background 0.3s ease;
+}
+
+body.light-theme .about-section {
+background: whitesmoke;
 }
 
 .about-container {
@@ -321,8 +332,13 @@ line-height: 1.1;
 font-size: clamp(1.2rem, 2.5vw, 1.6rem);
 max-width: 1000px;
 margin: 0 auto;
-color: rgba(255, 255, 255, 0.8);
+color: #ffffff;
 line-height: 1.6;
+transition: color 0.3s ease;
+}
+
+body.light-theme .about-header p {
+color: #000000;
 }
 
 /* Enhanced Glass Cards */
@@ -342,13 +358,13 @@ position: relative;
 overflow: hidden;
 }
 
-
-
-.glass-card:hover {
-transform: translateY(-8px) scale(1.02);
-box-shadow: 0 30px 80px rgba(74, 144, 226, 0.2);
-border-color: rgba(107, 182, 255, 0.4);
+body.light-theme .glass-card {
+background: rgba(245, 245, 245, 0.8);
 }
+
+
+
+
 
 .card-animate {
 opacity: 0;
@@ -373,13 +389,23 @@ font-size: 1.8rem;
 color: #ffffff;
 margin: 0;
 font-weight: 600;
+transition: color 0.3s ease;
+}
+
+body.light-theme .glass-card h3 {
+color: #000000;
 }
 
 .glass-card p {
-color: rgba(255, 255, 255, 0.8);
+color: #ffffff;
 line-height: 1.7;
 font-size: 1.1rem;
 text-align: center;
+transition: color 0.3s ease;
+}
+
+body.light-theme .glass-card p {
+color: #000000;
 }
 
 /* Service Buttons */
@@ -399,26 +425,7 @@ overflow: hidden;
 touch-action: manipulation;
 }
 
-.service-btn::before {
-content: '';
-position: absolute;
-top: 0;
-left: -100%;
-width: 100%;
-height: 100%;
-background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-transition: left 0.5s;
-}
 
-.service-btn:hover::before {
-left: 100%;
-}
-
-.service-btn:hover {
-transform: translateY(-2px);
-box-shadow: 0 12px 40px rgba(107, 182, 255, 0.4);
-background: linear-gradient(135deg, #5BA0F2 0%, #7BC6FF 100%);
-}
 
 /* Modal Enhancements */
 .modal {
@@ -453,6 +460,11 @@ box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
 animation: modalSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 scrollbar-width: none;
 -ms-overflow-style: none;
+transition: background 0.3s ease;
+}
+
+body.light-theme .modal-content {
+background: rgba(245, 245, 245, 0.95);
 }
 
 .modal-content::-webkit-scrollbar {
@@ -479,10 +491,7 @@ cursor: pointer;
 transition: all 0.3s ease;
 }
 
-.close:hover {
-color: #6BB6FF;
-transform: scale(1.1);
-}
+
 
 .modal h2 {
 background: linear-gradient(135deg, #ffffff 0%, #4A90E2 100%);
@@ -495,10 +504,15 @@ font-weight: 600;
 }
 
 .modal p {
-color: rgba(255, 255, 255, 0.8);
+color: #ffffff;
 line-height: 1.6;
 margin-bottom: 24px;
 font-size: 1rem;
+transition: color 0.3s ease;
+}
+
+body.light-theme .modal p {
+color: #000000;
 }
 
 /* Enhanced Form Styles */
@@ -512,6 +526,11 @@ margin-bottom: 8px;
 color: #ffffff;
 font-weight: 600;
 font-size: 0.95rem;
+transition: color 0.3s ease;
+}
+
+body.light-theme .form-group label {
+color: #000000;
 }
 
 .form-group input,
@@ -524,6 +543,12 @@ background: rgba(255, 255, 255, 0.05);
 color: #ffffff;
 font-size: 1rem;
 transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.light-theme .form-group input,
+body.light-theme .form-group textarea {
+background: rgba(0, 0, 0, 0.05);
+color: #000000;
 }
 
 .form-group input:focus,
@@ -553,11 +578,7 @@ transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 margin-top: 16px;
 }
 
-.submit-btn:hover {
-transform: translateY(-2px);
-box-shadow: 0 12px 40px rgba(107, 182, 255, 0.4);
-background: linear-gradient(135deg, #5BA0F2 0%, #7BC6FF 100%);
-}
+
 
 /* Back to Top Button */
 .back-to-top {
@@ -585,11 +606,7 @@ opacity: 1;
 visibility: visible;
 }
 
-.back-to-top:hover {
-transform: translateY(-2px) scale(1.05);
-box-shadow: 0 12px 40px rgba(107, 182, 255, 0.4);
-background: linear-gradient(135deg, #5BA0F2 0%, #7BC6FF 100%);
-}
+
 
 .back-to-top svg {
 stroke: white;
@@ -604,10 +621,16 @@ height: 20px;
 .footer {
 padding: 20px 0;
 text-align: center;
-color: rgba(255, 255, 255, 0.8);
+color: #ffffff;
 margin-top: auto;
-background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+background: #0a0a0a;
 border-top: 1px solid rgba(74, 144, 226, 0.1);
+transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.light-theme .footer {
+background: whitesmoke;
+color: #000000;
 }
 
 .footer-container {
@@ -616,15 +639,7 @@ margin: 0 auto;
 padding: 0 20px;
 }
 
-/* Animated Counter Styles */
-.counter {
-font-size: 3rem;
-font-weight: 700;
-background: linear-gradient(135deg, #4A90E2 0%, #6BB6FF 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-}
+
 
 /* Grid Layouts */
 .about-grid-container {
@@ -669,22 +684,29 @@ opacity: 0.7;
 transition: all 0.3s ease;
 }
 
-.portfolio-card:hover .portfolio-icon {
-opacity: 1;
-transform: scale(1.1);
-}
+
 
 .portfolio-card h3 {
 font-size: 1.5rem;
 color: #ffffff;
 margin-bottom: 16px;
 font-weight: 600;
+transition: color 0.3s ease;
+}
+
+body.light-theme .portfolio-card h3 {
+color: #000000;
 }
 
 .portfolio-card p {
-color: rgba(255, 255, 255, 0.7);
+color: #ffffff;
 font-size: 1rem;
 line-height: 1.6;
+transition: color 0.3s ease;
+}
+
+body.light-theme .portfolio-card p {
+color: #000000;
 }
 
 /* Responsive Design */
@@ -821,6 +843,11 @@ position: relative;
 height: 200px;
 display: flex;
 align-items: center;
+transition: background 0.3s ease;
+}
+
+body.light-theme .marquee {
+background: whitesmoke;
 }
 
 .marquee-content {
@@ -836,82 +863,16 @@ white-space: nowrap;
 will-change: transform;
 text-transform: uppercase;
 min-width: 200%;
+transition: color 0.3s ease;
 }
 
-/* Image Marquee Styles */
-.image-marquee {
-width: 100%;
-background: #0a0a0a;
-border-top: 1px solid rgba(74, 144, 226, 0.1);
-padding: 40px 0;
-overflow: hidden;
-position: relative;
-height: 300px;
-display: flex;
-align-items: center;
+body.light-theme .marquee-content {
+color: #eeeeee;
 }
 
-.image-marquee-content {
-display: flex;
-align-items: center;
-animation: imageMarqueeScroll 60s linear infinite;
-white-space: nowrap;
-will-change: transform;
-gap: 0;
-min-width: 200%;
-}
 
-.image-marquee:hover .image-marquee-content {
-animation-play-state: paused;
-}
 
-.marquee-image {
-width: 400px;
-height: 225px;
-background: linear-gradient(135deg, rgba(74, 144, 226, 0.1) 0%, rgba(107, 182, 255, 0.1) 100%);
-border: 1px solid rgba(74, 144, 226, 0.2);
-border-radius: 12px;
-display: flex;
-align-items: center;
-justify-content: center;
-flex-shrink: 0;
-position: relative;
-overflow: hidden;
-transition: all 0.3s ease;
-}
 
-.marquee-image:hover {
-transform: scale(1.05);
-border-color: rgba(107, 182, 255, 0.4);
-box-shadow: 0 10px 30px rgba(74, 144, 226, 0.2);
-}
-
-.marquee-image svg {
-opacity: 0.6;
-transition: all 0.3s ease;
-}
-
-.marquee-image:hover svg {
-opacity: 1;
-transform: scale(1.1);
-}
-
-.marquee-divider {
-width: 2px;
-height: 150px;
-background: linear-gradient(135deg, rgba(74, 144, 226, 0.3) 0%, rgba(107, 182, 255, 0.3) 100%);
-margin: 0 40px;
-flex-shrink: 0;
-}
-
-@keyframes imageMarqueeScroll {
-0% {
-transform: translateX(100vw);
-}
-100% {
-transform: translateX(-100%);
-}
-}
 
 @keyframes marqueeScroll {
 0% {
@@ -922,12 +883,7 @@ transform: translateX(-100%);
 }
 }
 
-/* Performance Optimizations */
-.slide > div,
-.glass-card,
-.service-btn {
-will-change: transform;
-}
+
 
 
 </style>
@@ -950,6 +906,7 @@ will-change: transform;
 <a href="#about" onclick="scrollToSection('about'); return false;">About</a>
 <a href="#services" onclick="scrollToSection('services'); return false;">Services</a>
 <a href="#portfolio" onclick="scrollToSection('portfolio'); return false;">Portfolio</a>
+<a href="#" onclick="toggleTheme(); return false;" id="themeToggle">🌙 Dark Theme</a>
 </nav>
 </div>
 
@@ -971,14 +928,14 @@ will-change: transform;
 
 <!-- Slide 2 -->
 <div class="slide">
+<div class="slide-bg-1">
+<div></div>
+</div>
 <div class="slide-bg-2">
 <div>
 <h1>Web Development Services</h1>
 <p>Custom website development using modern technologies including responsive design, content management systems, and search engine optimization.</p>
 </div>
-</div>
-<div class="slide-bg-1">
-<div></div>
 </div>
 </div>
 
@@ -997,14 +954,14 @@ will-change: transform;
 
 <!-- Slide 4 -->
 <div class="slide">
+<div class="slide-bg-1">
+<div></div>
+</div>
 <div class="slide-bg-2">
 <div>
 <h1>Brand Identity Design</h1>
 <p>Professional logo design and complete brand identity packages including color schemes, typography, and brand guidelines documentation.</p>
 </div>
-</div>
-<div class="slide-bg-1">
-<div></div>
 </div>
 </div>
 </div>
@@ -1101,7 +1058,7 @@ The mastermind behind every pixel-perfect design and viral-worthy campaign.</p>
 </div>
 </section>
 
-<section id="services" class="about-section" style="background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);">
+<section id="services" class="about-section">
 <div class="about-container">
 <div class="about-header">
 <h2>Professional Services</h2>
@@ -1114,7 +1071,7 @@ The mastermind behind every pixel-perfect design and viral-worthy campaign.</p>
 <div class="card-content" style="flex: 1; display: flex; flex-direction: column;">
 <h3 style="text-align: center; margin-bottom: 24px;">Websites That Actually Convert</h3>
 <p style="margin-bottom: 20px;">Lightning-fast, mobile-first websites that turn visitors into customers. No boring templates here – just custom designs that make your competition jealous.</p>
-<p style="margin-bottom: auto; color: rgba(255, 255, 255, 0.7);">Custom Design & Development • Mobile-First Responsive Design</p>
+<p style="margin-bottom: auto; color: #ffffff;">Custom Design & Development • Mobile-First Responsive Design</p>
 <div class="card-cta" style="margin-top: auto; text-align: center; padding-top: 24px;">
 <button onclick="openModal('websiteModal')" class="service-btn" tabindex="0">Get Started</button>
 </div>
@@ -1126,7 +1083,7 @@ The mastermind behind every pixel-perfect design and viral-worthy campaign.</p>
 <div class="card-content" style="flex: 1; display: flex; flex-direction: column;">
 <h3 style="text-align: center; margin-bottom: 24px;">Social Media That Slaps</h3>
 <p style="margin-bottom: 20px;">We'll make your brand the main character on every platform. From viral-worthy content to community building that actually builds communities.</p>
-<p style="margin-bottom: auto; color: rgba(255, 255, 255, 0.7);">Content Creation & Strategy • Analytics & Growth Tracking</p>
+<p style="margin-bottom: auto; color: #ffffff;">Content Creation & Strategy • Analytics & Growth Tracking</p>
 <div class="card-cta" style="margin-top: auto; text-align: center; padding-top: 24px;">
 <button onclick="openModal('socialModal')" class="service-btn" tabindex="0">Let's Go Viral</button>
 </div>
@@ -1138,7 +1095,7 @@ The mastermind behind every pixel-perfect design and viral-worthy campaign.</p>
 <div class="card-content" style="flex: 1; display: flex; flex-direction: column;">
 <h3 style="text-align: center; margin-bottom: 24px;">Logos That Leave a Mark</h3>
 <p style="margin-bottom: 20px;">Your logo is your first impression. We create memorable brand marks that stick in minds and look incredible everywhere from business cards to billboards.</p>
-<p style="margin-bottom: auto; color: rgba(255, 255, 255, 0.7);">Custom Logo Design • Brand Identity Package</p>
+<p style="margin-bottom: auto; color: #ffffff;">Custom Logo Design • Brand Identity Package</p>
 <div class="card-cta" style="margin-top: auto; text-align: center; padding-top: 24px;">
 <button onclick="openModal('logoModal')" class="service-btn" tabindex="0">Create my Brand</button>
 </div>
@@ -1148,7 +1105,7 @@ The mastermind behind every pixel-perfect design and viral-worthy campaign.</p>
 </div>
 </section>
 
-<section id="portfolio" class="about-section" style="background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);">
+<section id="portfolio" class="about-section">
 <div class="about-container">
 <div class="about-header">
 <h2>Our Portfolio</h2>
@@ -1301,137 +1258,7 @@ The mastermind behind every pixel-perfect design and viral-worthy campaign.</p>
 </div>
 </section>
 
-<section class="image-marquee">
-<div class="image-marquee-content">
-<div class="marquee-image">
-<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
-<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-<circle cx="8.5" cy="8.5" r="1.5"/>
-<polyline points="21,15 16,10 5,21"/>
-</svg>
-</div>
-<div class="marquee-divider"></div>
-<div class="marquee-image">
-<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
-<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-<circle cx="8.5" cy="8.5" r="1.5"/>
-<polyline points="21,15 16,10 5,21"/>
-</svg>
-</div>
-<div class="marquee-divider"></div>
-<div class="marquee-image">
-<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
-<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-<circle cx="8.5" cy="8.5" r="1.5"/>
-<polyline points="21,15 16,10 5,21"/>
-</svg>
-</div>
-<div class="marquee-divider"></div>
-<div class="marquee-image">
-<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
-<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-<circle cx="8.5" cy="8.5" r="1.5"/>
-<polyline points="21,15 16,10 5,21"/>
-</svg>
-</div>
-<div class="marquee-divider"></div>
-<div class="marquee-image">
-<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
-<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-<circle cx="8.5" cy="8.5" r="1.5"/>
-<polyline points="21,15 16,10 5,21"/>
-</svg>
-</div>
-<div class="marquee-divider"></div>
-<div class="marquee-image">
-<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
-<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-<circle cx="8.5" cy="8.5" r="1.5"/>
-<polyline points="21,15 16,10 5,21"/>
-</svg>
-</div>
-<div class="marquee-divider"></div>
-<div class="marquee-image">
-<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
-<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-<circle cx="8.5" cy="8.5" r="1.5"/>
-<polyline points="21,15 16,10 5,21"/>
-</svg>
-</div>
-<div class="marquee-divider"></div>
-<div class="marquee-image">
-<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
-<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-<circle cx="8.5" cy="8.5" r="1.5"/>
-<polyline points="21,15 16,10 5,21"/>
-</svg>
-</div>
-<div class="marquee-divider"></div>
-<div class="marquee-image">
-<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
-<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-<circle cx="8.5" cy="8.5" r="1.5"/>
-<polyline points="21,15 16,10 5,21"/>
-</svg>
-</div>
-<div class="marquee-divider"></div>
-<div class="marquee-image">
-<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
-<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-<circle cx="8.5" cy="8.5" r="1.5"/>
-<polyline points="21,15 16,10 5,21"/>
-</svg>
-</div>
-<div class="marquee-divider"></div>
-<div class="marquee-image">
-<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
-<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-<circle cx="8.5" cy="8.5" r="1.5"/>
-<polyline points="21,15 16,10 5,21"/>
-</svg>
-</div>
-<div class="marquee-divider"></div>
-<div class="marquee-image">
-<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
-<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-<circle cx="8.5" cy="8.5" r="1.5"/>
-<polyline points="21,15 16,10 5,21"/>
-</svg>
-</div>
-<div class="marquee-divider"></div>
-<div class="marquee-image">
-<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
-<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-<circle cx="8.5" cy="8.5" r="1.5"/>
-<polyline points="21,15 16,10 5,21"/>
-</svg>
-</div>
-<div class="marquee-divider"></div>
-<div class="marquee-image">
-<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
-<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-<circle cx="8.5" cy="8.5" r="1.5"/>
-<polyline points="21,15 16,10 5,21"/>
-</svg>
-</div>
-<div class="marquee-divider"></div>
-<div class="marquee-image">
-<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
-<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-<circle cx="8.5" cy="8.5" r="1.5"/>
-<polyline points="21,15 16,10 5,21"/>
-</svg>
-</div>
-<div class="marquee-divider"></div>
-<div class="marquee-image">
-<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
-<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-<circle cx="8.5" cy="8.5" r="1.5"/>
-<polyline points="21,15 16,10 5,21"/>
-</svg>
-</div>
-</div>
-</section>
+
 </main>
 
 <footer id="footer" class="footer">
@@ -1796,35 +1623,40 @@ return sections[i];
 return 'home';
 }
 
-// Performance optimization: Debounce scroll events
-function debounce(func, wait) {
-let timeout;
-return function executedFunction(...args) {
-const later = () => {
-clearTimeout(timeout);
-func(...args);
+// Theme toggle functionality
+window.toggleTheme = function() {
+const body = document.body;
+const themeToggle = document.getElementById('themeToggle');
+
+if (body.classList.contains('light-theme')) {
+body.classList.remove('light-theme');
+themeToggle.textContent = 'Dark Theme';
+localStorage.setItem('theme', 'dark');
+} else {
+body.classList.add('light-theme');
+themeToggle.textContent = 'Light Theme';
+localStorage.setItem('theme', 'light');
+}
 };
-clearTimeout(timeout);
-timeout = setTimeout(later, wait);
-};
+
+// Load saved theme on page load
+const savedTheme = localStorage.getItem('theme');
+const themeToggle = document.getElementById('themeToggle');
+if (savedTheme === 'light') {
+document.body.classList.add('light-theme');
+themeToggle.textContent = 'Light Theme';
+} else {
+themeToggle.textContent = 'Dark Theme';
 }
 
-// Apply debouncing to scroll-heavy functions
-const debouncedScroll = debounce(() => {
-// Additional scroll optimizations can go here
-}, 10);
-
-window.addEventListener('scroll', debouncedScroll);
 
 
 
-// Initialize animations on load
-setTimeout(() => {
-document.body.classList.add('loaded');
-}, 100);
+
+
 });
 
 
 </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'965c7f194472d931',t:'MTc1MzYyMzA4MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'965de7db26774eb7',t:'MTc1MzYzNzg1Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
