@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&family=Varela+Round&display=swap" rel="stylesheet" />
 <!-- Favicon -->
-<link rel="icon" href="Company Logo (Tab Icon).png" type="image/png" />
+<link rel="icon" href="favicon.png" type="image/png" />
 <style>
 * {
 box-sizing: border-box;
@@ -87,18 +87,26 @@ transition: all 0.3s ease;
 }
 
 #navDropdown {
-background: rgba(255, 255, 255, 0.2);
+background: rgba(255, 255, 255, 0.9);
 backdrop-filter: blur(10px);
 -webkit-backdrop-filter: blur(10px);
 border-radius: 50%;
-width: 40px;
-height: 40px;
+width: 45px;
+height: 45px;
 display: flex;
 align-items: center;
 justify-content: center;
-border: 1px solid rgba(255, 255, 255, 0.3);
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+border: 2px solid rgba(0, 0, 0, 0.1);
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 cursor: pointer;
+transition: all 0.3s ease;
+}
+
+#navDropdown:hover {
+background: rgba(255, 255, 255, 1);
+transform: translateY(-1px);
+box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+border-color: rgba(0, 0, 0, 0.2);
 }
 
 #navDropdown svg {
@@ -110,27 +118,34 @@ transform: translate(-50%, -50%);
 
 #dropdownMenu {
 position: absolute;
-top: 50px;
+top: 55px;
 right: 0;
-background: rgba(255, 255, 255, 0.7);
-backdrop-filter: blur(10px);
--webkit-backdrop-filter: blur(10px);
+background: rgba(255, 255, 255, 0.95);
+backdrop-filter: blur(15px);
+-webkit-backdrop-filter: blur(15px);
 border-radius: 12px;
-min-width: 120px;
+min-width: 140px;
 display: none;
-box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
-border: 1px solid rgba(255, 255, 255, 0.18);
+box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+border: 2px solid rgba(0, 0, 0, 0.1);
 z-index: 1001;
 overflow: hidden;
 }
 
 #dropdownMenu a {
 display: block;
-padding: 12px 20px;
+padding: 15px 20px;
 text-decoration: none;
 color: #000000;
 text-align: center;
 font-family: Arial, sans-serif;
+font-size: 0.9rem;
+transition: all 0.3s ease;
+}
+
+#dropdownMenu a:hover {
+background: rgba(0, 0, 0, 0.05);
+color: #333333;
 }
 
 .home-section {
@@ -451,21 +466,22 @@ box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 position: fixed;
 bottom: 20px;
 right: 35px;
-width: 40px;
-height: 40px;
-background: rgba(255, 255, 255, 0.3);
+width: 45px;
+height: 45px;
+background: rgba(255, 255, 255, 0.9);
 backdrop-filter: blur(10px);
 -webkit-backdrop-filter: blur(10px);
 border-radius: 50%;
 display: flex;
 align-items: center;
 justify-content: center;
-border: 1px solid rgba(255, 255, 255, 0.3);
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+border: 2px solid rgba(0, 0, 0, 0.1);
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 cursor: pointer;
 z-index: 999;
 opacity: 0;
 visibility: hidden;
+transition: all 0.3s ease;
 }
 
 .back-to-top.visible {
@@ -473,10 +489,17 @@ opacity: 1;
 visibility: visible;
 }
 
+.back-to-top:hover {
+background: rgba(255, 255, 255, 1);
+transform: translateY(-2px);
+box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+border-color: rgba(0, 0, 0, 0.2);
+}
+
 .back-to-top svg {
 fill: none;
 stroke: #000000;
-stroke-width: 3;
+stroke-width: 2.5;
 stroke-linecap: round;
 stroke-linejoin: round;
 width: 18px;
@@ -582,15 +605,15 @@ right: 15px;
 }
 
 #navDropdown {
-width: 35px;
-height: 35px;
+width: 40px;
+height: 40px;
 }
 
 .back-to-top {
-width: 35px;
-height: 35px;
-bottom: 15px;
-right: 30px;
+width: 40px;
+height: 40px;
+bottom: 20px;
+right: 20px;
 }
 
 .modal-content {
@@ -1002,8 +1025,10 @@ The mastermind behind every pixel-perfect design and viral-worthy campaign.</p>
 </svg>
 
 <button id="backToTop" class="back-to-top" aria-label="Back to top">
-<svg width="20" height="20">
-<polyline points="6 15 12 9 18 15" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="10"/>
+<polyline points="16 12 12 8 8 12"/>
+<line x1="12" y1="16" x2="12" y2="8"/>
 </svg>
 </button>
 
@@ -1188,5 +1213,5 @@ document.body.style.overflow = 'auto';
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'964dbb13f46e25c1',t:'MTc1MzQ2ODI1MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96535796c61c7398',t:'MTc1MzUyNzA5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'965b3261339a73d5',t:'MTc1MzYwOTQ1MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'964dbb13f46e25c1',t:'MTc1MzQ2ODI1MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96535796c61c7398',t:'MTc1MzUyNzA5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96535796c61c7398',t:'MTc1MzUyNzA5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'965bcb88365c738e',t:'MTc1MzYxNTcyNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
