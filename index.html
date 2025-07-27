@@ -8,14 +8,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&family=Varela+Round&display=swap" rel="stylesheet" />
 <!-- Favicon -->
-<link rel="icon" href="Company Logo (Tab Icon).png" type="image/png" />
+<link rel="icon" href="favicon.png" type="image/png" />
 <style>
 * {
 box-sizing: border-box;
 margin: 0;
 padding: 0;
 scrollbar-width: thin;
-scrollbar-color: #f3f4f6 #e5e7eb;
+scrollbar-color: #000000 #e5e7eb;
 }
 
 ::-webkit-scrollbar {
@@ -26,13 +26,15 @@ background: #e5e7eb;
 border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
-background: #f3f4f6;
+background: #000000;
 border-radius: 10px;
 border: 2px solid #e5e7eb;
 }
 ::-webkit-scrollbar-thumb:hover {
-background: #d1d5db;
+background: #333333;
 }
+
+
 
 body {
 font-family: Arial, sans-serif;
@@ -50,7 +52,7 @@ background: #f3f4f6;
 }
 
 .slide-bg-2 {
-background: #e5e7eb;
+background: #d1d5db;
 }
 
 body {
@@ -99,6 +101,13 @@ border: 1px solid rgba(255, 255, 255, 0.3);
 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 transition: all 0.3s ease;
 cursor: pointer;
+}
+
+#navDropdown svg {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
 }
 
 #navDropdown:hover {
@@ -281,7 +290,6 @@ box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
 border: 1px solid rgba(255, 255, 255, 0.18);
 transition: all 0.3s ease;
 height: auto;
-min-height: 200px;
 display: flex;
 flex-direction: column;
 }
@@ -336,6 +344,7 @@ transition-delay: 0.4s;
 display: flex;
 align-items: center;
 margin-bottom: 15px;
+gap: 15px;
 }
 
 
@@ -541,7 +550,7 @@ transform: translateY(-3px);
 
 .back-to-top svg {
 fill: none;
-stroke: url(#gradient);
+stroke: #000000;
 stroke-width: 2;
 stroke-linecap: round;
 stroke-linejoin: round;
@@ -563,6 +572,26 @@ margin-top: auto;
 max-width: 1200px;
 margin: 0 auto;
 padding: 0 20px;
+}
+
+.grain-overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+pointer-events: none;
+background: url('grain-texture.png') repeat;
+opacity: 0.4;
+z-index: 9999;
+mix-blend-mode: overlay;
+animation: grain-flicker 0.1s infinite;
+}
+
+@keyframes grain-flicker {
+0% { opacity: 0.35; }
+50% { opacity: 0.4; }
+100% { opacity: 0.38; }
 }
 
 @keyframes fadeIn {
@@ -689,6 +718,8 @@ font-size: 0.9rem;
 </head>
 <body>
 
+<div class="grain-overlay"></div>
+
 <header id="mainHeader">
 </header>
 
@@ -715,12 +746,12 @@ font-size: 0.9rem;
 <div class="slide">
 <div class="slide-bg-1">
 <div>
-<h1>Welcome to Hanu Studio</h1>
-<p>We're the creative wizards who turn your wildest digital dreams into reality! Ready to make some magic happen?</p>
+<h1>Hanu Studio</h1>
+<p>Digital design studio specializing in web development, social media management, and brand identity services for businesses and organizations.</p>
 </div>
 </div>
 <div class="slide-bg-2">
-<div style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; background-image: url('Company Logo.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<div>
 </div>
 </div>
 </div>
@@ -729,8 +760,8 @@ font-size: 0.9rem;
 <div class="slide">
 <div class="slide-bg-2">
 <div>
-<h1>Web Design That Wows!</h1>
-<p>Stunning websites that make your visitors go "WOW!" and turn them into raving fans. Mobile-friendly, lightning-fast, and absolutely gorgeous!</p>
+<h1>Web Development Services</h1>
+<p>Custom website development using modern technologies including responsive design, content management systems, and search engine optimization.</p>
 </div>
 </div>
 <div class="slide-bg-1">
@@ -743,8 +774,8 @@ font-size: 0.9rem;
 <div class="slide">
 <div class="slide-bg-1">
 <div>
-<h1>Social Media Magic!</h1>
-<p>Let's make your brand the talk of the town! We create scroll-stopping content that gets hearts racing and followers growing like crazy!</p>
+<h1>Social Media Management</h1>
+<p>Comprehensive social media strategy development, content creation, and platform management across multiple social networks.</p>
 </div>
 </div>
 <div class="slide-bg-2">
@@ -757,8 +788,8 @@ font-size: 0.9rem;
 <div class="slide">
 <div class="slide-bg-2">
 <div>
-<h1>Logo Design That Rocks!</h1>
-<p>Unforgettable logos that make your brand impossible to ignore! We craft visual identities that stick in minds and hearts forever.</p>
+<h1>Brand Identity Design</h1>
+<p>Professional logo design and complete brand identity packages including color schemes, typography, and brand guidelines documentation.</p>
 </div>
 </div>
 <div class="slide-bg-1">
@@ -780,12 +811,12 @@ font-size: 0.9rem;
 <div class="about-container">
 <div class="about-header">
 <h2>About Hanu Studio</h2>
-<p>We're the creative rebels who turn boring brands into digital superstars! Ready to make your competition jealous? Let's create something absolutely unforgettable together!</p>
+<p>Established digital design studio providing comprehensive web development, social media management, and brand identity services to businesses across various industries.</p>
 </div>
 
 <!-- About Card Layout - 2x2 Grid -->
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;" class="about-grid-container">
-<!-- Card 1: Our Story -->
+<!-- Card 1: Our Experience -->
 <div class="glass-card card-animate">
 <div class="card-content">
 <div class="card-header">
@@ -798,13 +829,13 @@ font-size: 0.9rem;
 <polyline points="10,9 9,9 8,9"/>
 </svg>
 </div>
-<h3>Our Story</h3>
+<h3>Professional Experience</h3>
 </div>
-<p>Born from a passion for digital excellence, Hanu Studio started as a dream to revolutionize how brands connect with their audiences. Every pixel, every line of code, every creative decision stems from our relentless pursuit of perfection.</p>
+<p>Established design studio with proven track record in web development, digital marketing campaigns, and comprehensive brand identity creation for diverse client portfolios.</p>
 </div>
 </div>
 
-<!-- Card 2: Our Mission -->
+<!-- Card 2: Our Approach -->
 <div class="glass-card card-animate">
 <div class="card-content">
 <div class="card-header">
@@ -813,13 +844,13 @@ font-size: 0.9rem;
 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
 </svg>
 </div>
-<h3>Our Mission</h3>
+<h3>Strategic Methodology</h3>
 </div>
-<p>To empower businesses with stunning digital experiences that captivate, convert, and create lasting connections. We transform visions into reality, one exceptional design at a time, making the impossible beautifully possible.</p>
+<p>Data-driven approach combining market research, user experience analysis, and strategic planning with creative execution to deliver measurable business results and ROI.</p>
 </div>
 </div>
 
-<!-- Card 3: Our Values -->
+<!-- Card 3: Our Standards -->
 <div class="glass-card card-animate">
 <div class="card-content">
 <div class="card-header">
@@ -828,13 +859,13 @@ font-size: 0.9rem;
 <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7z"/>
 </svg>
 </div>
-<h3>Our Values</h3>
+<h3>Quality Standards</h3>
 </div>
-<p>Creativity without compromise, innovation with integrity, and excellence in every detail. We believe in authentic partnerships, transparent communication, and delivering results that exceed expectations every single time.</p>
+<p>Commitment to industry best practices, rigorous quality assurance processes, adherence to project timelines, and comprehensive post-launch support services.</p>
 </div>
 </div>
 
-<!-- Card 4: Meet The Creator -->
+<!-- Card 4: Our Team -->
 <div class="glass-card card-animate">
 <div class="card-content">
 <div class="card-header">
@@ -844,9 +875,9 @@ font-size: 0.9rem;
 <circle cx="12" cy="7" r="4"/>
 </svg>
 </div>
-<h3>Meet The Creator</h3>
+<h3>Expert Team</h3>
 </div>
-<p>Behind every great design is a passionate creator. Meet the visionary who founded Hanu Studio with a mission to blend artistry with technology, creating digital masterpieces that inspire and engage audiences worldwide.</p>
+<p>Certified professionals specializing in modern web technologies, digital marketing platforms, and brand development with continuous education in emerging industry trends.</p>
 </div>
 </div>
 </div>
@@ -856,41 +887,53 @@ font-size: 0.9rem;
 <section id="services" class="about-section" style="background: #e5e7eb;">
 <div class="about-container">
 <div class="about-header">
-<h2>Our Services</h2>
-<p>We don't just create - we craft digital experiences that make your competition weep with envy! Ready to dominate your market?</p>
+<h2>Professional Services</h2>
+<p>Comprehensive digital solutions including custom web development, strategic social media management, and professional brand identity design services.</p>
 </div>
 
 <!-- Services Card Layout - 3 Cards Portrait -->
 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;" class="services-grid-container">
 <!-- Service 1: Websites -->
-<div class="glass-card card-animate service-card" onclick="openModal('websiteModal')" style="min-height: 300px;">
-<div class="card-content">
-<h3 style="margin-bottom: 20px;">Websites That Actually Convert</h3>
-<p>Stunning websites that don't just look pretty - they turn visitors into customers faster than you can say "cha-ching!" Mobile-first, lightning-fast, and conversion-optimized.</p>
-<div class="card-cta">
-<span>Get Started →</span>
+<div class="glass-card card-animate service-card" onclick="openModal('websiteModal')" style="display: flex; flex-direction: column;">
+<div class="card-content" style="flex: 1; display: flex; flex-direction: column;">
+<h3 style="text-align: center; margin-bottom: 20px;">Custom Web Development</h3>
+<p style="margin-bottom: 15px;">Full-stack web development services including frontend design, backend development, database integration, and content management systems using modern frameworks and technologies.</p>
+<ul style="margin-bottom: auto; padding-left: 20px;">
+<li>Responsive design for all devices</li>
+<li>SEO optimization and performance tuning</li>
+</ul>
+<div class="card-cta" style="margin-top: auto; text-align: center; padding-top: 20px;">
+<button style="background: #000; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Request Quote</button>
 </div>
 </div>
 </div>
 
 <!-- Service 2: Social Media -->
-<div class="glass-card card-animate service-card" onclick="openModal('socialModal')" style="min-height: 300px;">
-<div class="card-content">
-<h3 style="margin-bottom: 20px;">Social Media That Slaps</h3>
-<p>Content so fire it stops the scroll and starts the conversation! We create thumb-stopping visuals and captions that make your audience hit that follow button instantly.</p>
-<div class="card-cta">
-<span>Get Started →</span>
+<div class="glass-card card-animate service-card" onclick="openModal('socialModal')" style="display: flex; flex-direction: column;">
+<div class="card-content" style="flex: 1; display: flex; flex-direction: column;">
+<h3 style="text-align: center; margin-bottom: 20px;">Social Media Management</h3>
+<p style="margin-bottom: 15px;">Comprehensive social media strategy including content planning, audience analysis, platform optimization, engagement management, and performance analytics across multiple social networks.</p>
+<ul style="margin-bottom: auto; padding-left: 20px;">
+<li>Strategic content calendar development</li>
+<li>Multi-platform campaign management</li>
+</ul>
+<div class="card-cta" style="margin-top: auto; text-align: center; padding-top: 20px;">
+<button style="background: #000; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Request Quote</button>
 </div>
 </div>
 </div>
 
 <!-- Service 3: Logos -->
-<div class="glass-card card-animate service-card" onclick="openModal('logoModal')" style="min-height: 300px;">
-<div class="card-content">
-<h3 style="margin-bottom: 20px;">Logos That Leave a Mark</h3>
-<p>Unforgettable brand identities that stick in minds like your favorite song! We craft logos so iconic, your competitors will wish they thought of them first.</p>
-<div class="card-cta">
-<span>Get Started →</span>
+<div class="glass-card card-animate service-card" onclick="openModal('logoModal')" style="display: flex; flex-direction: column;">
+<div class="card-content" style="flex: 1; display: flex; flex-direction: column;">
+<h3 style="text-align: center; margin-bottom: 20px;">Brand Identity Design</h3>
+<p style="margin-bottom: 15px;">Professional logo design and comprehensive brand identity development including color palette creation, typography selection, brand guidelines documentation, and marketing material templates.</p>
+<ul style="margin-bottom: auto; padding-left: 20px;">
+<li>Complete brand identity systems</li>
+<li>Multiple file formats and variations</li>
+</ul>
+<div class="card-cta" style="margin-top: auto; text-align: center; padding-top: 20px;">
+<button style="background: #000; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Request Quote</button>
 </div>
 </div>
 </div>
@@ -912,7 +955,7 @@ font-size: 0.9rem;
 <div class="modal-content">
 <span class="close" onclick="closeModal('websiteModal')">&times;</span>
 <h2>Website Project Inquiry</h2>
-<p>Ready to create a website that actually converts? Tell us about your project and we'll get back to you within 24 hours!</p>
+<p>Request a consultation for custom website development. We'll respond within 24 hours with project details and timeline.</p>
 <form action="mailto:hanu@hanu.co.za" method="post" enctype="text/plain">
 <input type="hidden" name="subject" value="Website Project Inquiry">
 <div class="form-group">
@@ -937,7 +980,7 @@ font-size: 0.9rem;
 <div class="modal-content">
 <span class="close" onclick="closeModal('socialModal')">&times;</span>
 <h2>Social Media Project Inquiry</h2>
-<p>Ready for social media that actually slaps? Tell us about your brand and we'll create content that stops the scroll!</p>
+<p>Request information about social media management services. We'll provide a detailed proposal within 24 hours.</p>
 <form action="mailto:hanu@hanu.co.za" method="post" enctype="text/plain">
 <input type="hidden" name="subject" value="Social Media Project Inquiry">
 <div class="form-group">
@@ -962,7 +1005,7 @@ font-size: 0.9rem;
 <div class="modal-content">
 <span class="close" onclick="closeModal('logoModal')">&times;</span>
 <h2>Logo Project Inquiry</h2>
-<p>Ready for a logo that leaves a mark? Tell us about your brand vision and we'll create something unforgettable!</p>
+<p>Request a quote for professional logo design services. We'll send you a comprehensive proposal within 24 hours.</p>
 <form action="mailto:hanu@hanu.co.za" method="post" enctype="text/plain">
 <input type="hidden" name="subject" value="Logo Project Inquiry">
 <div class="form-group">
@@ -994,7 +1037,7 @@ font-size: 0.9rem;
 
 <button id="backToTop" class="back-to-top" aria-label="Back to top">
 <svg width="20" height="20">
-<polyline points="6 15 12 9 18 15" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+<polyline points="6 15 12 9 18 15" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
 </svg>
 </button>
 
@@ -1179,5 +1222,5 @@ document.body.style.overflow = 'auto';
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'964dbb13f46e25c1',t:'MTc1MzQ2ODI1MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96535796c61c7398',t:'MTc1MzUyNzA5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9653d3a3f3d273a0',t:'MTc1MzUzMjE3MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'964dbb13f46e25c1',t:'MTc1MzQ2ODI1MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96535796c61c7398',t:'MTc1MzUyNzA5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'965af73e30b5d931',t:'MTc1MzYwNzAyOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
