@@ -38,21 +38,20 @@ background: #333333;
 
 body {
 font-family: Arial, sans-serif;
-background: #f3f4f6;
+background: #ffffff;
 min-height: 100vh;
 display: flex;
 flex-direction: column;
 position: relative;
-transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Slide background styles */
 .slide-bg-1 {
-background: #f3f4f6;
+background: #ffffff;
 }
 
 .slide-bg-2 {
-background: #d1d5db;
+background: #ffffff;
 }
 
 body {
@@ -99,7 +98,6 @@ align-items: center;
 justify-content: center;
 border: 1px solid rgba(255, 255, 255, 0.3);
 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-transition: all 0.3s ease;
 cursor: pointer;
 }
 
@@ -108,21 +106,6 @@ position: absolute;
 top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
-}
-
-#navDropdown:hover {
-background: rgba(255, 255, 255, 0.3);
-transform: scale(1.05);
-}
-
-#navDropdown:hover svg line,
-#navDropdown:active svg line {
-transform: rotate(90deg);
-}
-
-#navDropdown svg line {
-transition: transform 0.3s ease;
-transform-origin: center;
 }
 
 #dropdownMenu {
@@ -148,17 +131,13 @@ text-decoration: none;
 color: #000000;
 text-align: center;
 font-family: Arial, sans-serif;
-transition: all 0.2s ease;
-}
-
-#dropdownMenu a:hover {
-background: rgba(255, 255, 255, 0.5);
 }
 
 .home-section {
 height: 100vh;
 overflow: hidden;
 position: relative;
+background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
 }
 
 #slideContainer {
@@ -185,7 +164,6 @@ display: flex;
 align-items: center;
 justify-content: center;
 padding: 5%;
-transition: all 0.6s ease-in-out;
 text-align: center;
 position: relative;
 overflow: hidden;
@@ -196,17 +174,8 @@ border: 1px solid rgba(255, 255, 255, 0.2);
 box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
 }
 
-.slide > div:hover {
-background: rgba(255, 255, 255, 0.25) !important;
-backdrop-filter: blur(12px);
--webkit-backdrop-filter: blur(12px);
-border: 1px solid rgba(255, 255, 255, 0.3);
-box-shadow: 0 12px 40px rgba(31, 38, 135, 0.15);
-transform: scale(1.02);
-}
-
 .slide h1 {
-font-size: clamp(2rem, 4vw, 3rem);
+font-size: clamp(2.5rem, 5vw, 4rem);
 font-weight: 400;
 margin-bottom: 30px;
 font-family: Arial, sans-serif;
@@ -217,11 +186,12 @@ z-index: 2;
 }
 
 .slide p {
-font-size: clamp(1rem, 2vw, 1.2rem);
+font-size: clamp(1.2rem, 2.5vw, 1.5rem);
 line-height: 1.7;
 font-weight: 300;
 position: relative;
 z-index: 2;
+text-align: center;
 }
 
 .dot {
@@ -251,7 +221,7 @@ z-index: 100;
 /* About Section */
 .about-section {
 padding: 60px 0;
-background: #f3f4f6;
+background: linear-gradient(135deg, #fef7f0 0%, #fed7aa 100%);
 }
 
 .about-container {
@@ -266,17 +236,18 @@ margin-bottom: 40px;
 }
 
 .about-header h2 {
-font-size: clamp(2rem, 4vw, 3rem);
+font-size: clamp(2.5rem, 5vw, 4rem);
 font-family: Arial, sans-serif;
 margin-bottom: 15px;
 color: #000000;
 }
 
 .about-header p {
-font-size: clamp(1rem, 1.5vw, 1.2rem);
+font-size: clamp(1.2rem, 2vw, 1.5rem);
 max-width: 700px;
 margin: 0 auto;
 color: #000000;
+text-align: center;
 }
 
 /* Glass Card Styles */
@@ -288,56 +259,24 @@ border-radius: 15px;
 padding: 25px;
 box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
 border: 1px solid rgba(255, 255, 255, 0.18);
-transition: all 0.3s ease;
 height: auto;
 display: flex;
 flex-direction: column;
 }
 
-.glass-card {
-perspective: 1000px;
-}
-
-.glass-card:hover {
-transform: translateY(-8px) scale(1.05);
-box-shadow: 0 20px 50px rgba(31, 38, 135, 0.3);
-}
-
 .card-content {
-transition: transform 0.3s ease;
 transform-style: preserve-3d;
-}
-
-.glass-card:hover .card-content {
-transform: rotateX(2deg) rotateY(2deg);
 }
 
 /* Card Animation Styles */
 .card-animate {
-opacity: 0;
-transform: translateY(50px);
-transition: all 0.6s ease-out;
+opacity: 1;
+transform: translateY(0);
 }
 
 .card-animate.animate-in {
 opacity: 1;
 transform: translateY(0);
-}
-
-.card-animate:nth-child(1) {
-transition-delay: 0.1s;
-}
-
-.card-animate:nth-child(2) {
-transition-delay: 0.2s;
-}
-
-.card-animate:nth-child(3) {
-transition-delay: 0.3s;
-}
-
-.card-animate:nth-child(4) {
-transition-delay: 0.4s;
 }
 
 .card-header {
@@ -350,7 +289,7 @@ gap: 15px;
 
 
 .glass-card h3 {
-font-size: 1.4rem;
+font-size: 1.8rem;
 color: #000000;
 margin: 0;
 font-family: Arial, sans-serif;
@@ -359,6 +298,8 @@ font-family: Arial, sans-serif;
 .glass-card p {
 color: #000000;
 line-height: 1.6;
+font-size: 1.1rem;
+text-align: center;
 }
 
 /* Service Card Styles */
@@ -366,11 +307,6 @@ line-height: 1.6;
 cursor: pointer;
 position: relative;
 overflow: hidden;
-}
-
-.service-card:hover {
-transform: translateY(-10px) scale(1.05);
-box-shadow: 0 25px 60px rgba(31, 38, 135, 0.4);
 }
 
 .card-cta {
@@ -382,11 +318,6 @@ padding-top: 15px;
 color: #6b7280;
 font-weight: 600;
 font-size: 0.9rem;
-transition: color 0.3s ease;
-}
-
-.service-card:hover .card-cta span {
-color: #000000;
 }
 
 /* Modal Styles */
@@ -519,9 +450,9 @@ box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 .back-to-top {
 position: fixed;
 bottom: 20px;
-right: 20px;
-width: 50px;
-height: 50px;
+right: 35px;
+width: 35px;
+height: 35px;
 background: rgba(255, 255, 255, 0.3);
 backdrop-filter: blur(10px);
 -webkit-backdrop-filter: blur(10px);
@@ -535,7 +466,6 @@ cursor: pointer;
 z-index: 999;
 opacity: 0;
 visibility: hidden;
-transition: all 0.3s ease;
 }
 
 .back-to-top.visible {
@@ -543,17 +473,14 @@ opacity: 1;
 visibility: visible;
 }
 
-.back-to-top:hover {
-background: rgba(255, 255, 255, 0.5);
-transform: translateY(-3px);
-}
-
 .back-to-top svg {
 fill: none;
 stroke: #000000;
-stroke-width: 2;
+stroke-width: 3;
 stroke-linecap: round;
 stroke-linejoin: round;
+width: 18px;
+height: 18px;
 position: absolute;
 top: 50%;
 left: 50%;
@@ -581,11 +508,15 @@ left: 0;
 width: 100%;
 height: 100%;
 pointer-events: none;
-background: url('grain-texture.png') repeat;
-opacity: 0.4;
+background: 
+  radial-gradient(circle at 20% 50%, transparent 20%, rgba(255,255,255,0.3) 21%, rgba(255,255,255,0.3) 34%, transparent 35%, transparent),
+  linear-gradient(0deg, transparent 24%, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.05) 26%, transparent 27%, transparent 74%, rgba(255,255,255,0.05) 75%, rgba(255,255,255,0.05) 76%, transparent 77%, transparent),
+  linear-gradient(90deg, transparent 24%, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.05) 26%, transparent 27%, transparent 74%, rgba(255,255,255,0.05) 75%, rgba(255,255,255,0.05) 76%, transparent 77%, transparent);
+background-size: 75px 50px, 60px 60px, 60px 60px;
+opacity: 0.8;
 z-index: 9999;
-mix-blend-mode: overlay;
-animation: grain-flicker 0.1s infinite;
+mix-blend-mode: multiply;
+animation: grain-flicker 0.2s infinite;
 }
 
 @keyframes grain-flicker {
@@ -607,7 +538,7 @@ grid-template-columns: 1fr 1fr !important;
 
 .services-grid-container {
 grid-template-columns: 1fr !important;
-gap: 15px !important;
+gap: 30px !important;
 }
 
 .modal-content {
@@ -662,10 +593,10 @@ height: 35px;
 }
 
 .back-to-top {
-width: 45px;
-height: 45px;
+width: 30px;
+height: 30px;
 bottom: 15px;
-right: 15px;
+right: 30px;
 }
 
 .modal-content {
@@ -690,28 +621,28 @@ padding: 15px;
 }
 
 .slide h1 {
-font-size: clamp(1.5rem, 6vw, 2.5rem);
+font-size: clamp(2rem, 7vw, 3rem);
 margin-bottom: 20px;
 }
 
 .slide p {
-font-size: clamp(0.9rem, 4vw, 1.1rem);
+font-size: clamp(1.1rem, 5vw, 1.3rem);
 }
 
 .about-header h2 {
-font-size: clamp(1.5rem, 6vw, 2.5rem);
+font-size: clamp(2rem, 7vw, 3rem);
 }
 
 .about-header p {
-font-size: clamp(0.9rem, 4vw, 1.1rem);
+font-size: clamp(1.1rem, 5vw, 1.3rem);
 }
 
 .glass-card h3 {
-font-size: 1.2rem;
+font-size: 1.5rem;
 }
 
 .glass-card p {
-font-size: 0.9rem;
+font-size: 1.1rem;
 }
 }
 </style>
@@ -815,9 +746,9 @@ font-size: 0.9rem;
 </div>
 
 <!-- About Card Layout - 2x2 Grid -->
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;" class="about-grid-container">
-<!-- Card 1: Our Experience -->
-<div class="glass-card card-animate">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;" class="about-grid-container">
+<!-- Card 1: Our Story -->
+<div class="glass-card card-animate service-card" onclick="openModal('storyModal')" style="cursor: pointer;">
 <div class="card-content">
 <div class="card-header">
 <div class="card-icon">
@@ -829,13 +760,16 @@ font-size: 0.9rem;
 <polyline points="10,9 9,9 8,9"/>
 </svg>
 </div>
-<h3>Professional Experience</h3>
+<h3>Our Story</h3>
 </div>
-<p>Established design studio with proven track record in web development, digital marketing campaigns, and comprehensive brand identity creation for diverse client portfolios.</p>
+<p>Born from a passion for digital rebellion, Hanu Studio is a one-person company on a mission to shake up the boring world of web design and create legendary digital experiences that make your competition jealous.</p>
+<div style="text-align: center; margin-top: 15px;">
+<span style="color: #6b7280; font-size: 0.9rem;">Click to read more →</span>
+</div>
 </div>
 </div>
 
-<!-- Card 2: Our Approach -->
+<!-- Card 2: Our Mission -->
 <div class="glass-card card-animate">
 <div class="card-content">
 <div class="card-header">
@@ -844,13 +778,13 @@ font-size: 0.9rem;
 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
 </svg>
 </div>
-<h3>Strategic Methodology</h3>
+<h3>Our Mission</h3>
 </div>
-<p>Data-driven approach combining market research, user experience analysis, and strategic planning with creative execution to deliver measurable business results and ROI.</p>
+<p>To transform ordinary businesses into digital legends. We're here to make your competition jealous and your customers obsessed with your brand through killer design and unstoppable digital presence.</p>
 </div>
 </div>
 
-<!-- Card 3: Our Standards -->
+<!-- Card 3: Our Values -->
 <div class="glass-card card-animate">
 <div class="card-content">
 <div class="card-header">
@@ -859,13 +793,19 @@ font-size: 0.9rem;
 <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7z"/>
 </svg>
 </div>
-<h3>Quality Standards</h3>
+<h3>Our Values</h3>
 </div>
-<p>Commitment to industry best practices, rigorous quality assurance processes, adherence to project timelines, and comprehensive post-launch support services.</p>
+<ul style="text-align: left; margin: 0 auto; display: inline-block;">
+<li>Bold & Fearless Design</li>
+<li>Results That Actually Matter</li>
+<li>Authentic Brand Stories</li>
+<li>No Boring Templates</li>
+<li>Always Ahead of Trends</li>
+</ul>
 </div>
 </div>
 
-<!-- Card 4: Our Team -->
+<!-- Card 4: Meet The Creator -->
 <div class="glass-card card-animate">
 <div class="card-content">
 <div class="card-header">
@@ -875,16 +815,18 @@ font-size: 0.9rem;
 <circle cx="12" cy="7" r="4"/>
 </svg>
 </div>
-<h3>Expert Team</h3>
+<h3>Meet The Creator</h3>
 </div>
-<p>Certified professionals specializing in modern web technologies, digital marketing platforms, and brand development with continuous education in emerging industry trends.</p>
+<p>Hanu Keyser<br>
+Founder & Digital Rebel<br>
+The mastermind behind every pixel-perfect design and viral-worthy campaign.</p>
 </div>
 </div>
 </div>
 </div>
 </section>
 
-<section id="services" class="about-section" style="background: #e5e7eb;">
+<section id="services" class="about-section" style="background: linear-gradient(135deg, #f0f9ff 0%, #bae6fd 100%);">
 <div class="about-container">
 <div class="about-header">
 <h2>Professional Services</h2>
@@ -892,18 +834,18 @@ font-size: 0.9rem;
 </div>
 
 <!-- Services Card Layout - 3 Cards Portrait -->
-<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;" class="services-grid-container">
+<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;" class="services-grid-container">
 <!-- Service 1: Websites -->
 <div class="glass-card card-animate service-card" onclick="openModal('websiteModal')" style="display: flex; flex-direction: column;">
 <div class="card-content" style="flex: 1; display: flex; flex-direction: column;">
-<h3 style="text-align: center; margin-bottom: 20px;">Custom Web Development</h3>
-<p style="margin-bottom: 15px;">Full-stack web development services including frontend design, backend development, database integration, and content management systems using modern frameworks and technologies.</p>
+<h3 style="text-align: center; margin-bottom: 20px;">Websites That Actually Convert</h3>
+<p style="margin-bottom: 15px;">Lightning-fast, mobile-first websites that turn visitors into customers. No boring templates here – just custom designs that make your competition jealous.</p>
 <ul style="margin-bottom: auto; padding-left: 20px;">
-<li>Responsive design for all devices</li>
-<li>SEO optimization and performance tuning</li>
+<li>Custom Design & Development</li>
+<li>Mobile-First Responsive Design</li>
 </ul>
 <div class="card-cta" style="margin-top: auto; text-align: center; padding-top: 20px;">
-<button style="background: #000; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Request Quote</button>
+<button style="background: #000; color: white; border: none; padding: 15px 30px; border-radius: 8px; cursor: pointer; font-size: 1.1rem; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.background='#333'" onmouseout="this.style.background='#000'">Get Started</button>
 </div>
 </div>
 </div>
@@ -911,14 +853,14 @@ font-size: 0.9rem;
 <!-- Service 2: Social Media -->
 <div class="glass-card card-animate service-card" onclick="openModal('socialModal')" style="display: flex; flex-direction: column;">
 <div class="card-content" style="flex: 1; display: flex; flex-direction: column;">
-<h3 style="text-align: center; margin-bottom: 20px;">Social Media Management</h3>
-<p style="margin-bottom: 15px;">Comprehensive social media strategy including content planning, audience analysis, platform optimization, engagement management, and performance analytics across multiple social networks.</p>
+<h3 style="text-align: center; margin-bottom: 20px;">Social Media That Slaps</h3>
+<p style="margin-bottom: 15px;">We'll make your brand the main character on every platform. From viral-worthy content to community building that actually builds communities.</p>
 <ul style="margin-bottom: auto; padding-left: 20px;">
-<li>Strategic content calendar development</li>
-<li>Multi-platform campaign management</li>
+<li>Content Creation & Strategy</li>
+<li>Analytics & Growth Tracking</li>
 </ul>
 <div class="card-cta" style="margin-top: auto; text-align: center; padding-top: 20px;">
-<button style="background: #000; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Request Quote</button>
+<button style="background: #000; color: white; border: none; padding: 15px 30px; border-radius: 8px; cursor: pointer; font-size: 1.1rem; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.background='#333'" onmouseout="this.style.background='#000'">Let's Go Viral</button>
 </div>
 </div>
 </div>
@@ -926,14 +868,14 @@ font-size: 0.9rem;
 <!-- Service 3: Logos -->
 <div class="glass-card card-animate service-card" onclick="openModal('logoModal')" style="display: flex; flex-direction: column;">
 <div class="card-content" style="flex: 1; display: flex; flex-direction: column;">
-<h3 style="text-align: center; margin-bottom: 20px;">Brand Identity Design</h3>
-<p style="margin-bottom: 15px;">Professional logo design and comprehensive brand identity development including color palette creation, typography selection, brand guidelines documentation, and marketing material templates.</p>
+<h3 style="text-align: center; margin-bottom: 20px;">Logos That Leave a Mark</h3>
+<p style="margin-bottom: 15px;">Your logo is your first impression. We create memorable brand marks that stick in minds and look incredible everywhere from business cards to billboards.</p>
 <ul style="margin-bottom: auto; padding-left: 20px;">
-<li>Complete brand identity systems</li>
-<li>Multiple file formats and variations</li>
+<li>Custom Logo Design</li>
+<li>Brand Identity Package</li>
 </ul>
 <div class="card-cta" style="margin-top: auto; text-align: center; padding-top: 20px;">
-<button style="background: #000; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Request Quote</button>
+<button style="background: #000; color: white; border: none; padding: 15px 30px; border-radius: 8px; cursor: pointer; font-size: 1.1rem; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.background='#333'" onmouseout="this.style.background='#000'">Create my Brand</button>
 </div>
 </div>
 </div>
@@ -950,6 +892,19 @@ font-size: 0.9rem;
 </footer>
 
 <!-- Contact Form Modals -->
+<!-- Story Modal -->
+<div id="storyModal" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('storyModal')">&times;</span>
+<h2>The Hanu Studio Story</h2>
+<p style="text-align: left; margin-bottom: 20px;">In a world saturated with cookie-cutter websites and bland digital experiences, Hanu Studio emerged as a rebellion against the ordinary. Founded by Hanu Keyser, a digital maverick with an insatiable appetite for pushing creative boundaries, this one-person powerhouse has been turning the web design industry on its head.</p>
+<p style="text-align: left; margin-bottom: 20px;">What started as a personal mission to escape the monotony of template-based design has evolved into a full-scale digital revolution. Every project is approached with the mindset of creating something that doesn't just look good – it dominates. We don't just build websites; we craft digital weapons that make your competition question their life choices.</p>
+<p style="text-align: left; margin-bottom: 20px;">From late-night coding sessions fueled by pure creative passion to viral social media campaigns that break the internet, Hanu Studio represents everything that mainstream agencies are too scared to be: bold, unapologetic, and obsessively focused on results that actually matter.</p>
+<p style="text-align: left; margin-bottom: 20px;">This isn't just another design studio – it's a movement. A declaration that boring, forgettable digital experiences have no place in today's world. Every pixel is placed with purpose, every line of code written with rebellion, and every brand story told with the kind of authenticity that makes people stop scrolling and start believing.</p>
+<p style="text-align: left;">Welcome to the future of digital design. Welcome to Hanu Studio.</p>
+</div>
+</div>
+
 <!-- Website Modal -->
 <div id="websiteModal" class="modal">
 <div class="modal-content">
@@ -1222,5 +1177,5 @@ document.body.style.overflow = 'auto';
 });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'964dbb13f46e25c1',t:'MTc1MzQ2ODI1MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96535796c61c7398',t:'MTc1MzUyNzA5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'965af73e30b5d931',t:'MTc1MzYwNzAyOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'964dbb13f46e25c1',t:'MTc1MzQ2ODI1MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96535796c61c7398',t:'MTc1MzUyNzA5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'965b1c64202e8468',t:'MTc1MzYwODU1MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
