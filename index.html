@@ -3,81 +3,81 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>Hanu Studio | Web Design</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&family=Varela+Round&display=swap" rel="stylesheet" />
+<title>Hanu Studio | Professional Web Design & Digital Solutions</title>
+<meta name="description" content="Hanu Studio - Professional web development, social media management, and brand identity design services. Transform your business with cutting-edge digital solutions." />
+<meta name="keywords" content="web design, web development, social media management, brand identity, logo design, digital marketing, responsive websites" />
+<meta name="author" content="Hanu Studio" />
+<meta property="og:title" content="Hanu Studio | Professional Web Design & Digital Solutions" />
+<meta property="og:description" content="Transform your business with professional web development, social media management, and brand identity design services." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://hanustudio.com" />
+<link rel="canonical" href="https://hanustudio.com" />
 <!-- Favicon -->
-<link rel="icon" href="favicon.png" type="image/png" />
+<link rel="icon" href="Company Logo (Tab Icon).png" type="image/png" />
 <style>
 * {
 box-sizing: border-box;
 margin: 0;
 padding: 0;
 scrollbar-width: thin;
-scrollbar-color: #000000 #e5e7eb;
+scrollbar-color: #4A90E2 #1a1a1a;
 }
 
 ::-webkit-scrollbar {
-width: 12px;
+width: 8px;
 }
 ::-webkit-scrollbar-track {
-background: #e5e7eb;
-border-radius: 10px;
+background: #1a1a1a;
 }
 ::-webkit-scrollbar-thumb {
-background: #000000;
-border-radius: 10px;
-border: 2px solid #e5e7eb;
+background: linear-gradient(135deg, #4A90E2 0%, #6BB6FF 100%);
+border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-background: #333333;
+background: linear-gradient(135deg, #5BA0F2 0%, #7BC6FF 100%);
 }
 
-
+html {
+scroll-behavior: smooth;
+}
 
 body {
 font-family: Arial, sans-serif;
-background: #ffffff;
+background: #0a0a0a;
+color: #ffffff;
 min-height: 100vh;
 display: flex;
 flex-direction: column;
 position: relative;
+line-height: 1.6;
+}
+
+/* Parallax Background */
+.parallax-bg {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: radial-gradient(circle at 20% 80%, rgba(74, 144, 226, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(107, 182, 255, 0.1) 0%, transparent 50%),
+            #0a0a0a;
+z-index: -1;
+will-change: transform;
 }
 
 /* Slide background styles */
 .slide-bg-1 {
-background: #ffffff;
+background: linear-gradient(135deg, rgba(74, 144, 226, 0.05) 0%, rgba(107, 182, 255, 0.05) 100%);
 }
 
 .slide-bg-2 {
-background: #ffffff;
+background: linear-gradient(135deg, rgba(107, 182, 255, 0.05) 0%, rgba(74, 144, 226, 0.05) 100%);
 }
 
-body {
-position: relative;
-overflow-x: hidden;
-}
 
-header {
-position: fixed;
-top: 0;
-left: 0;
-right: 0;
-padding: 15px 20px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-background: transparent;
-z-index: 1000;
-transition: all 0.3s ease;
-}
 
-.header-logo {
-transition: all 0.3s ease;
-}
-
-/* Glass effect for navigation */
+/* Navigation */
 .nav-container {
 position: fixed;
 top: 15px;
@@ -87,79 +87,107 @@ transition: all 0.3s ease;
 }
 
 #navDropdown {
-background: rgba(255, 255, 255, 0.9);
+background: linear-gradient(135deg, #4A90E2 0%, #6BB6FF 100%);
 backdrop-filter: blur(10px);
 -webkit-backdrop-filter: blur(10px);
 border-radius: 50%;
-width: 45px;
-height: 45px;
+width: 50px;
+height: 50px;
 display: flex;
 align-items: center;
 justify-content: center;
-border: 2px solid rgba(0, 0, 0, 0.1);
-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+border: 2px solid rgba(255, 255, 255, 0.1);
+box-shadow: 0 8px 32px rgba(74, 144, 226, 0.3);
 cursor: pointer;
-transition: all 0.3s ease;
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #navDropdown:hover {
-background: rgba(255, 255, 255, 1);
-transform: translateY(-1px);
-box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-border-color: rgba(0, 0, 0, 0.2);
+transform: translateY(-2px) scale(1.05);
+box-shadow: 0 12px 40px rgba(107, 182, 255, 0.4);
+background: linear-gradient(135deg, #5BA0F2 0%, #7BC6FF 100%);
 }
 
 #navDropdown svg {
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
+stroke: white;
+transition: all 0.3s ease;
 }
 
 #dropdownMenu {
 position: absolute;
-top: 55px;
+top: 60px;
 right: 0;
-background: rgba(255, 255, 255, 0.95);
-backdrop-filter: blur(15px);
--webkit-backdrop-filter: blur(15px);
-border-radius: 12px;
-min-width: 140px;
+background: rgba(26, 26, 26, 0.95);
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+border-radius: 16px;
+min-width: 160px;
 display: none;
-box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-border: 2px solid rgba(0, 0, 0, 0.1);
+box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+border: 1px solid rgba(74, 144, 226, 0.2);
 z-index: 1001;
 overflow: hidden;
+animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideDown {
+from {
+opacity: 0;
+transform: translateY(-10px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
 }
 
 #dropdownMenu a {
 display: block;
-padding: 15px 20px;
+padding: 8px 20px;
 text-decoration: none;
-color: #000000;
+color: #ffffff;
 text-align: center;
-font-family: Arial, sans-serif;
-font-size: 0.9rem;
-transition: all 0.3s ease;
+font-size: 0.95rem;
+font-weight: 500;
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+position: relative;
 }
 
 #dropdownMenu a:hover {
-background: rgba(0, 0, 0, 0.05);
-color: #333333;
+background: linear-gradient(135deg, rgba(74, 144, 226, 0.1) 0%, rgba(107, 182, 255, 0.1) 100%);
+color: #4A90E2;
+transform: translateX(4px);
 }
 
+#dropdownMenu a::before {
+content: '';
+position: absolute;
+left: 0;
+top: 0;
+height: 100%;
+width: 3px;
+background: linear-gradient(135deg, #4A90E2 0%, #6BB6FF 100%);
+transform: scaleY(0);
+transition: transform 0.3s ease;
+}
+
+#dropdownMenu a:hover::before {
+transform: scaleY(1);
+}
+
+/* Full Screen Sections */
 .home-section {
 height: 100vh;
 overflow: hidden;
 position: relative;
-background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+background: #0a0a0a;
 }
 
 #slideContainer {
 width: 400%;
 height: 100%;
 display: flex;
-transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 touch-action: pan-y;
 }
 
@@ -169,7 +197,7 @@ height: 100%;
 display: flex;
 flex-direction: row;
 position: relative;
-color: #000000;
+color: #ffffff;
 }
 
 .slide > div {
@@ -178,115 +206,154 @@ height: 100%;
 display: flex;
 align-items: center;
 justify-content: center;
-padding: 5%;
+padding: 8%;
 text-align: center;
 position: relative;
 overflow: hidden;
-background: rgba(255, 255, 255, 0.15) !important;
-backdrop-filter: blur(8px);
--webkit-backdrop-filter: blur(8px);
-border: 1px solid rgba(255, 255, 255, 0.2);
-box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+border: 1px solid rgba(74, 144, 226, 0.1);
 }
 
 .slide h1 {
-font-size: clamp(2.5rem, 5vw, 4rem);
-font-weight: 400;
+font-size: clamp(3rem, 6vw, 5rem);
+font-weight: 700;
 margin-bottom: 30px;
-font-family: Arial, sans-serif;
-line-height: 1.2;
-letter-spacing: 0.02em;
+line-height: 1.1;
+letter-spacing: -0.02em;
 position: relative;
 z-index: 2;
+background: linear-gradient(135deg, #ffffff 0%, #4A90E2 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .slide p {
-font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+font-size: clamp(1.1rem, 2.2vw, 1.4rem);
 line-height: 1.7;
-font-weight: 300;
+font-weight: 400;
 position: relative;
 z-index: 2;
 text-align: center;
+color: rgba(255, 255, 255, 0.9);
+animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
 }
 
+@keyframes fadeInUp {
+from {
+opacity: 0;
+transform: translateY(30px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+/* Animated Dots */
 .dot {
-width: 16px;
-height: 16px;
+width: 12px;
+height: 12px;
 border-radius: 50%;
-background-color: #000000;
-opacity: 0.5;
+background: rgba(255, 255, 255, 0.3);
 cursor: pointer;
-transition: all 0.3s ease;
+transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+position: relative;
 }
 
 .dot.active {
-opacity: 1;
+background: linear-gradient(135deg, #4A90E2 0%, #6BB6FF 100%);
+transform: scale(1.3);
+box-shadow: 0 0 20px rgba(74, 144, 226, 0.5);
+}
+
+.dot:hover {
+background: linear-gradient(135deg, #5BA0F2 0%, #7BC6FF 100%);
+transform: scale(1.1);
 }
 
 .dots-container {
 position: absolute;
-bottom: 10px;
+bottom: 30px;
 left: 50%;
 transform: translateX(-50%);
 display: flex;
-gap: 15px;
+gap: 16px;
 z-index: 100;
 }
 
-/* About Section */
+/* Full Screen About Section */
 .about-section {
+min-height: 100vh;
 padding: 60px 0;
-background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+position: relative;
 }
 
 .about-container {
-max-width: 1200px;
+max-width: 1400px;
 margin: 0 auto;
 padding: 0 20px;
 }
 
 .about-header {
 text-align: center;
-margin-bottom: 40px;
+margin-bottom: 50px;
+opacity: 0;
+transform: translateY(50px);
+animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .about-header h2 {
 font-size: clamp(2.5rem, 5vw, 4rem);
-font-family: Arial, sans-serif;
-margin-bottom: 15px;
-color: #000000;
+font-weight: 700;
+margin-bottom: 24px;
+background: linear-gradient(135deg, #ffffff 0%, #4A90E2 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+line-height: 1.1;
 }
 
 .about-header p {
-font-size: clamp(1.2rem, 2vw, 1.5rem);
-max-width: 700px;
+font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+max-width: 1000px;
 margin: 0 auto;
-color: #000000;
-text-align: center;
+color: rgba(255, 255, 255, 0.8);
+line-height: 1.6;
 }
 
-/* Glass Card Styles */
+/* Enhanced Glass Cards */
 .glass-card {
-background: rgba(255, 255, 255, 0.7);
-backdrop-filter: blur(10px);
--webkit-backdrop-filter: blur(10px);
-border-radius: 15px;
-padding: 25px;
-box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
-border: 1px solid rgba(255, 255, 255, 0.18);
+background: rgba(26, 26, 26, 0.8);
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+border-radius: 24px;
+padding: 40px;
+box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+border: 1px solid rgba(74, 144, 226, 0.2);
 height: auto;
 display: flex;
 flex-direction: column;
+transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+position: relative;
+overflow: hidden;
 }
 
-.card-content {
-transform-style: preserve-3d;
+
+
+.glass-card:hover {
+transform: translateY(-8px) scale(1.02);
+box-shadow: 0 30px 80px rgba(74, 144, 226, 0.2);
+border-color: rgba(107, 182, 255, 0.4);
 }
 
-/* Card Animation Styles */
 .card-animate {
-opacity: 1;
-transform: translateY(0);
+opacity: 0;
+transform: translateY(50px);
+transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-animate.animate-in {
@@ -297,45 +364,61 @@ transform: translateY(0);
 .card-header {
 display: flex;
 align-items: center;
-margin-bottom: 15px;
-gap: 15px;
+margin-bottom: 24px;
+gap: 16px;
 }
-
-
 
 .glass-card h3 {
 font-size: 1.8rem;
-color: #000000;
+color: #ffffff;
 margin: 0;
-font-family: Arial, sans-serif;
+font-weight: 600;
 }
 
 .glass-card p {
-color: #000000;
-line-height: 1.6;
+color: rgba(255, 255, 255, 0.8);
+line-height: 1.7;
 font-size: 1.1rem;
 text-align: center;
 }
 
-/* Service Card Styles */
-.service-card {
+/* Service Buttons */
+.service-btn {
+background: linear-gradient(135deg, #4A90E2 0%, #6BB6FF 100%);
+color: white;
+border: none;
+padding: 16px 32px;
+border-radius: 12px;
 cursor: pointer;
+font-size: 1.1rem;
+font-weight: 600;
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 position: relative;
 overflow: hidden;
 }
 
-.card-cta {
-margin-top: auto;
-padding-top: 15px;
+.service-btn::before {
+content: '';
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+transition: left 0.5s;
 }
 
-.card-cta span {
-color: #6b7280;
-font-weight: 600;
-font-size: 0.9rem;
+.service-btn:hover::before {
+left: 100%;
 }
 
-/* Modal Styles */
+.service-btn:hover {
+transform: translateY(-2px);
+box-shadow: 0 12px 40px rgba(107, 182, 255, 0.4);
+background: linear-gradient(135deg, #5BA0F2 0%, #7BC6FF 100%);
+}
+
+/* Modal Enhancements */
 .modal {
 display: none;
 position: fixed;
@@ -344,144 +427,155 @@ left: 0;
 top: 0;
 width: 100%;
 height: 100%;
-background-color: rgba(0, 0, 0, 0.5);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
+background: rgba(0, 0, 0, 0.8);
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
 }
 
 .modal-content {
-background: rgba(255, 255, 255, 0.95);
-backdrop-filter: blur(20px);
--webkit-backdrop-filter: blur(20px);
-margin: 5% auto;
-padding: 30px;
-border-radius: 20px;
-width: 90%;
-max-width: 500px;
-position: relative;
-border: 1px solid rgba(255, 255, 255, 0.3);
-box-shadow: 0 20px 60px rgba(31, 38, 135, 0.3);
-animation: modalSlideIn 0.3s ease-out;
+background: rgba(26, 26, 26, 0.95);
+backdrop-filter: blur(30px);
+-webkit-backdrop-filter: blur(30px);
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+padding: 40px;
+border-radius: 24px;
+width: 95%;
+max-width: 600px;
+max-height: 90vh;
+overflow-y: auto;
+border: 1px solid rgba(74, 144, 226, 0.3);
+box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+animation: modalSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+scrollbar-width: none;
+-ms-overflow-style: none;
+}
+
+.modal-content::-webkit-scrollbar {
+display: none;
 }
 
 @keyframes modalSlideIn {
 from {
 opacity: 0;
-transform: translateY(-50px) scale(0.9);
+transform: translate(-50%, -60%) scale(0.9);
 }
 to {
 opacity: 1;
-transform: translateY(0) scale(1);
+transform: translate(-50%, -50%) scale(1);
 }
 }
 
 .close {
-color: #6b7280;
+color: #4A90E2;
 float: right;
-font-size: 28px;
+font-size: 32px;
 font-weight: bold;
 cursor: pointer;
-transition: color 0.3s ease;
+transition: all 0.3s ease;
 }
 
 .close:hover {
-color: #000000;
+color: #6BB6FF;
+transform: scale(1.1);
 }
 
 .modal h2 {
-color: #000000;
-margin-bottom: 10px;
-font-size: 1.8rem;
-font-family: Arial, sans-serif;
+background: linear-gradient(135deg, #ffffff 0%, #4A90E2 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+margin-bottom: 16px;
+font-size: 2rem;
+font-weight: 600;
 }
 
 .modal p {
-color: #000000;
+color: rgba(255, 255, 255, 0.8);
 line-height: 1.6;
-margin-bottom: 20px;
-font-size: 0.95rem;
+margin-bottom: 24px;
+font-size: 1rem;
 }
 
-/* Form Styles */
+/* Enhanced Form Styles */
 .form-group {
-margin-bottom: 20px;
+margin-bottom: 24px;
 }
 
 .form-group label {
 display: block;
 margin-bottom: 8px;
-color: #000000;
+color: #ffffff;
 font-weight: 600;
-font-size: 0.9rem;
+font-size: 0.95rem;
 }
 
 .form-group input,
 .form-group textarea {
 width: 100%;
-padding: 12px 15px;
-border: 1px solid rgba(0, 0, 0, 0.2);
-border-radius: 8px;
-background: rgba(255, 255, 255, 0.8);
-color: #000000;
-font-size: 0.9rem;
-font-family: Arial, sans-serif;
-transition: all 0.3s ease;
+padding: 16px 20px;
+border: 2px solid rgba(74, 144, 226, 0.2);
+border-radius: 12px;
+background: rgba(255, 255, 255, 0.05);
+color: #ffffff;
+font-size: 1rem;
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
 outline: none;
-border-color: #6b7280;
-background: rgba(255, 255, 255, 0.95);
-box-shadow: 0 0 0 3px rgba(107, 114, 128, 0.1);
+border-color: #4A90E2;
+background: rgba(255, 255, 255, 0.1);
+box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1);
 }
 
 .form-group textarea {
 resize: vertical;
-min-height: 100px;
+min-height: 120px;
 }
 
 .submit-btn {
 width: 100%;
-padding: 15px;
-background: rgba(0, 0, 0, 0.8);
+padding: 18px;
+background: linear-gradient(135deg, #4A90E2 0%, #6BB6FF 100%);
 color: white;
 border: none;
-border-radius: 8px;
-font-size: 1rem;
+border-radius: 12px;
+font-size: 1.1rem;
 font-weight: 600;
 cursor: pointer;
-transition: all 0.3s ease;
-margin-top: 10px;
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+margin-top: 16px;
 }
 
 .submit-btn:hover {
-background: rgba(0, 0, 0, 0.9);
 transform: translateY(-2px);
-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+box-shadow: 0 12px 40px rgba(107, 182, 255, 0.4);
+background: linear-gradient(135deg, #5BA0F2 0%, #7BC6FF 100%);
 }
 
 /* Back to Top Button */
 .back-to-top {
 position: fixed;
-bottom: 20px;
-right: 35px;
-width: 45px;
-height: 45px;
-background: rgba(255, 255, 255, 0.9);
-backdrop-filter: blur(10px);
--webkit-backdrop-filter: blur(10px);
+bottom: 80px;
+right: 20px;
+width: 50px;
+height: 50px;
+background: linear-gradient(135deg, #4A90E2 0%, #6BB6FF 100%);
 border-radius: 50%;
 display: flex;
 align-items: center;
 justify-content: center;
-border: 2px solid rgba(0, 0, 0, 0.1);
-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+border: 2px solid rgba(255, 255, 255, 0.1);
+box-shadow: 0 8px 32px rgba(74, 144, 226, 0.3);
 cursor: pointer;
 z-index: 999;
 opacity: 0;
 visibility: hidden;
-transition: all 0.3s ease;
+transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .back-to-top.visible {
@@ -490,140 +584,209 @@ visibility: visible;
 }
 
 .back-to-top:hover {
-background: rgba(255, 255, 255, 1);
-transform: translateY(-2px);
-box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-border-color: rgba(0, 0, 0, 0.2);
+transform: translateY(-2px) scale(1.05);
+box-shadow: 0 12px 40px rgba(107, 182, 255, 0.4);
+background: linear-gradient(135deg, #5BA0F2 0%, #7BC6FF 100%);
 }
 
 .back-to-top svg {
-fill: none;
-stroke: #000000;
-stroke-width: 2.5;
+stroke: white;
+stroke-width: 2;
 stroke-linecap: round;
 stroke-linejoin: round;
-width: 18px;
-height: 18px;
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
+width: 20px;
+height: 20px;
 }
 
 /* Footer */
 .footer {
 padding: 20px 0;
 text-align: center;
-color: #000000;
+color: rgba(255, 255, 255, 0.8);
 margin-top: auto;
+background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+border-top: 1px solid rgba(74, 144, 226, 0.1);
 }
 
 .footer-container {
-max-width: 1200px;
+max-width: 1400px;
 margin: 0 auto;
 padding: 0 20px;
 }
 
-
-
-@keyframes fadeIn {
-from { opacity: 0; transform: translateY(5px); }
-to { opacity: 1; transform: translateY(0); }
+/* Animated Counter Styles */
+.counter {
+font-size: 3rem;
+font-weight: 700;
+background: linear-gradient(135deg, #4A90E2 0%, #6BB6FF 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
 }
 
-/* Tablet styles */
-@media (max-width: 1024px) and (min-width: 769px) {
+/* Grid Layouts */
 .about-grid-container {
-grid-template-columns: 1fr 1fr !important;
-gap: 30px !important;
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 40px;
 }
 
 .services-grid-container {
-grid-template-columns: 1fr 1fr !important;
-gap: 30px !important;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 40px;
 }
 
-.modal-content {
-width: 90%;
-margin: 8% auto;
-padding: 25px;
+.portfolio-grid-container {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 40px;
+}
+
+/* Portfolio Styles */
+.portfolio-card {
+min-height: 280px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+}
+
+.portfolio-placeholder {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 100%;
+}
+
+.portfolio-icon {
+margin-bottom: 24px;
+opacity: 0.7;
+transition: all 0.3s ease;
+}
+
+.portfolio-card:hover .portfolio-icon {
+opacity: 1;
+transform: scale(1.1);
+}
+
+.portfolio-card h3 {
+font-size: 1.5rem;
+color: #ffffff;
+margin-bottom: 16px;
+font-weight: 600;
+}
+
+.portfolio-card p {
+color: rgba(255, 255, 255, 0.7);
+font-size: 1rem;
+line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+.about-grid-container,
+.services-grid-container,
+.portfolio-grid-container {
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 30px;
 }
 
 .slide > div {
-padding: 5% !important;
+padding: 6%;
 }
 
 .glass-card {
-padding: 22px;
-}
-
-.about-section {
-padding: 50px 0;
+padding: 30px;
 }
 }
 
-/* Mobile styles */
 @media (max-width: 768px) {
 .slide {
 flex-direction: column !important;
-width: 100% !important;
 }
 
 .slide > div {
 width: 100% !important;
 height: 50% !important;
-padding: 6% !important;
+padding: 8% !important;
 }
 
-#slideContainer {
-width: 400%;
-}
-
-.about-grid-container {
-grid-template-columns: 1fr !important;
-gap: 25px !important;
-}
-
-.services-grid-container {
-grid-template-columns: 1fr !important;
-gap: 25px !important;
+.about-grid-container,
+.services-grid-container,
+.portfolio-grid-container {
+grid-template-columns: 1fr;
+gap: 24px;
 }
 
 .glass-card {
-padding: 20px;
+padding: 24px;
 }
 
 .card-header {
 flex-direction: column;
 text-align: center;
-gap: 10px;
-}
-
-.nav-container {
-top: 10px;
-right: 15px;
+gap: 12px;
 }
 
 #navDropdown {
-width: 40px;
-height: 40px;
+width: 45px;
+height: 45px;
 }
 
 .back-to-top {
-width: 40px;
-height: 40px;
-bottom: 20px;
+width: 50px;
+height: 50px;
+bottom: 80px;
 right: 20px;
 }
 
 .modal-content {
 width: 95%;
-margin: 5% auto;
+padding: 24px;
+}
+
+.about-section {
+padding: 60px 0;
+}
+
+.about-header {
+margin-bottom: 50px;
+}
+}
+
+@media (max-width: 480px) {
+.glass-card {
 padding: 20px;
 }
 
-.modal h2 {
-font-size: 1.5rem;
+.slide h1 {
+font-size: clamp(2rem, 8vw, 3rem);
+margin-bottom: 20px;
+}
+
+.slide p {
+font-size: clamp(1rem, 4vw, 1.2rem);
+line-height: 1.6;
+}
+
+.about-header h2 {
+font-size: clamp(2rem, 8vw, 3rem);
+}
+
+.about-header p {
+font-size: clamp(1rem, 4vw, 1.3rem);
+}
+
+.glass-card h3 {
+font-size: 1.4rem;
+}
+
+.glass-card p {
+font-size: 1rem;
+line-height: 1.6;
 }
 
 .about-section {
@@ -631,95 +794,159 @@ padding: 40px 0;
 }
 
 .about-header {
-margin-bottom: 30px;
-}
-}
-
-/* Small mobile styles */
-@media (max-width: 480px) {
-.about-container {
-padding: 0 15px;
-}
-
-.glass-card {
-padding: 15px;
-}
-
-.slide h1 {
-font-size: clamp(1.8rem, 7vw, 2.5rem);
-margin-bottom: 15px;
-}
-
-.slide p {
-font-size: clamp(1rem, 4vw, 1.2rem);
-line-height: 1.5;
-}
-
-.about-header h2 {
-font-size: clamp(1.8rem, 7vw, 2.5rem);
-}
-
-.about-header p {
-font-size: clamp(1rem, 4vw, 1.2rem);
-}
-
-.glass-card h3 {
-font-size: 1.3rem;
-}
-
-.glass-card p {
-font-size: 1rem;
-line-height: 1.5;
-}
-
-.about-section {
-padding: 30px 0;
-}
-
-.about-header {
-margin-bottom: 25px;
-}
-
-.about-grid-container {
-gap: 20px !important;
-}
-
-.services-grid-container {
-gap: 20px !important;
+margin-bottom: 40px;
 }
 
 .dots-container {
-bottom: 15px;
+bottom: 20px;
 }
 
 .dot {
-width: 12px;
-height: 12px;
+width: 10px;
+height: 10px;
 }
 }
+
+/* Marquee Styles */
+.marquee {
+width: 100%;
+background: #0a0a0a;
+border-top: 1px solid rgba(74, 144, 226, 0.1);
+padding: 0;
+overflow: hidden;
+white-space: nowrap;
+position: relative;
+height: 200px;
+display: flex;
+align-items: center;
+}
+
+.marquee-content {
+display: inline-block;
+font-family: 'Impact', 'Arial Black', sans-serif;
+font-size: 14rem;
+font-weight: 900;
+color: #111111;
+letter-spacing: 4px;
+line-height: 1;
+animation: marqueeScroll 240s linear infinite;
+white-space: nowrap;
+will-change: transform;
+text-transform: uppercase;
+}
+
+/* Image Marquee Styles */
+.image-marquee {
+width: 100%;
+background: #0a0a0a;
+border-top: 1px solid rgba(74, 144, 226, 0.1);
+padding: 40px 0;
+overflow: hidden;
+position: relative;
+height: 300px;
+display: flex;
+align-items: center;
+}
+
+.image-marquee-content {
+display: flex;
+align-items: center;
+animation: imageMarqueeScroll 80s linear infinite;
+white-space: nowrap;
+will-change: transform;
+gap: 0;
+}
+
+.image-marquee:hover .image-marquee-content {
+animation-play-state: paused;
+}
+
+.marquee-image {
+width: 400px;
+height: 225px;
+background: linear-gradient(135deg, rgba(74, 144, 226, 0.1) 0%, rgba(107, 182, 255, 0.1) 100%);
+border: 1px solid rgba(74, 144, 226, 0.2);
+border-radius: 12px;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
+position: relative;
+overflow: hidden;
+transition: all 0.3s ease;
+}
+
+.marquee-image:hover {
+transform: scale(1.05);
+border-color: rgba(107, 182, 255, 0.4);
+box-shadow: 0 10px 30px rgba(74, 144, 226, 0.2);
+}
+
+.marquee-image svg {
+opacity: 0.6;
+transition: all 0.3s ease;
+}
+
+.marquee-image:hover svg {
+opacity: 1;
+transform: scale(1.1);
+}
+
+.marquee-divider {
+width: 2px;
+height: 150px;
+background: linear-gradient(135deg, rgba(74, 144, 226, 0.3) 0%, rgba(107, 182, 255, 0.3) 100%);
+margin: 0 40px;
+flex-shrink: 0;
+}
+
+@keyframes imageMarqueeScroll {
+0% {
+transform: translateX(100vw);
+}
+100% {
+transform: translateX(-100%);
+}
+}
+
+@keyframes marqueeScroll {
+0% {
+transform: translateX(100vw);
+}
+100% {
+transform: translateX(-100%);
+}
+}
+
+/* Performance Optimizations */
+.slide > div,
+.glass-card,
+.service-btn {
+will-change: transform;
+}
+
+
 </style>
 </head>
 <body>
+<div class="parallax-bg"></div>
 
 
-
-<header id="mainHeader">
-</header>
 
 <div class="nav-container">
-
-<button id="navDropdown">
-<svg width="20" height="20" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-<line x1="4" y1="6" x2="16" y2="6"></line>
-<line x1="4" y1="12" x2="16" y2="12"></line>
-<line x1="4" y1="18" x2="16" y2="18"></line>
+<button id="navDropdown" aria-label="Navigation menu">
+<svg width="20" height="20" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin: auto;">
+<line x1="3" y1="6" x2="17" y2="6"></line>
+<line x1="3" y1="12" x2="17" y2="12"></line>
+<line x1="3" y1="18" x2="17" y2="18"></line>
 </svg>
 </button>
-<div id="dropdownMenu">
+<nav id="dropdownMenu" role="navigation">
 <a href="#home" onclick="scrollToSection('home'); return false;">Home</a>
 <a href="#about" onclick="scrollToSection('about'); return false;">About</a>
 <a href="#services" onclick="scrollToSection('services'); return false;">Services</a>
-</div>
+<a href="#portfolio" onclick="scrollToSection('portfolio'); return false;">Portfolio</a>
+</nav>
 </div>
 
 <main style="flex: 1;">
@@ -734,8 +961,7 @@ height: 12px;
 </div>
 </div>
 <div class="slide-bg-2">
-<div>
-</div>
+<div></div>
 </div>
 </div>
 
@@ -748,8 +974,7 @@ height: 12px;
 </div>
 </div>
 <div class="slide-bg-1">
-<div>
-</div>
+<div></div>
 </div>
 </div>
 
@@ -762,8 +987,7 @@ height: 12px;
 </div>
 </div>
 <div class="slide-bg-2">
-<div>
-</div>
+<div></div>
 </div>
 </div>
 
@@ -776,17 +1000,22 @@ height: 12px;
 </div>
 </div>
 <div class="slide-bg-1">
-<div>
-</div>
+<div></div>
 </div>
 </div>
 </div>
 
 <div class="dots-container">
-<span class="dot active" data-slide="0"></span>
-<span class="dot" data-slide="1"></span>
-<span class="dot" data-slide="2"></span>
-<span class="dot" data-slide="3"></span>
+<span class="dot active" data-slide="0" aria-label="Slide 1"></span>
+<span class="dot" data-slide="1" aria-label="Slide 2"></span>
+<span class="dot" data-slide="2" aria-label="Slide 3"></span>
+<span class="dot" data-slide="3" aria-label="Slide 4"></span>
+</div>
+</section>
+
+<section class="marquee">
+<div class="marquee-content">
+HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | 
 </div>
 </section>
 
@@ -797,14 +1026,13 @@ height: 12px;
 <p>Established digital design studio providing comprehensive web development, social media management, and brand identity services to businesses across various industries.</p>
 </div>
 
-<!-- About Card Layout - 2x2 Grid -->
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;" class="about-grid-container">
+<div class="about-grid-container">
 <!-- Card 1: Our Story -->
-<div class="glass-card card-animate service-card" onclick="openModal('storyModal')" style="cursor: pointer;">
+<article class="glass-card card-animate service-card" onclick="openModal('storyModal')" style="cursor: pointer;" tabindex="0" role="button" aria-label="Read our story">
 <div class="card-content">
 <div class="card-header">
 <div class="card-icon">
-<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B0C4DE" stroke-width="2">
 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
 <polyline points="14,2 14,8 20,8"/>
 <line x1="16" y1="13" x2="8" y2="13"/>
@@ -816,14 +1044,14 @@ height: 12px;
 </div>
 <p>Born from a passion for digital rebellion, Hanu Studio is a one-person company on a mission to shake up the boring world of web design and create legendary digital experiences that make your competition jealous.</p>
 </div>
-</div>
+</article>
 
 <!-- Card 2: Our Mission -->
-<div class="glass-card card-animate">
+<article class="glass-card card-animate">
 <div class="card-content">
 <div class="card-header">
 <div class="card-icon">
-<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="2">
 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
 </svg>
 </div>
@@ -831,14 +1059,14 @@ height: 12px;
 </div>
 <p>To transform ordinary businesses into digital legends. We're here to make your competition jealous and your customers obsessed with your brand through killer design and unstoppable digital presence.</p>
 </div>
-</div>
+</article>
 
 <!-- Card 3: Our Values -->
-<div class="glass-card card-animate">
+<article class="glass-card card-animate">
 <div class="card-content">
 <div class="card-header">
 <div class="card-icon">
-<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="2">
 <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7z"/>
 </svg>
 </div>
@@ -846,14 +1074,14 @@ height: 12px;
 </div>
 <p>Bold & Fearless Design • Results That Actually Matter • Authentic Brand Stories • No Boring Templates • Always Ahead of Trends</p>
 </div>
-</div>
+</article>
 
 <!-- Card 4: Meet The Creator -->
-<div class="glass-card card-animate">
+<article class="glass-card card-animate">
 <div class="card-content">
 <div class="card-header">
 <div class="card-icon">
-<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="2">
 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
 <circle cx="12" cy="7" r="4"/>
 </svg>
@@ -864,59 +1092,342 @@ height: 12px;
 Founder & Digital Rebel<br>
 The mastermind behind every pixel-perfect design and viral-worthy campaign.</p>
 </div>
-</div>
+</article>
 </div>
 </div>
 </section>
 
-<section id="services" class="about-section" style="background: linear-gradient(135deg, #ffffff 0%, #f1f3f4 100%);">
+<section id="services" class="about-section" style="background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);">
 <div class="about-container">
 <div class="about-header">
 <h2>Professional Services</h2>
 <p>Comprehensive digital solutions including custom web development, strategic social media management, and professional brand identity design services.</p>
 </div>
 
-<!-- Services Card Layout - 3 Cards Portrait -->
-<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;" class="services-grid-container">
+<div class="services-grid-container">
 <!-- Service 1: Websites -->
-<div class="glass-card card-animate service-card" style="display: flex; flex-direction: column;">
+<article class="glass-card card-animate service-card" style="display: flex; flex-direction: column;">
 <div class="card-content" style="flex: 1; display: flex; flex-direction: column;">
-<h3 style="text-align: center; margin-bottom: 20px;">Websites That Actually Convert</h3>
-<p style="margin-bottom: 15px;">Lightning-fast, mobile-first websites that turn visitors into customers. No boring templates here – just custom designs that make your competition jealous.</p>
-<p style="margin-bottom: auto;">Custom Design & Development • Mobile-First Responsive Design</p>
-<div class="card-cta" style="margin-top: auto; text-align: center; padding-top: 20px;">
-<button onclick="openModal('websiteModal')" style="background: #000; color: white; border: none; padding: 15px 30px; border-radius: 8px; cursor: pointer; font-size: 1.1rem; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.background='#333'" onmouseout="this.style.background='#000'">Get Started</button>
+<h3 style="text-align: center; margin-bottom: 24px;">Websites That Actually Convert</h3>
+<p style="margin-bottom: 20px;">Lightning-fast, mobile-first websites that turn visitors into customers. No boring templates here – just custom designs that make your competition jealous.</p>
+<p style="margin-bottom: auto; color: rgba(255, 255, 255, 0.7);">Custom Design & Development • Mobile-First Responsive Design</p>
+<div class="card-cta" style="margin-top: auto; text-align: center; padding-top: 24px;">
+<button onclick="openModal('websiteModal')" class="service-btn" tabindex="0">Get Started</button>
 </div>
 </div>
-</div>
+</article>
 
 <!-- Service 2: Social Media -->
-<div class="glass-card card-animate service-card" style="display: flex; flex-direction: column;">
+<article class="glass-card card-animate service-card" style="display: flex; flex-direction: column;">
 <div class="card-content" style="flex: 1; display: flex; flex-direction: column;">
-<h3 style="text-align: center; margin-bottom: 20px;">Social Media That Slaps</h3>
-<p style="margin-bottom: 15px;">We'll make your brand the main character on every platform. From viral-worthy content to community building that actually builds communities.</p>
-<p style="margin-bottom: auto;">Content Creation & Strategy • Analytics & Growth Tracking</p>
-<div class="card-cta" style="margin-top: auto; text-align: center; padding-top: 20px;">
-<button onclick="openModal('socialModal')" style="background: #000; color: white; border: none; padding: 15px 30px; border-radius: 8px; cursor: pointer; font-size: 1.1rem; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.background='#333'" onmouseout="this.style.background='#000'">Let's Go Viral</button>
+<h3 style="text-align: center; margin-bottom: 24px;">Social Media That Slaps</h3>
+<p style="margin-bottom: 20px;">We'll make your brand the main character on every platform. From viral-worthy content to community building that actually builds communities.</p>
+<p style="margin-bottom: auto; color: rgba(255, 255, 255, 0.7);">Content Creation & Strategy • Analytics & Growth Tracking</p>
+<div class="card-cta" style="margin-top: auto; text-align: center; padding-top: 24px;">
+<button onclick="openModal('socialModal')" class="service-btn" tabindex="0">Let's Go Viral</button>
 </div>
 </div>
-</div>
+</article>
 
 <!-- Service 3: Logos -->
-<div class="glass-card card-animate service-card" style="display: flex; flex-direction: column;">
+<article class="glass-card card-animate service-card" style="display: flex; flex-direction: column;">
 <div class="card-content" style="flex: 1; display: flex; flex-direction: column;">
-<h3 style="text-align: center; margin-bottom: 20px;">Logos That Leave a Mark</h3>
-<p style="margin-bottom: 15px;">Your logo is your first impression. We create memorable brand marks that stick in minds and look incredible everywhere from business cards to billboards.</p>
-<p style="margin-bottom: auto;">Custom Logo Design • Brand Identity Package</p>
-<div class="card-cta" style="margin-top: auto; text-align: center; padding-top: 20px;">
-<button onclick="openModal('logoModal')" style="background: #000; color: white; border: none; padding: 15px 30px; border-radius: 8px; cursor: pointer; font-size: 1.1rem; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.background='#333'" onmouseout="this.style.background='#000'">Create my Brand</button>
+<h3 style="text-align: center; margin-bottom: 24px;">Logos That Leave a Mark</h3>
+<p style="margin-bottom: 20px;">Your logo is your first impression. We create memorable brand marks that stick in minds and look incredible everywhere from business cards to billboards.</p>
+<p style="margin-bottom: auto; color: rgba(255, 255, 255, 0.7);">Custom Logo Design • Brand Identity Package</p>
+<div class="card-cta" style="margin-top: auto; text-align: center; padding-top: 24px;">
+<button onclick="openModal('logoModal')" class="service-btn" tabindex="0">Create my Brand</button>
 </div>
 </div>
-</div>
+</article>
 </div>
 </div>
 </section>
 
+<section id="portfolio" class="about-section" style="background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);">
+<div class="about-container">
+<div class="about-header">
+<h2>Our Portfolio</h2>
+<p>Explore our latest projects showcasing innovative web design, compelling social media campaigns, and memorable brand identities that drive results.</p>
+</div>
+
+<!-- Web Design Row -->
+<div style="text-align: center; margin-bottom: 40px;">
+<h3 style="font-size: 2rem; color: #ffffff; font-weight: 600; background: linear-gradient(135deg, #ffffff 0%, #4A90E2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Web Design</h3>
+</div>
+<div class="portfolio-grid-container" style="margin-bottom: 60px;">
+<article class="glass-card card-animate portfolio-card">
+<div class="portfolio-placeholder">
+<div class="portfolio-icon">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="2">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+<circle cx="8.5" cy="8.5" r="1.5"/>
+<polyline points="21,15 16,10 5,21"/>
+</svg>
+</div>
+<h3>Project Coming Soon</h3>
+<p>Exciting new work in progress. Stay tuned for amazing results.</p>
+</div>
+</article>
+
+<article class="glass-card card-animate portfolio-card">
+<div class="portfolio-placeholder">
+<div class="portfolio-icon">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="2">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+<circle cx="8.5" cy="8.5" r="1.5"/>
+<polyline points="21,15 16,10 5,21"/>
+</svg>
+</div>
+<h3>Project Coming Soon</h3>
+<p>Exciting new work in progress. Stay tuned for amazing results.</p>
+</div>
+</article>
+
+<article class="glass-card card-animate portfolio-card">
+<div class="portfolio-placeholder">
+<div class="portfolio-icon">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="2">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+<circle cx="8.5" cy="8.5" r="1.5"/>
+<polyline points="21,15 16,10 5,21"/>
+</svg>
+</div>
+<h3>Project Coming Soon</h3>
+<p>Exciting new work in progress. Stay tuned for amazing results.</p>
+</div>
+</article>
+</div>
+
+<!-- Social Media Row -->
+<div style="text-align: center; margin-bottom: 40px;">
+<h3 style="font-size: 2rem; color: #ffffff; font-weight: 600; background: linear-gradient(135deg, #ffffff 0%, #4A90E2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Social Media</h3>
+</div>
+<div class="portfolio-grid-container" style="margin-bottom: 60px;">
+<article class="glass-card card-animate portfolio-card">
+<div class="portfolio-placeholder">
+<div class="portfolio-icon">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="2">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+<circle cx="8.5" cy="8.5" r="1.5"/>
+<polyline points="21,15 16,10 5,21"/>
+</svg>
+</div>
+<h3>Project Coming Soon</h3>
+<p>Exciting new work in progress. Stay tuned for amazing results.</p>
+</div>
+</article>
+
+<article class="glass-card card-animate portfolio-card">
+<div class="portfolio-placeholder">
+<div class="portfolio-icon">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="2">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+<circle cx="8.5" cy="8.5" r="1.5"/>
+<polyline points="21,15 16,10 5,21"/>
+</svg>
+</div>
+<h3>Project Coming Soon</h3>
+<p>Exciting new work in progress. Stay tuned for amazing results.</p>
+</div>
+</article>
+
+<article class="glass-card card-animate portfolio-card">
+<div class="portfolio-placeholder">
+<div class="portfolio-icon">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="2">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+<circle cx="8.5" cy="8.5" r="1.5"/>
+<polyline points="21,15 16,10 5,21"/>
+</svg>
+</div>
+<h3>Project Coming Soon</h3>
+<p>Exciting new work in progress. Stay tuned for amazing results.</p>
+</div>
+</article>
+</div>
+
+<!-- Logo Design Row -->
+<div style="text-align: center; margin-bottom: 40px;">
+<h3 style="font-size: 2rem; color: #ffffff; font-weight: 600; background: linear-gradient(135deg, #ffffff 0%, #4A90E2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Logo Design</h3>
+</div>
+<div class="portfolio-grid-container">
+<article class="glass-card card-animate portfolio-card">
+<div class="portfolio-placeholder">
+<div class="portfolio-icon">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="2">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+<circle cx="8.5" cy="8.5" r="1.5"/>
+<polyline points="21,15 16,10 5,21"/>
+</svg>
+</div>
+<h3>Project Coming Soon</h3>
+<p>Exciting new work in progress. Stay tuned for amazing results.</p>
+</div>
+</article>
+
+<article class="glass-card card-animate portfolio-card">
+<div class="portfolio-placeholder">
+<div class="portfolio-icon">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="2">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+<circle cx="8.5" cy="8.5" r="1.5"/>
+<polyline points="21,15 16,10 5,21"/>
+</svg>
+</div>
+<h3>Project Coming Soon</h3>
+<p>Exciting new work in progress. Stay tuned for amazing results.</p>
+</div>
+</article>
+
+<article class="glass-card card-animate portfolio-card">
+<div class="portfolio-placeholder">
+<div class="portfolio-icon">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="2">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+<circle cx="8.5" cy="8.5" r="1.5"/>
+<polyline points="21,15 16,10 5,21"/>
+</svg>
+</div>
+<h3>Project Coming Soon</h3>
+<p>Exciting new work in progress. Stay tuned for amazing results.</p>
+</div>
+</article>
+</div>
+</div>
+</section>
+
+<section class="image-marquee">
+<div class="image-marquee-content">
+<div class="marquee-image">
+<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+<circle cx="8.5" cy="8.5" r="1.5"/>
+<polyline points="21,15 16,10 5,21"/>
+</svg>
+</div>
+<div class="marquee-divider"></div>
+<div class="marquee-image">
+<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+<circle cx="8.5" cy="8.5" r="1.5"/>
+<polyline points="21,15 16,10 5,21"/>
+</svg>
+</div>
+<div class="marquee-divider"></div>
+<div class="marquee-image">
+<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+<circle cx="8.5" cy="8.5" r="1.5"/>
+<polyline points="21,15 16,10 5,21"/>
+</svg>
+</div>
+<div class="marquee-divider"></div>
+<div class="marquee-image">
+<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+<circle cx="8.5" cy="8.5" r="1.5"/>
+<polyline points="21,15 16,10 5,21"/>
+</svg>
+</div>
+<div class="marquee-divider"></div>
+<div class="marquee-image">
+<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+<circle cx="8.5" cy="8.5" r="1.5"/>
+<polyline points="21,15 16,10 5,21"/>
+</svg>
+</div>
+<div class="marquee-divider"></div>
+<div class="marquee-image">
+<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+<circle cx="8.5" cy="8.5" r="1.5"/>
+<polyline points="21,15 16,10 5,21"/>
+</svg>
+</div>
+<div class="marquee-divider"></div>
+<div class="marquee-image">
+<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+<circle cx="8.5" cy="8.5" r="1.5"/>
+<polyline points="21,15 16,10 5,21"/>
+</svg>
+</div>
+<div class="marquee-divider"></div>
+<div class="marquee-image">
+<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+<circle cx="8.5" cy="8.5" r="1.5"/>
+<polyline points="21,15 16,10 5,21"/>
+</svg>
+</div>
+<div class="marquee-divider"></div>
+<div class="marquee-image">
+<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+<circle cx="8.5" cy="8.5" r="1.5"/>
+<polyline points="21,15 16,10 5,21"/>
+</svg>
+</div>
+<div class="marquee-divider"></div>
+<div class="marquee-image">
+<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+<circle cx="8.5" cy="8.5" r="1.5"/>
+<polyline points="21,15 16,10 5,21"/>
+</svg>
+</div>
+<div class="marquee-divider"></div>
+<div class="marquee-image">
+<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+<circle cx="8.5" cy="8.5" r="1.5"/>
+<polyline points="21,15 16,10 5,21"/>
+</svg>
+</div>
+<div class="marquee-divider"></div>
+<div class="marquee-image">
+<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+<circle cx="8.5" cy="8.5" r="1.5"/>
+<polyline points="21,15 16,10 5,21"/>
+</svg>
+</div>
+<div class="marquee-divider"></div>
+<div class="marquee-image">
+<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+<circle cx="8.5" cy="8.5" r="1.5"/>
+<polyline points="21,15 16,10 5,21"/>
+</svg>
+</div>
+<div class="marquee-divider"></div>
+<div class="marquee-image">
+<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+<circle cx="8.5" cy="8.5" r="1.5"/>
+<polyline points="21,15 16,10 5,21"/>
+</svg>
+</div>
+<div class="marquee-divider"></div>
+<div class="marquee-image">
+<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+<circle cx="8.5" cy="8.5" r="1.5"/>
+<polyline points="21,15 16,10 5,21"/>
+</svg>
+</div>
+<div class="marquee-divider"></div>
+<div class="marquee-image">
+<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+<circle cx="8.5" cy="8.5" r="1.5"/>
+<polyline points="21,15 16,10 5,21"/>
+</svg>
+</div>
+</div>
+</section>
 </main>
 
 <footer id="footer" class="footer">
@@ -927,10 +1438,10 @@ The mastermind behind every pixel-perfect design and viral-worthy campaign.</p>
 
 <!-- Contact Form Modals -->
 <!-- Story Modal -->
-<div id="storyModal" class="modal">
+<div id="storyModal" class="modal" role="dialog" aria-labelledby="storyModalTitle">
 <div class="modal-content">
-<span class="close" onclick="closeModal('storyModal')">&times;</span>
-<h2>The Hanu Studio Story</h2>
+<span class="close" onclick="closeModal('storyModal')" aria-label="Close modal">&times;</span>
+<h2 id="storyModalTitle">The Hanu Studio Story</h2>
 <p style="text-align: left; margin-bottom: 20px;">In a world saturated with cookie-cutter websites and bland digital experiences, Hanu Studio emerged as a rebellion against the ordinary. Founded by Hanu Keyser, a digital maverick with an insatiable appetite for pushing creative boundaries, this one-person powerhouse has been turning the web design industry on its head.</p>
 <p style="text-align: left; margin-bottom: 20px;">What started as a personal mission to escape the monotony of template-based design has evolved into a full-scale digital revolution. Every project is approached with the mindset of creating something that doesn't just look good – it dominates. We don't just build websites; we craft digital weapons that make your competition question their life choices.</p>
 <p style="text-align: left; margin-bottom: 20px;">From late-night coding sessions fueled by pure creative passion to viral social media campaigns that break the internet, Hanu Studio represents everything that mainstream agencies are too scared to be: bold, unapologetic, and obsessively focused on results that actually matter.</p>
@@ -940,13 +1451,14 @@ The mastermind behind every pixel-perfect design and viral-worthy campaign.</p>
 </div>
 
 <!-- Website Modal -->
-<div id="websiteModal" class="modal">
+<div id="websiteModal" class="modal" role="dialog" aria-labelledby="websiteModalTitle">
 <div class="modal-content">
-<span class="close" onclick="closeModal('websiteModal')">&times;</span>
-<h2>Website Project Inquiry</h2>
+<span class="close" onclick="closeModal('websiteModal')" aria-label="Close modal">&times;</span>
+<h2 id="websiteModalTitle">Website Project Inquiry</h2>
 <p>Request a consultation for custom website development. We'll respond within 24 hours with project details and timeline.</p>
 <form action="mailto:hanu@hanu.co.za" method="post" enctype="text/plain">
 <input type="hidden" name="subject" value="Website Project Inquiry">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
 <div class="form-group">
 <label for="website-name">Full Name *</label>
 <input type="text" id="website-name" name="name" required>
@@ -954,6 +1466,7 @@ The mastermind behind every pixel-perfect design and viral-worthy campaign.</p>
 <div class="form-group">
 <label for="website-email">Email Address *</label>
 <input type="email" id="website-email" name="email" required>
+</div>
 </div>
 <div class="form-group">
 <label for="website-project">About Your Project *</label>
@@ -965,13 +1478,14 @@ The mastermind behind every pixel-perfect design and viral-worthy campaign.</p>
 </div>
 
 <!-- Social Media Modal -->
-<div id="socialModal" class="modal">
+<div id="socialModal" class="modal" role="dialog" aria-labelledby="socialModalTitle">
 <div class="modal-content">
-<span class="close" onclick="closeModal('socialModal')">&times;</span>
-<h2>Social Media Project Inquiry</h2>
+<span class="close" onclick="closeModal('socialModal')" aria-label="Close modal">&times;</span>
+<h2 id="socialModalTitle">Social Media Project Inquiry</h2>
 <p>Request information about social media management services. We'll provide a detailed proposal within 24 hours.</p>
 <form action="mailto:hanu@hanu.co.za" method="post" enctype="text/plain">
 <input type="hidden" name="subject" value="Social Media Project Inquiry">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
 <div class="form-group">
 <label for="social-name">Full Name *</label>
 <input type="text" id="social-name" name="name" required>
@@ -979,6 +1493,7 @@ The mastermind behind every pixel-perfect design and viral-worthy campaign.</p>
 <div class="form-group">
 <label for="social-email">Email Address *</label>
 <input type="email" id="social-email" name="email" required>
+</div>
 </div>
 <div class="form-group">
 <label for="social-project">About Your Project *</label>
@@ -990,13 +1505,14 @@ The mastermind behind every pixel-perfect design and viral-worthy campaign.</p>
 </div>
 
 <!-- Logo Modal -->
-<div id="logoModal" class="modal">
+<div id="logoModal" class="modal" role="dialog" aria-labelledby="logoModalTitle">
 <div class="modal-content">
-<span class="close" onclick="closeModal('logoModal')">&times;</span>
-<h2>Logo Project Inquiry</h2>
+<span class="close" onclick="closeModal('logoModal')" aria-label="Close modal">&times;</span>
+<h2 id="logoModalTitle">Logo Project Inquiry</h2>
 <p>Request a quote for professional logo design services. We'll send you a comprehensive proposal within 24 hours.</p>
 <form action="mailto:hanu@hanu.co.za" method="post" enctype="text/plain">
 <input type="hidden" name="subject" value="Logo Project Inquiry">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
 <div class="form-group">
 <label for="logo-name">Full Name *</label>
 <input type="text" id="logo-name" name="name" required>
@@ -1004,6 +1520,7 @@ The mastermind behind every pixel-perfect design and viral-worthy campaign.</p>
 <div class="form-group">
 <label for="logo-email">Email Address *</label>
 <input type="email" id="logo-email" name="email" required>
+</div>
 </div>
 <div class="form-group">
 <label for="logo-project">About Your Project *</label>
@@ -1014,18 +1531,8 @@ The mastermind behind every pixel-perfect design and viral-worthy campaign.</p>
 </div>
 </div>
 
-<!-- SVG Definitions for gradient -->
-<svg width="0" height="0" style="position: absolute;">
-<defs>
-<linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" stop-color="#f3f4f6" />
-<stop offset="100%" stop-color="#e5e7eb" />
-</linearGradient>
-</defs>
-</svg>
-
 <button id="backToTop" class="back-to-top" aria-label="Back to top">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 <circle cx="12" cy="12" r="10"/>
 <polyline points="16 12 12 8 8 12"/>
 <line x1="12" y1="16" x2="12" y2="8"/>
@@ -1038,15 +1545,22 @@ const dropdownButton = document.getElementById('navDropdown');
 const dropdownMenu = document.getElementById('dropdownMenu');
 const slideContainer = document.getElementById('slideContainer');
 const dots = document.querySelectorAll('.dot');
-const headerLogo = document.getElementById('headerLogo');
-const mainHeader = document.getElementById('mainHeader');
+
 const backToTopButton = document.getElementById('backToTop');
+const parallaxBg = document.querySelector('.parallax-bg');
 let currentSlide = 0;
-let startX = 0;
-let isDragging = false;
 let lastScrollTop = 0;
 
-// Header hide/show on scroll
+// Parallax effect
+window.addEventListener('scroll', () => {
+const scrolled = window.pageYOffset;
+const rate = scrolled * -0.5;
+if (parallaxBg) {
+parallaxBg.style.transform = `translateY(${rate}px)`;
+}
+});
+
+// Enhanced scroll handling
 window.addEventListener('scroll', () => {
 const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
@@ -1055,27 +1569,10 @@ if (dropdownMenu.style.display === 'block') {
 dropdownMenu.style.display = 'none';
 }
 
-// Keep header transparent
-mainHeader.style.background = 'transparent';
-mainHeader.style.boxShadow = 'none';
 
-// Hide header when scrolling down, show when scrolling up
-if (currentScrollTop > lastScrollTop && currentScrollTop > 100) {
-// Scrolling down - hide header but keep nav icon
-mainHeader.style.transform = 'translateY(-100%)';
-dropdownButton.style.position = 'fixed';
-dropdownButton.style.top = '15px';
-dropdownButton.style.right = '20px';
-} else {
-// Scrolling up or at top - show full header
-mainHeader.style.transform = 'translateY(0)';
-dropdownButton.style.position = '';
-dropdownButton.style.top = '';
-dropdownButton.style.right = '';
-}
 
 // Show/hide back to top button
-if (currentScrollTop > 300) {
+if (currentScrollTop > 400) {
 backToTopButton.classList.add('visible');
 } else {
 backToTopButton.classList.remove('visible');
@@ -1084,17 +1581,20 @@ backToTopButton.classList.remove('visible');
 lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
 });
 
-// Dropdown toggle
+// Enhanced dropdown toggle
 dropdownButton.addEventListener('click', (e) => {
 e.stopPropagation();
-dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+const isVisible = dropdownMenu.style.display === 'block';
+dropdownMenu.style.display = isVisible ? 'none' : 'block';
 });
 
 document.addEventListener('click', (e) => {
-if (!dropdownMenu.contains(e.target)) dropdownMenu.style.display = 'none';
+if (!dropdownMenu.contains(e.target) && !dropdownButton.contains(e.target)) {
+dropdownMenu.style.display = 'none';
+}
 });
 
-// Back to top functionality
+// Smooth back to top
 backToTopButton.addEventListener('click', () => {
 window.scrollTo({
 top: 0,
@@ -1102,18 +1602,25 @@ behavior: 'smooth'
 });
 });
 
+// Enhanced section scrolling
 window.scrollToSection = (sectionId) => {
 const section = document.getElementById(sectionId);
 if (section) {
-section.scrollIntoView({ behavior: 'smooth' });
+const targetPosition = section.offsetTop;
+window.scrollTo({
+top: targetPosition,
+behavior: 'smooth'
+});
 }
 dropdownMenu.style.display = 'none';
 };
 
+// Enhanced slide functionality
 function updateSlide() {
 slideContainer.style.transform = `translateX(-${currentSlide * 25}%)`;
-dots.forEach(dot => dot.classList.remove('active'));
-dots[currentSlide].classList.add('active');
+dots.forEach((dot, index) => {
+dot.classList.toggle('active', index === currentSlide);
+});
 }
 
 function nextSlide() {
@@ -1126,6 +1633,7 @@ currentSlide = (currentSlide - 1 + 4) % 4;
 updateSlide();
 }
 
+// Dot navigation
 dots.forEach((dot, index) => {
 dot.addEventListener('click', () => {
 currentSlide = index;
@@ -1133,64 +1641,93 @@ updateSlide();
 });
 });
 
-// Swipe detection
+// Enhanced touch/swipe detection
+let touchStartX = 0;
+let touchEndX = 0;
+
 slideContainer.addEventListener('touchstart', (e) => {
-isDragging = true;
-startX = e.touches[0].clientX;
+touchStartX = e.changedTouches[0].screenX;
 });
 
-slideContainer.addEventListener('touchmove', (e) => {
-if (!isDragging) return;
-const currentX = e.touches[0].clientX;
-const diffX = startX - currentX;
-if (Math.abs(diffX) > 30) {
-if (diffX > 0) nextSlide();
-else prevSlide();
-isDragging = false;
+slideContainer.addEventListener('touchend', (e) => {
+touchEndX = e.changedTouches[0].screenX;
+handleSwipe();
+});
+
+function handleSwipe() {
+const swipeThreshold = 50;
+const diff = touchStartX - touchEndX;
+
+if (Math.abs(diff) > swipeThreshold) {
+if (diff > 0) {
+nextSlide();
+} else {
+prevSlide();
+}
+}
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+if (e.key === 'ArrowLeft') {
+prevSlide();
+} else if (e.key === 'ArrowRight') {
+nextSlide();
 }
 });
 
-slideContainer.addEventListener('touchend', () => isDragging = false);
+// Auto-slide with pause on hover
+let autoSlideInterval = setInterval(nextSlide, 6000);
 
-document.addEventListener('keydown', (e) => {
-if (e.key === 'ArrowLeft') prevSlide();
-else if (e.key === 'ArrowRight') nextSlide();
+slideContainer.addEventListener('mouseenter', () => {
+clearInterval(autoSlideInterval);
 });
 
-// Slide rotation every 15 seconds
-setInterval(nextSlide, 15000);
+slideContainer.addEventListener('mouseleave', () => {
+autoSlideInterval = setInterval(nextSlide, 6000);
+});
 
-// Card scroll animation
+// Enhanced scroll animations
 const observerOptions = {
 threshold: 0.1,
-rootMargin: '0px 0px -50px 0px'
+rootMargin: '0px 0px -100px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
+entries.forEach((entry, index) => {
 if (entry.isIntersecting) {
+setTimeout(() => {
 entry.target.classList.add('animate-in');
+}, index * 100);
 }
 });
 }, observerOptions);
 
-// Observe all cards
-document.querySelectorAll('.card-animate').forEach(card => {
-observer.observe(card);
+// Observe all animated elements
+document.querySelectorAll('.card-animate, .about-header').forEach(el => {
+observer.observe(el);
 });
 
-// Modal functions
+// Enhanced modal functions
 window.openModal = function(modalId) {
-document.getElementById(modalId).style.display = 'block';
+const modal = document.getElementById(modalId);
+modal.style.display = 'block';
 document.body.style.overflow = 'hidden';
+
+// Focus management for accessibility
+const firstInput = modal.querySelector('input, textarea, button');
+if (firstInput) {
+setTimeout(() => firstInput.focus(), 100);
+}
 };
 
 window.closeModal = function(modalId) {
-document.getElementById(modalId).style.display = 'none';
+const modal = document.getElementById(modalId);
+modal.style.display = 'none';
 document.body.style.overflow = 'auto';
 };
 
-// Close modal when clicking outside
+// Enhanced modal event handlers
 window.addEventListener('click', function(event) {
 if (event.target.classList.contains('modal')) {
 event.target.style.display = 'none';
@@ -1198,7 +1735,7 @@ document.body.style.overflow = 'auto';
 }
 });
 
-// Close modal with Escape key
+// Enhanced keyboard handling
 document.addEventListener('keydown', function(event) {
 if (event.key === 'Escape') {
 const modals = document.querySelectorAll('.modal');
@@ -1209,9 +1746,81 @@ document.body.style.overflow = 'auto';
 }
 });
 }
-});
-});
-</script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'964dbb13f46e25c1',t:'MTc1MzQ2ODI1MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96535796c61c7398',t:'MTc1MzUyNzA5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96535796c61c7398',t:'MTc1MzUyNzA5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'965bcb88365c738e',t:'MTc1MzYxNTcyNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+// Tab navigation for sections
+if (event.key === 'Tab' && !event.shiftKey) {
+// Allow default tab behavior
+}
+
+// Enter key to activate focused elements
+if (event.key === 'Enter') {
+const focusedElement = document.activeElement;
+if (focusedElement.classList.contains('service-btn') || 
+    focusedElement.classList.contains('glass-card') ||
+    focusedElement.classList.contains('dot')) {
+focusedElement.click();
+}
+}
+
+// Arrow keys for navigation
+if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+const sections = ['home', 'about', 'services', 'portfolio'];
+const currentSection = getCurrentSection();
+const currentIndex = sections.indexOf(currentSection);
+
+if (event.key === 'ArrowDown' && currentIndex < sections.length - 1) {
+scrollToSection(sections[currentIndex + 1]);
+event.preventDefault();
+} else if (event.key === 'ArrowUp' && currentIndex > 0) {
+scrollToSection(sections[currentIndex - 1]);
+event.preventDefault();
+}
+}
+});
+
+// Function to get current section
+function getCurrentSection() {
+const sections = ['home', 'about', 'services', 'portfolio'];
+const scrollPosition = window.pageYOffset;
+
+for (let i = sections.length - 1; i >= 0; i--) {
+const section = document.getElementById(sections[i]);
+if (section && scrollPosition >= section.offsetTop - 100) {
+return sections[i];
+}
+}
+return 'home';
+}
+
+// Performance optimization: Debounce scroll events
+function debounce(func, wait) {
+let timeout;
+return function executedFunction(...args) {
+const later = () => {
+clearTimeout(timeout);
+func(...args);
+};
+clearTimeout(timeout);
+timeout = setTimeout(later, wait);
+};
+}
+
+// Apply debouncing to scroll-heavy functions
+const debouncedScroll = debounce(() => {
+// Additional scroll optimizations can go here
+}, 10);
+
+window.addEventListener('scroll', debouncedScroll);
+
+
+
+// Initialize animations on load
+setTimeout(() => {
+document.body.classList.add('loaded');
+}, 100);
+});
+
+
+</script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'965c5fef536f4ec1',t:'MTc1MzYyMTgwMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
