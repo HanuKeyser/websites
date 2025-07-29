@@ -1397,211 +1397,294 @@ HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO |
   </div>
 </section>
 
-<!-- Portfolio Section -->
-<section id="portfolio" class="py-16 sm:py-20">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-black">Our Portfolio</h2>
-      <p class="text-black text-base sm:text-lg max-w-3xl mx-auto">
-        Explore our latest projects showcasing innovative web design, compelling social media campaigns, and memorable brand identities that drive results.
-      </p>
-    </div>
 
-<!-- Web Design -->
-<div class="mb-6">
-  <h3 class="text-2xl font-semibold text-center mb-6 text-blue-500">Web Design</h3>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+    .glass-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+</style>
 
-    <!-- Card 1 -->
-    <div class="card p-4 text-center h-96 rounded-lg backdrop-blur-lg bg-white/10 border border-white/20 overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
-      <div class="w-full h-56 mb-3 rounded overflow-hidden border border-white/30">
-        <img 
-          src="https://via.placeholder.com/400x220?text=Project+1" 
-          alt="Creative Portfolio Site Preview"
-          class="w-full h-full object-cover"
-        />
-      </div>
-      <h4 class="text-lg font-bold text-black mb-1">Coming Soon</h4>
-      <p class="text-sm text-black mb-2">We’re working hard behind the scenes to bring you something exciting!</p>
-      <a href="https://example-one.com" target="_blank" class="inline-block text-xs px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
-        Visit Site
-      </a>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="card p-4 text-center h-96 rounded-lg backdrop-blur-lg bg-white/10 border border-white/20 overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
-      <div class="w-full h-56 mb-3 rounded overflow-hidden border border-white/30">
-        <img 
-          src="https://via.placeholder.com/400x220?text=Project+2" 
-          alt="Business Landing Page Preview"
-          class="w-full h-full object-cover"
-        />
-      </div>
-      <h4 class="text-lg font-bold text-black mb-1">Coming Soon</h4>
-      <p class="text-sm text-black mb-2">We’re working hard behind the scenes to bring you something exciting!</p>
-      <a href="https://example-two.com" target="_blank" class="inline-block text-xs px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
-        Visit Site
-      </a>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="card p-4 text-center h-96 rounded-lg backdrop-blur-lg bg-white/10 border border-white/20 overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
-      <div class="w-full h-56 mb-3 rounded overflow-hidden border border-white/30">
-        <img 
-          src="https://via.placeholder.com/400x220?text=Project+3" 
-          alt="Coming Soon Project Preview"
-          class="w-full h-full object-cover"
-        />
-      </div>
-      <h4 class="text-lg font-bold text-black mb-1">Coming Soon</h4>
-      <p class="text-sm text-black mb-2">We’re working hard behind the scenes to bring you something exciting!</p>
-      <a href="https://example-three.com" target="_blank" class="inline-block text-xs px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
-        Visit Site
-      </a>
-    </div>
-
-  </div>
-</div>
-
-<!-- Social Media Profiles -->
-<div class="mb-6">
-  <h3 class="text-2xl font-semibold text-center mb-6 text-red-500">Social Media</h3>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-    <!-- Facebook Profile Card -->
-    <div class="card p-6 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 bg-white/20 backdrop-blur-lg border border-white/30">
-      <div class="flex flex-col items-center">
-        <div class="w-20 h-20 mb-3">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_(2019).png" alt="Facebook Logo" class="w-full h-full object-contain" />
+<section class="portfolio-section py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-black">Creative Portfolio</h2>
+            <p class="text-xl text-black max-w-3xl mx-auto leading-relaxed">
+                Discover our innovative approach to digital design, social media excellence, and brand identity creation that drives meaningful results.
+            </p>
         </div>
-        <h4 class="text-xl font-bold text-blue-700 mb-1">Hanu Studio</h4>
-        <p class="text-sm text-gray-600 mb-3">@hanustudio</p>
-        <p class="text-center text-gray-700 text-sm mb-4 px-2">
-          Official Facebook page for Hanu Studio, bringing you the latest updates and innovations.
-        </p>
-        <div class="flex justify-center space-x-6 text-center text-gray-700">
-          <div>
-            <span class="font-bold">1.2K</span>
-            <p class="text-xs">Followers</p>
-          </div>
-          <div>
-            <span class="font-bold">325</span>
-            <p class="text-xs">Posts</p>
-          </div>
-          <div>
-            <span class="font-bold">150</span>
-            <p class="text-xs">Following</p>
-          </div>
+
+        <!-- Web Design Projects -->
+        <div class="mb-24">
+            <h3 class="text-2xl sm:text-3xl font-bold text-center mb-8 md:mb-12 text-black">Web Design Projects</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
+
+                <!-- Project 1 -->
+                <div class="glass-card rounded-xl overflow-hidden">
+                    <div class="relative h-64">
+                        <img
+                            src="https://via.placeholder.com/500x300/4f46e5/ffffff?text=Modern+Portfolio+Design"
+                            alt="Modern Portfolio Design"
+                            class="w-full h-full object-cover"
+                        />
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                            <div class="text-center text-white p-6">
+                                <h4 class="text-2xl font-bold mb-2">Modern Portfolio</h4>
+                                <p class="text-sm opacity-90 mb-4">Responsive design with smooth animations</p>
+                                <button onclick="window.open('https://hanu.co.za', '_blank')" class="bg-white text-gray-900 px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                                    View Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h5 class="font-semibold text-black">Portfolio Website</h5>
+                                <p class="text-sm text-black">Creative Professional</p>
+                            </div>
+                            <div class="flex space-x-2">
+                                <span class="w-3 h-3 bg-blue-500 rounded-full"></span>
+                                <span class="w-3 h-3 bg-purple-500 rounded-full"></span>
+                                <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glass-card rounded-xl overflow-hidden">
+                    <div class="relative h-64">
+                        <img
+                            src="https://via.placeholder.com/500x300/059669/ffffff?text=Business+Landing+Page"
+                            alt="Business Landing Page"
+                            class="w-full h-full object-cover"
+                        />
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                            <div class="text-center text-white p-6">
+                                <h4 class="text-2xl font-bold mb-2">Business Landing</h4>
+                                <p class="text-sm opacity-90 mb-4">High-conversion landing page design</p>
+                                <button onclick="window.open('https://hanu.co.za', '_blank')" class="bg-white text-gray-900 px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                                    View Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h5 class="font-semibold text-black">Landing Page</h5>
+                                <p class="text-sm text-black">SaaS Company</p>
+                            </div>
+                            <div class="flex space-x-2">
+                                <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                                <span class="w-3 h-3 bg-yellow-500 rounded-full"></span>
+                                <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="glass-card rounded-xl overflow-hidden">
+                    <div class="relative h-64">
+                        <img
+                            src="https://via.placeholder.com/500x300/dc2626/ffffff?text=E-Commerce+Platform"
+                            alt="E-Commerce Platform"
+                            class="w-full h-full object-cover"
+                        />
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                            <div class="text-center text-white p-6">
+                                <h4 class="text-2xl font-bold mb-2">E-Commerce Store</h4>
+                                <p class="text-sm opacity-90 mb-4">Full-featured online shopping experience</p>
+                                <button onclick="window.open('https://hanu.co.za', '_blank')" class="bg-white text-gray-900 px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                                    View Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h5 class="font-semibold text-black">E-Commerce</h5>
+                                <p class="text-sm text-black">Retail Brand</p>
+                            </div>
+                            <div class="flex space-x-2">
+                                <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                                <span class="w-3 h-3 bg-indigo-500 rounded-full"></span>
+                                <span class="w-3 h-3 bg-pink-500 rounded-full"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Instagram Profile Card -->
-    <div class="card p-6 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 bg-white/20 backdrop-blur-lg border border-white/30">
-      <div class="flex flex-col items-center">
-        <div class="w-20 h-20 mb-3">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram Logo" class="w-full h-full object-contain" />
+        <!-- Social Media Presence -->
+        <div class="mb-24">
+            <h3 class="text-2xl sm:text-3xl font-bold text-center mb-8 md:mb-12 text-black">Social Media Presence</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                
+                <!-- Facebook Card -->
+                <div class="glass-card p-6 md:p-8 rounded-xl">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mr-4">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-black">Hanu Studio</h4>
+                            <p class="text-black">@hanu_studio</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 mb-6">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-black">1.2K</div>
+                            <div class="text-xs text-black uppercase">Followers</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-black">325</div>
+                            <div class="text-xs text-black uppercase">Posts</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-black">150</div>
+                            <div class="text-xs text-black uppercase">Following</div>
+                        </div>
+                    </div>
+                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-colors cursor-not-allowed opacity-75">
+                        Connect
+                    </button>
+                </div>
+
+                <!-- Instagram Card -->
+                <div class="glass-card p-6 md:p-8 rounded-xl">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mr-4">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-black">Hanu Studio</h4>
+                            <p class="text-black">@hanu_studio</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 mb-6">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-black">3.8K</div>
+                            <div class="text-xs text-black uppercase">Followers</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-black">410</div>
+                            <div class="text-xs text-black uppercase">Posts</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-black">200</div>
+                            <div class="text-xs text-black uppercase">Following</div>
+                        </div>
+                    </div>
+                    <button class="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-3 rounded-xl transition-all cursor-not-allowed opacity-75">
+                        Follow
+                    </button>
+                </div>
+
+                <!-- X/Twitter Card -->
+                <div class="glass-card p-6 md:p-8 rounded-xl">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-black rounded-2xl flex items-center justify-center mr-4">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/X_logo_2023_original.svg" alt="X" class="w-6 h-6 object-contain filter brightness-0 invert" />
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-black">Hanu Studio</h4>
+                            <p class="text-black">@hanustudioza</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 mb-6">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-black">5K</div>
+                            <div class="text-xs text-black uppercase">Followers</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-black">1.1K</div>
+                            <div class="text-xs text-black uppercase">Posts</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-black">180</div>
+                            <div class="text-xs text-black uppercase">Following</div>
+                        </div>
+                    </div>
+                    <button class="w-full bg-black hover:bg-gray-800 text-white font-semibold py-3 rounded-xl transition-colors cursor-not-allowed opacity-75">
+                        Follow
+                    </button>
+                </div>
+
+            </div>
         </div>
-        <h4 class="text-xl font-bold text-pink-600 mb-1">Hanu Studio</h4>
-        <p class="text-sm text-gray-600 mb-3">@hanustudio</p>
-        <p class="text-center text-gray-700 text-sm mb-4 px-2">
-          Sharing moments and innovations from Hanu Studio with our community.
-        </p>
-        <div class="flex justify-center space-x-6 text-center text-gray-700">
-          <div>
-            <span class="font-bold">3.8K</span>
-            <p class="text-xs">Followers</p>
-          </div>
-          <div>
-            <span class="font-bold">410</span>
-            <p class="text-xs">Posts</p>
-          </div>
-          <div>
-            <span class="font-bold">200</span>
-            <p class="text-xs">Following</p>
-          </div>
+
+        <!-- Logo Design Showcase -->
+        <div class="mb-16">
+            <h3 class="text-2xl sm:text-3xl font-bold text-center mb-8 md:mb-12 text-black">Logo Design Showcase</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+
+                <!-- Showcase 1 -->
+                <div class="glass-card p-6 md:p-8 text-center rounded-xl">
+                    <div class="mb-6">
+                        <div class="w-full aspect-video bg-gray-800 rounded-lg overflow-hidden mb-4">
+                            <video class="w-full h-full object-cover" controls>
+                                <source src="HanuDesktop.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <h4 class="text-xl font-bold text-black mb-2">Creative Showcase</h4>
+                        <p class="text-black text-sm">Innovative design concepts in development</p>
+                    </div>
+                    <div class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-medium inline-block">
+                        Coming Soon
+                    </div>
+                </div>
+
+                <!-- Showcase 2 -->
+                <div class="glass-card p-6 md:p-8 text-center rounded-xl">
+                    <div class="mb-6">
+                        <div class="w-full aspect-video bg-gray-800 rounded-lg overflow-hidden mb-4">
+                            <video class="w-full h-full object-cover" controls>
+                                <source src="HanuDesktop.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <h4 class="text-xl font-bold text-black mb-2">Brand Identity</h4>
+                        <p class="text-black text-sm">Comprehensive branding solutions</p>
+                    </div>
+                    <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium inline-block">
+                        In Progress
+                    </div>
+                </div>
+
+                <!-- Showcase 3 -->
+                <div class="glass-card p-6 md:p-8 text-center rounded-xl">
+                    <div class="mb-6">
+                        <div class="w-full aspect-video bg-gray-800 rounded-lg overflow-hidden mb-4">
+                            <video class="w-full h-full object-cover" controls>
+                                <source src="HanuDesktop.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <h4 class="text-xl font-bold text-black mb-2">Visual Concepts</h4>
+                        <p class="text-black text-sm">Next-generation design exploration</p>
+                    </div>
+                    <div class="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium inline-block">
+                        Concept Phase
+                    </div>
+                </div>
+
+            </div>
         </div>
-      </div>
     </div>
-
-    <!-- X / Twitter Profile Card -->
-    <div class="card p-6 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 bg-white/20 backdrop-blur-lg border border-white/30">
-      <div class="flex flex-col items-center">
-        <div class="w-20 h-20 mb-3">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/X_logo_2023_original.svg" alt="X (Twitter) Logo" class="w-full h-full object-contain" />
-        </div>
-        <h4 class="text-xl font-bold text-blue-600 mb-1">Hanu Studio</h4>
-        <p class="text-sm text-gray-600 mb-3">@hanustudio</p>
-        <p class="text-center text-gray-700 text-sm mb-4 px-2">
-          Follow us on X for real-time updates, news, and conversations.
-        </p>
-        <div class="flex justify-center space-x-6 text-center text-gray-700">
-          <div>
-            <span class="font-bold">5K</span>
-            <p class="text-xs">Followers</p>
-          </div>
-          <div>
-            <span class="font-bold">1.1K</span>
-            <p class="text-xs">Tweets</p>
-          </div>
-          <div>
-            <span class="font-bold">180</span>
-            <p class="text-xs">Following</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- Logo Design -->
-<div>
-  <h3 class="text-2xl font-semibold text-center mb-6 text-yellow-500">Logo Design</h3>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-  
-    <!-- Card 1 -->
-    <div class="card p-6 rounded-lg flex flex-col bg-white/20 backdrop-blur-lg border border-white/30">
-      <div class="w-full aspect-video mb-4">
-        <video class="w-full h-full object-cover rounded" controls>
-          <source src="HanuDesktop.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <h4 class="text-lg font-bold text-black mb-2 text-center">Project Coming Soon</h4>
-      <p class="text-sm text-black text-center">Exciting new work in progress. Stay tuned for amazing results.</p>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="card p-6 rounded-lg flex flex-col bg-white/20 backdrop-blur-lg border border-white/30">
-      <div class="w-full aspect-video mb-4">
-        <video class="w-full h-full object-cover rounded" controls>
-          <source src="HanuDesktop.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <h4 class="text-lg font-bold text-black mb-2 text-center">Project Coming Soon</h4>
-      <p class="text-sm text-black text-center">Exciting new work in progress. Stay tuned for amazing results.</p>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="card p-6 rounded-lg flex flex-col bg-white/20 backdrop-blur-lg border border-white/30">
-      <div class="w-full aspect-video mb-4">
-        <video class="w-full h-full object-cover rounded" controls>
-          <source src="HanuDesktop.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <h4 class="text-lg font-bold text-black mb-2 text-center">Project Coming Soon</h4>
-      <p class="text-sm text-black text-center">Exciting new work in progress. Stay tuned for amazing results.</p>
-    </div>
-
-  </div>
-</div>
-
-  </div>
 </section>
-
 
 <!-- Pricing Section -->
 <section id="pricing" class="py-8 sm:py-12 bg-gray-100">
