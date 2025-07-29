@@ -1585,666 +1585,747 @@ HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO |
   </div>
 </section>
 
+
 <!-- Pricing Section -->
 <section id="pricing" class="py-8 sm:py-12 bg-gray-100">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="space-y-8">
-      <div class="text-center">
-        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black">Investment in Your Success</h2>
-        <p class="text-black text-lg">Quality work that delivers results, not just pretty pixels</p>
-      </div>
-
-      <!-- Pricing Cards Row -->
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-        <!-- Website Design Package (4 cols) -->
-        <div
-          class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-l-4 flex flex-col justify-between md:col-span-4"
-          style="border-color: #1e9bd5;"
-        >
-          <div>
-            <div class="flex items-start justify-between mb-4">
-              <div>
-                <h3 class="text-xl font-bold mb-2" style="color: #1e9bd5;">Website Design & Development</h3>
-                <p class="text-black text-sm">
-                  Includes 3 sections. No support post handover - if needed, please inform.
-                </p>
-                <p class="text-black text-sm">If you want a domain, please inform us.</p>
-              </div>
-              <div class="text-right">
-                <div class="text-2xl font-bold" style="color: #1e9bd5;">R800</div>
-                <div class="text-sm text-black">Base Price</div>
-              </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="space-y-8">
+            <div class="text-center">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black">Investment in Your Success</h2>
+                <p class="text-black text-lg">Quality work that delivers results, not just pretty pixels</p>
             </div>
-            <div class="space-y-2 text-sm text-black mb-4">
-              <div class="flex items-center">
-                <div class="w-2 h-2 rounded-full mr-3" style="background-color: #1e9bd5;"></div>
-                <span>3 content sections included</span>
-              </div>
-              <div class="flex items-center">
-                <div class="w-2 h-2 rounded-full mr-3" style="background-color: #1e9bd5;"></div>
-                <span>Extra section: R300 each</span>
-              </div>
-              <div class="flex items-center">
-                <div class="w-2 h-2 rounded-full mr-3" style="background-color: #1e9bd5;"></div>
-                <span>Additional tab: R400 each</span>
-              </div>
+
+            <!-- Main Services Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                
+                <!-- Website Design & Development -->
+                <div class="card p-6 border-l-4 flex flex-col" style="border-color: #1e9bd5;">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold" style="color: #1e9bd5;">Website Design & Development</h3>
+                        <div class="text-right">
+                            <div class="text-3xl font-bold" style="color: #1e9bd5;" id="webBasePrice">R2,500</div>
+                            <div class="text-sm text-gray-600">Starting from</div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-4 mb-6 flex-grow">
+                        <!-- Configuration -->
+                        <div>
+                            <h4 class="font-semibold mb-3 text-gray-800">Configure Your Website</h4>
+                            <div class="space-y-3">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Website Type</label>
+                                    <select id="websiteType" class="w-full p-2 border rounded-md" onchange="calculateWebCost()">
+                                        <option value="1500">Portfolio/Personal (R1,500)</option>
+                                        <option value="1700">Portfolio/Personal + Domain (R1,700)</option>
+                                        <option value="2500">Business/Corporate (R2,500)</option>
+                                        <option value="2700">Business/Corporate + Domain (R2,700)</option>
+                                        <option value="4000">E-commerce (R4,000)</option>
+                                        <option value="4200">E-commerce + Domain (R4,200)</option>
+                                    </select>
+                                </div>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Extra Sections</label>
+                                        <input type="number" min="0" value="0" id="extraSections" class="w-full p-2 border rounded-md" oninput="calculateWebCost()"/>
+                                        <span class="text-xs text-gray-500">R500 each</span>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Additional Tabs</label>
+                                        <input type="number" min="0" value="0" id="additionalTabs" class="w-full p-2 border rounded-md" oninput="calculateWebCost()"/>
+                                        <span class="text-xs text-gray-500">R750 each</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        
+                        <!-- What's Included -->
+                        <div>
+                            <h4 class="font-semibold mb-3 text-gray-800">What's Included</h4>
+                            <div class="space-y-2 text-sm text-gray-700">
+                                <div class="flex items-center">
+                                    <div class="w-2 h-2 rounded-full mr-2" style="background-color: #1e9bd5;"></div>
+                                    <span>Responsive design (mobile & desktop)</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-2 h-2 rounded-full mr-2" style="background-color: #1e9bd5;"></div>
+                                    <span>3 base sections (Home, About, Contact)</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-2 h-2 rounded-full mr-2" style="background-color: #1e9bd5;"></div>
+                                    <span>Contact form & social media links</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-2 h-2 rounded-full mr-2" style="background-color: #1e9bd5;"></div>
+                                    <span>Hosting setup assistance</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-200 mt-auto">
+                        <div>
+                            <div class="text-lg font-bold text-gray-800">Total: <span id="webResult" style="color: #1e9bd5;">R2,500</span></div>
+                            <div class="text-sm text-gray-600">One-time payment</div>
+                        </div>
+                        <button class="px-6 py-2 font-semibold rounded-lg text-white hover:shadow-lg transition-all" style="background-color: #1e9bd5;" onclick="sendWebQuote()">
+                            Get Quote
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Social Media Management -->
+                <div class="card p-6 border-l-4 flex flex-col" style="border-color: #ec343e;">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold" style="color: #ec343e;">Social Media Management</h3>
+                        <div class="text-right">
+                            <div class="text-3xl font-bold" style="color: #ec343e;">R400</div>
+                            <div class="text-sm text-gray-600">Per platform/month</div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-4 mb-6 flex-grow">
+                        <!-- Platform Selection -->
+                        <div>
+                            <h4 class="font-semibold mb-3 text-gray-800">Select Platforms</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center text-gray-700">
+                                    <input type="checkbox" class="platform-checkbox mr-2" value="Facebook" onchange="calculateSocialCost()" style="accent-color: #ec343e;"/>
+                                    Facebook
+                                </label>
+                                <label class="flex items-center text-gray-700">
+                                    <input type="checkbox" class="platform-checkbox mr-2" value="Instagram" onchange="calculateSocialCost()" style="accent-color: #ec343e;"/>
+                                    Instagram
+                                </label>
+                                <label class="flex items-center text-gray-700">
+                                    <input type="checkbox" class="platform-checkbox mr-2" value="LinkedIn" onchange="calculateSocialCost()" style="accent-color: #ec343e;"/>
+                                    LinkedIn
+                                </label>
+                                <label class="flex items-center text-gray-700">
+                                    <input type="checkbox" class="platform-checkbox mr-2" value="Threads" onchange="calculateSocialCost()" style="accent-color: #ec343e;"/>
+                                    Threads
+                                </label>
+                                <label class="flex items-center text-gray-700">
+                                    <input type="checkbox" class="platform-checkbox mr-2" value="TikTok" onchange="calculateSocialCost()" style="accent-color: #ec343e;"/>
+                                    TikTok
+                                </label>
+                                <label class="flex items-center text-gray-700">
+                                    <input type="checkbox" class="platform-checkbox mr-2" value="X (Twitter)" onchange="calculateSocialCost()" style="accent-color: #ec343e;"/>
+                                    X (Twitter)
+                                </label>
+                            </div>
+                            <p id="socialPlatformsMessage" class="text-sm text-gray-700 italic mt-2 min-h-[1.5rem]"></p>
+                        </div>
+                        
+                        <!-- What's Included -->
+                        <div>
+                            <h4 class="font-semibold mb-3 text-gray-800">Per Platform Includes</h4>
+                            <div class="space-y-2 text-sm text-gray-700">
+                                <div class="flex items-center">
+                                    <div class="w-2 h-2 rounded-full mr-2" style="background-color: #ec343e;"></div>
+                                    <span>6-10 posts per month</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-2 h-2 rounded-full mr-2" style="background-color: #ec343e;"></div>
+                                    <span>Hashtag research</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-2 h-2 rounded-full mr-2" style="background-color: #ec343e;"></div>
+                                    <span>Scheduled posting</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-2 h-2 rounded-full mr-2" style="background-color: #ec343e;"></div>
+                                    <span>Monthly performance report</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-200 mt-auto">
+                        <div>
+                            <div class="text-lg font-bold text-gray-800">Total: <span id="socialResult" style="color: #ec343e;">R0</span></div>
+                            <div class="text-sm text-gray-600">Monthly subscription</div>
+                        </div>
+                        <button class="px-6 py-2 font-semibold rounded-lg text-white hover:shadow-lg transition-all" style="background-color: #ec343e;" onclick="sendSocialQuote()">
+                            Get Quote
+                        </button>
+                    </div>
+                </div>
             </div>
-          </div>
 
-          <div class="mt-auto pt-4 border-t">
-            <label class="block text-sm font-medium text-black mb-1">Extra Sections</label>
-            <input
-              type="number"
-              min="0"
-              value="0"
-              class="w-full p-2 border rounded text-black mb-2"
-              oninput="calculateWebCost()"
-            />
+            <!-- Logo Services Row -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <!-- Logo & Brand Identity -->
+                <div class="card p-6 border-l-4 flex flex-col" style="border-color: #fed121;">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold" style="color: #fed121;">Logo & Brand Identity</h3>
+                            <p class="text-gray-600 text-sm">Complete brand package</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-2xl font-bold" style="color: #fed121;">R1,500</div>
+                            <div class="text-sm text-gray-600">Base price</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4 flex-grow">
+                        <div class="grid grid-cols-2 gap-4 text-sm text-gray-700 mb-4">
+                            <div class="space-y-1">
+                                <div class="flex items-center">
+                                    <div class="w-1.5 h-1.5 rounded-full mr-2" style="background-color: #fed121;"></div>
+                                    <span>4 logo concepts</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-1.5 h-1.5 rounded-full mr-2" style="background-color: #fed121;"></div>
+                                    <span>3 revision rounds</span>
+                                </div>
+                            </div>
+                            <div class="space-y-1">
+                                <div class="flex items-center">
+                                    <div class="w-1.5 h-1.5 rounded-full mr-2" style="background-color: #fed121;"></div>
+                                    <span>All file formats</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-1.5 h-1.5 rounded-full mr-2" style="background-color: #fed121;"></div>
+                                    <span>Social media versions</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Add Animation (+R500)?</label>
+                            <select id="logoAnimationSelect" class="w-full p-2 border rounded-md" onchange="calculateLogoCost()">
+                                <option value="0">No animation</option>
+                                <option value="500">Yes, add animation (+R500)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-200 mt-auto">
+                        <div>
+                            <div class="text-lg font-bold text-gray-800">Total: <span id="logoResult" style="color: #fed121;">R1,500</span></div>
+                        </div>
+                        <button class="px-6 py-2 font-semibold rounded-lg text-white hover:shadow-lg transition-all" style="background-color: #fed121;" onclick="sendLogoQuote()">
+                            Get Quote
+                        </button>
+                    </div>
+                </div>
 
-            <label class="block text-sm font-medium text-black mb-1">Additional Tabs</label>
-            <input
-              type="number"
-              min="0"
-              value="0"
-              class="w-full p-2 border rounded text-black"
-              oninput="calculateWebCost()"
-            />
+                <!-- Modernize Existing Logo -->
+                <div class="card p-6 border-l-4 flex flex-col" style="border-color: #7b3fbf;">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold" style="color: #7b3fbf;">Modernize Existing Logo</h3>
+                            <p class="text-gray-600 text-sm">Refresh your current design</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-2xl font-bold" style="color: #7b3fbf;">R750</div>
+                            <div class="text-sm text-gray-600">Fixed price</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4 flex-grow">
+                        <div class="grid grid-cols-2 gap-4 text-sm text-gray-700 mb-4">
+                            <div class="space-y-1">
+                                <div class="flex items-center">
+                                    <div class="w-1.5 h-1.5 rounded-full mr-2" style="background-color: #7b3fbf;"></div>
+                                    <span>Logo analysis</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-1.5 h-1.5 rounded-full mr-2" style="background-color: #7b3fbf;"></div>
+                                    <span>Modern updates</span>
+                                </div>
+                            </div>
+                            <div class="space-y-1">
+                                <div class="flex items-center">
+                                    <div class="w-1.5 h-1.5 rounded-full mr-2" style="background-color: #7b3fbf;"></div>
+                                    <span>Color refresh</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-1.5 h-1.5 rounded-full mr-2" style="background-color: #7b3fbf;"></div>
+                                    <span>2 revision rounds</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-xs text-gray-600 bg-red-50 p-3 rounded-md">
+                            <strong>Note:</strong> Cannot be combined with new logo creation service
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-200 mt-auto">
+                        <div>
+                            <div class="text-lg font-bold text-gray-800">Total: <span style="color: #7b3fbf;">R750</span></div>
+                        </div>
+                        <button class="px-6 py-2 font-semibold rounded-lg text-white hover:shadow-lg transition-all" style="background-color: #7b3fbf;" onclick="sendModernizeQuote()">
+                            Get Quote
+                        </button>
+                    </div>
+                </div>
+            </div>
 
-            <p class="text-sm text-black mt-2">Estimated Cost: <span id="webResult">R800</span></p>
-          </div>
+            <!-- Build Your Own Package (full width) -->
+            <div class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-l-4 border-green-600" style="border-color: #16a34a;">
+                <h3 class="text-xl font-bold mb-4" style="color: #16a34a;">Build Your Own Package</h3>
 
-          <button
-            class="mt-4 w-full py-2 font-semibold rounded text-white"
-            style="background-color: #1e9bd5;"
-            onclick="sendWebQuote()"
-            type="button"
-          >
-            Send Quote
-          </button>
+                <!-- Options stacked vertically -->
+                <div class="space-y-4">
+
+                    <!-- Website -->
+                    <div>
+                        <label class="inline-flex items-center mb-2 text-[#16a34a]">
+                            <input
+                                type="checkbox"
+                                id="customIncludeWeb"
+                                onchange="toggleCustomWebInputs(); updateCustomEmailContent()"
+                                style="accent-color: #16a34a;"
+                            />
+                            <span class="ml-2 text-black">Include Website Design & Development</span>
+                        </label>
+                        <div id="customWebInputs" style="display:none;" class="pl-6 mt-2 space-y-2">
+                            <label class="block text-sm font-medium text-black mb-1">Website Type</label>
+                            <select
+                                id="customWebsiteType"
+                                class="w-full p-2 border rounded text-black mb-2"
+                                onchange="updateCustomEmailContent()"
+                            >
+                                <option value="1500">Portfolio/Personal (R1,500)</option>
+                                <option value="1700">Portfolio/Personal + Domain (R1,700)</option>
+                                <option value="2500">Business/Corporate (R2,500)</option>
+                                <option value="2700">Business/Corporate + Domain (R2,700)</option>
+                                <option value="4000">E-commerce (R4,000)</option>
+                                <option value="4200">E-commerce + Domain (R4,200)</option>
+                            </select>
+                            <label class="block text-sm font-medium text-black mb-1">Extra Sections</label>
+                            <input
+                                type="number"
+                                id="customExtraSections"
+                                min="0"
+                                value="0"
+                                class="w-24 p-2 border rounded text-black"
+                                oninput="updateCustomEmailContent()"
+                            />
+                            <label class="block text-sm font-medium text-black mb-1">Additional Tabs</label>
+                            <input
+                                type="number"
+                                id="customTabs"
+                                min="0"
+                                value="0"
+                                class="w-24 p-2 border rounded text-black"
+                                oninput="updateCustomEmailContent()"
+                            />
+
+                        </div>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div>
+                        <label class="inline-flex items-center mb-2 text-[#16a34a]">
+                            <input
+                                type="checkbox"
+                                id="customIncludeSocial"
+                                onchange="toggleCustomSocialInputs(); updateCustomEmailContent()"
+                                style="accent-color: #16a34a;"
+                            />
+                            <span class="ml-2 text-black">Include Social Media Management</span>
+                        </label>
+                        <div
+                            id="customSocialInputs"
+                            style="display:none;"
+                            class="pl-6 space-y-1"
+                        >
+                            <label class="flex items-center text-[#16a34a]">
+                                <input
+                                    type="checkbox"
+                                    class="custom-platform-checkbox mr-2"
+                                    value="Facebook"
+                                    onchange="updateCustomEmailContent()"
+                                    style="accent-color: #16a34a;"
+                                />
+                                Facebook
+                            </label>
+                            <label class="flex items-center text-[#16a34a]">
+                                <input
+                                    type="checkbox"
+                                    class="custom-platform-checkbox mr-2"
+                                    value="Instagram"
+                                    onchange="updateCustomEmailContent()"
+                                    style="accent-color: #16a34a;"
+                                />
+                                Instagram
+                            </label>
+                            <label class="flex items-center text-[#16a34a]">
+                                <input
+                                    type="checkbox"
+                                    class="custom-platform-checkbox mr-2"
+                                    value="LinkedIn"
+                                    onchange="updateCustomEmailContent()"
+                                    style="accent-color: #16a34a;"
+                                />
+                                LinkedIn
+                            </label>
+                            <label class="flex items-center text-[#16a34a]">
+                                <input
+                                    type="checkbox"
+                                    class="custom-platform-checkbox mr-2"
+                                    value="Threads"
+                                    onchange="updateCustomEmailContent()"
+                                    style="accent-color: #16a34a;"
+                                />
+                                Threads
+                            </label>
+                            <label class="flex items-center text-[#16a34a]">
+                                <input
+                                    type="checkbox"
+                                    class="custom-platform-checkbox mr-2"
+                                    value="TikTok"
+                                    onchange="updateCustomEmailContent()"
+                                    style="accent-color: #16a34a;"
+                                />
+                                TikTok
+                            </label>
+                            <label class="flex items-center text-[#16a34a]">
+                                <input
+                                    type="checkbox"
+                                    class="custom-platform-checkbox mr-2"
+                                    value="X (Twitter)"
+                                    onchange="updateCustomEmailContent()"
+                                    style="accent-color: #16a34a;"
+                                />
+                                X (Twitter)
+                            </label>
+                            <p
+                                id="customSocialPlatformsMessage"
+                                class="text-sm text-gray-700 italic mt-1 min-h-[1.5rem]"
+                            ></p>
+                        </div>
+                    </div>
+
+                    <!-- Logo -->
+                    <div>
+                        <label class="inline-flex items-center mb-2 text-[#16a34a]">
+                            <input
+                                type="checkbox"
+                                id="customIncludeLogo"
+                                onchange="toggleCustomLogoInputs(); updateCustomEmailContent()"
+                                style="accent-color: #16a34a;"
+                            />
+                            <span class="ml-2 text-black">Include Logo & Brand Identity</span>
+                        </label>
+                        <div
+                            id="customLogoInputs"
+                            style="display:none;"
+                            class="pl-6 space-y-2">
+                            <label class="block text-sm font-medium text-black mb-1">Include animation?</label>
+                            <select
+                                id="customLogoAnim"
+                                class="w-full p-2 border rounded text-black"
+                                onchange="updateCustomEmailContent()"
+                                disabled
+                            >
+                                <option value="0">No</option>
+                                <option value="500">Yes (+R500)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-sm text-black font-semibold mt-4">
+                    Estimated Total Price: <span id="customTotal" class="font-bold" style="color: #16a34a;">R0</span></p>
+                <button
+                    class="mt-4 py-2 px-4 font-semibold rounded text-white bg-green-600"
+                    onclick="sendCustomQuote()"
+                    type="button">
+                    Send Quote</button>
+            </div>
+
+
         </div>
-
-        <!-- Social Media Management (4 cols) -->
-        <div
-          class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-l-4 flex flex-col justify-between md:col-span-4"
-          style="border-color: #ec343e;"
-        >
-          <div>
-            <div class="flex items-start justify-between mb-4">
-              <div>
-                <h3 class="text-xl font-bold mb-2" style="color: #ec343e;">Social Media Management</h3>
-                <p class="text-black text-sm">Choose your platforms (max 6)</p>
-              </div>
-              <div class="text-right">
-                <div class="text-2xl font-bold" style="color: #ec343e;">R250</div>
-                <div class="text-sm" style="color: #ec343e;">Per Platform / month</div>
-              </div>
-            </div>
-
-            <div class="space-y-2 text-black text-sm mb-4 pl-2 max-h-40 overflow-auto">
-              <label class="flex items-center text-[#ec343e]">
-                <input
-                  type="checkbox"
-                  class="platform-checkbox mr-2"
-                  value="Facebook"
-                  onchange="calculateSocialCost()"
-                  style="accent-color: #ec343e;"
-                />
-                Facebook
-              </label>
-              <label class="flex items-center text-[#ec343e]">
-                <input
-                  type="checkbox"
-                  class="platform-checkbox mr-2"
-                  value="Instagram"
-                  onchange="calculateSocialCost()"
-                  style="accent-color: #ec343e;"
-                />
-                Instagram
-              </label>
-              <label class="flex items-center text-[#ec343e]">
-                <input
-                  type="checkbox"
-                  class="platform-checkbox mr-2"
-                  value="X (Twitter)"
-                  onchange="calculateSocialCost()"
-                  style="accent-color: #ec343e;"
-                />
-                X (Twitter)
-              </label>
-              <label class="flex items-center text-[#ec343e]">
-                <input
-                  type="checkbox"
-                  class="platform-checkbox mr-2"
-                  value="TikTok"
-                  onchange="calculateSocialCost()"
-                  style="accent-color: #ec343e;"
-                />
-                TikTok
-              </label>
-              <label class="flex items-center text-[#ec343e]">
-                <input
-                  type="checkbox"
-                  class="platform-checkbox mr-2"
-                  value="LinkedIn"
-                  onchange="calculateSocialCost()"
-                  style="accent-color: #ec343e;"
-                />
-                LinkedIn
-              </label>
-              <label class="flex items-center text-[#ec343e]">
-                <input
-                  type="checkbox"
-                  class="platform-checkbox mr-2"
-                  value="Threads"
-                  onchange="calculateSocialCost()"
-                  style="accent-color: #ec343e;"
-                />
-                Threads
-              </label>
-            </div>
-          </div>
-
-          <p class="text-sm text-black font-semibold mt-2">
-            Estimated Total Price Per Month: <span id="socialResult">R0</span>
-          </p>
-          <p id="socialPlatformsMessage" class="text-sm text-gray-700 italic mt-1 min-h-[1.5rem]"></p>
-
-          <button
-            class="mt-4 w-full py-2 font-semibold rounded text-white"
-            style="background-color: #ec343e;"
-            onclick="sendSocialQuote()"
-            type="button"
-          >
-            Send Quote
-          </button>
-        </div>
-
-        <!-- Logo & Brand Identity stacked + Modernize Existing Logo stacked (4 cols) -->
-        <div class="flex flex-col space-y-4 md:col-span-4">
-          <!-- Logo & Brand Identity -->
-          <div
-            class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-l-4 flex flex-col justify-between"
-            style="border-color: #fed121;"
-          >
-            <div>
-              <div class="flex items-start justify-between mb-4">
-                <div>
-                  <h3 class="text-xl font-bold mb-2" style="color: #fed121;">Logo & Brand Identity</h3>
-                  <p class="text-black text-sm">4 initial concepts in all formats</p>
-                </div>
-                <div class="text-right">
-                  <div class="text-2xl font-bold" style="color: #fed121;">R900</div>
-                  <div class="text-sm" style="color: #fed121;">Flat Rate</div>
-                </div>
-              </div>
-              <div class="space-y-2 text-sm text-black mb-4">
-                <div class="flex items-center">
-                  <div class="w-2 h-2 rounded-full mr-3" style="background-color: #fed121;"></div>
-                  <span>All formats provided</span>
-                </div>
-                <div class="flex items-center">
-                  <div class="w-2 h-2 rounded-full mr-3" style="background-color: #fed121;"></div>
-                  <span>Animated logo costs extra</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-auto pt-4 border-t">
-              <label class="block text-sm font-medium text-black mb-1">Include animation?</label>
-              <select
-                id="logoAnimationSelect"
-                class="w-full p-2 border rounded text-black"
-                onchange="calculateLogoCost()"
-              >
-                <option value="0">No</option>
-                <option value="300">Yes (+R300)</option>
-              </select>
-              <p class="text-sm text-black mt-2">Estimated Cost: <span id="logoResult">R900</span></p>
-            </div>
-
-            <button
-              class="mt-4 w-full py-2 font-semibold rounded text-white"
-              style="background-color: #fed121;"
-              onclick="sendLogoQuote()"
-              type="button"
-            >
-              Send Quote
-            </button>
-          </div>
-
-          <!-- Modernize Existing Logo -->
-          <div
-            class="card p-4 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-l-4 flex flex-col justify-between"
-            style="border-color: #7b3fbf;"
-          >
-            <div>
-              <div class="flex items-start justify-between mb-4">
-                <div>
-                  <h3 class="text-lg font-bold mb-1" style="color: #7b3fbf;">Modernize Existing Logo</h3>
-                  <p class="text-black text-sm">Flat Rate</p>
-                </div>
-                <div class="text-right">
-                  <div class="text-xl font-bold" style="color: #7b3fbf;">R500</div>
-                </div>
-              </div>
-              <p class="text-black text-sm mb-4">
-                Cannot be selected if you want Hanu Studio to create a new logo.
-              </p>
-            </div>
-
-            <button
-              class="mt-auto w-full py-2 font-semibold rounded text-white"
-              style="background-color: #7b3fbf;"
-              onclick="sendModernizeQuote()"
-              type="button"
-            >
-              Send Quote
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Build Your Own Package (full width) -->
-      <div
-        class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-l-4 border-green-600"
-        style="border-color: #16a34a;"
-      >
-        <h3 class="text-xl font-bold mb-4" style="color: #16a34a;">Build Your Own Package</h3>
-
-        <!-- Options stacked vertically -->
-        <div class="space-y-4">
-
-          <!-- Website -->
-          <div>
-            <label class="inline-flex items-center mb-2 text-[#16a34a]">
-              <input
-                type="checkbox"
-                id="customIncludeWeb"
-                onchange="toggleCustomWebInputs(); updateCustomEmailContent()"
-                style="accent-color: #16a34a;"
-              />
-              <span class="ml-2 text-black">Include Website Design & Development</span>
-            </label>
-            <div id="customWebInputs" style="display:none;" class="pl-6 mt-2 space-y-2">
-              <label class="block text-sm font-medium text-black mb-1">Extra Sections</label>
-              <input
-                type="number"
-                id="customExtraSections"
-                min="0"
-                value="0"
-                class="w-24 p-2 border rounded text-black"
-                oninput="updateCustomEmailContent()"
-              />
-              <label class="block text-sm font-medium text-black mb-1">Additional Tabs</label>
-              <input
-                type="number"
-                id="customTabs"
-                min="0"
-                value="0"
-                class="w-24 p-2 border rounded text-black"
-                oninput="updateCustomEmailContent()"
-              />
-            </div>
-          </div>
-
-          <!-- Social Media -->
-          <div>
-            <label class="inline-flex items-center mb-2 text-[#16a34a]">
-              <input
-                type="checkbox"
-                id="customIncludeSocial"
-                onchange="toggleCustomSocialInputs(); updateCustomEmailContent()"
-                style="accent-color: #16a34a;"
-              />
-              <span class="ml-2 text-black">Include Social Media Management</span>
-            </label>
-            <div
-              id="customSocialInputs"
-              style="display:none;"
-              class="pl-6 max-h-40 overflow-auto space-y-1"
-            >
-              <label class="flex items-center text-[#16a34a]">
-                <input
-                  type="checkbox"
-                  class="custom-platform-checkbox mr-2"
-                  value="Facebook"
-                  onchange="updateCustomEmailContent()"
-                  style="accent-color: #16a34a;"
-                />
-                Facebook
-              </label>
-              <label class="flex items-center text-[#16a34a]">
-                <input
-                  type="checkbox"
-                  class="custom-platform-checkbox mr-2"
-                  value="Instagram"
-                  onchange="updateCustomEmailContent()"
-                  style="accent-color: #16a34a;"
-                />
-                Instagram
-              </label>
-              <label class="flex items-center text-[#16a34a]">
-                <input
-                  type="checkbox"
-                  class="custom-platform-checkbox mr-2"
-                  value="X (Twitter)"
-                  onchange="updateCustomEmailContent()"
-                  style="accent-color: #16a34a;"
-                />
-                X (Twitter)
-              </label>
-              <label class="flex items-center text-[#16a34a]">
-                <input
-                  type="checkbox"
-                  class="custom-platform-checkbox mr-2"
-                  value="TikTok"
-                  onchange="updateCustomEmailContent()"
-                  style="accent-color: #16a34a;"
-                />
-                TikTok
-              </label>
-              <label class="flex items-center text-[#16a34a]">
-                <input
-                  type="checkbox"
-                  class="custom-platform-checkbox mr-2"
-                  value="LinkedIn"
-                  onchange="updateCustomEmailContent()"
-                  style="accent-color: #16a34a;"
-                />
-                LinkedIn
-              </label>
-              <label class="flex items-center text-[#16a34a]">
-                <input
-                  type="checkbox"
-                  class="custom-platform-checkbox mr-2"
-                  value="Threads"
-                  onchange="updateCustomEmailContent()"
-                  style="accent-color: #16a34a;"
-                />
-                Threads
-              </label>
-              <p
-                id="customSocialPlatformsMessage"
-                class="text-sm text-gray-700 italic mt-1 min-h-[1.5rem]"
-              ></p>
-            </div>
-          </div>
-
-          <!-- Logo -->
-          <div>
-            <label class="inline-flex items-center mb-2 text-[#16a34a]">
-              <input
-                type="checkbox"
-                id="customIncludeLogo"
-                onchange="toggleCustomLogoInputs(); updateCustomEmailContent()"
-                style="accent-color: #16a34a;"
-              />
-              <span class="ml-2 text-black">Include Logo & Brand Identity</span>
-            </label>
-            <div
-              id="customLogoInputs"
-              style="display:none;"
-              class="pl-6 space-y-2"
-            >
-              <label class="block text-sm font-medium text-black mb-1">Include animation?</label>
-              <select
-                id="customLogoAnim"
-                class="w-full p-2 border rounded text-black"
-                onchange="updateCustomEmailContent()"
-                disabled
-              >
-                <option value="0">No</option>
-                <option value="300">Yes (+R300)</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <p class="text-sm text-black font-semibold mt-4">
-          Estimated Total Price: <span id="customTotal">R0</span>
-        </p>
-
-        <button
-          class="mt-4 py-2 px-4 font-semibold rounded text-white bg-green-600"
-          onclick="sendCustomQuote()"
-          type="button"
-        >
-          Send Quote
-        </button>
-      </div>
     </div>
-  </div>
 </section>
 
+<!-- Required CSS (add to your existing stylesheet) -->
+<style>
+    .card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card:hover {
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    /* Smooth animations */
+    * {
+        transition: all 0.3s ease;
+    }
+    
+    /* Input focus styles */
+    input:focus {
+        outline: none;
+        border-color: #1e9bd5;
+        box-shadow: 0 0 0 3px rgba(30, 155, 213, 0.1);
+    }
+    
+    /* Button hover effect */
+    button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 15px rgba(30, 155, 213, 0.3);
+    }
+</style>
+
+<!-- Required JavaScript (add to your existing JS file or before closing body tag) -->
 <script>
-  // Website cost calculator
-  function calculateWebCost() {
-    const inputs = document.querySelectorAll(
-      '.card input[type="number"][oninput="calculateWebCost()"]'
-    );
-    const sections = Math.max(0, parseInt(inputs[0].value) || 0);
-    const tabs = Math.max(0, parseInt(inputs[1].value) || 0);
-    const total = 800 + sections * 300 + tabs * 400;
-    document.getElementById("webResult").innerText = `R${total}`;
-  }
+    // Website cost calculator
+    function calculateWebCost() {
+        const websiteType = parseInt(document.getElementById("websiteType").value) || 1500;
+        const sections = Math.max(0, parseInt(document.getElementById("extraSections").value) || 0);
+        const tabs = Math.max(0, parseInt(document.getElementById("additionalTabs").value) || 0);
+        const total = websiteType + sections * 500 + tabs * 750;
+        document.getElementById("webResult").innerText = `R${total.toLocaleString()}`;
+        document.getElementById("webBasePrice").innerText = `R${websiteType.toLocaleString()}`;
+    }
 
-  // Social Media cost calculator
-  function calculateSocialCost() {
-    const checkboxes = document.querySelectorAll(".platform-checkbox");
-    let count = 0;
-    let selected = [];
-    checkboxes.forEach((cb) => {
-      if (cb.checked) {
-        count++;
-        selected.push(cb.value);
-      }
+    // Social Media cost calculator
+    function calculateSocialCost() {
+        const checkboxes = document.querySelectorAll(".platform-checkbox");
+        let count = 0;
+        let selected = [];
+        checkboxes.forEach((cb) => {
+            if (cb.checked) {
+                count++;
+                selected.push(cb.value);
+            }
+        });
+        const total = count * 400;
+        document.getElementById("socialResult").innerText = `R${total.toLocaleString()}`;
+        
+        const messageElement = document.getElementById("socialPlatformsMessage");
+        if (messageElement) {
+            const message = count > 0 ? `You have selected platform${count > 1 ? "s" : ""}: ${selected.join(", ")}.` : "";
+            messageElement.innerText = message;
+        }
+    }
+
+    // Email sending functions
+    function sendWebQuote() {
+        const websiteType = parseInt(document.getElementById("websiteType").value) || 1500;
+        const websiteTypeText = document.getElementById("websiteType").selectedOptions[0].text;
+        const sections = Math.max(0, parseInt(document.getElementById("extraSections").value) || 0);
+        const tabs = Math.max(0, parseInt(document.getElementById("additionalTabs").value) || 0);
+        const total = websiteType + sections * 500 + tabs * 750;
+        const includesDomain = websiteTypeText.includes("+ Domain");
+
+        const subject = "Website Design & Development Quote Request";
+        const body = `Hi Hanu Studios,
+
+I need a website designed. Here's what I'm looking for:
+
+• Website Type: ${websiteTypeText.replace(/\(.*?\)/g, '').trim()}
+• Extra sections: ${sections === 0 ? 'None' : sections}
+• Additional tabs: ${tabs === 0 ? 'None' : tabs}
+• Domain: ${includesDomain ? 'Yes, please register one' : 'No, I will handle it'}
+
+Estimated cost: R${total.toLocaleString()}
+
+Thanks!`;
+
+        window.open(`mailto:hanu@hanu.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+    }
+
+    function sendSocialQuote() {
+        const checkboxes = document.querySelectorAll(".platform-checkbox");
+        let selected = [];
+        checkboxes.forEach((cb) => {
+            if (cb.checked) selected.push(cb.value);
+        });
+        const count = selected.length;
+        const total = count * 400;
+
+        const subject = "Social Media Management Quote Request";
+        const body = `Hi Hanu Studios,
+
+I need social media management for:
+${selected.length > 0 ? selected.map(platform => `• ${platform}`).join('\n') : '• Please advise on best platforms'}
+
+Monthly cost: R${total.toLocaleString()}
+
+Thanks!`;
+
+        window.open(`mailto:hanu@hanu.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+    }
+
+    // Logo & Brand Identity cost calculator
+    function calculateLogoCost() {
+        const select = document.getElementById("logoAnimationSelect");
+        const base = 1500;
+        const add = parseInt(select.value);
+        const total = base + add;
+        document.getElementById("logoResult").innerText = `R${total.toLocaleString()}`;
+    }
+
+    function sendLogoQuote() {
+        const animSelect = document.getElementById("logoAnimationSelect");
+        const animCost = parseInt(animSelect.value);
+        const total = 1500 + animCost;
+
+        const subject = "Logo & Brand Identity Design Quote Request";
+        const body = `Hi Hanu Studios,
+
+I need a logo and brand identity package.
+
+• Animation: ${animCost > 0 ? "Yes, include animation" : "No animation needed"}
+
+Total cost: R${total.toLocaleString()}
+
+Thanks!`;
+
+        window.open(`mailto:hanu@hanu.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+    }
+
+    function sendModernizeQuote() {
+        const subject = "Logo Modernization Service Quote Request";
+        const body = `Hi Hanu Studios,
+
+I need my existing logo modernized and refreshed.
+
+Cost: R750
+
+Thanks!`;
+
+        window.open(`mailto:hanu@hanu.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+    }
+
+    // Toggle Build Your Own inputs
+    function toggleCustomWebInputs() {
+        const checkbox = document.getElementById("customIncludeWeb");
+        document.getElementById("customWebInputs").style.display = checkbox.checked ? "block" : "none";
+    }
+    function toggleCustomSocialInputs() {
+        const checkbox = document.getElementById("customIncludeSocial");
+        document.getElementById("customSocialInputs").style.display = checkbox.checked ? "block" : "none";
+    }
+    function toggleCustomLogoInputs() {
+        const checkbox = document.getElementById("customIncludeLogo");
+        const logoAnim = document.getElementById("customLogoAnim");
+        logoAnim.disabled = !checkbox.checked;
+        document.getElementById("customLogoInputs").style.display = checkbox.checked ? "block" : "none";
+    }
+
+    // Update custom package price and message
+    function updateCustomEmailContent() {
+        let total = 0;
+
+        // Website
+        const includeWeb = document.getElementById("customIncludeWeb");
+        if (includeWeb && includeWeb.checked) {
+            const websiteType = parseInt(document.getElementById("customWebsiteType").value) || 1500;
+            const extraSections = parseInt(document.getElementById("customExtraSections").value) || 0;
+            const tabs = parseInt(document.getElementById("customTabs").value) || 0;
+            const webCost = websiteType + extraSections * 500 + tabs * 750;
+            total += webCost;
+        }
+
+        // Social Media
+        const includeSocial = document.getElementById("customIncludeSocial");
+        if (includeSocial && includeSocial.checked) {
+            const platforms = [...document.querySelectorAll(".custom-platform-checkbox:checked")].map(cb => cb.value);
+            const count = platforms.length;
+            const socialCost = count * 400;
+            total += socialCost;
+            
+            const messageElement = document.getElementById("customSocialPlatformsMessage");
+            if (messageElement) {
+                messageElement.innerText = count > 0 ? `You have selected platform${count !== 1 ? 's' : ''}: ${platforms.join(", ")}.` : "";
+            }
+        } else {
+            const messageElement = document.getElementById("customSocialPlatformsMessage");
+            if (messageElement) {
+                messageElement.innerText = "";
+            }
+        }
+
+        // Logo
+        const includeLogo = document.getElementById("customIncludeLogo");
+        if (includeLogo && includeLogo.checked) {
+            const animCost = parseInt(document.getElementById("customLogoAnim").value) || 0;
+            const logoCost = 1500 + animCost;
+            total += logoCost;
+        }
+
+        const totalElement = document.getElementById("customTotal");
+        if (totalElement) {
+            totalElement.innerText = `R${total.toLocaleString()}`;
+        }
+    }
+
+    function sendCustomQuote() {
+        const includeWeb = document.getElementById('customIncludeWeb').checked;
+        const includeSocial = document.getElementById('customIncludeSocial').checked;
+        const includeLogo = document.getElementById('customIncludeLogo').checked;
+
+        if (!includeWeb && !includeSocial && !includeLogo) {
+            alert('Please select at least one service to get a quote.');
+            return;
+        }
+
+        let total = 0;
+        let bodyLines = ["Hi Hanu Studios,", "", "I need a custom package with:"];
+
+        // Website
+        if (includeWeb) {
+            const websiteType = parseInt(document.getElementById("customWebsiteType").value) || 1500;
+            const websiteTypeText = document.getElementById("customWebsiteType").selectedOptions[0].text.replace(/\(.*?\)/g, '').trim();
+            const extraSections = parseInt(document.getElementById("customExtraSections").value) || 0;
+            const tabs = parseInt(document.getElementById("customTabs").value) || 0;
+            const webCost = websiteType + extraSections * 500 + tabs * 750;
+            const includesDomain = websiteTypeText.includes("+ Domain");
+            total += webCost;
+            bodyLines.push("", `• Website: ${websiteTypeText}`);
+            if (extraSections > 0) bodyLines.push(`  - Extra sections: ${extraSections}`);
+            if (tabs > 0) bodyLines.push(`  - Additional tabs: ${tabs}`);
+            bodyLines.push(`  - Cost: R${webCost.toLocaleString()}`);
+        }
+
+        // Social Media
+        if (includeSocial) {
+            const platforms = [...document.querySelectorAll(".custom-platform-checkbox:checked")].map(cb => cb.value);
+            const count = platforms.length;
+            const socialCost = count * 400;
+            total += socialCost;
+            bodyLines.push("", `• Social Media: ${platforms.length > 0 ? platforms.join(", ") : "Please advise platforms"}`);
+            bodyLines.push(`  - Monthly cost: R${socialCost.toLocaleString()}`);
+        }
+
+        // Logo
+        if (includeLogo) {
+            const animCost = parseInt(document.getElementById("customLogoAnim").value) || 0;
+            const logoCost = 1500 + animCost;
+            total += logoCost;
+            bodyLines.push("", `• Logo & Brand Identity${animCost > 0 ? ' with animation' : ''}`);
+            bodyLines.push(`  - Cost: R${logoCost.toLocaleString()}`);
+        }
+
+        bodyLines.push("", `Total: R${total.toLocaleString()}`);
+        bodyLines.push("", "Thanks!");
+
+        const subject = "Custom Service Package Quote Request";
+        const body = bodyLines.join("\n");
+
+        window.open(`mailto:hanu@hanu.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+    }
+
+    // Initialize calculations when the section loads
+    document.addEventListener('DOMContentLoaded', function() {
+        // Small delay to ensure all elements are rendered
+        setTimeout(function() {
+            calculateWebCost();
+            calculateSocialCost();
+            calculateLogoCost();
+            updateCustomEmailContent();
+        }, 100);
     });
-    const total = count * 250;
-    document.getElementById("socialResult").innerText = `R${total}`;
-    const message = count > 0 ? `You have selected platform${count > 1 ? "s" : ""}: ${selected.join(", ")}.` : "";
-    document.getElementById("socialPlatformsMessage").innerText = message;
-  }
-
-  // Logo & Brand Identity cost calculator
-  function calculateLogoCost() {
-    const select = document.getElementById("logoAnimationSelect");
-    const base = 900;
-    const add = parseInt(select.value);
-    const total = base + add;
-    document.getElementById("logoResult").innerText = `R${total}`;
-  }
-
-  // Toggle Build Your Own inputs
-  function toggleCustomWebInputs() {
-    const checkbox = document.getElementById("customIncludeWeb");
-    document.getElementById("customWebInputs").style.display = checkbox.checked ? "block" : "none";
-  }
-  function toggleCustomSocialInputs() {
-    const checkbox = document.getElementById("customIncludeSocial");
-    document.getElementById("customSocialInputs").style.display = checkbox.checked ? "block" : "none";
-  }
-  function toggleCustomLogoInputs() {
-    const checkbox = document.getElementById("customIncludeLogo");
-    const logoAnim = document.getElementById("customLogoAnim");
-    logoAnim.disabled = !checkbox.checked;
-    document.getElementById("customLogoInputs").style.display = checkbox.checked ? "block" : "none";
-  }
-
-  // Update custom package price and message
-  function updateCustomEmailContent() {
-    let total = 0;
-    let details = [];
-
-    // Website
-    const includeWeb = document.getElementById("customIncludeWeb").checked;
-    if (includeWeb) {
-      const extraSections = parseInt(document.getElementById("customExtraSections").value) || 0;
-      const tabs = parseInt(document.getElementById("customTabs").value) || 0;
-      const webCost = 800 + extraSections * 300 + tabs * 400;
-      total += webCost;
-      details.push(`Website Design & Development (R${webCost})`);
-    }
-
-    // Social Media
-    const includeSocial = document.getElementById("customIncludeSocial").checked;
-    if (includeSocial) {
-      const platforms = [...document.querySelectorAll(".custom-platform-checkbox:checked")].map(cb => cb.value);
-      const count = platforms.length;
-      const socialCost = count * 250;
-      total += socialCost;
-      details.push(`Social Media Management for platform${count !== 1 ? 's' : ''}: ${platforms.join(", ")}`);
-      document.getElementById("customSocialPlatformsMessage").innerText = count > 0 ? `You have selected platform${count !== 1 ? 's' : ''}: ${platforms.join(", ")}.` : "";
-    } else {
-      document.getElementById("customSocialPlatformsMessage").innerText = "";
-    }
-
-    // Logo
-    const includeLogo = document.getElementById("customIncludeLogo").checked;
-    if (includeLogo) {
-      const animCost = parseInt(document.getElementById("customLogoAnim").value) || 0;
-      const logoCost = 900 + animCost;
-      total += logoCost;
-      details.push(`Logo & Brand Identity${animCost > 0 ? ' with animation' : ''} (R${logoCost})`);
-    }
-
-    document.getElementById("customTotal").innerText = `R${total}`;
-  }
-
-  // Email sending functions
-  function sendWebQuote() {
-    const inputs = document.querySelectorAll(
-      '.card input[type="number"][oninput="calculateWebCost()"]'
-    );
-    const sections = Math.max(0, parseInt(inputs[0].value) || 0);
-    const tabs = Math.max(0, parseInt(inputs[1].value) || 0);
-    const total = 800 + sections * 300 + tabs * 400;
-
-    const subject = encodeURIComponent("Website Design Quote Request - Hanu Studio");
-    const body = encodeURIComponent(`Hey Hanu Studios,
-
-I would like a quote for Website Design & Development.
-
-Details:
-- Base 3 sections included
-- Extra Sections: ${sections}
-- Additional Tabs: ${tabs}
-
-Estimated Cost: R${total}
-
-Please get back to me with more info.
-
-Thanks!`);
-
-    window.location.href = `mailto:hanu@hanu.co.za?subject=${subject}&body=${body}`;
-  }
-
-  function sendSocialQuote() {
-    const checkboxes = document.querySelectorAll(".platform-checkbox");
-    let selected = [];
-    checkboxes.forEach((cb) => {
-      if (cb.checked) selected.push(cb.value);
-    });
-    const count = selected.length;
-    const total = count * 250;
-
-    const subject = encodeURIComponent("Social Media Management Quote Request - Hanu Studio");
-    const body = encodeURIComponent(`Hey Hanu Studios,
-
-I would like a quote for Social Media Management.
-
-Selected Platforms: ${selected.join(", ") || "None"}
-
-Estimated Monthly Cost: R${total}
-
-Please get back to me with more info.
-
-Thanks!`);
-
-    window.location.href = `mailto:hanu@hanu.co.za?subject=${subject}&body=${body}`;
-  }
-
-  function sendLogoQuote() {
-    const animSelect = document.getElementById("logoAnimationSelect");
-    const animCost = parseInt(animSelect.value);
-    const total = 900 + animCost;
-
-    const subject = encodeURIComponent("Logo & Brand Identity Quote Request - Hanu Studio");
-    const body = encodeURIComponent(`Hey Hanu Studios,
-
-I would like a quote for Logo & Brand Identity.
-
-Include animation: ${animCost > 0 ? "Yes" : "No"}
-
-Estimated Cost: R${total}
-
-Please get back to me with more info.
-
-Thanks!`);
-
-    window.location.href = `mailto:hanu@hanu.co.za?subject=${subject}&body=${body}`;
-  }
-
-  function sendModernizeQuote() {
-    const subject = encodeURIComponent("Modernize Existing Logo Quote Request - Hanu Studio");
-    const body = encodeURIComponent(`Hey Hanu Studios,
-
-I would like a quote for Modernize Existing Logo.
-
-Estimated Cost: R500
-
-Please get back to me with more info.
-
-Thanks!`);
-
-    window.location.href = `mailto:hanu@hanu.co.za?subject=${subject}&body=${body}`;
-  }
-
-  function sendCustomQuote() {
-    let total = 0;
-    let bodyLines = ["Hey Hanu Studios,", "", "I would like a custom package quote with the following options:"];
-
-    // Website
-    const includeWeb = document.getElementById("customIncludeWeb").checked;
-    if (includeWeb) {
-      const extraSections = parseInt(document.getElementById("customExtraSections").value) || 0;
-      const tabs = parseInt(document.getElementById("customTabs").value) || 0;
-      const webCost = 800 + extraSections * 300 + tabs * 400;
-      total += webCost;
-      bodyLines.push(`- Website Design & Development: Base 3 sections + ${extraSections} extra sections + ${tabs} tabs = R${webCost}`);
-    }
-
-    // Social Media
-    const includeSocial = document.getElementById("customIncludeSocial").checked;
-    if (includeSocial) {
-      const platforms = [...document.querySelectorAll(".custom-platform-checkbox:checked")].map(cb => cb.value);
-      const count = platforms.length;
-      const socialCost = count * 250;
-      total += socialCost;
-      bodyLines.push(`- Social Media Management: Platforms (${platforms.join(", ") || "None"}) = R${socialCost} per month`);
-    }
-
-    // Logo
-    const includeLogo = document.getElementById("customIncludeLogo").checked;
-    if (includeLogo) {
-      const animCost = parseInt(document.getElementById("customLogoAnim").value) || 0;
-      const logoCost = 900 + animCost;
-      total += logoCost;
-      bodyLines.push(`- Logo & Brand Identity${animCost > 0 ? ' with animation' : ''} = R${logoCost}`);
-    }
-
-    bodyLines.push("", `Estimated Total Price: R${total}`, "", "Please get back to me with more info.", "Thanks!");
-
-    const subject = encodeURIComponent("Custom Package Quote Request - Hanu Studio");
-    const body = encodeURIComponent(bodyLines.join("\n"));
-
-    window.location.href = `mailto:hanu@hanu.co.za?subject=${subject}&body=${body}`;
-  }
-
-  // Init calculations
-  calculateWebCost();
-  calculateSocialCost();
-  calculateLogoCost();
-  updateCustomEmailContent();
 </script>
 
 <!-- Contact Section -->
