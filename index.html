@@ -747,10 +747,10 @@ label {
     border-radius: 16px !important;
   }
   
-#portfolio .card {
-  padding: 1rem;
-  margin: 1rem 0;
-}
+  #portfolio .card {
+    padding: 1rem;
+    margin: 1rem 0;
+  }
   
   #portfolio .card:hover {
     transform: none !important;
@@ -2640,10 +2640,7 @@ Thanks!`);
     </button>
 
     <!-- Scrollable Content -->
-    <div
-      class="overflow-y-auto pr-4 no-scrollbar"
-      style="max-height: 80vh;"
-    >
+    <div class="overflow-y-auto pr-4 no-scrollbar" style="max-height: 80vh;">
       <h2 class="mb-6 text-2xl font-semibold">Terms & Conditions - Hanu Studio</h2>
       <div class="space-y-5 text-sm leading-relaxed">
         <p><strong>Effective Date:</strong> July 28, 2025</p>
@@ -2737,19 +2734,15 @@ Thanks!`);
   </div>
 </div>
 
-<!-- Hide scrollbar but keep scroll -->
+<!-- Hide scrollbar and remove underlines -->
 <style>
-  /* Hide scrollbar for Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
-  /* Hide scrollbar for IE, Edge and Firefox */
   .no-scrollbar {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;     /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
-
-  /* Remove underline globally */
   a, button {
     text-decoration: none !important;
   }
@@ -3448,6 +3441,34 @@ function toggleEcommerceTheme(button) {
           }
         });
       });
+    }
+  });
+</script>
+
+<script>
+  const openModalBtn = document.getElementById('openModal');
+  const closeModalBtn = document.getElementById('closeModal');
+  const modal = document.getElementById('termsModal');
+
+  openModalBtn.addEventListener('click', () => {
+    modal.classList.remove('hidden');
+  });
+
+  closeModalBtn.addEventListener('click', () => {
+    modal.classList.add('hidden');
+  });
+
+  // Optional: click outside modal to close
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.add('hidden');
+    }
+  });
+
+  // Optional: press ESC to close
+  window.addEventListener('keydown', (e) => {
+    if (e.key === "Escape") {
+      modal.classList.add('hidden');
     }
   });
 </script>
