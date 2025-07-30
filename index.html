@@ -1995,8 +1995,6 @@ HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO |
                                 <option value="1700">Portfolio/Personal + Domain (R1,700)</option>
                                 <option value="2500">Business/Corporate (R2,500)</option>
                                 <option value="2700">Business/Corporate + Domain (R2,700)</option>
-                                <option value="4000">E-commerce (R4,000)</option>
-                                <option value="4200">E-commerce + Domain (R4,200)</option>
                             </select>
                             <label class="block text-sm font-medium text-black mb-1">Extra Sections</label>
                             <input
@@ -2176,7 +2174,6 @@ HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO |
     }
 </style>
 
-<!-- Required JavaScript (add to your existing JS file or before closing body tag) -->
 <script>
     // Website cost calculator
     function calculateWebCost() {
@@ -2219,7 +2216,7 @@ HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO |
         const includesDomain = websiteTypeText.includes("+ Domain");
 
         const subject = "Website Design & Development Quote Request";
-        const body = `Hi Hanu Studios,
+        const body = `Hey Hanu Studios,
 
 I need a website designed. Here's what I'm looking for:
 
@@ -2245,7 +2242,7 @@ Thanks!`;
         const total = count * 400;
 
         const subject = "Social Media Management Quote Request";
-        const body = `Hi Hanu Studios,
+        const body = `Hey Hanu Studios,
 
 I need social media management for:
 ${selected.length > 0 ? selected.map(platform => `• ${platform}`).join('\n') : '• Please advise on best platforms'}
@@ -2272,7 +2269,7 @@ Thanks!`;
         const total = 1500 + animCost;
 
         const subject = "Logo & Brand Identity Design Quote Request";
-        const body = `Hi Hanu Studios,
+        const body = `Hey Hanu Studios,
 
 I need a logo and brand identity package.
 
@@ -2287,7 +2284,7 @@ Thanks!`;
 
     function sendModernizeQuote() {
         const subject = "Logo Modernization Service Quote Request";
-        const body = `Hi Hanu Studios,
+        const body = `Hey Hanu Studios,
 
 I need my existing logo modernized and refreshed.
 
@@ -2372,7 +2369,7 @@ Thanks!`;
         }
 
         let total = 0;
-        let bodyLines = ["Hi Hanu Studios,", "", "I need a custom package with:"];
+        let bodyLines = ["Hey Hanu Studios,", "", "I need a custom package with:"];
 
         // Website
         if (includeWeb) {
@@ -2854,7 +2851,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Create mailto link
         const subject = encodeURIComponent('Project Status Request - ' + projectReference);
-        const body = encodeURIComponent(`Hi Hanu,
+        const body = encodeURIComponent(`Hey Hanu Studios,
 
 I would like to request an update on my project status.
 
@@ -2983,7 +2980,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Create mailto link
         const subject = encodeURIComponent('New Service Request: ' + service);
-        const body = encodeURIComponent(`Hi Hanu,
+        const body = encodeURIComponent(`Hey Hanu Studios,
 
 I'm interested in your ${service} service.
 
@@ -3052,7 +3049,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Create mailto link
         const mailtoSubject = encodeURIComponent(subject);
-        const body = encodeURIComponent(`Hi Hanu,
+        const body = encodeURIComponent(`Hey Hanu Studios,
 
 ${message}
 
