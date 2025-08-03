@@ -953,15 +953,51 @@ body.light-theme .marquee-content {
 <header class="fixed top-0 left-0 right-0 z-50 text-black shadow-lg backdrop-blur-md border-b border-white/20 bg-white/10">
   <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20 sm:h-22 lg:h-24">
     <img src="Company Logo (Spaced).png" alt="Hanu Studio Logo" class="h-10 sm:h-12 md:h-14 w-auto" loading="eager" decoding="async">
-    
+
     <!-- Desktop Navigation -->
-    <nav class="hidden md:flex items-center space-x-6 ml-auto">
-      <a href="#home" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Home</a>
-      <a href="#about" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">About Us</a>
-      <a href="#services" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Our Services</a>
-      <a href="#portfolio" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Portfolio</a>
-      <a href="#pricing" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Packages</a>
-      <a href="#contact" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Contact Us</a>
+    <nav class="hidden md:flex items-center space-x-6 ml-auto relative">
+      <a href="#home" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-105"
+         style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'"
+         onmouseout="this.style.color='#127bb0'">Home</a>
+      <a href="#about" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-105"
+         style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'"
+         onmouseout="this.style.color='#127bb0'">About Us</a>
+
+      <!-- Solutions Dropdown -->
+      <div class="relative">
+        <a href="#solutions" id="solutionsToggle"
+           class="flex items-center font-medium text-sm lg:text-base transition-all duration-300 hover:scale-105"
+           style="color: #127bb0; outline: none; background: none; border: none; padding: 0;"
+           onmouseover="this.style.color='#1e9bd5'"
+           onmouseout="this.style.color='#127bb0'">
+          Solutions
+          <svg id="solutionsArrow" class="w-4 h-4 ml-1 transition-transform duration-300 transform"
+               fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </a>
+
+        <div id="solutionsDropdown"
+             class="hidden absolute top-full mt-2 flex flex-col bg-white/90 text-black shadow-xl rounded-xl py-2 w-48 z-50 backdrop-blur-md"
+             role="menu" aria-label="Solutions submenu">
+          <a href="#web-design" class="px-4 py-2 font-medium text-sm lg:text-base transition-all duration-300 hover:scale-105"
+             style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'"
+             onclick="closeDropdown()" role="menuitem">Web Design</a>
+          <a href="#social-media" class="px-4 py-2 font-medium text-sm lg:text-base transition-all duration-300 hover:scale-105"
+             style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'"
+             onclick="closeDropdown()" role="menuitem">Social Media</a>
+          <a href="#logos" class="px-4 py-2 font-medium text-sm lg:text-base transition-all duration-300 hover:scale-105"
+             style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'"
+             onclick="closeDropdown()" role="menuitem">Logo's</a>
+          <a href="#custom" class="px-4 py-2 font-medium text-sm lg:text-base transition-all duration-300 hover:scale-105"
+             style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'"
+             onclick="closeDropdown()" role="menuitem">Custom</a>
+        </div>
+      </div>
+
+      <a href="#contact" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-105"
+         style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'"
+         onmouseout="this.style.color='#127bb0'">Contact Us</a>
     </nav>
 
     <!-- Mobile Menu Button -->
@@ -978,15 +1014,56 @@ body.light-theme .marquee-content {
   <!-- Mobile Navigation -->
   <div id="mobileMenu" class="md:hidden border-t border-white/20 shadow-lg transform translate-y-0 opacity-0 scale-y-0 origin-top transition-all duration-300 ease-in-out overflow-hidden max-h-0 backdrop-blur-md bg-white/10">
     <div class="px-4 py-4 flex flex-col items-center space-y-1">
-      <a href="#home" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">Home</a>
-      <a href="#about" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">About Us</a>
-      <a href="#services" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">Our Services</a>
-      <a href="#portfolio" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">Portfolio</a>
-      <a href="#pricing" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">Packages</a>
-      <a href="#contact" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">Contact Us</a>
+      <a href="#home" class="py-2 px-6 hover:bg-white/20 font-medium text-lg rounded-xl w-full text-center" style="color: #127bb0;">Home</a>
+      <a href="#about" class="py-2 px-6 hover:bg-white/20 font-medium text-lg rounded-xl w-full text-center" style="color: #127bb0;">About Us</a>
+
+      <!-- Mobile Dropdown -->
+      <details class="w-full max-w-sm">
+        <summary class="py-2 px-6 font-medium text-lg rounded-xl cursor-pointer list-none text-center" style="color: #127bb0;">Solutions</summary>
+        <div class="flex flex-col items-center mt-1">
+          <a href="#web-design" class="py-2 px-6 hover:bg-white/20 transition-all w-full text-center font-medium" style="color: #127bb0;">Web Design</a>
+          <a href="#social-media" class="py-2 px-6 hover:bg-white/20 transition-all w-full text-center font-medium" style="color: #127bb0;">Social Media</a>
+          <a href="#logos" class="py-2 px-6 hover:bg-white/20 transition-all w-full text-center font-medium" style="color: #127bb0;">Logo's</a>
+          <a href="#custom" class="py-2 px-6 hover:bg-white/20 transition-all w-full text-center font-medium" style="color: #127bb0;">Custom</a>
+        </div>
+      </details>
+
+      <a href="#contact" class="py-2 px-6 hover:bg-white/20 font-medium text-lg rounded-xl w-full text-center" style="color: #127bb0;">Contact Us</a>
     </div>
   </div>
 </header>
+
+<!-- Dropdown Toggle Script -->
+<script>
+  const toggleBtn = document.getElementById('solutionsToggle');
+  const dropdown = document.getElementById('solutionsDropdown');
+  const arrow = document.getElementById('solutionsArrow');
+
+  toggleBtn.addEventListener('click', (e) => {
+    if (e.target.closest('#solutionsArrow')) {
+      e.preventDefault();
+      dropdown.classList.toggle('hidden');
+      arrow.classList.toggle('rotate-180');
+
+      const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+      toggleBtn.setAttribute('aria-expanded', String(!expanded));
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!toggleBtn.contains(e.target) && !dropdown.contains(e.target)) {
+      dropdown.classList.add('hidden');
+      arrow.classList.remove('rotate-180');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  function closeDropdown() {
+    dropdown.classList.add('hidden');
+    arrow.classList.remove('rotate-180');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+  }
+</script>
 
 <!-- Paint Splashes Background -->
 <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
@@ -1161,1261 +1238,1044 @@ HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO |
 </div>
 </section>
 
+
 <!-- About Us Section -->
 <section id="about" class="py-8 sm:py-12">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    
-    <div class="text-center mb-4 sm:mb-6">
-      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 lg:mb-4 px-4" style="color: black;">
-        We Don't Just Build Websites, We Build Empires
-      </h2>
-      <p class="text-black text-base sm:text-lg max-w-3xl mx-auto px-4">
-        Ready to dominate your industry? We're the digital rebels who turn ordinary brands into legendary experiences that your competition will envy.
-      </p>
-    </div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-    <!-- 4 Cards in 2x2 Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
-
-      <!-- Card 1: Our Story -->
-      <div class="card p-6 sm:p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer h-full flex flex-col" id="storyCard">
-        <div class="flex items-start mb-4">
-          <div class="w-12 h-12 mr-4 flex-shrink-0">
-            <img src="Company Logo (HS).png" alt="Hanu Studio" class="w-full h-full object-contain" loading="lazy" decoding="async">
-          </div>
-          <h3 class="text-xl font-bold" style="color: #1e9bd5;">Our Story</h3>
-        </div>
-        <div class="flex-grow">
-          <p class="text-black leading-relaxed mb-4">
-            Born from a passion for digital rebellion, Hanu Studio is a one-person company on a mission to shake up the boring world of web design and create legendary digital experiences that make your competition jealous.
-          </p>
-        </div>
-        <div class="mt-4 pt-4 border-t-2 border-gray-300 flex items-center justify-between">
-          <span class="text-sm font-medium" style="color: #1e9bd5;">Est. 2025 • South Africa</span>
-          <span class="text-sm font-medium text-black">Read more</span>
-        </div>
-      </div>
-
-      <!-- Card 2: Our Mission -->
-      <div class="card p-6 sm:p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
-        <div class="flex items-start mb-4">
-          <div class="w-12 h-12 rounded-xl flex items-center justify-center mr-4 shadow-lg flex-shrink-0" style="background: linear-gradient(to bottom right, #ec343e, #ff6f76);">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold" style="color: #ed343f;">Our Mission</h3>
-        </div>
-        <div class="flex-grow">
-          <p class="text-black leading-relaxed">
-            To transform ordinary businesses into digital legends. We're here to make your competition jealous and your customers obsessed with your brand through killer design and unstoppable digital presence.
-          </p>
-        </div>
-        <div class="mt-4 pt-4 border-t-2 border-gray-300">
-          <span class="text-sm font-medium" style="color: #ed343f;">Making Brands Legendary</span>
-        </div>
-      </div>
-
-      <!-- Card 3: Team -->
-      <div class="card p-6 sm:p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
-        <div class="flex items-center mb-4">
-          <div class="w-12 h-12 rounded-xl flex items-center justify-center mr-4 shadow-lg" style="background: linear-gradient(to bottom right, #fed121, #fbbf24);">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold" style="color: #fdcf20;">Meet The Creator</h3>
-        </div>
-        <div class="text-center flex-grow">
-          <h4 class="font-semibold text-gray-800 mb-2 text-xl">Hanu Keyser</h4>
-          <p class="text-lg text-black mb-3">Founder & Digital Rebel</p>
-          <p class="text-sm text-gray-500">
-            The mastermind behind every pixel-perfect design and viral-worthy campaign.
-          </p>
-        </div>
-      </div>
-
-      <!-- Card 4: Our Values -->
-      <div class="card p-6 sm:p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
-        <div class="flex items-center mb-4">
-          <div class="w-12 h-12 rounded-xl flex items-center justify-center mr-4 shadow-lg" style="background: linear-gradient(to bottom right, #8b5cf6, #a78bfa);">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold" style="color: #8b5cf6;">Our Values</h3>
-        </div>
-        <div class="space-y-3 flex-grow">
-          <div class="flex items-center">
-            <div class="w-2 h-2 bg-green-400 rounded-full mr-3"></div>
-            <span class="text-sm text-black font-medium">Bold & Fearless Design</span>
-          </div>
-          <div class="flex items-center">
-            <div class="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>
-            <span class="text-sm text-black font-medium">Results That Actually Matter</span>
-          </div>
-          <div class="flex items-center">
-            <div class="w-2 h-2 bg-red-400 rounded-full mr-3"></div>
-            <span class="text-sm text-black font-medium">Authentic Brand Stories</span>
-          </div>
-          <div class="flex items-center">
-            <div class="w-2 h-2 bg-yellow-400 rounded-full mr-3"></div>
-            <span class="text-sm text-black font-medium">No Boring Templates</span>
-          </div>
-          <div class="flex items-center">
-            <div class="w-2 h-2 bg-green-400 rounded-full mr-3"></div>
-            <span class="text-sm text-black font-medium">Always Ahead of Trends</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Services Section -->
-<section id="services" class="py-8 sm:py-12 bg-gray-100">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    <div class="text-center mb-4 sm:mb-6">
-      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 lg:mb-4 px-4" style="color: black;">
-        What We Do Best
-      </h2>
-      <p class="text-black px-4 text-base sm:text-lg max-w-3xl mx-auto">
-        Turning your digital dreams into reality with cutting-edge solutions that actually work
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12 max-w-8xl mx-auto">
-
-      <!-- Web Design & Development -->
-      <div class="group relative">
-        <div class="card p-10 sm:p-12 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:bg-gradient-to-br group-hover:from-blue-50 group-hover:to-white relative overflow-hidden h-full flex flex-col min-h-[450px]">
-
-          <!-- Animated background on hover -->
-          <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-          <div class="relative z-10 flex flex-col h-full">
-            <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg" style="background: linear-gradient(to bottom right, #1e9bd5, #127bb0);">
-              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold mb-4 group-hover:text-blue-600 transition-colors duration-300" style="color: #1e9bd5;">
-              Websites That Actually Convert
-            </h3>
-            <p class="text-black mb-6 leading-relaxed flex-grow">
-              Lightning-fast, mobile-first websites that turn visitors into customers. No boring templates here – just custom designs that make your competition jealous.
-            </p>
-            <!-- Feature list -->
-            <div class="space-y-2 mb-6 text-left">
-              <div class="flex items-center text-sm text-black">
-                <div class="w-2 h-2 bg-blue-400 rounded-full mr-3"></div><span>Custom Design & Development</span>
-              </div>
-              <div class="flex items-center text-sm text-black">
-                <div class="w-2 h-2 bg-blue-400 rounded-full mr-3"></div><span>Mobile-First Responsive Design</span>
-              </div>
-            </div>
-            <button class="service-btn w-full text-white px-6 py-3 rounded-lg font-medium transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl mt-auto" style="background: linear-gradient(to right, #1e9bd5, #127bb0);" data-service="Web Design & Development" data-theme="blue">
-              Get Started
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Social Media Management -->
-      <div class="group relative">
-        <div class="card p-10 sm:p-12 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:bg-gradient-to-br group-hover:from-red-50 group-hover:to-white relative overflow-hidden h-full flex flex-col min-h-[450px]">
-
-          <!-- Animated background on hover -->
-          <div class="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-          <div class="relative z-10 flex flex-col h-full">
-            <div class="w-16 h-16 bg-gradient-to-br from-red-400 to-red-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg" style="background: linear-gradient(to bottom right, #ec343e, #ff6f76);">
-              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold mb-4 group-hover:text-red-600 transition-colors duration-300" style="color: #ec343e;">
-              Social Media That Slaps
-            </h3>
-            <p class="text-black mb-6 leading-relaxed flex-grow">
-              We'll make your brand the main character on every platform. From viral-worthy content to community building that actually builds communities.
-            </p>
-            <!-- Feature list -->
-            <div class="space-y-2 mb-6 text-left">
-              <div class="flex items-center text-sm text-black">
-                <div class="w-2 h-2 bg-red-400 rounded-full mr-3"></div><span>Content Creation & Strategy</span>
-              </div>
-              <div class="flex items-center text-sm text-black">
-                <div class="w-2 h-2 bg-red-400 rounded-full mr-3"></div><span>Analytics & Growth Tracking</span>
-              </div>
-            </div>
-            <button class="service-btn w-full text-white px-6 py-3 rounded-lg font-medium transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl mt-auto" style="background: linear-gradient(to right, #ec343e, #ff6f76);" data-service="Social Media Management" data-theme="red">
-              Let's Go Viral
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Logo Design -->
-      <div class="group relative">
-        <div class="card p-10 sm:p-12 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:bg-gradient-to-br group-hover:from-yellow-50 group-hover:to-white relative overflow-hidden h-full flex flex-col min-h-[450px]">
-
-          <!-- Animated background on hover -->
-          <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-          <div class="relative z-10 flex flex-col h-full">
-            <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg" style="background: linear-gradient(to bottom right, #fed121, #fbbf24);">
-              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4 4 4 0 004-4V5z"></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold mb-4 group-hover:text-yellow-600 transition-colors duration-300" style="color: #fdcf20;">
-              Logos That Leave a Mark
-            </h3>
-            <p class="text-black mb-6 leading-relaxed flex-grow">
-              Your logo is your first impression. We create memorable brand marks that stick in minds and look incredible everywhere from business cards to billboards.
-            </p>
-            <!-- Feature list -->
-            <div class="space-y-2 mb-6 text-left">
-              <div class="flex items-center text-sm text-black">
-                <div class="w-2 h-2 bg-yellow-400 rounded-full mr-3"></div><span>Custom Logo Design</span>
-              </div>
-              <div class="flex items-center text-sm text-black">
-                <div class="w-2 h-2 bg-yellow-400 rounded-full mr-3"></div><span>Brand Identity Package</span>
-              </div>
-            </div>
-            <button class="service-btn w-full text-white px-6 py-3 rounded-lg font-medium transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl mt-auto" style="background: linear-gradient(to right, #fed121, #fbbf24);" data-service="Logo Design" data-theme="yellow">
-              Create My Brand
-            </button>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-    .glass-card {
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-</style>
-
-<!-- Portfolio Section -->
-<section id="portfolio" class="portfolio-section py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-black">Creative Portfolio</h2>
-            <p class="text-xl text-black max-w-3xl mx-auto leading-relaxed">
-                Discover our innovative approach to digital design, social media excellence, and brand identity creation that drives meaningful results.
-            </p>
-        </div>
-
-        <!-- Web Design Projects -->
-        <div class="mb-24">
-            <h3 class="text-2xl sm:text-3xl font-bold text-center mb-8 md:mb-12 text-black">Web Design Projects</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
-
-                <!-- Project 1 -->
-                <div class="glass-card rounded-xl overflow-hidden">
-                    <div class="relative h-64">
-                        <img
-                            src="https://via.placeholder.com/500x300/4f46e5/ffffff?text=Modern+Portfolio+Design"
-                            alt="Modern Portfolio Design"
-                            class="w-full h-full object-cover"
-                        />
-                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                            <div class="text-center text-white p-6">
-                                <h4 class="text-2xl font-bold mb-2">Modern Portfolio</h4>
-                                <p class="text-sm opacity-90 mb-4">Responsive design with smooth animations</p>
-                                <button onclick="window.open('https://hanu.co.za', '_blank')" class="bg-white text-gray-900 px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition-colors">
-                                    View Project
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <h5 class="font-semibold text-black">Portfolio Website</h5>
-                                <p class="text-sm text-black">Creative Professional</p>
-                            </div>
-                            <div class="flex space-x-2">
-                                <span class="w-3 h-3 bg-blue-500 rounded-full"></span>
-                                <span class="w-3 h-3 bg-purple-500 rounded-full"></span>
-                                <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="glass-card rounded-xl overflow-hidden">
-                    <div class="relative h-64">
-                        <img
-                            src="https://via.placeholder.com/500x300/059669/ffffff?text=Business+Landing+Page"
-                            alt="Business Landing Page"
-                            class="w-full h-full object-cover"
-                        />
-                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                            <div class="text-center text-white p-6">
-                                <h4 class="text-2xl font-bold mb-2">Business Landing</h4>
-                                <p class="text-sm opacity-90 mb-4">High-conversion landing page design</p>
-                                <button onclick="window.open('https://hanu.co.za', '_blank')" class="bg-white text-gray-900 px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition-colors">
-                                    View Project
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <h5 class="font-semibold text-black">Landing Page</h5>
-                                <p class="text-sm text-black">SaaS Company</p>
-                            </div>
-                            <div class="flex space-x-2">
-                                <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-                                <span class="w-3 h-3 bg-yellow-500 rounded-full"></span>
-                                <span class="w-3 h-3 bg-red-500 rounded-full"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="glass-card rounded-xl overflow-hidden">
-                    <div class="relative h-64">
-                        <img
-                            src="https://via.placeholder.com/500x300/dc2626/ffffff?text=E-Commerce+Platform"
-                            alt="E-Commerce Platform"
-                            class="w-full h-full object-cover"
-                        />
-                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                            <div class="text-center text-white p-6">
-                                <h4 class="text-2xl font-bold mb-2">E-Commerce Store</h4>
-                                <p class="text-sm opacity-90 mb-4">Full-featured online shopping experience</p>
-                                <button onclick="window.open('https://hanu.co.za', '_blank')" class="bg-white text-gray-900 px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition-colors">
-                                    View Project
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <h5 class="font-semibold text-black">E-Commerce</h5>
-                                <p class="text-sm text-black">Retail Brand</p>
-                            </div>
-                            <div class="flex space-x-2">
-                                <span class="w-3 h-3 bg-red-500 rounded-full"></span>
-                                <span class="w-3 h-3 bg-indigo-500 rounded-full"></span>
-                                <span class="w-3 h-3 bg-pink-500 rounded-full"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- Social Media Presence -->
-        <div class="mb-24">
-            <h3 class="text-2xl sm:text-3xl font-bold text-center mb-8 md:mb-12 text-black">Social Media Presence</h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                
-                <!-- Facebook Card -->
-                <div class="glass-card p-6 md:p-8 rounded-xl">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mr-4">
-                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4 class="text-xl font-bold text-black">H&H Socks</h4>
-                            <p class="text-black">@hhsocks</p>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-3 gap-4 mb-6">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-black">200</div>
-                            <div class="text-xs text-black uppercase">Followers</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-black">36</div>
-                            <div class="text-xs text-black uppercase">Posts</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-black">150</div>
-                            <div class="text-xs text-black uppercase">Following</div>
-                        </div>
-                    </div>
-                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-colors cursor-not-allowed opacity-75">
-                        Connect
-                    </button>
-                </div>
-
-                <!-- Instagram Card -->
-                <div class="glass-card p-6 md:p-8 rounded-xl">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mr-4">
-                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4 class="text-xl font-bold text-black">H&H Socks</h4>
-                            <p class="text-black">@hhsocks</p>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-3 gap-4 mb-6">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-black">380</div>
-                            <div class="text-xs text-black uppercase">Followers</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-black">59</div>
-                            <div class="text-xs text-black uppercase">Posts</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-black">200</div>
-                            <div class="text-xs text-black uppercase">Following</div>
-                        </div>
-                    </div>
-                    <button class="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-3 rounded-xl transition-all cursor-not-allowed opacity-75">
-                        Follow
-                    </button>
-                </div>
-
-                <!-- X/Twitter Card -->
-                <div class="glass-card p-6 md:p-8 rounded-xl">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 bg-black rounded-2xl flex items-center justify-center mr-4">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/X_logo_2023_original.svg" alt="X" class="w-6 h-6 object-contain filter brightness-0 invert" />
-                        </div>
-                        <div>
-                            <h4 class="text-xl font-bold text-black">H&H Socks</h4>
-                            <p class="text-black">@hhsocks</p>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-3 gap-4 mb-6">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-black">500</div>
-                            <div class="text-xs text-black uppercase">Followers</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-black">160</div>
-                            <div class="text-xs text-black uppercase">Posts</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-black">90</div>
-                            <div class="text-xs text-black uppercase">Following</div>
-                        </div>
-                    </div>
-                    <button class="w-full bg-black hover:bg-gray-800 text-white font-semibold py-3 rounded-xl transition-colors cursor-not-allowed opacity-75">
-                        Follow
-                    </button>
-                </div>
-
-            </div>
-        </div>
-
-<!-- Logo Design Showcase -->
-<div class="mb-16">
-    <h3 class="text-2xl sm:text-3xl font-bold text-center mb-8 md:mb-12 text-black">Logo Design Showcase</h3>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-
-        <!-- Showcase 1 -->
-        <div class="glass-card p-6 md:p-8 text-center rounded-xl">
-            <div class="mb-6">
-                <div class="w-full aspect-video bg-gray-800 rounded-lg overflow-hidden mb-4">
-                    <video class="w-full h-full object-cover" controls>
-                        <source src="Example 1 - Video - Hanu Studio.mp4" type="video/mp4" />
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <h4 class="text-xl font-bold text-black mb-2">Creative Showcase</h4>
-                <p class="text-black text-sm">Innovative design concepts in development</p>
-            </div>
-            <a href="https://hanu.co.za" target="_blank" rel="noopener noreferrer" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white px-5 py-2 rounded-full text-sm font-medium transition">
-                View Project
-            </a>
-        </div>
-
-        <!-- Showcase 2 -->
-        <div class="glass-card p-6 md:p-8 text-center rounded-xl">
-            <div class="mb-6">
-                <div class="w-full aspect-video bg-gray-800 rounded-lg overflow-hidden mb-4">
-                    <video class="w-full h-full object-cover" controls>
-                        <source src="Example 2 - Video - Hanu Studio.mp4" type="video/mp4" />
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <h4 class="text-xl font-bold text-black mb-2">Brand Identity</h4>
-                <p class="text-black text-sm">Comprehensive branding solutions</p>
-            </div>
-            <a href="https://hanu.co.za" target="_blank" rel="noopener noreferrer" class="inline-block bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-full text-sm font-medium transition">
-                Visit Site
-            </a>
-        </div>
-
-        <!-- Showcase 3 -->
-        <div class="glass-card p-6 md:p-8 text-center rounded-xl">
-            <div class="mb-6">
-                <div class="w-full aspect-video bg-gray-800 rounded-lg overflow-hidden mb-4">
-                    <video class="w-full h-full object-cover" controls>
-                        <source src="Example 3 - Video - Hanu Studio.mp4" type="video/mp4" />
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <h4 class="text-xl font-bold text-black mb-2">Visual Concepts</h4>
-                <p class="text-black text-sm">Next-generation design exploration</p>
-            </div>
-            <a href="https://hanu.co.za" target="_blank" rel="noopener noreferrer" class="inline-block bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-full text-sm font-medium transition">
-                Explore Page
-            </a>
-        </div>
-
-    </div>
+<div class="text-center mb-4 sm:mb-6">
+<h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 lg:mb-4 px-4" style="color: black;">
+We Don't Just Build Websites, We Build Empires
+</h2>
+<p class="text-black text-base sm:text-lg max-w-3xl mx-auto px-4">
+Ready to dominate your industry? We're the digital rebels who turn ordinary brands into legendary experiences that your competition will envy.
+</p>
 </div>
 
-    </div>
+<!-- 5 Cards Layout: 3 cards top row, 2 cards centered bottom row -->
+<div class="space-y-6">
+<!-- Top Row: 3 Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+
+<!-- Card 1: Our Story -->
+<div class="card p-6 sm:p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer h-full flex flex-col" id="storyCard">
+<div class="flex items-start mb-4">
+<div class="w-12 h-12 rounded-xl flex items-center justify-center mr-4 shadow-lg flex-shrink-0" style="background: linear-gradient(to bottom right, #1e9bd5, #4fc3f7);">
+<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+</svg>
+</div>
+<h3 class="text-xl font-bold" style="color: #1e9bd5;">Our Story</h3>
+</div>
+<div class="flex-grow">
+<p class="text-black leading-relaxed">
+Where digital dreams meet rebellious reality. We're the architects of digital dominance, crafting experiences so compelling that your competitors will wonder what hit them. Hanu Studio transforms ordinary brands into extraordinary digital legends.
+</p>
+</div>
+</div>
+
+<!-- Card 2: Why Choose Us? -->
+<div class="card p-6 sm:p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer h-full flex flex-col">
+<div class="flex items-start mb-4">
+<div class="w-12 h-12 rounded-xl flex items-center justify-center mr-4 shadow-lg flex-shrink-0" style="background: linear-gradient(to bottom right, #10b981, #34d399);">
+<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+</svg>
+</div>
+<h3 class="text-xl font-bold" style="color: #10b981;">Why Choose Us?</h3>
+</div>
+<div class="flex-grow">
+<div class="space-y-3">
+<div class="flex items-center">
+<div class="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>
+<span class="text-sm text-black font-medium">100% Custom Solutions</span>
+</div>
+<div class="flex items-center">
+<div class="w-2 h-2 bg-green-400 rounded-full mr-3"></div>
+<span class="text-sm text-black font-medium">Proven Track Record</span>
+</div>
+<div class="flex items-center">
+<div class="w-2 h-2 bg-red-400 rounded-full mr-3"></div>
+<span class="text-sm text-black font-medium">Lightning-Fast Delivery</span>
+</div>
+<div class="flex items-center">
+<div class="w-2 h-2 bg-yellow-400 rounded-full mr-3"></div>
+<span class="text-sm text-black font-medium">24/7 Support</span>
+</div>
+<div class="flex items-center">
+<div class="w-2 h-2 bg-purple-400 rounded-full mr-3"></div>
+<span class="text-sm text-black font-medium">Results-Driven Approach</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Card 3: Meet The Visionary -->
+<div class="card p-6 sm:p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+<div class="flex items-start mb-4">
+<div class="w-12 h-12 rounded-xl flex items-center justify-center mr-4 shadow-lg flex-shrink-0" style="background: linear-gradient(to bottom right, #fed121, #fbbf24);">
+<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+</svg>
+</div>
+<h3 class="text-xl font-bold" style="color: #fdcf20;">Meet The Visionary</h3>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-gray-800 mb-2 text-xl text-center">Hanu Keyser</h4>
+<p class="text-black mb-3 font-medium text-center">Founder & Digital Architect</p>
+<p class="text-black leading-relaxed">
+The creative force behind every breakthrough campaign and game-changing design. Where innovation meets execution, legends are born.
+</p>
+</div>
+</div>
+
+</div>
+
+<!-- Bottom Row: 2 Cards Centered -->
+<div class="flex justify-center">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-4xl">
+
+<!-- Card 4: Our Process -->
+<div class="card p-6 sm:p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+<div class="flex items-start mb-4">
+<div class="w-12 h-12 rounded-xl flex items-center justify-center mr-4 shadow-lg flex-shrink-0" style="background: linear-gradient(to bottom right, #8b5cf6, #a78bfa);">
+<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+</svg>
+</div>
+<h3 class="text-xl font-bold" style="color: #8b5cf6;">Our Process</h3>
+</div>
+<div class="flex-grow">
+<p class="text-black leading-relaxed mb-4">
+From concept to launch, we follow a proven methodology that ensures every project exceeds expectations and delivers measurable results.
+</p>
+<div class="space-y-2">
+<div class="text-sm text-black">
+<span class="font-bold text-purple-600">01.</span> <span class="font-medium">Discovery & Strategy</span>
+</div>
+<div class="text-sm text-black">
+<span class="font-bold text-purple-600">02.</span> <span class="font-medium">Design & Development</span>
+</div>
+<div class="text-sm text-black">
+<span class="font-bold text-purple-600">03.</span> <span class="font-medium">Launch & Optimization</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Card 5: Our Mission -->
+<div class="card p-6 sm:p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+<div class="flex items-start mb-4">
+<div class="w-12 h-12 rounded-xl flex items-center justify-center mr-4 shadow-lg flex-shrink-0" style="background: linear-gradient(to bottom right, #ec343e, #ff6f76);">
+<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+</svg>
+</div>
+<h3 class="text-xl font-bold" style="color: #ed343f;">Our Mission</h3>
+</div>
+<div class="flex-grow">
+<p class="text-black leading-relaxed">
+Elevating brands from ordinary to extraordinary through strategic digital mastery. We don't just create websites – we forge digital empires that command attention, inspire loyalty, and deliver results that speak louder than words.
+</p>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
 </section>
 
-<!-- Pricing Section -->
-<section id="pricing" class="py-8 sm:py-12 bg-gray-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="space-y-8">
-            <div class="text-center">
-                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black">Investment in Your Success</h2>
-                <p class="text-black text-lg">Quality work that delivers results, not just pretty pixels</p>
-            </div>
+    <!-- Services Section -->
+    <section id="solutions" class="py-8 sm:py-12 bg-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <!-- Main Services Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+        <div class="text-center mb-8 sm:mb-10">
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 lg:mb-4 px-4" style="color: black;">
+            What We Do Best
+          </h2>
+          <p class="text-black px-4 text-base sm:text-lg max-w-3xl mx-auto mb-6">
+            Turning your digital dreams into reality with cutting-edge solutions that actually work
+          </p>
+          
+          <!-- What We Do Info -->
+          <div class="bg-white rounded-xl p-6 sm:p-8 shadow-lg max-w-4xl mx-auto">
+            <h3 class="text-xl sm:text-2xl font-bold mb-4 text-gray-800">Our Digital Solutions</h3>
+            <div class="grid md:grid-cols-3 gap-6 text-left">
+              <div>
+                <h4 class="font-semibold text-blue-600 mb-2">🌐 Website Development</h4>
+                <p class="text-gray-700 text-sm">Custom websites that convert visitors into customers. From simple portfolios to complex business sites with full functionality.</p>
+              </div>
+              <div>
+                <h4 class="font-semibold text-red-600 mb-2">📱 Social Media Management</h4>
+                <p class="text-gray-700 text-sm">Complete social media strategy and content creation across all major platforms to grow your online presence.</p>
+              </div>
+              <div>
+                <h4 class="font-semibold text-green-600 mb-2">🎨 Logo & Brand Design</h4>
+                <p class="text-gray-700 text-sm">Professional brand identity design that makes your business memorable and stands out from the competition.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-12 sm:space-y-16 lg:space-y-20 max-w-6xl mx-auto">
                 
-                <!-- Website Design & Development -->
-                <div class="card p-6 border-l-4 flex flex-col" style="border-color: #1e9bd5;">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-2xl font-bold" style="color: #1e9bd5;">Website Design & Development</h3>
-                        <div class="text-right">
-                            <div class="text-3xl font-bold" style="color: #1e9bd5;" id="webBasePrice">R2,500</div>
-                            <div class="text-sm text-gray-600">Starting from</div>
-                        </div>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-4 mb-6 flex-grow">
-                        <!-- Configuration -->
-                        <div>
-                            <h4 class="font-semibold mb-3 text-gray-800">Configure Your Website</h4>
-                            <div class="space-y-3">
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-1">Website Type</label>
-                                    <select id="websiteType" class="w-full p-2 border rounded-md" onchange="calculateWebCost()">
-                                        <option value="1500">Portfolio/Personal (R1,500)</option>
-                                        <option value="1700">Portfolio/Personal + Domain (R1,700)</option>
-                                        <option value="2500">Business/Corporate (R2,500)</option>
-                                        <option value="2700">Business/Corporate + Domain (R2,700)</option>
-                                    </select>
-                                </div>
-                                <div class="grid grid-cols-2 gap-2">
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-1">Extra Sections</label>
-                                        <input type="number" min="0" value="0" id="extraSections" class="w-full p-2 border rounded-md" oninput="calculateWebCost()"/>
-                                        <span class="text-xs text-gray-500">R500 each</span>
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-1">Additional Tabs</label>
-                                        <input type="number" min="0" value="0" id="additionalTabs" class="w-full p-2 border rounded-md" oninput="calculateWebCost()"/>
-                                        <span class="text-xs text-gray-500">R750 each</span>
-                                    </div>
-                                </div>
+          <!-- Web Design & Development -->
+          <div id="web-design" class="group relative">
+            <div class="card p-10 sm:p-12 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:bg-gradient-to-br group-hover:from-blue-50 group-hover:to-white relative overflow-hidden h-full flex flex-col min-h-[450px]">
 
-                            </div>
-                        </div>
-                        
-                        <!-- What's Included -->
-                        <div>
-                            <h4 class="font-semibold mb-3 text-gray-800">What's Included</h4>
-                            <div class="space-y-2 text-sm text-gray-700">
-                                <div class="flex items-center">
-                                    <div class="w-2 h-2 rounded-full mr-2" style="background-color: #1e9bd5;"></div>
-                                    <span>Responsive design (mobile & desktop)</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="w-2 h-2 rounded-full mr-2" style="background-color: #1e9bd5;"></div>
-                                    <span>3 base sections (Home, About, Contact)</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="w-2 h-2 rounded-full mr-2" style="background-color: #1e9bd5;"></div>
-                                    <span>Contact form & social media links</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-center justify-between pt-4 border-t border-gray-200 mt-auto">
-                        <div>
-                            <div class="text-lg font-bold text-gray-800">Total: <span id="webResult" style="color: #1e9bd5;">R2,500</span></div>
-                            <div class="text-sm text-gray-600">One-time payment</div>
-                        </div>
-                        <button class="px-6 py-2 font-semibold rounded-lg text-white hover:shadow-lg transition-all" style="background-color: #1e9bd5;" onclick="sendWebQuote()">
-                            Get Quote
-                        </button>
-                    </div>
+              <!-- Animated background on hover -->
+              <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+              <div class="relative z-10 flex flex-col h-full">
+                <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg" style="background: linear-gradient(to bottom right, #1e9bd5, #127bb0);">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                  </svg>
                 </div>
+                <h3 class="text-xl font-bold mb-4 group-hover:text-blue-600 transition-colors duration-300" style="color: #1e9bd5;">
+                  Websites That Actually Convert
+                </h3>
+                <p class="text-black mb-6 leading-relaxed">
+                  Lightning-fast, mobile-first websites that turn visitors into customers. No boring templates here – just custom designs that make your competition jealous.
+                </p>
+                
+                <!-- Detailed Pricing Calculator -->
+                <div class="text-left mb-6">
+                  <div class="flex items-center justify-between mb-4">
+                    <h4 class="text-xl font-bold text-blue-600">Configure Your Website</h4>
+                    <div class="text-right">
+                      <div class="text-2xl font-bold text-blue-600" id="webBasePrice">R2,500</div>
+                      <div class="text-sm text-gray-600">Starting from</div>
+                    </div>
+                  </div>
 
-                <!-- Social Media Management -->
-                <div class="card p-6 border-l-4 flex flex-col" style="border-color: #ec343e;">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-2xl font-bold" style="color: #ec343e;">Social Media Management</h3>
-                        <div class="text-right">
-                            <div class="text-3xl font-bold" style="color: #ec343e;">R400</div>
-                            <div class="text-sm text-gray-600">Per platform/month</div>
-                        </div>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-4 mb-6 flex-grow">
-                        <!-- Platform Selection -->
-                        <div>
-                            <h4 class="font-semibold mb-3 text-gray-800">Select Platforms</h4>
-                            <div class="space-y-2">
-                                <label class="flex items-center text-gray-700">
-                                    <input type="checkbox" class="platform-checkbox mr-2" value="Facebook" onchange="calculateSocialCost()" style="accent-color: #ec343e;"/>
-                                    Facebook
-                                </label>
-                                <label class="flex items-center text-gray-700">
-                                    <input type="checkbox" class="platform-checkbox mr-2" value="Instagram" onchange="calculateSocialCost()" style="accent-color: #ec343e;"/>
-                                    Instagram
-                                </label>
-                                <label class="flex items-center text-gray-700">
-                                    <input type="checkbox" class="platform-checkbox mr-2" value="LinkedIn" onchange="calculateSocialCost()" style="accent-color: #ec343e;"/>
-                                    LinkedIn
-                                </label>
-                                <label class="flex items-center text-gray-700">
-                                    <input type="checkbox" class="platform-checkbox mr-2" value="Threads" onchange="calculateSocialCost()" style="accent-color: #ec343e;"/>
-                                    Threads
-                                </label>
-                                <label class="flex items-center text-gray-700">
-                                    <input type="checkbox" class="platform-checkbox mr-2" value="TikTok" onchange="calculateSocialCost()" style="accent-color: #ec343e;"/>
-                                    TikTok
-                                </label>
-                                <label class="flex items-center text-gray-700">
-                                    <input type="checkbox" class="platform-checkbox mr-2" value="X (Twitter)" onchange="calculateSocialCost()" style="accent-color: #ec343e;"/>
-                                    X (Twitter)
-                                </label>
-                            </div>
-                            <p id="socialPlatformsMessage" class="text-sm text-gray-700 italic mt-2 min-h-[1.5rem]"></p>
-                        </div>
-                        
-                        <!-- What's Included -->
-                        <div>
-                            <h4 class="font-semibold mb-3 text-gray-800">Per Platform Includes</h4>
-                            <div class="space-y-2 text-sm text-gray-700">
-                                <div class="flex items-center">
-                                    <div class="w-2 h-2 rounded-full mr-2" style="background-color: #ec343e;"></div>
-                                    <span>6-10 posts per month</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="w-2 h-2 rounded-full mr-2" style="background-color: #ec343e;"></div>
-                                    <span>Scheduled posting</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="w-2 h-2 rounded-full mr-2" style="background-color: #ec343e;"></div>
-                                    <span>Monthly performance report</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-center justify-between pt-4 border-t border-gray-200 mt-auto">
-                        <div>
-                            <div class="text-lg font-bold text-gray-800">Total: <span id="socialResult" style="color: #ec343e;">R0</span></div>
-                            <div class="text-sm text-gray-600">Monthly subscription</div>
-                        </div>
-                        <button class="px-6 py-2 font-semibold rounded-lg text-white hover:shadow-lg transition-all" style="background-color: #ec343e;" onclick="sendSocialQuote()">
-                            Get Quote
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Logo Services Row -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <!-- Logo & Brand Identity -->
-                <div class="card p-6 border-l-4 flex flex-col" style="border-color: #fed121;">
-                    <div class="flex items-center justify-between mb-4">
-                        <div>
-                            <h3 class="text-xl font-bold" style="color: #fed121;">Logo & Brand Identity</h3>
-                            <p class="text-gray-600 text-sm">Complete brand package</p>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-2xl font-bold" style="color: #fed121;">R1,500</div>
-                            <div class="text-sm text-gray-600">Base price</div>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-4 flex-grow">
-                        <div class="grid grid-cols-2 gap-4 text-sm text-gray-700 mb-4">
-                            <div class="space-y-1">
-                                <div class="flex items-center">
-                                    <div class="w-1.5 h-1.5 rounded-full mr-2" style="background-color: #fed121;"></div>
-                                    <span>4 logo concepts</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="w-1.5 h-1.5 rounded-full mr-2" style="background-color: #fed121;"></div>
-                                    <span>3 revision rounds</span>
-                                </div>
-                            </div>
-                            <div class="space-y-1">
-                                <div class="flex items-center">
-                                    <div class="w-1.5 h-1.5 rounded-full mr-2" style="background-color: #fed121;"></div>
-                                    <span>All file formats</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="w-1.5 h-1.5 rounded-full mr-2" style="background-color: #fed121;"></div>
-                                    <span>Social media versions</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Add Animation (+R500)?</label>
-                            <select id="logoAnimationSelect" class="w-full p-2 border rounded-md" onchange="calculateLogoCost()">
-                                <option value="0">No animation</option>
-                                <option value="500">Yes, add animation (+R500)</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-center justify-between pt-4 border-t border-gray-200 mt-auto">
-                        <div>
-                            <div class="text-lg font-bold text-gray-800">Total: <span id="logoResult" style="color: #fed121;">R1,500</span></div>
-                        </div>
-                        <button class="px-6 py-2 font-semibold rounded-lg text-white hover:shadow-lg transition-all" style="background-color: #fed121;" onclick="sendLogoQuote()">
-                            Get Quote
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Modernize Existing Logo -->
-                <div class="card p-6 border-l-4 flex flex-col" style="border-color: #7b3fbf;">
-                    <div class="flex items-center justify-between mb-4">
-                        <div>
-                            <h3 class="text-xl font-bold" style="color: #7b3fbf;">Modernize Existing Logo</h3>
-                            <p class="text-gray-600 text-sm">Refresh your current design</p>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-2xl font-bold" style="color: #7b3fbf;">R750</div>
-                            <div class="text-sm text-gray-600">Fixed price</div>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-4 flex-grow">
-                        <div class="grid grid-cols-2 gap-4 text-sm text-gray-700 mb-4">
-                            <div class="space-y-1">
-                                <div class="flex items-center">
-                                    <div class="w-1.5 h-1.5 rounded-full mr-2" style="background-color: #7b3fbf;"></div>
-                                    <span>Logo analysis</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="w-1.5 h-1.5 rounded-full mr-2" style="background-color: #7b3fbf;"></div>
-                                    <span>Modern updates</span>
-                                </div>
-                            </div>
-                            <div class="space-y-1">
-                                <div class="flex items-center">
-                                    <div class="w-1.5 h-1.5 rounded-full mr-2" style="background-color: #7b3fbf;"></div>
-                                    <span>Color refresh</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="w-1.5 h-1.5 rounded-full mr-2" style="background-color: #7b3fbf;"></div>
-                                    <span>2 revision rounds</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="text-xs text-gray-600 bg-red-50 p-3 rounded-md">
-                            <strong>Note:</strong> Cannot be combined with new logo creation service
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-center justify-between pt-4 border-t border-gray-200 mt-auto">
-                        <div>
-                            <div class="text-lg font-bold text-gray-800">Total: <span style="color: #7b3fbf;">R750</span></div>
-                        </div>
-                        <button class="px-6 py-2 font-semibold rounded-lg text-white hover:shadow-lg transition-all" style="background-color: #7b3fbf;" onclick="sendModernizeQuote()">
-                            Get Quote
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Build Your Own Package (full width) -->
-            <div class="card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-l-4 border-green-600" style="border-color: #16a34a;">
-                <h3 class="text-xl font-bold mb-4" style="color: #16a34a;">Build Your Own Package</h3>
-
-                <!-- Options stacked vertically -->
-                <div class="space-y-4">
-
-                    <!-- Website -->
+                  <div class="grid md:grid-cols-2 gap-4 mb-6">
+                    <!-- Configuration -->
                     <div>
-                        <label class="inline-flex items-center mb-2 text-[#16a34a]">
-                            <input
-                                type="checkbox"
-                                id="customIncludeWeb"
-                                onchange="toggleCustomWebInputs(); updateCustomEmailContent()"
-                                style="accent-color: #16a34a;"
-                            />
-                            <span class="ml-2 text-black">Include Website Design & Development</span>
-                        </label>
-                        <div id="customWebInputs" style="display:none;" class="pl-6 mt-2 space-y-2">
-                            <label class="block text-sm font-medium text-black mb-1">Website Type</label>
-                            <select
-                                id="customWebsiteType"
-                                class="w-full p-2 border rounded text-black mb-2"
-                                onchange="updateCustomEmailContent()"
-                            >
-                                <option value="1500">Portfolio/Personal (R1,500)</option>
-                                <option value="1700">Portfolio/Personal + Domain (R1,700)</option>
-                                <option value="2500">Business/Corporate (R2,500)</option>
-                                <option value="2700">Business/Corporate + Domain (R2,700)</option>
-                            </select>
-                            <label class="block text-sm font-medium text-black mb-1">Extra Sections</label>
-                            <input
-                                type="number"
-                                id="customExtraSections"
-                                min="0"
-                                value="0"
-                                class="w-24 p-2 border rounded text-black"
-                                oninput="updateCustomEmailContent()"
-                            />
-                            <label class="block text-sm font-medium text-black mb-1">Additional Tabs</label>
-                            <input
-                                type="number"
-                                id="customTabs"
-                                min="0"
-                                value="0"
-                                class="w-24 p-2 border rounded text-black"
-                                oninput="updateCustomEmailContent()"
-                            />
-
+                      <div class="space-y-3">
+                        <div>
+                          <label class="block text-sm font-medium text-gray-700 mb-1">Website Type</label>
+                          <select id="websiteType" class="w-full p-2 border rounded-md" onchange="calculateWebCost()">
+                            <option value="1500">Portfolio/Personal (R1,500)</option>
+                            <option value="1700">Portfolio/Personal + Domain (R1,700)</option>
+                            <option value="2500" selected>Business/Corporate (R2,500)</option>
+                            <option value="2700">Business/Corporate + Domain (R2,700)</option>
+                          </select>
                         </div>
+                        <div class="grid grid-cols-2 gap-2">
+                          <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Extra Sections</label>
+                            <input type="number" min="0" value="0" id="extraSections" class="w-full p-2 border rounded-md" oninput="calculateWebCost()"/>
+                            <span class="text-xs text-gray-500">R500 each</span>
+                          </div>
+                          <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Additional Tabs</label>
+                            <input type="number" min="0" value="0" id="additionalTabs" class="w-full p-2 border rounded-md" oninput="calculateWebCost()"/>
+                            <span class="text-xs text-gray-500">R750 each</span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
-                    <!-- Social Media -->
+                    <!-- What's Included -->
                     <div>
-                        <label class="inline-flex items-center mb-2 text-[#16a34a]">
-                            <input
-                                type="checkbox"
-                                id="customIncludeSocial"
-                                onchange="toggleCustomSocialInputs(); updateCustomEmailContent()"
-                                style="accent-color: #16a34a;"
-                            />
-                            <span class="ml-2 text-black">Include Social Media Management</span>
-                        </label>
-                        <div
-                            id="customSocialInputs"
-                            style="display:none;"
-                            class="pl-6 space-y-1"
-                        >
-                            <label class="flex items-center text-[#16a34a]">
-                                <input
-                                    type="checkbox"
-                                    class="custom-platform-checkbox mr-2"
-                                    value="Facebook"
-                                    onchange="updateCustomEmailContent()"
-                                    style="accent-color: #16a34a;"
-                                />
-                                Facebook
-                            </label>
-                            <label class="flex items-center text-[#16a34a]">
-                                <input
-                                    type="checkbox"
-                                    class="custom-platform-checkbox mr-2"
-                                    value="Instagram"
-                                    onchange="updateCustomEmailContent()"
-                                    style="accent-color: #16a34a;"
-                                />
-                                Instagram
-                            </label>
-                            <label class="flex items-center text-[#16a34a]">
-                                <input
-                                    type="checkbox"
-                                    class="custom-platform-checkbox mr-2"
-                                    value="LinkedIn"
-                                    onchange="updateCustomEmailContent()"
-                                    style="accent-color: #16a34a;"
-                                />
-                                LinkedIn
-                            </label>
-                            <label class="flex items-center text-[#16a34a]">
-                                <input
-                                    type="checkbox"
-                                    class="custom-platform-checkbox mr-2"
-                                    value="Threads"
-                                    onchange="updateCustomEmailContent()"
-                                    style="accent-color: #16a34a;"
-                                />
-                                Threads
-                            </label>
-                            <label class="flex items-center text-[#16a34a]">
-                                <input
-                                    type="checkbox"
-                                    class="custom-platform-checkbox mr-2"
-                                    value="TikTok"
-                                    onchange="updateCustomEmailContent()"
-                                    style="accent-color: #16a34a;"
-                                />
-                                TikTok
-                            </label>
-                            <label class="flex items-center text-[#16a34a]">
-                                <input
-                                    type="checkbox"
-                                    class="custom-platform-checkbox mr-2"
-                                    value="X (Twitter)"
-                                    onchange="updateCustomEmailContent()"
-                                    style="accent-color: #16a34a;"
-                                />
-                                X (Twitter)
-                            </label>
-                            <p
-                                id="customSocialPlatformsMessage"
-                                class="text-sm text-gray-700 italic mt-1 min-h-[1.5rem]"
-                            ></p>
+                      <h5 class="font-semibold mb-3 text-gray-800">What's Included</h5>
+                      <div class="space-y-2 text-sm text-gray-700">
+                        <div class="flex items-center">
+                          <div class="w-2 h-2 bg-blue-400 rounded-full mr-2"></div>
+                          <span>Responsive design (mobile & desktop)</span>
                         </div>
+                        <div class="flex items-center">
+                          <div class="w-2 h-2 bg-blue-400 rounded-full mr-2"></div>
+                          <span>3 base sections (Home, About, Contact)</span>
+                        </div>
+                        <div class="flex items-center">
+                          <div class="w-2 h-2 bg-blue-400 rounded-full mr-2"></div>
+                          <span>Contact form & social media links</span>
+                        </div>
+                      </div>
                     </div>
+                  </div>
 
-                    <!-- Logo -->
+                  <div class="flex items-center justify-between pt-4 border-t border-gray-200">
                     <div>
-                        <label class="inline-flex items-center mb-2 text-[#16a34a]">
-                            <input
-                                type="checkbox"
-                                id="customIncludeLogo"
-                                onchange="toggleCustomLogoInputs(); updateCustomEmailContent()"
-                                style="accent-color: #16a34a;"
-                            />
-                            <span class="ml-2 text-black">Include Logo & Brand Identity</span>
-                        </label>
-                        <div
-                            id="customLogoInputs"
-                            style="display:none;"
-                            class="pl-6 space-y-2">
-                            <label class="block text-sm font-medium text-black mb-1">Include animation?</label>
-                            <select
-                                id="customLogoAnim"
-                                class="w-full p-2 border rounded text-black"
-                                onchange="updateCustomEmailContent()"
-                                disabled
-                            >
-                                <option value="0">No</option>
-                                <option value="500">Yes (+R500)</option>
-                            </select>
-                        </div>
+                      <div class="text-lg font-bold text-gray-800">Total: <span id="webResult" class="text-blue-600">R2,500</span></div>
+                      <div class="text-sm text-gray-600">One-time payment</div>
                     </div>
+                  </div>
                 </div>
-                <p class="text-sm text-black font-semibold mt-4">
-                    Estimated Total Price: <span id="customTotal" class="font-bold" style="color: #16a34a;">R0</span></p>
-                <button
-                    class="mt-4 py-2 px-4 font-semibold rounded text-white bg-green-600"
-                    onclick="sendCustomQuote()"
-                    type="button">
-                    Send Quote</button>
+                <div class="grid grid-cols-2 gap-3 mt-auto">
+                  <button class="service-btn text-white px-4 py-3 rounded-lg font-medium transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl" style="background: linear-gradient(to right, #1e9bd5, #127bb0);" onclick="sendWebQuote()">
+                    Get Quote
+                  </button>
+                  <button class="info-btn border-2 px-4 py-3 rounded-lg font-medium transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl" style="border-color: #1e9bd5; color: #1e9bd5;" onclick="openModal('web')">
+                    Need More Info
+                  </button>
+                </div>
+              </div>
             </div>
+          </div>
 
+          <!-- Social Media Management -->
+          <div id="social-media" class="group relative">
+            <div class="card p-10 sm:p-12 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:bg-gradient-to-br group-hover:from-red-50 group-hover:to-white relative overflow-hidden h-full flex flex-col min-h-[450px]">
+
+              <!-- Animated background on hover -->
+              <div class="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+              <div class="relative z-10 flex flex-col h-full">
+                <div class="w-16 h-16 bg-gradient-to-br from-red-400 to-red-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg" style="background: linear-gradient(to bottom right, #ec343e, #ff6f76);">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
+                  </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-4 group-hover:text-red-600 transition-colors duration-300" style="color: #ec343e;">
+                  Social Media That Slaps
+                </h3>
+                <p class="text-black mb-6 leading-relaxed">
+                  We'll make your brand the main character on every platform. From viral-worthy content to community building that actually builds communities.
+                </p>
+                
+                <!-- Detailed Platform Selection -->
+                <div class="text-left mb-6">
+                  <div class="flex items-center justify-between mb-4">
+                    <h4 class="text-xl font-bold text-red-600">Select Your Platforms</h4>
+                    <div class="text-right">
+                      <div class="text-2xl font-bold text-red-600">R400</div>
+                      <div class="text-sm text-gray-600">Per platform/month</div>
+                    </div>
+                  </div>
+
+                  <div class="grid md:grid-cols-2 gap-4 mb-6">
+                    <!-- Platform Selection -->
+                    <div>
+                      <div class="space-y-2">
+                        <label class="flex items-center text-gray-700">
+                          <input type="checkbox" class="platform-checkbox mr-2" value="Facebook" onchange="calculateSocialCost()" style="accent-color: #ec343e;"/>
+                          Facebook
+                        </label>
+                        <label class="flex items-center text-gray-700">
+                          <input type="checkbox" class="platform-checkbox mr-2" value="Instagram" onchange="calculateSocialCost()" style="accent-color: #ec343e;"/>
+                          Instagram
+                        </label>
+                        <label class="flex items-center text-gray-700">
+                          <input type="checkbox" class="platform-checkbox mr-2" value="LinkedIn" onchange="calculateSocialCost()" style="accent-color: #ec343e;"/>
+                          LinkedIn
+                        </label>
+                        <label class="flex items-center text-gray-700">
+                          <input type="checkbox" class="platform-checkbox mr-2" value="Threads" onchange="calculateSocialCost()" style="accent-color: #ec343e;"/>
+                          Threads
+                        </label>
+                        <label class="flex items-center text-gray-700">
+                          <input type="checkbox" class="platform-checkbox mr-2" value="TikTok" onchange="calculateSocialCost()" style="accent-color: #ec343e;"/>
+                          TikTok
+                        </label>
+                        <label class="flex items-center text-gray-700">
+                          <input type="checkbox" class="platform-checkbox mr-2" value="X (Twitter)" onchange="calculateSocialCost()" style="accent-color: #ec343e;"/>
+                          X (Twitter)
+                        </label>
+                      </div>
+                      <p id="socialPlatformsMessage" class="text-sm text-gray-700 italic mt-2 min-h-[1.5rem]"></p>
+                    </div>
+
+                    <!-- What's Included -->
+                    <div>
+                      <h5 class="font-semibold mb-3 text-gray-800">Per Platform Includes</h5>
+                      <div class="space-y-2 text-sm text-gray-700">
+                        <div class="flex items-center">
+                          <div class="w-2 h-2 bg-red-400 rounded-full mr-2"></div>
+                          <span>6-10 posts per month</span>
+                        </div>
+                        <div class="flex items-center">
+                          <div class="w-2 h-2 bg-red-400 rounded-full mr-2"></div>
+                          <span>Scheduled posting</span>
+                        </div>
+                        <div class="flex items-center">
+                          <div class="w-2 h-2 bg-red-400 rounded-full mr-2"></div>
+                          <span>Monthly performance report</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center justify-between pt-4 border-t border-gray-200">
+                    <div>
+                      <div class="text-lg font-bold text-gray-800">Total: <span id="socialResult" class="text-red-600">R0</span></div>
+                      <div class="text-sm text-gray-600">Monthly subscription</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3 mt-auto">
+                  <button class="service-btn text-white px-4 py-3 rounded-lg font-medium transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl" style="background: linear-gradient(to right, #ec343e, #ff6f76);" onclick="sendSocialQuote()">
+                    Get Quote
+                  </button>
+                  <button class="info-btn border-2 px-4 py-3 rounded-lg font-medium transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl" style="border-color: #ec343e; color: #ec343e;" onclick="openModal('social')">
+                    Need More Info
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Logo & Brand Identity -->
+          <div id="logos" class="group relative">
+            <div class="card p-10 sm:p-12 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:bg-gradient-to-br group-hover:from-green-50 group-hover:to-white relative overflow-hidden h-full flex flex-col min-h-[450px]">
+
+              <!-- Animated background on hover -->
+              <div class="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+              <div class="relative z-10 flex flex-col h-full">
+                <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg" style="background: linear-gradient(to bottom right, #10b981, #059669);">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                  </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-4 group-hover:text-green-600 transition-colors duration-300" style="color: #10b981;">
+                  Logo & Brand Identity
+                </h3>
+                <p class="text-black mb-6 leading-relaxed">
+                  Your logo is your first impression. We create memorable brand marks that stick in minds and look incredible everywhere from business cards to billboards.
+                </p>
+                
+                <!-- Detailed Logo Calculator -->
+                <div class="text-left mb-6">
+                  <div class="flex items-center justify-between mb-4">
+                    <h4 class="text-xl font-bold text-green-600">Configure Your Brand</h4>
+                    <div class="text-right">
+                      <div class="text-2xl font-bold text-green-600" id="logoBasePrice">R1,500</div>
+                      <div class="text-sm text-gray-600">Base price</div>
+                    </div>
+                  </div>
+
+                  <div class="grid md:grid-cols-2 gap-4 mb-6">
+                    <!-- Configuration -->
+                    <div>
+                      <div class="space-y-3">
+                        <div>
+                          <label class="block text-sm font-medium text-gray-700 mb-1">Logo Type</label>
+                          <select id="logoType" class="w-full p-2 border rounded-md" onchange="calculateLogoCost()">
+                            <option value="1500" selected>Complete Brand Identity (R1,500)</option>
+                            <option value="750">Modernize Existing Logo (R750)</option>
+                          </select>
+                        </div>
+                        <div id="animationOption">
+                          <label class="block text-sm font-medium text-gray-700 mb-1">Add Animation</label>
+                          <select id="logoAnimation" class="w-full p-2 border rounded-md" onchange="calculateLogoCost()">
+                            <option value="0">No animation</option>
+                            <option value="500">Yes, add animation (+R500)</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- What's Included -->
+                    <div>
+                      <h5 class="font-semibold mb-3 text-gray-800">What's Included</h5>
+                      <div id="logoIncludes" class="space-y-2 text-sm text-gray-700">
+                        <div class="flex items-center">
+                          <div class="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
+                          <span>4 logo concepts</span>
+                        </div>
+                        <div class="flex items-center">
+                          <div class="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
+                          <span>3 revision rounds</span>
+                        </div>
+                        <div class="flex items-center">
+                          <div class="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
+                          <span>All file formats</span>
+                        </div>
+                        <div class="flex items-center">
+                          <div class="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
+                          <span>Social media versions</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center justify-between pt-4 border-t border-gray-200">
+                    <div>
+                      <div class="text-lg font-bold text-gray-800">Total: <span id="logoResult" class="text-green-600">R1,500</span></div>
+                      <div class="text-sm text-gray-600">One-time payment</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3 mt-auto">
+                  <button class="service-btn text-white px-4 py-3 rounded-lg font-medium transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl" style="background: linear-gradient(to right, #10b981, #059669);" onclick="sendLogoQuote()">
+                    Get Quote
+                  </button>
+                  <button class="info-btn border-2 px-4 py-3 rounded-lg font-medium transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl" style="border-color: #10b981; color: #10b981;" onclick="openModal('logo')">
+                    Need More Info
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Custom Quote Builder -->
+          <div id="custom" class="group relative">
+            <div class="card p-10 sm:p-12 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:bg-gradient-to-br group-hover:from-purple-50 group-hover:to-white relative overflow-hidden h-full flex flex-col">
+
+              <!-- Animated background on hover -->
+              <div class="absolute inset-0 bg-gradient-to-br from-purple-700/8 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+              <div class="relative z-10 flex flex-col h-full">
+                <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg" style="background: linear-gradient(to bottom right, #8b5cf6, #7c3aed);">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                  </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-4 group-hover:text-purple-600 transition-colors duration-300" style="color: #8b5cf6;">
+                  Build Your Custom Package
+                </h3>
+                <p class="text-black mb-6 leading-relaxed">
+                  <strong>Save money by combining services!</strong> Select multiple services below to create your perfect business package. You'll get detailed pricing for each service, see exactly what's included, and receive one comprehensive quote with potential bundle discounts.
+                </p>
+                
+                <!-- Custom Package Builder -->
+                <div class="text-left mb-6">
+                  <div class="flex items-center justify-between mb-4">
+                    <h4 class="text-xl font-bold text-purple-600">Select Your Services</h4>
+                    <div class="text-right">
+                      <div class="text-2xl font-bold text-purple-600" id="customTotal">R0</div>
+                      <div class="text-sm text-gray-600">Total package</div>
+                    </div>
+                  </div>
+
+                  <div class="space-y-6 mb-6">
+                    <!-- Website Services -->
+                    <div class="border rounded-lg p-4">
+                      <label class="flex items-center mb-3">
+                        <input type="checkbox" id="includeWebsite" class="mr-3" style="accent-color: #8b5cf6;" onchange="calculateCustomCost()"/>
+                        <span class="font-semibold text-gray-800">Website Development</span>
+                      </label>
+                      <div id="websiteCustomOptions" class="ml-6 space-y-2 hidden">
+                        <select id="customWebsiteType" class="w-full p-2 border rounded-md text-sm" onchange="calculateCustomCost()">
+                          <option value="1500">Portfolio/Personal (R1,500)</option>
+                          <option value="1700">Portfolio/Personal + Domain (R1,700)</option>
+                          <option value="2500">Business/Corporate (R2,500)</option>
+                          <option value="2700">Business/Corporate + Domain (R2,700)</option>
+                        </select>
+                        <div class="grid grid-cols-2 gap-2">
+                          <input type="number" min="0" value="0" id="customExtraSections" placeholder="Extra sections" class="p-2 border rounded-md text-sm" oninput="calculateCustomCost()"/>
+                          <input type="number" min="0" value="0" id="customAdditionalTabs" placeholder="Additional tabs" class="p-2 border rounded-md text-sm" oninput="calculateCustomCost()"/>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Social Media Services -->
+                    <div class="border rounded-lg p-4">
+                      <label class="flex items-center mb-3">
+                        <input type="checkbox" id="includeSocial" class="mr-3" style="accent-color: #8b5cf6;" onchange="calculateCustomCost()"/>
+                        <span class="font-semibold text-gray-800">Social Media Management</span>
+                      </label>
+                      <div id="socialCustomOptions" class="ml-6 space-y-2 hidden">
+                        <div class="grid grid-cols-2 gap-2 text-sm">
+                          <label class="flex items-center"><input type="checkbox" class="custom-platform mr-1" value="Facebook" onchange="calculateCustomCost()"/> Facebook</label>
+                          <label class="flex items-center"><input type="checkbox" class="custom-platform mr-1" value="Instagram" onchange="calculateCustomCost()"/> Instagram</label>
+                          <label class="flex items-center"><input type="checkbox" class="custom-platform mr-1" value="LinkedIn" onchange="calculateCustomCost()"/> LinkedIn</label>
+                          <label class="flex items-center"><input type="checkbox" class="custom-platform mr-1" value="Threads" onchange="calculateCustomCost()"/> Threads</label>
+                          <label class="flex items-center"><input type="checkbox" class="custom-platform mr-1" value="TikTok" onchange="calculateCustomCost()"/> TikTok</label>
+                          <label class="flex items-center"><input type="checkbox" class="custom-platform mr-1" value="X (Twitter)" onchange="calculateCustomCost()"/> X (Twitter)</label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Logo Services -->
+                    <div class="border rounded-lg p-4">
+                      <label class="flex items-center mb-3">
+                        <input type="checkbox" id="includeLogo" class="mr-3" style="accent-color: #8b5cf6;" onchange="calculateCustomCost()"/>
+                        <span class="font-semibold text-gray-800">Logo Design</span>
+                      </label>
+                      <div id="logoCustomOptions" class="ml-6 space-y-2 hidden">
+                        <select id="customLogoType" class="w-full p-2 border rounded-md text-sm" onchange="calculateCustomCost()">
+                          <option value="1500">Complete Brand Identity (R1,500)</option>
+                          <option value="750">Modernize Existing Logo (R750)</option>
+                        </select>
+                        <select id="customLogoAnimation" class="w-full p-2 border rounded-md text-sm" onchange="calculateCustomCost()">
+                          <option value="0">No animation</option>
+                          <option value="500">Add animation (+R500)</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="bg-purple-50 p-4 rounded-lg">
+                    <div class="text-sm text-gray-700 mb-2">
+                      <strong>Package Summary:</strong>
+                    </div>
+                    <div id="packageSummary" class="text-sm text-gray-600 min-h-[2rem]">
+                      Select services to see your custom package
+                    </div>
+                  </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3 mt-auto">
+                  <button class="service-btn text-white px-4 py-3 rounded-lg font-medium transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl" style="background: linear-gradient(to right, #8b5cf6, #7c3aed);" onclick="sendCustomQuote()">
+                    Get Custom Quote
+                  </button>
+                  <button class="info-btn border-2 px-4 py-3 rounded-lg font-medium transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl" style="border-color: #8b5cf6; color: #8b5cf6;" onclick="openModal('custom')">
+                    Need More Info
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
 
         </div>
+      </div>
+    </section>
+
+    <!-- Modal Overlay -->
+    <div id="modalOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+      <div id="modalContent" class="bg-white rounded-xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+        <div id="modalHeader" class="p-6 border-b">
+          <div class="flex justify-between items-center">
+            <h3 id="modalTitle" class="text-xl font-bold">Need More Information?</h3>
+            <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600 text-2xl font-bold">&times;</button>
+          </div>
+        </div>
+        <div class="p-6">
+          <p id="modalDescription" class="text-gray-700 mb-6">Send us your questions and we'll get back to you with detailed information about this service.</p>
+          <form id="infoForm" onsubmit="sendInfoRequest(event)">
+            <div class="grid grid-cols-2 gap-4 mb-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                <input type="text" id="fullName" required class="w-full p-3 border rounded-lg focus:ring-2 focus:border-transparent" placeholder="Your full name">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                <input type="email" id="email" required class="w-full p-3 border rounded-lg focus:ring-2 focus:border-transparent" placeholder="your@email.com">
+              </div>
+            </div>
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-gray-700 mb-2">Your Message *</label>
+              <textarea id="message" required rows="4" class="w-full p-3 border rounded-lg focus:ring-2 focus:border-transparent" placeholder="What would you like to know about this service?"></textarea>
+            </div>
+            <button type="submit" id="submitBtn" class="w-full text-white px-6 py-3 rounded-lg font-medium transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
-</section>
 
-<!-- Required CSS (add to your existing stylesheet) -->
-<style>
-    .card {
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    }
-    
-    .card:hover {
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
-    
-    /* Smooth animations */
-    * {
-        transition: all 0.3s ease;
-    }
-    
-    /* Input focus styles */
-    input:focus {
-        outline: none;
-        border-color: #1e9bd5;
-        box-shadow: 0 0 0 3px rgba(30, 155, 213, 0.1);
-    }
-    
-    /* Button hover effect */
-    button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 15px rgba(30, 155, 213, 0.3);
-    }
-</style>
-
-<script>
-    // Website cost calculator
-    function calculateWebCost() {
-        const websiteType = parseInt(document.getElementById("websiteType").value) || 1500;
-        const sections = Math.max(0, parseInt(document.getElementById("extraSections").value) || 0);
-        const tabs = Math.max(0, parseInt(document.getElementById("additionalTabs").value) || 0);
-        const total = websiteType + sections * 500 + tabs * 750;
-        document.getElementById("webResult").innerText = `R${total.toLocaleString()}`;
-        document.getElementById("webBasePrice").innerText = `R${websiteType.toLocaleString()}`;
-    }
-
-    // Social Media cost calculator
-    function calculateSocialCost() {
-        const checkboxes = document.querySelectorAll(".platform-checkbox");
-        let count = 0;
-        let selected = [];
-        checkboxes.forEach((cb) => {
-            if (cb.checked) {
-                count++;
-                selected.push(cb.value);
-            }
-        });
-        const total = count * 400;
-        document.getElementById("socialResult").innerText = `R${total.toLocaleString()}`;
-        
-        const messageElement = document.getElementById("socialPlatformsMessage");
-        if (messageElement) {
-            const message = count > 0 ? `You have selected platform${count > 1 ? "s" : ""}: ${selected.join(", ")}.` : "";
-            messageElement.innerText = message;
-        }
-    }
-
-    // Email sending functions
-    function sendWebQuote() {
-        const websiteType = parseInt(document.getElementById("websiteType").value) || 1500;
-        const websiteTypeText = document.getElementById("websiteType").selectedOptions[0].text;
-        const sections = Math.max(0, parseInt(document.getElementById("extraSections").value) || 0);
-        const tabs = Math.max(0, parseInt(document.getElementById("additionalTabs").value) || 0);
-        const total = websiteType + sections * 500 + tabs * 750;
-        const includesDomain = websiteTypeText.includes("+ Domain");
-
-        const subject = "Website Design & Development Quote Request";
-        const body = `Hey Hanu Studios,
-
-I need a website designed. Here's what I'm looking for:
-
-• Website Type: ${websiteTypeText.replace(/\(.*?\)/g, '').trim()}
-• Extra sections: ${sections === 0 ? 'None' : sections}
-• Additional tabs: ${tabs === 0 ? 'None' : tabs}
-• Domain: ${includesDomain ? 'Yes, please register one' : 'No, I will handle it'}
-
-Estimated cost: R${total.toLocaleString()}
-
-Thanks!`;
-
-        window.open(`mailto:hanu@hanu.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
-    }
-
-    function sendSocialQuote() {
-        const checkboxes = document.querySelectorAll(".platform-checkbox");
-        let selected = [];
-        checkboxes.forEach((cb) => {
-            if (cb.checked) selected.push(cb.value);
-        });
-        const count = selected.length;
-        const total = count * 400;
-
-        const subject = "Social Media Management Quote Request";
-        const body = `Hey Hanu Studios,
-
-I need social media management for:
-${selected.length > 0 ? selected.map(platform => `• ${platform}`).join('\n') : '• Please advise on best platforms'}
-
-Monthly cost: R${total.toLocaleString()}
-
-Thanks!`;
-
-        window.open(`mailto:hanu@hanu.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
-    }
-
-    // Logo & Brand Identity cost calculator
-    function calculateLogoCost() {
-        const select = document.getElementById("logoAnimationSelect");
-        const base = 1500;
-        const add = parseInt(select.value);
-        const total = base + add;
-        document.getElementById("logoResult").innerText = `R${total.toLocaleString()}`;
-    }
-
-    function sendLogoQuote() {
-        const animSelect = document.getElementById("logoAnimationSelect");
-        const animCost = parseInt(animSelect.value);
-        const total = 1500 + animCost;
-
-        const subject = "Logo & Brand Identity Design Quote Request";
-        const body = `Hey Hanu Studios,
-
-I need a logo and brand identity package.
-
-• Animation: ${animCost > 0 ? "Yes, include animation" : "No animation needed"}
-
-Total cost: R${total.toLocaleString()}
-
-Thanks!`;
-
-        window.open(`mailto:hanu@hanu.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
-    }
-
-    function sendModernizeQuote() {
-        const subject = "Logo Modernization Service Quote Request";
-        const body = `Hey Hanu Studios,
-
-I need my existing logo modernized and refreshed.
-
-Cost: R750
-
-Thanks!`;
-
-        window.open(`mailto:hanu@hanu.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
-    }
-
-    // Toggle Build Your Own inputs
-    function toggleCustomWebInputs() {
-        const checkbox = document.getElementById("customIncludeWeb");
-        document.getElementById("customWebInputs").style.display = checkbox.checked ? "block" : "none";
-    }
-    function toggleCustomSocialInputs() {
-        const checkbox = document.getElementById("customIncludeSocial");
-        document.getElementById("customSocialInputs").style.display = checkbox.checked ? "block" : "none";
-    }
-    function toggleCustomLogoInputs() {
-        const checkbox = document.getElementById("customIncludeLogo");
-        const logoAnim = document.getElementById("customLogoAnim");
-        logoAnim.disabled = !checkbox.checked;
-        document.getElementById("customLogoInputs").style.display = checkbox.checked ? "block" : "none";
-    }
-
-    // Update custom package price and message
-    function updateCustomEmailContent() {
-        let total = 0;
-
-        // Website
-        const includeWeb = document.getElementById("customIncludeWeb");
-        if (includeWeb && includeWeb.checked) {
-            const websiteType = parseInt(document.getElementById("customWebsiteType").value) || 1500;
-            const extraSections = parseInt(document.getElementById("customExtraSections").value) || 0;
-            const tabs = parseInt(document.getElementById("customTabs").value) || 0;
-            const webCost = websiteType + extraSections * 500 + tabs * 750;
-            total += webCost;
-        }
-
-        // Social Media
-        const includeSocial = document.getElementById("customIncludeSocial");
-        if (includeSocial && includeSocial.checked) {
-            const platforms = [...document.querySelectorAll(".custom-platform-checkbox:checked")].map(cb => cb.value);
-            const count = platforms.length;
-            const socialCost = count * 400;
-            total += socialCost;
+    <script>
+        function calculateWebCost() {
+            const websiteType = parseInt(document.getElementById('websiteType').value);
+            const extraSections = parseInt(document.getElementById('extraSections').value) || 0;
+            const additionalTabs = parseInt(document.getElementById('additionalTabs').value) || 0;
             
-            const messageElement = document.getElementById("customSocialPlatformsMessage");
-            if (messageElement) {
-                messageElement.innerText = count > 0 ? `You have selected platform${count !== 1 ? 's' : ''}: ${platforms.join(", ")}.` : "";
+            const total = websiteType + (extraSections * 500) + (additionalTabs * 750);
+            
+            document.getElementById('webResult').textContent = 'R' + total.toLocaleString();
+            document.getElementById('webBasePrice').textContent = 'R' + total.toLocaleString();
+        }
+
+        function sendWebQuote() {
+            const websiteType = document.getElementById('websiteType').selectedOptions[0].text;
+            const extraSections = parseInt(document.getElementById('extraSections').value) || 0;
+            const additionalTabs = parseInt(document.getElementById('additionalTabs').value) || 0;
+            const total = document.getElementById('webResult').textContent;
+            
+            const subject = 'Website Development Quote Request - Hanu Studios';
+            const body = `Hello Hanu Studios,
+
+I would like to request a quote for website development services.
+
+SERVICE DETAILS:
+- Service: Website Development
+- Website Type: ${websiteType}
+- Extra Sections: ${extraSections}
+- Additional Tabs: ${additionalTabs}
+- Total Cost: ${total}
+
+WHAT'S INCLUDED:
+- Responsive design (mobile & desktop)
+- 3 base sections (Home, About, Contact)
+- Contact form & social media links
+- ${extraSections > 0 ? extraSections + ' additional sections' : 'No extra sections'}
+- ${additionalTabs > 0 ? additionalTabs + ' additional tabs' : 'No additional tabs'}
+
+Please contact me to discuss this project further.
+
+Best regards`;
+
+            window.location.href = `mailto:hanu@hanu.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function calculateSocialCost() {
+            const checkboxes = document.querySelectorAll('.platform-checkbox:checked');
+            const platformCount = checkboxes.length;
+            const total = platformCount * 400;
+            
+            document.getElementById('socialResult').textContent = 'R' + total.toLocaleString();
+            
+            const messageElement = document.getElementById('socialPlatformsMessage');
+            if (platformCount === 0) {
+                messageElement.textContent = 'Select platforms to see pricing';
+            } else if (platformCount === 1) {
+                messageElement.textContent = '1 platform selected';
+            } else {
+                messageElement.textContent = `${platformCount} platforms selected`;
             }
-        } else {
-            const messageElement = document.getElementById("customSocialPlatformsMessage");
-            if (messageElement) {
-                messageElement.innerText = "";
+        }
+
+        function sendSocialQuote() {
+            const checkboxes = document.querySelectorAll('.platform-checkbox:checked');
+            const platforms = Array.from(checkboxes).map(cb => cb.value);
+            const total = document.getElementById('socialResult').textContent;
+            
+            if (platforms.length === 0) {
+                alert('Please select at least one platform to get a quote.');
+                return;
+            }
+            
+            const subject = 'Social Media Management Quote Request - Hanu Studios';
+            const body = `Hello Hanu Studios,
+
+I would like to request a quote for social media management services.
+
+SERVICE DETAILS:
+- Service: Social Media Management
+- Selected Platforms: ${platforms.join(', ')}
+- Number of Platforms: ${platforms.length}
+- Monthly Cost: ${total}
+
+WHAT'S INCLUDED PER PLATFORM:
+- 6-10 posts per month
+- Scheduled posting
+- Monthly performance report
+
+BILLING:
+- Monthly subscription at R400 per platform
+- Total monthly cost: ${total}
+
+Please contact me to discuss this project further.
+
+Best regards`;
+
+            window.location.href = `mailto:hanu@hanu.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function calculateLogoCost() {
+            const logoType = parseInt(document.getElementById('logoType').value);
+            const animation = parseInt(document.getElementById('logoAnimation').value);
+            const total = logoType + animation;
+            
+            document.getElementById('logoResult').textContent = 'R' + total.toLocaleString();
+            document.getElementById('logoBasePrice').textContent = 'R' + total.toLocaleString();
+            
+            // Update what's included based on logo type
+            const includesDiv = document.getElementById('logoIncludes');
+            const animationOption = document.getElementById('animationOption');
+            
+            if (logoType === 750) {
+                // Modernize existing logo
+                includesDiv.innerHTML = `
+                    <div class="flex items-center">
+                        <div class="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
+                        <span>Logo analysis</span>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
+                        <span>Modern updates</span>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
+                        <span>Color refresh</span>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
+                        <span>2 revision rounds</span>
+                    </div>
+                `;
+                animationOption.style.display = 'none';
+                document.getElementById('logoAnimation').value = '0';
+            } else {
+                // Complete brand identity
+                includesDiv.innerHTML = `
+                    <div class="flex items-center">
+                        <div class="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
+                        <span>4 logo concepts</span>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
+                        <span>3 revision rounds</span>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
+                        <span>All file formats</span>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
+                        <span>Social media versions</span>
+                    </div>
+                `;
+                animationOption.style.display = 'block';
             }
         }
 
-        // Logo
-        const includeLogo = document.getElementById("customIncludeLogo");
-        if (includeLogo && includeLogo.checked) {
-            const animCost = parseInt(document.getElementById("customLogoAnim").value) || 0;
-            const logoCost = 1500 + animCost;
-            total += logoCost;
+        function sendLogoQuote() {
+            const logoType = document.getElementById('logoType').selectedOptions[0].text;
+            const animation = document.getElementById('logoAnimation').selectedOptions[0].text;
+            const total = document.getElementById('logoResult').textContent;
+            
+            const subject = 'Logo Design Quote Request - Hanu Studios';
+            const body = `Hello Hanu Studios,
+
+I would like to request a quote for logo design services.
+
+SERVICE DETAILS:
+- Service: Logo Design
+- Logo Type: ${logoType}
+- Animation: ${animation}
+- Total Cost: ${total}
+
+WHAT'S INCLUDED:
+${logoType.includes('Complete') ? 
+`- 4 logo concepts
+- 3 revision rounds
+- All file formats
+- Social media versions` : 
+`- Logo analysis
+- Modern updates
+- Color refresh
+- 2 revision rounds`}
+${animation.includes('animation') ? '- Logo animation' : ''}
+
+Please contact me to discuss this project further.
+
+Best regards`;
+
+            window.location.href = `mailto:hanu@hanu.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         }
 
-        const totalElement = document.getElementById("customTotal");
-        if (totalElement) {
-            totalElement.innerText = `R${total.toLocaleString()}`;
+        function calculateCustomCost() {
+            let total = 0;
+            let summary = [];
+            
+            // Website
+            if (document.getElementById('includeWebsite').checked) {
+                document.getElementById('websiteCustomOptions').classList.remove('hidden');
+                const websiteType = parseInt(document.getElementById('customWebsiteType').value);
+                const extraSections = parseInt(document.getElementById('customExtraSections').value) || 0;
+                const additionalTabs = parseInt(document.getElementById('customAdditionalTabs').value) || 0;
+                const websiteTotal = websiteType + (extraSections * 500) + (additionalTabs * 750);
+                total += websiteTotal;
+                summary.push(`Website: R${websiteTotal.toLocaleString()}`);
+            } else {
+                document.getElementById('websiteCustomOptions').classList.add('hidden');
+            }
+            
+            // Social Media
+            if (document.getElementById('includeSocial').checked) {
+                document.getElementById('socialCustomOptions').classList.remove('hidden');
+                const platforms = document.querySelectorAll('.custom-platform:checked');
+                const socialTotal = platforms.length * 400;
+                if (platforms.length > 0) {
+                    total += socialTotal;
+                    summary.push(`Social Media: R${socialTotal.toLocaleString()}/month (${platforms.length} platforms)`);
+                }
+            } else {
+                document.getElementById('socialCustomOptions').classList.add('hidden');
+                document.querySelectorAll('.custom-platform').forEach(cb => cb.checked = false);
+            }
+            
+            // Logo
+            if (document.getElementById('includeLogo').checked) {
+                document.getElementById('logoCustomOptions').classList.remove('hidden');
+                const logoType = parseInt(document.getElementById('customLogoType').value);
+                const logoAnimation = parseInt(document.getElementById('customLogoAnimation').value);
+                const logoTotal = logoType + logoAnimation;
+                total += logoTotal;
+                summary.push(`Logo: R${logoTotal.toLocaleString()}`);
+            } else {
+                document.getElementById('logoCustomOptions').classList.add('hidden');
+            }
+            
+            document.getElementById('customTotal').textContent = 'R' + total.toLocaleString();
+            
+            const summaryDiv = document.getElementById('packageSummary');
+            if (summary.length === 0) {
+                summaryDiv.textContent = 'Select services to see your custom package';
+            } else {
+                summaryDiv.innerHTML = summary.join('<br>');
+            }
         }
-    }
 
-    function sendCustomQuote() {
-        const includeWeb = document.getElementById('customIncludeWeb').checked;
-        const includeSocial = document.getElementById('customIncludeSocial').checked;
-        const includeLogo = document.getElementById('customIncludeLogo').checked;
+        function sendCustomQuote() {
+            const includeWebsite = document.getElementById('includeWebsite').checked;
+            const includeSocial = document.getElementById('includeSocial').checked;
+            const includeLogo = document.getElementById('includeLogo').checked;
+            
+            if (!includeWebsite && !includeSocial && !includeLogo) {
+                alert('Please select at least one service for your custom package.');
+                return;
+            }
+            
+            let serviceDetails = [];
+            let total = 0;
+            
+            if (includeWebsite) {
+                const websiteType = document.getElementById('customWebsiteType').selectedOptions[0].text;
+                const extraSections = parseInt(document.getElementById('customExtraSections').value) || 0;
+                const additionalTabs = parseInt(document.getElementById('customAdditionalTabs').value) || 0;
+                const websiteTotal = parseInt(document.getElementById('customWebsiteType').value) + (extraSections * 500) + (additionalTabs * 750);
+                total += websiteTotal;
+                serviceDetails.push(`WEBSITE DEVELOPMENT:
+- Type: ${websiteType}
+- Extra Sections: ${extraSections}
+- Additional Tabs: ${additionalTabs}
+- Subtotal: R${websiteTotal.toLocaleString()}`);
+            }
+            
+            if (includeSocial) {
+                const platforms = Array.from(document.querySelectorAll('.custom-platform:checked')).map(cb => cb.value);
+                const socialTotal = platforms.length * 400;
+                if (platforms.length > 0) {
+                    total += socialTotal;
+                    serviceDetails.push(`SOCIAL MEDIA MANAGEMENT:
+- Platforms: ${platforms.join(', ')}
+- Monthly Cost: R${socialTotal.toLocaleString()}`);
+                }
+            }
+            
+            if (includeLogo) {
+                const logoType = document.getElementById('customLogoType').selectedOptions[0].text;
+                const logoAnimation = document.getElementById('customLogoAnimation').selectedOptions[0].text;
+                const logoTotal = parseInt(document.getElementById('customLogoType').value) + parseInt(document.getElementById('customLogoAnimation').value);
+                total += logoTotal;
+                serviceDetails.push(`LOGO DESIGN:
+- Type: ${logoType}
+- Animation: ${logoAnimation}
+- Subtotal: R${logoTotal.toLocaleString()}`);
+            }
+            
+            const subject = 'Custom Package Quote Request - Hanu Studios';
+            const body = `Hello Hanu Studios,
 
-        if (!includeWeb && !includeSocial && !includeLogo) {
-            alert('Please select at least one service to get a quote.');
-            return;
+I would like to request a quote for a custom service package.
+
+CUSTOM PACKAGE DETAILS:
+${serviceDetails.join('\n\n')}
+
+TOTAL PACKAGE VALUE: R${total.toLocaleString()}
+
+Please contact me to discuss this custom package further and provide a detailed proposal.
+
+Best regards`;
+
+            window.location.href = `mailto:hanu@hanu.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         }
 
-        let total = 0;
-        let bodyLines = ["Hey Hanu Studios,", "", "I need a custom package with:"];
+        // Initialize calculations
+        calculateLogoCost();
 
-        // Website
-        if (includeWeb) {
-            const websiteType = parseInt(document.getElementById("customWebsiteType").value) || 1500;
-            const websiteTypeText = document.getElementById("customWebsiteType").selectedOptions[0].text.replace(/\(.*?\)/g, '').trim();
-            const extraSections = parseInt(document.getElementById("customExtraSections").value) || 0;
-            const tabs = parseInt(document.getElementById("customTabs").value) || 0;
-            const webCost = websiteType + extraSections * 500 + tabs * 750;
-            const includesDomain = websiteTypeText.includes("+ Domain");
-            total += webCost;
-            bodyLines.push("", `• Website: ${websiteTypeText}`);
-            if (extraSections > 0) bodyLines.push(`  - Extra sections: ${extraSections}`);
-            if (tabs > 0) bodyLines.push(`  - Additional tabs: ${tabs}`);
-            bodyLines.push(`  - Cost: R${webCost.toLocaleString()}`);
+        // Modal functions
+        let currentService = '';
+        
+        function openModal(service) {
+            currentService = service;
+            const modal = document.getElementById('modalOverlay');
+            const title = document.getElementById('modalTitle');
+            const description = document.getElementById('modalDescription');
+            const submitBtn = document.getElementById('submitBtn');
+            const focusRing = document.querySelectorAll('#infoForm input, #infoForm textarea');
+            
+            // Set colors and content based on service
+            const serviceConfig = {
+                web: {
+                    title: 'Website Development - Need More Info?',
+                    description: 'Have questions about our website development services? Ask us about features, timelines, hosting, maintenance, or anything else you\'d like to know.',
+                    color: '#1e9bd5',
+                    bgColor: 'linear-gradient(to right, #1e9bd5, #127bb0)'
+                },
+                social: {
+                    title: 'Social Media Management - Need More Info?',
+                    description: 'Want to know more about our social media services? Ask about content creation, posting schedules, analytics, or platform-specific strategies.',
+                    color: '#ec343e',
+                    bgColor: 'linear-gradient(to right, #ec343e, #ff6f76)'
+                },
+                logo: {
+                    title: 'Logo Design - Need More Info?',
+                    description: 'Questions about our logo and branding services? Ask about our design process, file formats, revisions, or brand guidelines.',
+                    color: '#10b981',
+                    bgColor: 'linear-gradient(to right, #10b981, #059669)'
+                },
+                custom: {
+                    title: 'Custom Package - Need More Info?',
+                    description: 'Want to learn more about creating a custom package? Ask about bundle discounts, service combinations, or project timelines.',
+                    color: '#8b5cf6',
+                    bgColor: 'linear-gradient(to right, #8b5cf6, #7c3aed)'
+                }
+            };
+            
+            const config = serviceConfig[service];
+            title.textContent = config.title;
+            description.textContent = config.description;
+            submitBtn.style.background = config.bgColor;
+            
+            // Set focus ring colors
+            focusRing.forEach(element => {
+                element.style.setProperty('--tw-ring-color', config.color);
+            });
+            
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
         }
-
-        // Social Media
-        if (includeSocial) {
-            const platforms = [...document.querySelectorAll(".custom-platform-checkbox:checked")].map(cb => cb.value);
-            const count = platforms.length;
-            const socialCost = count * 400;
-            total += socialCost;
-            bodyLines.push("", `• Social Media: ${platforms.length > 0 ? platforms.join(", ") : "Please advise platforms"}`);
-            bodyLines.push(`  - Monthly cost: R${socialCost.toLocaleString()}`);
+        
+        function closeModal() {
+            const modal = document.getElementById('modalOverlay');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            
+            // Reset form
+            document.getElementById('infoForm').reset();
         }
+        
+        function sendInfoRequest(event) {
+            event.preventDefault();
+            
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            const serviceNames = {
+                web: 'Website Development',
+                social: 'Social Media Management',
+                logo: 'Logo Design',
+                custom: 'Custom Package'
+            };
+            
+            const subject = `Information Request - ${serviceNames[currentService]} - Hanu Studios`;
+            const body = `Hello Hanu Studios,
 
-        // Logo
-        if (includeLogo) {
-            const animCost = parseInt(document.getElementById("customLogoAnim").value) || 0;
-            const logoCost = 1500 + animCost;
-            total += logoCost;
-            bodyLines.push("", `• Logo & Brand Identity${animCost > 0 ? ' with animation' : ''}`);
-            bodyLines.push(`  - Cost: R${logoCost.toLocaleString()}`);
+I would like more information about your ${serviceNames[currentService]} service.
+
+CONTACT DETAILS:
+- Name: ${fullName}
+- Email: ${email}
+
+MESSAGE:
+${message}
+
+Please contact me with more details about this service.
+
+Best regards,
+${fullName}`;
+
+            window.location.href = `mailto:hanu@hanu.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            closeModal();
         }
-
-        bodyLines.push("", `Total: R${total.toLocaleString()}`);
-        bodyLines.push("", "Thanks!");
-
-        const subject = "Custom Service Package Quote Request";
-        const body = bodyLines.join("\n");
-
-        window.open(`mailto:hanu@hanu.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
-    }
-
-    // Initialize calculations when the section loads
-    document.addEventListener('DOMContentLoaded', function() {
-        // Small delay to ensure all elements are rendered
-        setTimeout(function() {
-            calculateWebCost();
-            calculateSocialCost();
-            calculateLogoCost();
-            updateCustomEmailContent();
-        }, 100);
-    });
-</script>
+        
+        // Close modal when clicking outside
+        document.getElementById('modalOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
 
 <!-- Contact Section -->
 <section id="contact" class="py-8 sm:py-12">
