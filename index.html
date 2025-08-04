@@ -962,39 +962,9 @@ body.light-theme .marquee-content {
       <a href="#about" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-105"
          style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'"
          onmouseout="this.style.color='#127bb0'">About Us</a>
-
-      <!-- Solutions Dropdown -->
-      <div class="relative">
-        <a href="#solutions" id="solutionsToggle"
-           class="flex items-center font-medium text-sm lg:text-base transition-all duration-300 hover:scale-105"
-           style="color: #127bb0; outline: none; background: none; border: none; padding: 0;"
-           onmouseover="this.style.color='#1e9bd5'"
-           onmouseout="this.style.color='#127bb0'">
-          Solutions
-          <svg id="solutionsArrow" class="w-4 h-4 ml-1 transition-transform duration-300 transform"
-               fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-          </svg>
-        </a>
-
-        <div id="solutionsDropdown"
-             class="hidden absolute top-full mt-2 flex flex-col bg-white/90 text-black shadow-xl rounded-xl py-2 w-48 z-50 backdrop-blur-md"
-             role="menu" aria-label="Solutions submenu">
-          <a href="#web-design" class="px-4 py-2 font-medium text-sm lg:text-base transition-all duration-300 hover:scale-105"
-             style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'"
-             onclick="closeDropdown()" role="menuitem">Web Design</a>
-          <a href="#social-media" class="px-4 py-2 font-medium text-sm lg:text-base transition-all duration-300 hover:scale-105"
-             style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'"
-             onclick="closeDropdown()" role="menuitem">Social Media</a>
-          <a href="#logos" class="px-4 py-2 font-medium text-sm lg:text-base transition-all duration-300 hover:scale-105"
-             style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'"
-             onclick="closeDropdown()" role="menuitem">Logo's</a>
-          <a href="#custom" class="px-4 py-2 font-medium text-sm lg:text-base transition-all duration-300 hover:scale-105"
-             style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'"
-             onclick="closeDropdown()" role="menuitem">Custom</a>
-        </div>
-      </div>
-
+      <a href="#solutions" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-105"
+         style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'"
+         onmouseout="this.style.color='#127bb0'">Solutions</a>
       <a href="#contact" class="font-medium text-sm lg:text-base transition-all duration-300 hover:scale-105"
          style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'"
          onmouseout="this.style.color='#127bb0'">Contact Us</a>
@@ -1016,54 +986,11 @@ body.light-theme .marquee-content {
     <div class="px-4 py-4 flex flex-col items-center space-y-1">
       <a href="#home" class="py-2 px-6 hover:bg-white/20 font-medium text-lg rounded-xl w-full text-center" style="color: #127bb0;">Home</a>
       <a href="#about" class="py-2 px-6 hover:bg-white/20 font-medium text-lg rounded-xl w-full text-center" style="color: #127bb0;">About Us</a>
-
-      <!-- Mobile Dropdown -->
-      <details class="w-full max-w-sm">
-        <summary class="py-2 px-6 font-medium text-lg rounded-xl cursor-pointer list-none text-center" style="color: #127bb0;">Solutions</summary>
-        <div class="flex flex-col items-center mt-1">
-          <a href="#web-design" class="py-2 px-6 hover:bg-white/20 transition-all w-full text-center font-medium" style="color: #127bb0;">Web Design</a>
-          <a href="#social-media" class="py-2 px-6 hover:bg-white/20 transition-all w-full text-center font-medium" style="color: #127bb0;">Social Media</a>
-          <a href="#logos" class="py-2 px-6 hover:bg-white/20 transition-all w-full text-center font-medium" style="color: #127bb0;">Logo's</a>
-          <a href="#custom" class="py-2 px-6 hover:bg-white/20 transition-all w-full text-center font-medium" style="color: #127bb0;">Custom</a>
-        </div>
-      </details>
-
+      <a href="#solutions" class="py-2 px-6 hover:bg-white/20 font-medium text-lg rounded-xl w-full text-center" style="color: #127bb0;">Solutions</a>
       <a href="#contact" class="py-2 px-6 hover:bg-white/20 font-medium text-lg rounded-xl w-full text-center" style="color: #127bb0;">Contact Us</a>
     </div>
   </div>
 </header>
-
-<!-- Dropdown Toggle Script -->
-<script>
-  const toggleBtn = document.getElementById('solutionsToggle');
-  const dropdown = document.getElementById('solutionsDropdown');
-  const arrow = document.getElementById('solutionsArrow');
-
-  toggleBtn.addEventListener('click', (e) => {
-    if (e.target.closest('#solutionsArrow')) {
-      e.preventDefault();
-      dropdown.classList.toggle('hidden');
-      arrow.classList.toggle('rotate-180');
-
-      const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-      toggleBtn.setAttribute('aria-expanded', String(!expanded));
-    }
-  });
-
-  document.addEventListener('click', (e) => {
-    if (!toggleBtn.contains(e.target) && !dropdown.contains(e.target)) {
-      dropdown.classList.add('hidden');
-      arrow.classList.remove('rotate-180');
-      toggleBtn.setAttribute('aria-expanded', 'false');
-    }
-  });
-
-  function closeDropdown() {
-    dropdown.classList.add('hidden');
-    arrow.classList.remove('rotate-180');
-    toggleBtn.setAttribute('aria-expanded', 'false');
-  }
-</script>
 
 <!-- Paint Splashes Background -->
 <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
@@ -1237,7 +1164,6 @@ body.light-theme .marquee-content {
 HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | HANU STUDIO | WEB DESIGN | SOCIAL MEDIA MANAGEMENT | LOGO DESIGN | 
 </div>
 </section>
-
 
 <!-- About Us Section -->
 <section id="about" class="py-8 sm:py-12">
