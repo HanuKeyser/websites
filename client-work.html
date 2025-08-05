@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Websites | Hanu Studio</title>
+    <link rel="icon" href="Company Logo (HS).png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+html {
+scroll-behavior: smooth;
+}
+
+/* Performance optimizations */
+* {
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+/* CSS containment for better performance */
+.card {
+contain: layout style paint;
+}
+
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+width: 12px;
+}
+
+::-webkit-scrollbar-track {
+background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+border-radius: 10px;
+}
+
+body.dark-theme ::-webkit-scrollbar-track {
+background: linear-gradient(180deg, #1e293b 0%, #334155 100%);
+}
+
+::-webkit-scrollbar-thumb {
+background: linear-gradient(180deg, #336da9 0%, #1f9dd1 50%, #127bb0 100%);
+border-radius: 10px;
+border: 2px solid #f8fafc;
+box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme ::-webkit-scrollbar-thumb {
+background: linear-gradient(180deg, #1e9bd5 0%, #127bb0 50%, #0f5a7a 100%);
+border: 2px solid #1e293b;
+box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-theme ::-webkit-scrollbar-thumb:hover {
+background: linear-gradient(180deg, #22a8e8 0%, #1e9bd5 50%, #127bb0 100%);
+box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%);
+box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Firefox scrollbar styling */
+html {
+scrollbar-width: thin;
+scrollbar-color: #336da9 #f8fafc;
+}
+
+body.dark-theme html {
+scrollbar-color: #1e9bd5 #1e293b !important;
+}
+
+body {
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+transition: all 0.3s ease;
+}
+
+/* Dark theme */
+body.dark-theme {
+background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%) !important;
+}
+
+/* Light mode text colors */
+h1, h2, h3, h4, h5, h6 {
+color: #000000 !important;
+transition: color 0.3s ease;
+}
+
+body.dark-theme h1, 
+body.dark-theme h2, 
+body.dark-theme h3, 
+body.dark-theme h4, 
+body.dark-theme h5, 
+body.dark-theme h6 {
+color: #ffffff !important;
+}
+
+p {
+color: #000000 !important;
+transition: color 0.3s ease;
+}
+
+body.dark-theme p {
+color: #e2e8f0 !important;
+}
+
+span {
+color: #000000 !important;
+transition: color 0.3s ease;
+}
+
+body.dark-theme span {
+color: #e2e8f0 !important;
+}
+
+li {
+color: #000000 !important;
+transition: color 0.3s ease;
+}
+
+body.dark-theme li {
+color: #e2e8f0 !important;
+}
+
+label {
+color: #000000 !important;
+transition: color 0.3s ease;
+}
+
+body.dark-theme label {
+color: #e2e8f0 !important;
+}
+
+/* Navigation links dark theme */
+body.dark-theme nav a {
+color: #e2e8f0 !important;
+}
+
+body.dark-theme nav a:hover {
+color: #1e9bd5 !important;
+}
+
+/* Mobile menu dark theme */
+body.dark-theme #mobileMenu a {
+color: #e2e8f0 !important;
+}
+
+body.dark-theme #mobileMenuBtn svg {
+color: #e2e8f0 !important;
+}
+
+.card {
+background: rgba(255, 255, 255, 0.95);
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+border: 1px solid rgba(255, 255, 255, 0.2);
+border-radius: 20px;
+box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+transition: all 0.3s ease;
+}
+
+body.dark-theme .card {
+background: rgba(15, 23, 42, 0.95) !important;
+border: 1px solid rgba(255, 255, 255, 0.1) !important;
+box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+}
+
+.btn-primary {
+background: linear-gradient(135deg, #127bb0 0%, #1e9bd5 100%);
+color: white;
+padding: 12px 24px;
+border-radius: 8px;
+font-weight: 500;
+transition: all 0.3s ease;
+border: none;
+cursor: pointer;
+min-height: 44px;
+touch-action: manipulation;
+}
+
+.btn-primary:hover {
+transform: translateY(-1px);
+box-shadow: 0 6px 20px rgba(50, 109, 169, 0.3);
+background: linear-gradient(135deg, #1e9bd5 0%, #127bb0 100%);
+}
+
+.btn-primary:active {
+transform: scale(0.98);
+transition: all 0.1s ease;
+}
+
+/* Back to Top Button */
+.back-to-top {
+position: fixed;
+bottom: 20px;
+right: 20px;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+background: rgba(255, 255, 255, 0.1);
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255, 255, 255, 0.15);
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+transition: all 0.3s ease;
+z-index: 1000;
+opacity: 0;
+transform: translateY(20px);
+touch-action: manipulation;
+}
+
+.back-to-top.visible {
+opacity: 1;
+transform: translateY(0);
+}
+
+.back-to-top:hover {
+background: rgba(255, 255, 255, 0.2);
+transform: translateY(-2px);
+box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.back-to-top:active {
+transform: scale(0.95);
+}
+
+/* Project card styling */
+.project-card {
+background: rgba(255, 255, 255, 0.95);
+backdrop-filter: blur(20px);
+border: 1px solid rgba(255, 255, 255, 0.2);
+border-radius: 16px;
+box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+transition: all 0.3s ease;
+overflow: hidden;
+}
+
+body.dark-theme .project-card {
+background: rgba(15, 23, 42, 0.95) !important;
+border: 1px solid rgba(255, 255, 255, 0.1) !important;
+box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+}
+
+.project-card:hover {
+transform: translateY(-4px);
+box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme .project-card:hover {
+box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Project image styling */
+.project-image {
+width: 100%;
+height: 200px;
+object-fit: cover;
+border-radius: 12px;
+}
+
+/* Project status badges */
+.status-badge {
+display: inline-block;
+padding: 4px 12px;
+border-radius: 20px;
+font-size: 12px;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+}
+
+.status-live {
+background: linear-gradient(135deg, #10b981, #059669);
+color: white;
+}
+
+.status-development {
+background: linear-gradient(135deg, #f59e0b, #d97706);
+color: white;
+}
+
+.status-completed {
+background: linear-gradient(135deg, #3b82f6, #2563eb);
+color: white;
+}
+
+/* Coming Soon Badge */
+.coming-soon-badge {
+background: linear-gradient(135deg, #6b7280, #4b5563);
+color: white;
+padding: 4px 12px;
+border-radius: 20px;
+font-size: 12px;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+}
+
+/* Dark theme header */
+body.dark-theme .dark-theme-header {
+background: rgba(15, 23, 42, 0.95) !important;
+border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+backdrop-filter: blur(20px) !important;
+}
+
+/* Dark theme back to top */
+body.dark-theme .back-to-top {
+background: rgba(30, 155, 213, 0.9) !important;
+border: 2px solid rgba(30, 155, 213, 0.8) !important;
+box-shadow: 0 4px 20px rgba(30, 155, 213, 0.3) !important;
+}
+
+body.dark-theme .back-to-top:hover {
+background: rgba(30, 155, 213, 1) !important;
+border: 2px solid rgba(30, 155, 213, 1) !important;
+box-shadow: 0 8px 30px rgba(30, 155, 213, 0.5) !important;
+transform: translateY(-4px) !important;
+}
+
+body.dark-theme .back-to-top svg {
+color: #ffffff !important;
+}
+
+/* Modal Styles */
+.modal-overlay {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: rgba(0, 0, 0, 0.5);
+backdrop-filter: blur(8px);
+display: flex;
+align-items: center;
+justify-content: center;
+z-index: 9999;
+opacity: 0;
+visibility: hidden;
+transition: all 0.3s ease;
+padding: 1rem;
+}
+
+.modal-overlay.active {
+opacity: 1;
+visibility: visible;
+}
+
+.modal-content {
+background: rgba(255, 255, 255, 0.95);
+backdrop-filter: blur(20px);
+border: 1px solid rgba(255, 255, 255, 0.15);
+border-radius: 20px;
+box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+padding: 2rem;
+width: 100%;
+max-width: 800px;
+max-height: 90vh;
+overflow-y: auto;
+transform: scale(0.9) translateY(20px);
+transition: all 0.3s ease;
+position: relative;
+scrollbar-width: none;
+-ms-overflow-style: none;
+}
+
+.modal-content::-webkit-scrollbar {
+width: 0px;
+background: transparent;
+}
+
+.modal-overlay.active .modal-content {
+transform: scale(1) translateY(0);
+}
+
+body.dark-theme .modal-content {
+background: rgba(15, 23, 42, 0.95) !important;
+border: 1px solid rgba(255, 255, 255, 0.1) !important;
+box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4) !important;
+}
+
+.modal-close {
+position: absolute;
+top: 1rem;
+right: 1rem;
+width: 44px;
+height: 44px;
+border-radius: 50%;
+background: rgba(255, 255, 255, 0.1);
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255, 255, 255, 0.15);
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+transition: all 0.3s ease;
+z-index: 10;
+touch-action: manipulation;
+}
+
+.modal-close:hover {
+background: rgba(255, 255, 255, 0.2);
+transform: scale(1.05);
+}
+
+.modal-close:active {
+transform: scale(0.95);
+}
+
+/* Enhanced responsive design */
+@media (max-width: 480px) {
+.project-card {
+padding: 1rem !important;
+margin: 0.5rem !important;
+border-radius: 12px !important;
+}
+
+.project-image {
+height: 150px;
+border-radius: 8px;
+}
+
+h1 { font-size: 1.75rem !important; line-height: 1.2 !important; }
+h2 { font-size: 1.5rem !important; line-height: 1.3 !important; }
+h3 { font-size: 1.25rem !important; line-height: 1.4 !important; }
+
+.btn-primary {
+padding: 14px 20px !important;
+font-size: 16px !important;
+min-height: 48px !important;
+touch-action: manipulation;
+}
+
+.back-to-top {
+bottom: 20px;
+right: 20px;
+width: 44px;
+height: 44px;
+}
+
+.modal-content {
+padding: 1.5rem;
+border-radius: 16px;
+margin: 0.5rem;
+}
+
+.modal-close {
+top: 0.75rem;
+right: 0.75rem;
+width: 40px;
+height: 40px;
+}
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+.project-card {
+padding: 1.5rem !important;
+border-radius: 14px !important;
+}
+
+.project-image {
+height: 180px;
+border-radius: 10px;
+}
+
+.btn-primary {
+padding: 12px 24px !important;
+min-height: 46px !important;
+touch-action: manipulation;
+}
+
+.back-to-top {
+bottom: 18px;
+right: 18px;
+width: 42px;
+height: 42px;
+}
+}
+
+@media (min-width: 769px) {
+.project-card:hover {
+transform: translateY(-4px) !important;
+box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+}
+
+.back-to-top {
+bottom: 24px;
+right: 24px;
+width: 48px;
+height: 48px;
+}
+}
+
+/* Touch-friendly interactions */
+@media (hover: none) and (pointer: coarse) {
+.btn-primary:hover {
+transform: none;
+background: linear-gradient(135deg, #336da9 0%, #1f9dd1 100%);
+}
+
+.back-to-top:hover {
+transform: none;
+}
+}
+
+    </style>
+</head>
+
+<body class="bg-white min-h-screen">
+    
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 text-black shadow-lg backdrop-blur-md border-b border-white/20 bg-white/10 transition-all duration-300 dark-theme-header">
+      <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20 sm:h-22 lg:h-24">
+        <a href="index.html">
+          <img src="Company Logo (Spaced).png" alt="Hanu Studio Logo" class="h-10 sm:h-12 md:h-14 w-auto" loading="eager" decoding="async">
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center space-x-6 ml-auto">
+          <a href="index.html#home" class="font-medium text-base lg:text-lg transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Home</a>
+          <a href="index.html#about" class="font-medium text-base lg:text-lg transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">About Us</a>
+          <a href="index.html#portfolio" class="font-medium text-base lg:text-lg transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Portfolio</a>
+    	  <a href="index.html#solutions" class="font-medium text-base lg:text-lg transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Solutions</a>
+          <a href="index.html#contact" class="font-medium text-base lg:text-lg transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Contact Us</a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg hover:bg-white/20 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center">
+          <svg id="hamburgerIcon" class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <svg id="closeIcon" class="w-6 h-6 text-black hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <div id="mobileMenu" class="md:hidden border-t border-white/20 shadow-lg transform translate-y-0 opacity-0 scale-y-0 origin-top transition-all duration-300 ease-in-out overflow-hidden max-h-0 backdrop-blur-md bg-white/10">
+        <div class="px-4 py-4 flex flex-col items-center space-y-1">
+          <a href="index.html#home" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">Home</a>
+          <a href="index.html#about" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">About Us</a>
+          <a href="index.html#portfolio" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">Portfolio</a>
+    	  <a href="index.html#solutions" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">Solutions</a>
+          <a href="index.html#contact" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">Contact Us</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 relative z-20 pt-24">
+
+        <!-- Page Header -->
+        <section class="py-12">
+            <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4" style="color: black;">
+                    Our Client Projects
+                </h1>
+                <p class="text-black text-lg sm:text-xl max-w-4xl mx-auto">
+                    Explore our diverse portfolio of portfolio/personal websites, business/corporate websites, logo designs, logo revamps, and social media management across Facebook, Instagram, LinkedIn, Threads, TikTok, and X.
+                </p>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="pb-12">
+            <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+
+                <!-- Project Row 1 -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                    <!-- Project 1 - Website -->
+                    <div class="project-card p-6" style="border-left: 4px solid #1e9bd5;">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h3 class="text-xl font-bold" style="color: #1e9bd5;">Project 1</h3>
+                                    <span class="status-badge status-live">Live</span>
+                                </div>
+                                <p class="text-sm font-medium text-gray-600 mb-3">Business Website</p>
+                                <p class="text-black mb-4">
+                                    Modern e-commerce platform with advanced filtering, secure payment integration, and responsive design optimized for conversions.
+                                </p>
+                            </div>
+                            <div class="ml-4 flex-shrink-0">
+                                <div class="w-32 h-18 bg-gray-100 rounded-lg overflow-hidden">
+                                    <img src="https://via.placeholder.com/128x72/1e9bd5/ffffff?text=Web" alt="Project 1" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">React</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Node.js</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Stripe</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="#" class="btn-primary flex-1 text-center" style="background: linear-gradient(135deg, #1e9bd5 0%, #127bb0 100%);">View Live Site</a>
+                            <button class="btn-primary" style="background: linear-gradient(135deg, #1e9bd5 0%, #127bb0 100%);" onclick="openCaseStudy('project1')">Case Study</button>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 - Social Media -->
+                    <div class="project-card p-6" style="border-left: 4px solid #ec343e;">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h3 class="text-xl font-bold" style="color: #ec343e;">Project 2</h3>
+                                    <span class="status-badge status-live">Live</span>
+                                </div>
+                                <p class="text-sm font-medium text-gray-600 mb-3">Social Media Management</p>
+                                <p class="text-black mb-4">
+                                    Comprehensive social media strategy across Instagram, Facebook, LinkedIn, and X resulting in 300% engagement increase and 150% follower growth.
+                                </p>
+                            </div>
+                            <div class="ml-4 flex-shrink-0">
+                                <div class="w-32 h-18 bg-gray-100 rounded-lg overflow-hidden">
+                                    <img src="https://via.placeholder.com/128x72/ec343e/ffffff?text=Social" alt="Project 2" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Instagram</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Facebook</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">LinkedIn</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">X</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="#" class="btn-primary flex-1 text-center" style="background: linear-gradient(135deg, #ec343e 0%, #dc2626 100%);">View Campaign</a>
+                            <button class="btn-primary" style="background: linear-gradient(135deg, #ec343e 0%, #dc2626 100%);" onclick="openCaseStudy('project2')">Case Study</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Row 2 -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                    <!-- Project 3 - Website -->
+                    <div class="project-card p-6" style="border-left: 4px solid #10b981;">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h3 class="text-xl font-bold" style="color: #10b981;">Project 3</h3>
+                                    <span class="status-badge status-live">Live</span>
+                                </div>
+                                <p class="text-sm font-medium text-gray-600 mb-3">Portfolio Website</p>
+                                <p class="text-black mb-4">
+                                    Professional portfolio website with appointment booking system, client portal, and automated email notifications for seamless user experience.
+                                </p>
+                            </div>
+                            <div class="ml-4 flex-shrink-0">
+                                <div class="w-32 h-18 bg-gray-100 rounded-lg overflow-hidden">
+                                    <img src="https://via.placeholder.com/128x72/10b981/ffffff?text=Web" alt="Project 3" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">WordPress</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">PHP</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">MySQL</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="#" class="btn-primary flex-1 text-center" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">View Live Site</a>
+                            <button class="btn-primary" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);" onclick="openCaseStudy('project3')">Case Study</button>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 - Social Media -->
+                    <div class="project-card p-6" style="border-left: 4px solid #8b5cf6;">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h3 class="text-xl font-bold" style="color: #8b5cf6;">Project 4</h3>
+                                    <span class="status-badge status-development">In Development</span>
+                                </div>
+                                <p class="text-sm font-medium text-gray-600 mb-3">Social Media Management</p>
+                                <p class="text-black mb-4">
+                                    Multi-platform brand awareness campaign featuring user-generated content, influencer partnerships, and targeted advertising strategies across TikTok, Instagram, and Threads.
+                                </p>
+                            </div>
+                            <div class="ml-4 flex-shrink-0">
+                                <div class="w-32 h-18 bg-gray-100 rounded-lg overflow-hidden">
+                                    <img src="https://via.placeholder.com/128x72/8b5cf6/ffffff?text=Social" alt="Project 4" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">TikTok</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Instagram</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Threads</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <button class="btn-primary flex-1" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); opacity: 0.7;" disabled>Coming Soon</button>
+                            <button class="btn-primary" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);" onclick="openCaseStudy('project4')">Case Study</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Row 3 -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                    <!-- Project 5 - Website -->
+                    <div class="project-card p-6" style="border-left: 4px solid #f59e0b;">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h3 class="text-xl font-bold" style="color: #f59e0b;">Project 5</h3>
+                                    <span class="status-badge status-live">Live</span>
+                                </div>
+                                <p class="text-sm font-medium text-gray-600 mb-3">Business Website</p>
+                                <p class="text-black mb-4">
+                                    Restaurant website with online ordering system, table reservations, and digital menu with real-time inventory management integration.
+                                </p>
+                            </div>
+                            <div class="ml-4 flex-shrink-0">
+                                <div class="w-32 h-18 bg-gray-100 rounded-lg overflow-hidden">
+                                    <img src="https://via.placeholder.com/128x72/f59e0b/ffffff?text=Web" alt="Project 5" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">HTML5</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">CSS3</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">JavaScript</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="#" class="btn-primary flex-1 text-center" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">View Live Site</a>
+                            <button class="btn-primary" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);" onclick="openCaseStudy('project5')">Case Study</button>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 - Logo Design -->
+                    <div class="project-card p-6" style="border-left: 4px solid #06b6d4;">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h3 class="text-xl font-bold" style="color: #06b6d4;">Project 6</h3>
+                                    <span class="status-badge status-completed">Completed</span>
+                                </div>
+                                <p class="text-sm font-medium text-gray-600 mb-3">Logo Revamp</p>
+                                <p class="text-black mb-4">
+                                    Complete brand identity revamp including logo redesign, color palette refresh, typography guidelines, and brand application across digital and print media.
+                                </p>
+                            </div>
+                            <div class="ml-4 flex-shrink-0">
+                                <div class="w-32 h-18 bg-gray-100 rounded-lg overflow-hidden">
+                                    <img src="https://via.placeholder.com/128x72/06b6d4/ffffff?text=Logo" alt="Project 6" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-cyan-100 text-cyan-800 rounded-full text-sm">Illustrator</span>
+                            <span class="px-3 py-1 bg-cyan-100 text-cyan-800 rounded-full text-sm">Photoshop</span>
+                            <span class="px-3 py-1 bg-cyan-100 text-cyan-800 rounded-full text-sm">Brand Guide</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="#" class="btn-primary flex-1 text-center" style="background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);">View Portfolio</a>
+                            <button class="btn-primary" style="background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);" onclick="openCaseStudy('project6')">Case Study</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Row 4 -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                    <!-- Project 7 - Website -->
+                    <div class="project-card p-6" style="border-left: 4px solid #84cc16;">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h3 class="text-xl font-bold" style="color: #84cc16;">Project 7</h3>
+                                    <span class="status-badge status-live">Live</span>
+                                </div>
+                                <p class="text-sm font-medium text-gray-600 mb-3">Corporate Website</p>
+                                <p class="text-black mb-4">
+                                    Corporate website with project galleries, client testimonials, and integrated CRM system for lead management and client communication.
+                                </p>
+                            </div>
+                            <div class="ml-4 flex-shrink-0">
+                                <div class="w-32 h-18 bg-gray-100 rounded-lg overflow-hidden">
+                                    <img src="https://via.placeholder.com/128x72/84cc16/ffffff?text=Web" alt="Project 7" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-lime-100 text-lime-800 rounded-full text-sm">Django</span>
+                            <span class="px-3 py-1 bg-lime-100 text-lime-800 rounded-full text-sm">Python</span>
+                            <span class="px-3 py-1 bg-lime-100 text-lime-800 rounded-full text-sm">PostgreSQL</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="#" class="btn-primary flex-1 text-center" style="background: linear-gradient(135deg, #84cc16 0%, #65a30d 100%);">View Live Site</a>
+                            <button class="btn-primary" style="background: linear-gradient(135deg, #84cc16 0%, #65a30d 100%);" onclick="openCaseStudy('project7')">Case Study</button>
+                        </div>
+                    </div>
+
+                    <!-- Project 8 - Social Media -->
+                    <div class="project-card p-6" style="border-left: 4px solid #f97316;">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h3 class="text-xl font-bold" style="color: #f97316;">Project 8</h3>
+                                    <span class="status-badge status-live">Live</span>
+                                </div>
+                                <p class="text-sm font-medium text-gray-600 mb-3">Social Media Management</p>
+                                <p class="text-black mb-4">
+                                    Health and wellness social media strategy featuring educational content, client transformations, and community building initiatives across Instagram, Facebook, and LinkedIn.
+                                </p>
+                            </div>
+                            <div class="ml-4 flex-shrink-0">
+                                <div class="w-32 h-18 bg-gray-100 rounded-lg overflow-hidden">
+                                    <img src="https://via.placeholder.com/128x72/f97316/ffffff?text=Social" alt="Project 8" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">Instagram</span>
+                            <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">Facebook</span>
+                            <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">LinkedIn</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="#" class="btn-primary flex-1 text-center" style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);">View Campaign</a>
+                            <button class="btn-primary" style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);" onclick="openCaseStudy('project8')">Case Study</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Row 5 -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Project 9 - Website -->
+                    <div class="project-card p-6" style="border-left: 4px solid #6366f1;">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h3 class="text-xl font-bold" style="color: #6366f1;">Project 9</h3>
+                                    <span class="status-badge status-completed">Completed</span>
+                                </div>
+                                <p class="text-sm font-medium text-gray-600 mb-3">Portfolio Website</p>
+                                <p class="text-black mb-4">
+                                    Marketing agency portfolio website with project showcase, client case studies, and automated lead generation system with CRM integration.
+                                </p>
+                            </div>
+                            <div class="ml-4 flex-shrink-0">
+                                <div class="w-32 h-18 bg-gray-100 rounded-lg overflow-hidden">
+                                    <img src="https://via.placeholder.com/128x72/6366f1/ffffff?text=Web" alt="Project 9" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Laravel</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Vue.js</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">MySQL</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="#" class="btn-primary flex-1 text-center" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);">View Live Site</a>
+                            <button class="btn-primary" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);" onclick="openCaseStudy('project9')">Case Study</button>
+                        </div>
+                    </div>
+
+                    <!-- Project 10 - Social Media -->
+                    <div class="project-card p-6" style="border-left: 4px solid #db2777;">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h3 class="text-xl font-bold" style="color: #db2777;">Project 10</h3>
+                                    <span class="status-badge status-completed">Completed</span>
+                                </div>
+                                <p class="text-sm font-medium text-gray-600 mb-3">Social Media Management</p>
+                                <p class="text-black mb-4">
+                                    Fashion brand social media management featuring product showcases, behind-the-scenes content, and influencer collaborations across Instagram, TikTok, and X.
+                                </p>
+                            </div>
+                            <div class="ml-4 flex-shrink-0">
+                                <div class="w-32 h-18 bg-gray-100 rounded-lg overflow-hidden">
+                                    <img src="https://via.placeholder.com/128x72/db2777/ffffff?text=Social" alt="Project 10" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-sm">Instagram</span>
+                            <span class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-sm">TikTok</span>
+                            <span class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-sm">X</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="#" class="btn-primary flex-1 text-center" style="background: linear-gradient(135deg, #db2777 0%, #be185d 100%);">View Campaign</a>
+                            <button class="btn-primary" style="background: linear-gradient(135deg, #db2777 0%, #be185d 100%);" onclick="openCaseStudy('project10')">Case Study</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Case Study Modal -->
+    <div id="caseStudyModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeCaseStudy()">
+                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            
+            <div id="modalContent">
+                <!-- Content will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-black bg-transparent">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-4">
+        <p class="text-sm" style="color: black !important;">
+          © 2025 Hanu Studio. All rights reserved. |
+          <a
+            href="Terms & Conditions - Hanu Studio.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="focus:outline-none hover:text-blue-500"
+            style="text-decoration: none; color: black !important;"
+          >
+            Terms & Conditions
+          </a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+      <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+      </svg>
+    </button>
+
+    <script>
+        // Case study data
+        const caseStudies = {
+            project1: {
+                title: "Project 1 - E-commerce Platform",
+                type: "Website Development",
+                color: "#1e9bd5",
+                overview: "A comprehensive e-commerce solution built for a growing retail business looking to expand their online presence and streamline their sales process.",
+                challenge: "The client needed a robust platform that could handle high traffic volumes, integrate with their existing inventory system, and provide a seamless checkout experience.",
+                solution: "We developed a custom React-based e-commerce platform with Node.js backend, featuring advanced product filtering, secure payment processing, and real-time inventory management.",
+                results: [
+                    "250% increase in online sales within 6 months",
+                    "40% reduction in cart abandonment rate",
+                    "99.9% uptime with optimized performance",
+                    "Mobile conversion rate improved by 180%"
+                ],
+                technologies: ["React", "Node.js", "MongoDB", "Stripe API", "AWS"],
+                timeline: "12 weeks from concept to launch",
+                testimonial: "Hanu Studio transformed our online business. The new platform not only looks amazing but has significantly boosted our sales and customer satisfaction.",
+                client: "TechFlow Solutions"
+            },
+            project2: {
+                title: "Project 2 - Social Media Campaign",
+                type: "Social Media Management",
+                color: "#ec343e",
+                overview: "A comprehensive social media strategy designed to increase brand awareness and engagement for a lifestyle brand targeting millennials and Gen Z.",
+                challenge: "The client struggled with low engagement rates and inconsistent brand messaging across multiple social platforms.",
+                solution: "We developed a cohesive content strategy featuring user-generated content, influencer partnerships, and targeted advertising campaigns across Instagram, Facebook, and LinkedIn.",
+                results: [
+                    "300% increase in overall engagement",
+                    "150% growth in follower count",
+                    "85% improvement in brand mention sentiment",
+                    "200% increase in website traffic from social media"
+                ],
+                technologies: ["Instagram", "Facebook", "LinkedIn", "Hootsuite", "Canva"],
+                timeline: "Ongoing 6-month campaign",
+                testimonial: "Our social media presence has never been stronger. The team's creative approach and strategic thinking delivered results beyond our expectations.",
+                client: "GreenEarth Organics"
+            },
+            project3: {
+                title: "Project 3 - Professional Services Website",
+                type: "Website Development",
+                color: "#10b981",
+                overview: "A modern, professional website for a consulting firm requiring appointment booking functionality and client portal access.",
+                challenge: "The client needed to streamline their booking process and provide clients with easy access to project updates and documents.",
+                solution: "We built a WordPress-based solution with custom booking system, secure client portal, and automated email notifications for seamless communication.",
+                results: [
+                    "60% reduction in administrative time",
+                    "90% client satisfaction with new portal",
+                    "45% increase in online bookings",
+                    "Improved professional brand perception"
+                ],
+                technologies: ["WordPress", "PHP", "MySQL", "Custom Plugins"],
+                timeline: "8 weeks development and testing",
+                testimonial: "The new website has revolutionized how we interact with our clients. Everything is more efficient and professional.",
+                client: "Urban Fitness Hub"
+            },
+            project4: {
+                title: "Project 4 - Brand Awareness Campaign",
+                type: "Social Media Campaign",
+                color: "#8b5cf6",
+                overview: "Multi-platform brand awareness campaign for a creative agency looking to establish thought leadership in their industry.",
+                challenge: "The client needed to differentiate themselves in a crowded market and showcase their creative capabilities to potential clients.",
+                solution: "We created a content strategy featuring behind-the-scenes content, case study highlights, and thought leadership posts across TikTok, Instagram, and YouTube.",
+                results: [
+                    "Campaign currently in development",
+                    "Content calendar planned for 6 months",
+                    "Influencer partnerships secured",
+                    "Video content production underway"
+                ],
+                technologies: ["TikTok", "Instagram", "YouTube", "Adobe Creative Suite"],
+                timeline: "3-month development, 6-month execution",
+                testimonial: "We're excited to see the creative direction Hanu Studio has developed for our brand awareness campaign.",
+                client: "Creative Studio Pro"
+            },
+            project5: {
+                title: "Project 5 - Restaurant Website & Ordering System",
+                type: "Website Development",
+                color: "#f59e0b",
+                overview: "Complete digital solution for a restaurant including online ordering, table reservations, and digital menu management.",
+                challenge: "The restaurant needed to adapt to digital ordering trends while maintaining their premium dining experience brand.",
+                solution: "We developed a sophisticated website with integrated ordering system, reservation management, and real-time menu updates with inventory tracking.",
+                results: [
+                    "70% of orders now placed online",
+                    "35% increase in average order value",
+                    "50% reduction in phone order errors",
+                    "Improved customer satisfaction scores"
+                ],
+                technologies: ["HTML5", "CSS3", "JavaScript", "Payment Gateway"],
+                timeline: "10 weeks including testing and training",
+                testimonial: "Our online presence now matches the quality of our dining experience. The ordering system is intuitive and efficient.",
+                client: "Golden Bistro"
+            },
+            project6: {
+                title: "Project 6 - Complete Brand Identity",
+                type: "Logo Design & Branding",
+                color: "#06b6d4",
+                overview: "Comprehensive brand identity development for a technology startup, including logo design, color palette, and brand guidelines.",
+                challenge: "The startup needed a professional brand identity that would appeal to both technical and business audiences while standing out in the tech industry.",
+                solution: "We created a modern, versatile logo with comprehensive brand guidelines, including typography, color schemes, and application examples across digital and print media.",
+                results: [
+                    "Brand recognition increased by 200%",
+                    "Professional credibility significantly improved",
+                    "Consistent brand application across all touchpoints",
+                    "Positive feedback from investors and clients"
+                ],
+                technologies: ["Adobe Illustrator", "Adobe Photoshop", "Brand Guidelines"],
+                timeline: "6 weeks from concept to final delivery",
+                testimonial: "The new brand identity perfectly captures our company's vision and has elevated our professional image tremendously.",
+                client: "AquaTech Solutions"
+            },
+            project7: {
+                title: "Project 7 - Corporate Website with CRM",
+                type: "Website Development",
+                color: "#84cc16",
+                overview: "Enterprise-level website for a construction company with integrated CRM system for project management and client communication.",
+                challenge: "The client needed to showcase their portfolio while managing complex project workflows and client relationships efficiently.",
+                solution: "We built a Django-based platform with custom CRM integration, project galleries, and automated client communication systems.",
+                results: [
+                    "40% improvement in lead conversion",
+                    "60% reduction in project management time",
+                    "Enhanced client communication satisfaction",
+                    "Streamlined proposal and contract processes"
+                ],
+                technologies: ["Django", "Python", "PostgreSQL", "Custom CRM"],
+                timeline: "14 weeks including CRM integration",
+                testimonial: "The integrated system has transformed how we manage projects and communicate with clients. Everything is more organized and efficient.",
+                client: "EcoHome Builders"
+            },
+            project8: {
+                title: "Project 8 - Health & Wellness Social Strategy",
+                type: "Social Media Campaign",
+                color: "#f97316",
+                overview: "Comprehensive social media strategy for a wellness center focusing on education, community building, and client success stories.",
+                challenge: "The client needed to build trust and credibility in the health and wellness space while growing their community of engaged followers.",
+                solution: "We developed an educational content strategy featuring expert tips, client transformations, and community challenges across Instagram, Facebook, and LinkedIn.",
+                results: [
+                    "400% increase in engagement rates",
+                    "250% growth in qualified leads",
+                    "Strong community of 10K+ engaged followers",
+                    "Established thought leadership in wellness space"
+                ],
+                technologies: ["Instagram", "Facebook", "LinkedIn", "Content Management"],
+                timeline: "Ongoing 12-month strategy",
+                testimonial: "Our social media has become a powerful tool for educating our community and attracting new clients who align with our values.",
+                client: "Sunrise Wellness"
+            },
+            project9: {
+                title: "Project 9 - Marketing Agency Portfolio",
+                type: "Website Development",
+                color: "#6366f1",
+                overview: "Professional portfolio website for a digital marketing agency showcasing their services, case studies, and client success stories.",
+                challenge: "The agency needed a website that would demonstrate their marketing expertise while generating qualified leads for their services.",
+                solution: "We created a Laravel-based website with dynamic portfolio sections, automated lead capture, and integrated analytics for performance tracking.",
+                results: [
+                    "300% increase in qualified leads",
+                    "Improved client acquisition rate by 150%",
+                    "Enhanced professional credibility",
+                    "Streamlined client onboarding process"
+                ],
+                technologies: ["Laravel", "Vue.js", "MySQL", "Analytics Integration"],
+                timeline: "10 weeks development and optimization",
+                testimonial: "Our new website perfectly showcases our capabilities and has become our most effective lead generation tool.",
+                client: "Digital Marketing Pro"
+            },
+            project10: {
+                title: "Project 10 - Fashion Brand Social Campaign",
+                type: "Social Media Campaign",
+                color: "#db2777",
+                overview: "High-impact social media campaign for a luxury fashion brand focusing on product showcases and influencer collaborations.",
+                challenge: "The brand needed to increase sales while maintaining their luxury positioning and reaching a younger demographic.",
+                solution: "We executed a sophisticated campaign featuring professional product photography, influencer partnerships, and strategic hashtag campaigns across Instagram, TikTok, and X.",
+                results: [
+                    "180% increase in online sales",
+                    "500% growth in brand mentions",
+                    "Successful influencer partnerships with 50+ creators",
+                    "Expanded reach to target demographic by 300%"
+                ],
+                technologies: ["Instagram", "TikTok", "X", "Influencer Management"],
+                timeline: "6-month campaign with ongoing optimization",
+                testimonial: "The campaign exceeded all our expectations. Our brand visibility and sales have reached new heights.",
+                client: "Boutique Fashion"
+            }
+        };
+
+        // Open case study modal
+        function openCaseStudy(projectId) {
+            const study = caseStudies[projectId];
+            if (!study) return;
+
+            const modal = document.getElementById('caseStudyModal');
+            const content = document.getElementById('modalContent');
+            
+            content.innerHTML = `
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold mb-2" style="color: ${study.color};">${study.title}</h2>
+                    <p class="text-lg font-medium text-gray-600 mb-4">${study.type}</p>
+                    <p class="text-black leading-relaxed">${study.overview}</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <h3 class="text-xl font-bold mb-3" style="color: ${study.color};">The Challenge</h3>
+                        <p class="text-black leading-relaxed">${study.challenge}</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-3" style="color: ${study.color};">Our Solution</h3>
+                        <p class="text-black leading-relaxed">${study.solution}</p>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold mb-3" style="color: ${study.color};">Results Achieved</h3>
+                    <div class="grid md:grid-cols-2 gap-3">
+                        ${study.results.map(result => `
+                            <div class="flex items-center">
+                                <div class="w-2 h-2 rounded-full mr-3" style="background-color: ${study.color};"></div>
+                                <span class="text-black">${result}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <h3 class="text-xl font-bold mb-3" style="color: ${study.color};">Technologies Used</h3>
+                        <div class="flex flex-wrap gap-2">
+                            ${study.technologies.map(tech => `
+                                <span class="px-3 py-1 rounded-full text-sm" style="background-color: ${study.color}20; color: ${study.color};">${tech}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-3" style="color: ${study.color};">Project Timeline</h3>
+                        <p class="text-black">${study.timeline}</p>
+                    </div>
+                </div>
+
+                <div class="border-t pt-6">
+                    <h3 class="text-xl font-bold mb-3" style="color: ${study.color};">Client Testimonial</h3>
+                    <blockquote class="text-black italic text-lg leading-relaxed mb-3">
+                        "${study.testimonial}"
+                    </blockquote>
+                    <p class="text-gray-600 font-medium">— ${study.client}</p>
+                </div>
+            `;
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close case study modal
+        function closeCaseStudy() {
+            const modal = document.getElementById('caseStudyModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('caseStudyModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeCaseStudy();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeCaseStudy();
+            }
+        });
+
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburgerIcon = document.getElementById('hamburgerIcon');
+            const closeIcon = document.getElementById('closeIcon');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                const isOpen = !mobileMenu.classList.contains('opacity-0');
+                
+                if (isOpen) {
+                    // Close menu
+                    mobileMenu.classList.add('opacity-0', 'scale-y-0');
+                    mobileMenu.classList.remove('opacity-100', 'scale-y-100');
+                    mobileMenu.style.maxHeight = '0';
+                    hamburgerIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                } else {
+                    // Open menu
+                    mobileMenu.classList.remove('opacity-0', 'scale-y-0');
+                    mobileMenu.classList.add('opacity-100', 'scale-y-100');
+                    mobileMenu.style.maxHeight = '400px';
+                    hamburgerIcon.classList.add('hidden');
+                    closeIcon.classList.remove('hidden');
+                }
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('opacity-0', 'scale-y-0');
+                    mobileMenu.classList.remove('opacity-100', 'scale-y-100');
+                    mobileMenu.style.maxHeight = '0';
+                    hamburgerIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                });
+            });
+        });
+
+        // Back to top button functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            // Show/hide back to top button based on scroll position
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+            
+            // Smooth scroll to top when clicked
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96a6200b371b3983',t:'MTc1NDM5NTEzMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
