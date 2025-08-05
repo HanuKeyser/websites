@@ -11,13 +11,11 @@ html {
 scroll-behavior: smooth;
 }
 
-/* Performance optimizations */
 * {
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 }
 
-/* CSS containment for better performance */
 .card {
 contain: layout style paint;
 }
@@ -49,17 +47,16 @@ border: 2px solid #1e293b;
 box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.1);
 }
 
-body.dark-theme ::-webkit-scrollbar-thumb:hover {
-background: linear-gradient(180deg, #22a8e8 0%, #1e9bd5 50%, #127bb0 100%);
-box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.2);
-}
-
 ::-webkit-scrollbar-thumb:hover {
 background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%);
 box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-/* Firefox scrollbar styling */
+body.dark-theme ::-webkit-scrollbar-thumb:hover {
+background: linear-gradient(180deg, #22a8e8 0%, #1e9bd5 50%, #127bb0 100%);
+box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.2);
+}
+
 html {
 scrollbar-width: thin;
 scrollbar-color: #336da9 #f8fafc;
@@ -78,12 +75,10 @@ flex-direction: column;
 transition: all 0.3s ease;
 }
 
-/* Dark theme */
 body.dark-theme {
 background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%) !important;
 }
 
-/* Light mode text colors */
 h1, h2, h3, h4, h5, h6 {
 color: #000000 !important;
 transition: color 0.3s ease;
@@ -98,43 +93,18 @@ body.dark-theme h6 {
 color: #ffffff !important;
 }
 
-p {
+p, span, li, label {
 color: #000000 !important;
 transition: color 0.3s ease;
 }
 
-body.dark-theme p {
-color: #e2e8f0 !important;
-}
-
-span {
-color: #000000 !important;
-transition: color 0.3s ease;
-}
-
-body.dark-theme span {
-color: #e2e8f0 !important;
-}
-
-li {
-color: #000000 !important;
-transition: color 0.3s ease;
-}
-
-body.dark-theme li {
-color: #e2e8f0 !important;
-}
-
-label {
-color: #000000 !important;
-transition: color 0.3s ease;
-}
-
+body.dark-theme p,
+body.dark-theme span,
+body.dark-theme li,
 body.dark-theme label {
 color: #e2e8f0 !important;
 }
 
-/* Navigation links dark theme */
 body.dark-theme nav a {
 color: #e2e8f0 !important;
 }
@@ -143,7 +113,6 @@ body.dark-theme nav a:hover {
 color: #1e9bd5 !important;
 }
 
-/* Mobile menu dark theme */
 body.dark-theme #mobileMenu a {
 color: #e2e8f0 !important;
 }
@@ -192,7 +161,6 @@ transform: scale(0.98);
 transition: all 0.1s ease;
 }
 
-/* Back to Top Button */
 .back-to-top {
 position: fixed;
 bottom: 20px;
@@ -230,7 +198,6 @@ box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 transform: scale(0.95);
 }
 
-/* Project card styling */
 .project-card {
 background: rgba(255, 255, 255, 0.95);
 backdrop-filter: blur(20px);
@@ -256,15 +223,25 @@ body.dark-theme .project-card:hover {
 box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6) !important;
 }
 
-/* Project image styling */
+/* Project image styling - Landscape images, hidden on mobile */
 .project-image {
 width: 100%;
-height: 200px;
+height: 300px;
 object-fit: cover;
 border-radius: 12px;
+aspect-ratio: 16/9;
 }
 
-/* Project status badges */
+.project-image-container {
+display: block;
+}
+
+@media (max-width: 768px) {
+.project-image-container {
+display: none;
+}
+}
+
 .status-badge {
 display: inline-block;
 padding: 4px 12px;
@@ -290,26 +267,12 @@ background: linear-gradient(135deg, #3b82f6, #2563eb);
 color: white;
 }
 
-/* Coming Soon Badge */
-.coming-soon-badge {
-background: linear-gradient(135deg, #6b7280, #4b5563);
-color: white;
-padding: 4px 12px;
-border-radius: 20px;
-font-size: 12px;
-font-weight: 600;
-text-transform: uppercase;
-letter-spacing: 0.5px;
-}
-
-/* Dark theme header */
 body.dark-theme .dark-theme-header {
 background: rgba(15, 23, 42, 0.95) !important;
 border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 backdrop-filter: blur(20px) !important;
 }
 
-/* Dark theme back to top */
 body.dark-theme .back-to-top {
 background: rgba(30, 155, 213, 0.9) !important;
 border: 2px solid rgba(30, 155, 213, 0.8) !important;
@@ -327,7 +290,13 @@ body.dark-theme .back-to-top svg {
 color: #ffffff !important;
 }
 
-/* Modal Styles */
+/* Dropdown menu dark theme styling */
+body.dark-theme .group:hover > div {
+background: rgba(15, 23, 42, 0.95) !important;
+border: 1px solid rgba(255, 255, 255, 0.1) !important;
+box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+}
+
 .modal-overlay {
 position: fixed;
 top: 0;
@@ -412,17 +381,12 @@ transform: scale(1.05);
 transform: scale(0.95);
 }
 
-/* Enhanced responsive design */
+/* Responsive design optimized for all devices */
 @media (max-width: 480px) {
 .project-card {
 padding: 1rem !important;
 margin: 0.5rem !important;
 border-radius: 12px !important;
-}
-
-.project-image {
-height: 150px;
-border-radius: 8px;
 }
 
 h1 { font-size: 1.75rem !important; line-height: 1.2 !important; }
@@ -461,11 +425,6 @@ height: 40px;
 .project-card {
 padding: 1.5rem !important;
 border-radius: 14px !important;
-}
-
-.project-image {
-height: 180px;
-border-radius: 10px;
 }
 
 .btn-primary {
@@ -508,6 +467,17 @@ transform: none;
 }
 }
 
+/* High DPI display optimization */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+.project-image {
+image-rendering: -webkit-optimize-contrast;
+image-rendering: crisp-edges;
+}
+}
+
+/* Landscape orientation on mobile - images hidden */
+
+/* Large desktop screens - consistent image sizing */
     </style>
 </head>
 
@@ -527,6 +497,27 @@ transform: none;
           <a href="index.html#portfolio" class="font-medium text-base lg:text-lg transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Portfolio</a>
     	  <a href="index.html#solutions" class="font-medium text-base lg:text-lg transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Solutions</a>
           <a href="index.html#contact" class="font-medium text-base lg:text-lg transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Contact Us</a>
+          
+          <!-- Projects Dropdown -->
+          <div class="relative" id="projectsDropdown">
+            <button id="dropdownButton" class="font-medium text-base lg:text-lg transition-all duration-300 hover:scale-105 flex items-center" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">
+              Projects
+              <svg id="dropdownArrow" class="w-4 h-4 ml-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            
+            <!-- Dropdown Menu -->
+            <div class="absolute top-full right-0 mt-2 w-64 bg-white/95 backdrop-blur-md border border-white/20 rounded-lg shadow-lg opacity-0 invisible transition-all duration-300 z-50" id="dropdownMenu">
+              <div class="py-2">
+                <a href="#row1" class="dropdown-link block px-4 py-2 text-sm font-medium hover:bg-white/20 transition-colors" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Row 1 - Web & Social</a>
+                <a href="#row2" class="dropdown-link block px-4 py-2 text-sm font-medium hover:bg-white/20 transition-colors" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Row 2 - Portfolio & Brand</a>
+                <a href="#row3" class="dropdown-link block px-4 py-2 text-sm font-medium hover:bg-white/20 transition-colors" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Row 3 - Business & Design</a>
+                <a href="#row4" class="dropdown-link block px-4 py-2 text-sm font-medium hover:bg-white/20 transition-colors" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Row 4 - Corporate & Health</a>
+                <a href="#row5" class="dropdown-link block px-4 py-2 text-sm font-medium hover:bg-white/20 transition-colors" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Row 5 - Agency & Fashion</a>
+              </div>
+            </div>
+          </div>
         </nav>
 
         <!-- Mobile Menu Button -->
@@ -569,15 +560,15 @@ transform: none;
 
         <!-- Projects Section -->
         <section class="pb-12">
-            <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <!-- Project Row 1 -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                <div id="row1" class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
                     <!-- Project 1 - Website -->
                     <div class="project-card overflow-hidden" style="border-left: 4px solid #1e9bd5;">
-                        <div class="p-4">
-                            <div class="w-full h-48 bg-gray-100 overflow-hidden rounded-lg">
-                                <img src="https://via.placeholder.com/400x192/1e9bd5/ffffff?text=Web" alt="Project 1" class="w-full h-full object-cover">
+                        <div class="p-4 project-image-container">
+                            <div class="w-full h-80 bg-gray-100 overflow-hidden rounded-lg">
+                                <img src="https://via.placeholder.com/800x450/1e9bd5/ffffff?text=Web+Project" alt="Project 1" class="project-image">
                             </div>
                         </div>
                         <div class="p-6">
@@ -603,9 +594,9 @@ transform: none;
 
                     <!-- Project 2 - Social Media -->
                     <div class="project-card overflow-hidden" style="border-left: 4px solid #ec343e;">
-                        <div class="p-4">
-                            <div class="w-full h-48 bg-gray-100 overflow-hidden rounded-lg">
-                                <img src="https://via.placeholder.com/400x192/ec343e/ffffff?text=Social" alt="Project 2" class="w-full h-full object-cover">
+                        <div class="p-4 project-image-container">
+                            <div class="w-full h-80 bg-gray-100 overflow-hidden rounded-lg">
+                                <img src="https://via.placeholder.com/800x450/ec343e/ffffff?text=Social+Media" alt="Project 2" class="project-image">
                             </div>
                         </div>
                         <div class="p-6">
@@ -632,12 +623,12 @@ transform: none;
                 </div>
 
                 <!-- Project Row 2 -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                <div id="row2" class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
                     <!-- Project 3 - Website -->
                     <div class="project-card overflow-hidden" style="border-left: 4px solid #10b981;">
-                        <div class="p-4">
-                            <div class="w-full h-48 bg-gray-100 overflow-hidden rounded-lg">
-                                <img src="https://via.placeholder.com/400x192/10b981/ffffff?text=Web" alt="Project 3" class="w-full h-full object-cover">
+                        <div class="p-4 project-image-container">
+                            <div class="w-full h-80 bg-gray-100 overflow-hidden rounded-lg">
+                                <img src="https://via.placeholder.com/800x450/10b981/ffffff?text=Portfolio+Site" alt="Project 3" class="project-image">
                             </div>
                         </div>
                         <div class="p-6">
@@ -663,9 +654,9 @@ transform: none;
 
                     <!-- Project 4 - Social Media -->
                     <div class="project-card overflow-hidden" style="border-left: 4px solid #8b5cf6;">
-                        <div class="p-4">
-                            <div class="w-full h-48 bg-gray-100 overflow-hidden rounded-lg">
-                                <img src="https://via.placeholder.com/400x192/8b5cf6/ffffff?text=Social" alt="Project 4" class="w-full h-full object-cover">
+                        <div class="p-4 project-image-container">
+                            <div class="w-full h-80 bg-gray-100 overflow-hidden rounded-lg">
+                                <img src="https://via.placeholder.com/800x450/8b5cf6/ffffff?text=Brand+Campaign" alt="Project 4" class="project-image">
                             </div>
                         </div>
                         <div class="p-6">
@@ -691,12 +682,12 @@ transform: none;
                 </div>
 
                 <!-- Project Row 3 -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                <div id="row3" class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
                     <!-- Project 5 - Website -->
                     <div class="project-card overflow-hidden" style="border-left: 4px solid #f59e0b;">
-                        <div class="p-4">
-                            <div class="w-full h-48 bg-gray-100 overflow-hidden rounded-lg">
-                                <img src="https://via.placeholder.com/400x192/f59e0b/ffffff?text=Web" alt="Project 5" class="w-full h-full object-cover">
+                        <div class="p-4 project-image-container">
+                            <div class="w-full h-80 bg-gray-100 overflow-hidden rounded-lg">
+                                <img src="https://via.placeholder.com/800x450/f59e0b/ffffff?text=Restaurant+Site" alt="Project 5" class="project-image">
                             </div>
                         </div>
                         <div class="p-6">
@@ -722,9 +713,9 @@ transform: none;
 
                     <!-- Project 6 - Logo Design -->
                     <div class="project-card overflow-hidden" style="border-left: 4px solid #06b6d4;">
-                        <div class="p-4">
-                            <div class="w-full h-48 bg-gray-100 overflow-hidden rounded-lg">
-                                <img src="https://via.placeholder.com/400x192/06b6d4/ffffff?text=Logo" alt="Project 6" class="w-full h-full object-cover">
+                        <div class="p-4 project-image-container">
+                            <div class="w-full h-80 bg-gray-100 overflow-hidden rounded-lg">
+                                <img src="https://via.placeholder.com/800x450/06b6d4/ffffff?text=Logo+Design" alt="Project 6" class="project-image">
                             </div>
                         </div>
                         <div class="p-6">
@@ -750,12 +741,12 @@ transform: none;
                 </div>
 
                 <!-- Project Row 4 -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                <div id="row4" class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
                     <!-- Project 7 - Website -->
                     <div class="project-card overflow-hidden" style="border-left: 4px solid #84cc16;">
-                        <div class="p-4">
-                            <div class="w-full h-48 bg-gray-100 overflow-hidden rounded-lg">
-                                <img src="https://via.placeholder.com/400x192/84cc16/ffffff?text=Web" alt="Project 7" class="w-full h-full object-cover">
+                        <div class="p-4 project-image-container">
+                            <div class="w-full h-80 bg-gray-100 overflow-hidden rounded-lg">
+                                <img src="https://via.placeholder.com/800x450/84cc16/ffffff?text=Corporate+Site" alt="Project 7" class="project-image">
                             </div>
                         </div>
                         <div class="p-6">
@@ -781,9 +772,9 @@ transform: none;
 
                     <!-- Project 8 - Social Media -->
                     <div class="project-card overflow-hidden" style="border-left: 4px solid #f97316;">
-                        <div class="p-4">
-                            <div class="w-full h-48 bg-gray-100 overflow-hidden rounded-lg">
-                                <img src="https://via.placeholder.com/400x192/f97316/ffffff?text=Social" alt="Project 8" class="w-full h-full object-cover">
+                        <div class="p-4 project-image-container">
+                            <div class="w-full h-80 bg-gray-100 overflow-hidden rounded-lg">
+                                <img src="https://via.placeholder.com/800x450/f97316/ffffff?text=Health+Campaign" alt="Project 8" class="project-image">
                             </div>
                         </div>
                         <div class="p-6">
@@ -809,12 +800,12 @@ transform: none;
                 </div>
 
                 <!-- Project Row 5 -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div id="row5" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <!-- Project 9 - Website -->
                     <div class="project-card overflow-hidden" style="border-left: 4px solid #6366f1;">
-                        <div class="p-4">
-                            <div class="w-full h-48 bg-gray-100 overflow-hidden rounded-lg">
-                                <img src="https://via.placeholder.com/400x192/6366f1/ffffff?text=Web" alt="Project 9" class="w-full h-full object-cover">
+                        <div class="p-4 project-image-container">
+                            <div class="w-full h-80 bg-gray-100 overflow-hidden rounded-lg">
+                                <img src="https://via.placeholder.com/800x450/6366f1/ffffff?text=Agency+Portfolio" alt="Project 9" class="project-image">
                             </div>
                         </div>
                         <div class="p-6">
@@ -840,9 +831,9 @@ transform: none;
 
                     <!-- Project 10 - Social Media -->
                     <div class="project-card overflow-hidden" style="border-left: 4px solid #db2777;">
-                        <div class="p-4">
-                            <div class="w-full h-48 bg-gray-100 overflow-hidden rounded-lg">
-                                <img src="https://via.placeholder.com/400x192/db2777/ffffff?text=Social" alt="Project 10" class="w-full h-full object-cover">
+                        <div class="p-4 project-image-container">
+                            <div class="w-full h-80 bg-gray-100 overflow-hidden rounded-lg">
+                                <img src="https://via.placeholder.com/800x450/db2777/ffffff?text=Fashion+Brand" alt="Project 10" class="project-image">
                             </div>
                         </div>
                         <div class="p-6">
@@ -1246,6 +1237,56 @@ transform: none;
             });
         });
 
+        // Dropdown functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownButton = document.getElementById('dropdownButton');
+            const dropdownMenu = document.getElementById('dropdownMenu');
+            const dropdownArrow = document.getElementById('dropdownArrow');
+            const dropdownLinks = document.querySelectorAll('.dropdown-link');
+            let isDropdownOpen = false;
+            
+            // Toggle dropdown when clicking the button
+            dropdownButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                if (isDropdownOpen) {
+                    // Close dropdown
+                    dropdownMenu.classList.add('opacity-0', 'invisible');
+                    dropdownMenu.classList.remove('opacity-100', 'visible');
+                    dropdownArrow.style.transform = 'rotate(0deg)';
+                    isDropdownOpen = false;
+                } else {
+                    // Open dropdown
+                    dropdownMenu.classList.remove('opacity-0', 'invisible');
+                    dropdownMenu.classList.add('opacity-100', 'visible');
+                    dropdownArrow.style.transform = 'rotate(180deg)';
+                    isDropdownOpen = true;
+                }
+            });
+            
+            // Close dropdown when clicking on a dropdown link
+            dropdownLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    dropdownMenu.classList.add('opacity-0', 'invisible');
+                    dropdownMenu.classList.remove('opacity-100', 'visible');
+                    dropdownArrow.style.transform = 'rotate(0deg)';
+                    isDropdownOpen = false;
+                });
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                const dropdown = document.getElementById('projectsDropdown');
+                if (!dropdown.contains(e.target) && isDropdownOpen) {
+                    dropdownMenu.classList.add('opacity-0', 'invisible');
+                    dropdownMenu.classList.remove('opacity-100', 'visible');
+                    dropdownArrow.style.transform = 'rotate(0deg)';
+                    isDropdownOpen = false;
+                }
+            });
+        });
+
         // Smooth scrolling for navigation links
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('a[href^="#"]');
@@ -1257,14 +1298,19 @@ transform: none;
                     const targetSection = document.querySelector(targetId);
                     
                     if (targetSection) {
-                        targetSection.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
+                        // Calculate offset to account for fixed header and provide more space
+                        const headerHeight = 150; // Increased offset for better visibility
+                        const elementPosition = targetSection.offsetTop;
+                        const offsetPosition = elementPosition - headerHeight;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
                         });
                     }
                 });
             });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96a62ad1e64a3983',t:'MTc1NDM5NTU3NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96a661e540a30f09',t:'MTc1NDM5NzgzMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
