@@ -161,6 +161,58 @@ transform: scale(0.98);
 transition: all 0.1s ease;
 }
 
+.floating-logo {
+position: fixed;
+top: 20px;
+right: 80px;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+background: rgba(255, 255, 255, 0.95);
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+border: 1px solid rgba(255, 255, 255, 0.2);
+box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+transition: all 0.3s ease;
+z-index: 1001;
+touch-action: manipulation;
+text-decoration: none;
+}
+
+body.dark-theme .floating-logo {
+background: rgba(15, 23, 42, 0.95) !important;
+border: 1px solid rgba(255, 255, 255, 0.1) !important;
+box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+}
+
+.floating-logo:hover {
+transform: translateY(-2px) scale(1.05);
+box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+background: rgba(255, 255, 255, 1);
+}
+
+body.dark-theme .floating-logo:hover {
+background: rgba(15, 23, 42, 1) !important;
+box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6) !important;
+}
+
+.floating-logo:active {
+transform: scale(0.95);
+}
+
+.floating-logo img {
+filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+transition: all 0.3s ease;
+}
+
+.floating-logo:hover img {
+filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
 .back-to-top {
 position: fixed;
 bottom: 20px;
@@ -400,6 +452,18 @@ min-height: 48px !important;
 touch-action: manipulation;
 }
 
+.floating-logo {
+top: 15px;
+right: 75px;
+width: 44px;
+height: 44px;
+}
+
+.floating-logo img {
+width: 24px !important;
+height: 24px !important;
+}
+
 .back-to-top {
 bottom: 20px;
 right: 20px;
@@ -483,68 +547,15 @@ image-rendering: crisp-edges;
 
 <body class="bg-white min-h-screen">
     
-    <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 text-black shadow-lg backdrop-blur-md border-b border-white/20 bg-white/10 transition-all duration-300 dark-theme-header">
-      <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20 sm:h-22 lg:h-24">
-        <a href="index.html">
-          <img src="Company Logo (Spaced).png" alt="Hanu Studio Logo" class="h-10 sm:h-12 md:h-14 w-auto" loading="eager" decoding="async">
-        </a>
-        
-        <!-- Desktop Navigation -->
-        <nav class="hidden md:flex items-center space-x-6 ml-auto">
-          <a href="index.html#home" class="font-medium text-base lg:text-lg transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Home</a>
-          <a href="index.html#about" class="font-medium text-base lg:text-lg transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">About Us</a>
-          <a href="index.html#portfolio" class="font-medium text-base lg:text-lg transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Portfolio</a>
-    	  <a href="index.html#solutions" class="font-medium text-base lg:text-lg transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Solutions</a>
-          <a href="index.html#contact" class="font-medium text-base lg:text-lg transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Contact Us</a>
-          
-          <!-- Projects Dropdown -->
-          <div class="relative" id="projectsDropdown">
-            <button id="dropdownButton" class="font-medium text-base lg:text-lg transition-all duration-300 hover:scale-105 flex items-center" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">
-              Projects
-              <svg id="dropdownArrow" class="w-4 h-4 ml-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            
-            <!-- Dropdown Menu -->
-            <div class="absolute top-full right-0 mt-2 w-64 bg-white/95 backdrop-blur-md border border-white/20 rounded-lg shadow-lg opacity-0 invisible transition-all duration-300 z-50" id="dropdownMenu">
-              <div class="py-2">
-                <a href="#row1" class="dropdown-link block px-4 py-2 text-sm font-medium hover:bg-white/20 transition-colors" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Row 1 - Web & Social</a>
-                <a href="#row2" class="dropdown-link block px-4 py-2 text-sm font-medium hover:bg-white/20 transition-colors" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Row 2 - Portfolio & Brand</a>
-                <a href="#row3" class="dropdown-link block px-4 py-2 text-sm font-medium hover:bg-white/20 transition-colors" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Row 3 - Business & Design</a>
-                <a href="#row4" class="dropdown-link block px-4 py-2 text-sm font-medium hover:bg-white/20 transition-colors" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Row 4 - Corporate & Health</a>
-                <a href="#row5" class="dropdown-link block px-4 py-2 text-sm font-medium hover:bg-white/20 transition-colors" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Row 5 - Agency & Fashion</a>
-              </div>
-            </div>
-          </div>
-        </nav>
 
-        <!-- Mobile Menu Button -->
-        <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg hover:bg-white/20 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center">
-          <svg id="hamburgerIcon" class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-          <svg id="closeIcon" class="w-6 h-6 text-black hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-      </div>
 
-      <!-- Mobile Navigation -->
-      <div id="mobileMenu" class="md:hidden border-t border-white/20 shadow-lg transform translate-y-0 opacity-0 scale-y-0 origin-top transition-all duration-300 ease-in-out overflow-hidden max-h-0 backdrop-blur-md bg-white/10">
-        <div class="px-4 py-4 flex flex-col items-center space-y-1">
-          <a href="index.html#home" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">Home</a>
-          <a href="index.html#about" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">About Us</a>
-          <a href="index.html#portfolio" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">Portfolio</a>
-    	  <a href="index.html#solutions" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">Solutions</a>
-          <a href="index.html#contact" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">Contact Us</a>
-        </div>
-      </div>
-    </header>
+    <!-- Floating Logo Button -->
+    <a href="https://hanustudio.co.za/" target="_blank" rel="noopener noreferrer" class="floating-logo">
+        <img src="Company Logo (HS).png" alt="Hanu Studio" class="w-8 h-8">
+    </a>
 
     <!-- Main Content -->
-    <main class="flex-1 relative z-20 pt-24">
+    <main class="flex-1 relative z-20">
 
         <!-- Page Header -->
         <section class="py-12">
@@ -568,7 +579,7 @@ image-rendering: crisp-edges;
                     <div class="project-card overflow-hidden" style="border-left: 4px solid #1e9bd5;">
                         <div class="p-4 project-image-container">
                             <div class="w-full h-80 bg-gray-100 overflow-hidden rounded-lg">
-                                <img src="https://via.placeholder.com/800x450/1e9bd5/ffffff?text=Web+Project" alt="Project 1" class="project-image">
+                                <img src="https://via.placeholder.com/800x450/1e9bd5/ffffff?text=Project+1" alt="Project 1" class="project-image">
                             </div>
                         </div>
                         <div class="p-6">
@@ -578,7 +589,7 @@ image-rendering: crisp-edges;
                             </div>
                             <p class="text-sm font-medium text-gray-600 mb-3">Business Website</p>
                             <p class="text-black mb-4 leading-relaxed" style="height: 3rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
-                                Modern e-commerce platform with advanced filtering and secure payment integration. Responsive design optimized for conversions and user experience.
+                                Project 1 description goes here. This is a sample description for the first project in our portfolio.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">HTML5</span>
@@ -596,7 +607,7 @@ image-rendering: crisp-edges;
                     <div class="project-card overflow-hidden" style="border-left: 4px solid #ec343e;">
                         <div class="p-4 project-image-container">
                             <div class="w-full h-80 bg-gray-100 overflow-hidden rounded-lg">
-                                <img src="https://via.placeholder.com/800x450/ec343e/ffffff?text=Social+Media" alt="Project 2" class="project-image">
+                                <img src="https://via.placeholder.com/800x450/ec343e/ffffff?text=Project+2" alt="Project 2" class="project-image">
                             </div>
                         </div>
                         <div class="p-6">
@@ -606,7 +617,7 @@ image-rendering: crisp-edges;
                             </div>
                             <p class="text-sm font-medium text-gray-600 mb-3">Social Media Management</p>
                             <p class="text-black mb-4 leading-relaxed" style="height: 3rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
-                                Comprehensive social media strategy across Instagram, Facebook, LinkedIn, and X platforms. Achieved 300% engagement increase and 150% follower growth.
+                                Project 2 description goes here. This is a sample description for the second project in our portfolio.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Instagram</span>
@@ -628,7 +639,7 @@ image-rendering: crisp-edges;
                     <div class="project-card overflow-hidden" style="border-left: 4px solid #10b981;">
                         <div class="p-4 project-image-container">
                             <div class="w-full h-80 bg-gray-100 overflow-hidden rounded-lg">
-                                <img src="https://via.placeholder.com/800x450/10b981/ffffff?text=Portfolio+Site" alt="Project 3" class="project-image">
+                                <img src="https://via.placeholder.com/800x450/10b981/ffffff?text=Project+3" alt="Project 3" class="project-image">
                             </div>
                         </div>
                         <div class="p-6">
@@ -638,7 +649,7 @@ image-rendering: crisp-edges;
                             </div>
                             <p class="text-sm font-medium text-gray-600 mb-3">Portfolio Website</p>
                             <p class="text-black mb-4 leading-relaxed" style="height: 3rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
-                                Professional portfolio website with appointment booking system and client portal. Automated email notifications for seamless user experience.
+                                Project 3 description goes here. This is a sample description for the third project in our portfolio.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">HTML5</span>
@@ -656,7 +667,7 @@ image-rendering: crisp-edges;
                     <div class="project-card overflow-hidden" style="border-left: 4px solid #8b5cf6;">
                         <div class="p-4 project-image-container">
                             <div class="w-full h-80 bg-gray-100 overflow-hidden rounded-lg">
-                                <img src="https://via.placeholder.com/800x450/8b5cf6/ffffff?text=Brand+Campaign" alt="Project 4" class="project-image">
+                                <img src="https://via.placeholder.com/800x450/8b5cf6/ffffff?text=Project+4" alt="Project 4" class="project-image">
                             </div>
                         </div>
                         <div class="p-6">
@@ -666,7 +677,7 @@ image-rendering: crisp-edges;
                             </div>
                             <p class="text-sm font-medium text-gray-600 mb-3">Social Media Management</p>
                             <p class="text-black mb-4 leading-relaxed" style="height: 3rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
-                                Multi-platform brand awareness campaign featuring user-generated content and influencer partnerships. Targeted advertising strategies across TikTok, Instagram, and Threads.
+                                Project 4 description goes here. This is a sample description for the fourth project in our portfolio.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">TikTok</span>
@@ -687,7 +698,7 @@ image-rendering: crisp-edges;
                     <div class="project-card overflow-hidden" style="border-left: 4px solid #f59e0b;">
                         <div class="p-4 project-image-container">
                             <div class="w-full h-80 bg-gray-100 overflow-hidden rounded-lg">
-                                <img src="https://via.placeholder.com/800x450/f59e0b/ffffff?text=Restaurant+Site" alt="Project 5" class="project-image">
+                                <img src="https://via.placeholder.com/800x450/f59e0b/ffffff?text=Project+5" alt="Project 5" class="project-image">
                             </div>
                         </div>
                         <div class="p-6">
@@ -697,7 +708,7 @@ image-rendering: crisp-edges;
                             </div>
                             <p class="text-sm font-medium text-gray-600 mb-3">Business Website</p>
                             <p class="text-black mb-4 leading-relaxed" style="height: 3rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
-                                Restaurant website with online ordering system and table reservations. Digital menu with real-time inventory management integration.
+                                Project 5 description goes here. This is a sample description for the fifth project in our portfolio.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">HTML5</span>
@@ -715,7 +726,7 @@ image-rendering: crisp-edges;
                     <div class="project-card overflow-hidden" style="border-left: 4px solid #06b6d4;">
                         <div class="p-4 project-image-container">
                             <div class="w-full h-80 bg-gray-100 overflow-hidden rounded-lg">
-                                <img src="https://via.placeholder.com/800x450/06b6d4/ffffff?text=Logo+Design" alt="Project 6" class="project-image">
+                                <img src="https://via.placeholder.com/800x450/06b6d4/ffffff?text=Project+6" alt="Project 6" class="project-image">
                             </div>
                         </div>
                         <div class="p-6">
@@ -725,7 +736,7 @@ image-rendering: crisp-edges;
                             </div>
                             <p class="text-sm font-medium text-gray-600 mb-3">Logo Revamp</p>
                             <p class="text-black mb-4 leading-relaxed" style="height: 3rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
-                                Complete brand identity revamp including logo redesign and color palette refresh. Typography guidelines and brand application across digital and print media.
+                                Project 6 description goes here. This is a sample description for the sixth project in our portfolio.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span class="px-3 py-1 bg-cyan-100 text-cyan-800 rounded-full text-sm">Illustrator</span>
@@ -746,7 +757,7 @@ image-rendering: crisp-edges;
                     <div class="project-card overflow-hidden" style="border-left: 4px solid #84cc16;">
                         <div class="p-4 project-image-container">
                             <div class="w-full h-80 bg-gray-100 overflow-hidden rounded-lg">
-                                <img src="https://via.placeholder.com/800x450/84cc16/ffffff?text=Corporate+Site" alt="Project 7" class="project-image">
+                                <img src="https://via.placeholder.com/800x450/84cc16/ffffff?text=Project+7" alt="Project 7" class="project-image">
                             </div>
                         </div>
                         <div class="p-6">
@@ -756,7 +767,7 @@ image-rendering: crisp-edges;
                             </div>
                             <p class="text-sm font-medium text-gray-600 mb-3">Corporate Website</p>
                             <p class="text-black mb-4 leading-relaxed" style="height: 3rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
-                                Corporate website with project galleries and client testimonials. Integrated CRM system for lead management and client communication.
+                                Project 7 description goes here. This is a sample description for the seventh project in our portfolio.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span class="px-3 py-1 bg-lime-100 text-lime-800 rounded-full text-sm">HTML5</span>
@@ -774,7 +785,7 @@ image-rendering: crisp-edges;
                     <div class="project-card overflow-hidden" style="border-left: 4px solid #f97316;">
                         <div class="p-4 project-image-container">
                             <div class="w-full h-80 bg-gray-100 overflow-hidden rounded-lg">
-                                <img src="https://via.placeholder.com/800x450/f97316/ffffff?text=Health+Campaign" alt="Project 8" class="project-image">
+                                <img src="https://via.placeholder.com/800x450/f97316/ffffff?text=Project+8" alt="Project 8" class="project-image">
                             </div>
                         </div>
                         <div class="p-6">
@@ -784,7 +795,7 @@ image-rendering: crisp-edges;
                             </div>
                             <p class="text-sm font-medium text-gray-600 mb-3">Social Media Management</p>
                             <p class="text-black mb-4 leading-relaxed" style="height: 3rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
-                                Health and wellness social media strategy featuring educational content and client transformations. Community building initiatives across Instagram, Facebook, and LinkedIn.
+                                Project 8 description goes here. This is a sample description for the eighth project in our portfolio.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">Instagram</span>
@@ -805,7 +816,7 @@ image-rendering: crisp-edges;
                     <div class="project-card overflow-hidden" style="border-left: 4px solid #6366f1;">
                         <div class="p-4 project-image-container">
                             <div class="w-full h-80 bg-gray-100 overflow-hidden rounded-lg">
-                                <img src="https://via.placeholder.com/800x450/6366f1/ffffff?text=Agency+Portfolio" alt="Project 9" class="project-image">
+                                <img src="https://via.placeholder.com/800x450/6366f1/ffffff?text=Project+9" alt="Project 9" class="project-image">
                             </div>
                         </div>
                         <div class="p-6">
@@ -815,7 +826,7 @@ image-rendering: crisp-edges;
                             </div>
                             <p class="text-sm font-medium text-gray-600 mb-3">Portfolio Website</p>
                             <p class="text-black mb-4 leading-relaxed" style="height: 3rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
-                                Marketing agency portfolio website with project showcase and client case studies. Automated lead generation system with CRM integration.
+                                Project 9 description goes here. This is a sample description for the ninth project in our portfolio.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">HTML5</span>
@@ -833,7 +844,7 @@ image-rendering: crisp-edges;
                     <div class="project-card overflow-hidden" style="border-left: 4px solid #db2777;">
                         <div class="p-4 project-image-container">
                             <div class="w-full h-80 bg-gray-100 overflow-hidden rounded-lg">
-                                <img src="https://via.placeholder.com/800x450/db2777/ffffff?text=Fashion+Brand" alt="Project 10" class="project-image">
+                                <img src="https://via.placeholder.com/800x450/db2777/ffffff?text=Project+10" alt="Project 10" class="project-image">
                             </div>
                         </div>
                         <div class="p-6">
@@ -843,7 +854,7 @@ image-rendering: crisp-edges;
                             </div>
                             <p class="text-sm font-medium text-gray-600 mb-3">Social Media Management</p>
                             <p class="text-black mb-4 leading-relaxed" style="height: 3rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
-                                Fashion brand social media management featuring product showcases and behind-the-scenes content. Influencer collaborations across Instagram, TikTok, and X.
+                                Project 10 description goes here. This is a sample description for the tenth project in our portfolio.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-sm">Instagram</span>
@@ -907,184 +918,184 @@ image-rendering: crisp-edges;
         // Case study data
         const caseStudies = {
             project1: {
-                title: "Project 1 - E-commerce Platform",
+                title: "Project 1 Case Study",
                 type: "Website Development",
                 color: "#1e9bd5",
-                overview: "A comprehensive e-commerce solution built for a growing retail business looking to expand their online presence and streamline their sales process.",
-                challenge: "The client needed a robust platform that could handle high traffic volumes, integrate with their existing inventory system, and provide a seamless checkout experience.",
-                solution: "We developed a custom React-based e-commerce platform with Node.js backend, featuring advanced product filtering, secure payment processing, and real-time inventory management.",
+                overview: "Project 1 overview goes here. This is a sample overview for the first project case study in our portfolio.",
+                challenge: "Project 1 challenge description goes here. This is a sample challenge description for the first project case study.",
+                solution: "Project 1 solution description goes here. This is a sample solution description for the first project case study.",
                 results: [
-                    "250% increase in online sales within 6 months",
-                    "40% reduction in cart abandonment rate",
-                    "99.9% uptime with optimized performance",
-                    "Mobile conversion rate improved by 180%"
+                    "Sample result 1 for Project 1",
+                    "Sample result 2 for Project 1",
+                    "Sample result 3 for Project 1",
+                    "Sample result 4 for Project 1"
                 ],
                 technologies: ["HTML5", "CSS3", "JavaScript", "Payment Integration", "Responsive Design"],
-                timeline: "12 weeks from concept to launch",
-                testimonial: "Hanu Studio transformed our online business. The new platform not only looks amazing but has significantly boosted our sales and customer satisfaction.",
-                client: "TechFlow Solutions"
+                timeline: "Sample timeline for Project 1",
+                testimonial: "Sample testimonial for Project 1. This is a placeholder testimonial for the first project case study.",
+                client: "Sample Client 1"
             },
             project2: {
-                title: "Project 2 - Social Media Campaign",
+                title: "Project 2 Case Study",
                 type: "Social Media Management",
                 color: "#ec343e",
-                overview: "A comprehensive social media strategy designed to increase brand awareness and engagement for a lifestyle brand targeting millennials and Gen Z.",
-                challenge: "The client struggled with low engagement rates and inconsistent brand messaging across multiple social platforms.",
-                solution: "We developed a cohesive content strategy featuring user-generated content, influencer partnerships, and targeted advertising campaigns across Instagram, Facebook, and LinkedIn.",
+                overview: "Project 2 overview goes here. This is a sample overview for the second project case study in our portfolio.",
+                challenge: "Project 2 challenge description goes here. This is a sample challenge description for the second project case study.",
+                solution: "Project 2 solution description goes here. This is a sample solution description for the second project case study.",
                 results: [
-                    "300% increase in overall engagement",
-                    "150% growth in follower count",
-                    "85% improvement in brand mention sentiment",
-                    "200% increase in website traffic from social media"
+                    "Sample result 1 for Project 2",
+                    "Sample result 2 for Project 2",
+                    "Sample result 3 for Project 2",
+                    "Sample result 4 for Project 2"
                 ],
                 technologies: ["Instagram", "Facebook", "LinkedIn", "Hootsuite", "Canva"],
-                timeline: "Ongoing 6-month campaign",
-                testimonial: "Our social media presence has never been stronger. The team's creative approach and strategic thinking delivered results beyond our expectations.",
-                client: "GreenEarth Organics"
+                timeline: "Sample timeline for Project 2",
+                testimonial: "Sample testimonial for Project 2. This is a placeholder testimonial for the second project case study.",
+                client: "Sample Client 2"
             },
             project3: {
-                title: "Project 3 - Professional Services Website",
+                title: "Project 3 Case Study",
                 type: "Website Development",
                 color: "#10b981",
-                overview: "A modern, professional website for a consulting firm requiring appointment booking functionality and client portal access.",
-                challenge: "The client needed to streamline their booking process and provide clients with easy access to project updates and documents.",
-                solution: "We built a WordPress-based solution with custom booking system, secure client portal, and automated email notifications for seamless communication.",
+                overview: "Project 3 overview goes here. This is a sample overview for the third project case study in our portfolio.",
+                challenge: "Project 3 challenge description goes here. This is a sample challenge description for the third project case study.",
+                solution: "Project 3 solution description goes here. This is a sample solution description for the third project case study.",
                 results: [
-                    "60% reduction in administrative time",
-                    "90% client satisfaction with new portal",
-                    "45% increase in online bookings",
-                    "Improved professional brand perception"
+                    "Sample result 1 for Project 3",
+                    "Sample result 2 for Project 3",
+                    "Sample result 3 for Project 3",
+                    "Sample result 4 for Project 3"
                 ],
                 technologies: ["HTML5", "CSS3", "JavaScript", "Local Storage", "Form Validation"],
-                timeline: "8 weeks development and testing",
-                testimonial: "The new website has revolutionized how we interact with our clients. Everything is more efficient and professional.",
-                client: "Urban Fitness Hub"
+                timeline: "Sample timeline for Project 3",
+                testimonial: "Sample testimonial for Project 3. This is a placeholder testimonial for the third project case study.",
+                client: "Sample Client 3"
             },
             project4: {
-                title: "Project 4 - Brand Awareness Campaign",
+                title: "Project 4 Case Study",
                 type: "Social Media Campaign",
                 color: "#8b5cf6",
-                overview: "Multi-platform brand awareness campaign for a creative agency looking to establish thought leadership in their industry.",
-                challenge: "The client needed to differentiate themselves in a crowded market and showcase their creative capabilities to potential clients.",
-                solution: "We created a content strategy featuring behind-the-scenes content, case study highlights, and thought leadership posts across TikTok, Instagram, and YouTube.",
+                overview: "Project 4 overview goes here. This is a sample overview for the fourth project case study in our portfolio.",
+                challenge: "Project 4 challenge description goes here. This is a sample challenge description for the fourth project case study.",
+                solution: "Project 4 solution description goes here. This is a sample solution description for the fourth project case study.",
                 results: [
-                    "Campaign currently in development",
-                    "Content calendar planned for 6 months",
-                    "Influencer partnerships secured",
-                    "Video content production underway"
+                    "Sample result 1 for Project 4",
+                    "Sample result 2 for Project 4",
+                    "Sample result 3 for Project 4",
+                    "Sample result 4 for Project 4"
                 ],
                 technologies: ["TikTok", "Instagram", "Threads", "Content Creation", "Analytics"],
-                timeline: "3-month development, 6-month execution",
-                testimonial: "We're excited to see the creative direction Hanu Studio has developed for our brand awareness campaign.",
-                client: "Creative Studio Pro"
+                timeline: "Sample timeline for Project 4",
+                testimonial: "Sample testimonial for Project 4. This is a placeholder testimonial for the fourth project case study.",
+                client: "Sample Client 4"
             },
             project5: {
-                title: "Project 5 - Restaurant Website & Ordering System",
+                title: "Project 5 Case Study",
                 type: "Website Development",
                 color: "#f59e0b",
-                overview: "Complete digital solution for a restaurant including online ordering, table reservations, and digital menu management.",
-                challenge: "The restaurant needed to adapt to digital ordering trends while maintaining their premium dining experience brand.",
-                solution: "We developed a sophisticated website with integrated ordering system, reservation management, and real-time menu updates with inventory tracking.",
+                overview: "Project 5 overview goes here. This is a sample overview for the fifth project case study in our portfolio.",
+                challenge: "Project 5 challenge description goes here. This is a sample challenge description for the fifth project case study.",
+                solution: "Project 5 solution description goes here. This is a sample solution description for the fifth project case study.",
                 results: [
-                    "70% of orders now placed online",
-                    "35% increase in average order value",
-                    "50% reduction in phone order errors",
-                    "Improved customer satisfaction scores"
+                    "Sample result 1 for Project 5",
+                    "Sample result 2 for Project 5",
+                    "Sample result 3 for Project 5",
+                    "Sample result 4 for Project 5"
                 ],
                 technologies: ["HTML5", "CSS3", "JavaScript", "Payment Integration", "Menu Management"],
-                timeline: "10 weeks including testing and training",
-                testimonial: "Our online presence now matches the quality of our dining experience. The ordering system is intuitive and efficient.",
-                client: "Golden Bistro"
+                timeline: "Sample timeline for Project 5",
+                testimonial: "Sample testimonial for Project 5. This is a placeholder testimonial for the fifth project case study.",
+                client: "Sample Client 5"
             },
             project6: {
-                title: "Project 6 - Complete Brand Identity",
+                title: "Project 6 Case Study",
                 type: "Logo Design & Branding",
                 color: "#06b6d4",
-                overview: "Comprehensive brand identity development for a technology startup, including logo design, color palette, and brand guidelines.",
-                challenge: "The startup needed a professional brand identity that would appeal to both technical and business audiences while standing out in the tech industry.",
-                solution: "We created a modern, versatile logo with comprehensive brand guidelines, including typography, color schemes, and application examples across digital and print media.",
+                overview: "Project 6 overview goes here. This is a sample overview for the sixth project case study in our portfolio.",
+                challenge: "Project 6 challenge description goes here. This is a sample challenge description for the sixth project case study.",
+                solution: "Project 6 solution description goes here. This is a sample solution description for the sixth project case study.",
                 results: [
-                    "Brand recognition increased by 200%",
-                    "Professional credibility significantly improved",
-                    "Consistent brand application across all touchpoints",
-                    "Positive feedback from investors and clients"
+                    "Sample result 1 for Project 6",
+                    "Sample result 2 for Project 6",
+                    "Sample result 3 for Project 6",
+                    "Sample result 4 for Project 6"
                 ],
                 technologies: ["Adobe Illustrator", "Adobe Photoshop", "Brand Guidelines"],
-                timeline: "6 weeks from concept to final delivery",
-                testimonial: "The new brand identity perfectly captures our company's vision and has elevated our professional image tremendously.",
-                client: "AquaTech Solutions"
+                timeline: "Sample timeline for Project 6",
+                testimonial: "Sample testimonial for Project 6. This is a placeholder testimonial for the sixth project case study.",
+                client: "Sample Client 6"
             },
             project7: {
-                title: "Project 7 - Corporate Website with CRM",
+                title: "Project 7 Case Study",
                 type: "Website Development",
                 color: "#84cc16",
-                overview: "Enterprise-level website for a construction company with integrated CRM system for project management and client communication.",
-                challenge: "The client needed to showcase their portfolio while managing complex project workflows and client relationships efficiently.",
-                solution: "We built a Django-based platform with custom CRM integration, project galleries, and automated client communication systems.",
+                overview: "Project 7 overview goes here. This is a sample overview for the seventh project case study in our portfolio.",
+                challenge: "Project 7 challenge description goes here. This is a sample challenge description for the seventh project case study.",
+                solution: "Project 7 solution description goes here. This is a sample solution description for the seventh project case study.",
                 results: [
-                    "40% improvement in lead conversion",
-                    "60% reduction in project management time",
-                    "Enhanced client communication satisfaction",
-                    "Streamlined proposal and contract processes"
+                    "Sample result 1 for Project 7",
+                    "Sample result 2 for Project 7",
+                    "Sample result 3 for Project 7",
+                    "Sample result 4 for Project 7"
                 ],
                 technologies: ["HTML5", "CSS3", "JavaScript", "Project Gallery", "Contact Forms"],
-                timeline: "14 weeks including CRM integration",
-                testimonial: "The integrated system has transformed how we manage projects and communicate with clients. Everything is more organized and efficient.",
-                client: "EcoHome Builders"
+                timeline: "Sample timeline for Project 7",
+                testimonial: "Sample testimonial for Project 7. This is a placeholder testimonial for the seventh project case study.",
+                client: "Sample Client 7"
             },
             project8: {
-                title: "Project 8 - Health & Wellness Social Strategy",
+                title: "Project 8 Case Study",
                 type: "Social Media Campaign",
                 color: "#f97316",
-                overview: "Comprehensive social media strategy for a wellness center focusing on education, community building, and client success stories.",
-                challenge: "The client needed to build trust and credibility in the health and wellness space while growing their community of engaged followers.",
-                solution: "We developed an educational content strategy featuring expert tips, client transformations, and community challenges across Instagram, Facebook, and LinkedIn.",
+                overview: "Project 8 overview goes here. This is a sample overview for the eighth project case study in our portfolio.",
+                challenge: "Project 8 challenge description goes here. This is a sample challenge description for the eighth project case study.",
+                solution: "Project 8 solution description goes here. This is a sample solution description for the eighth project case study.",
                 results: [
-                    "400% increase in engagement rates",
-                    "250% growth in qualified leads",
-                    "Strong community of 10K+ engaged followers",
-                    "Established thought leadership in wellness space"
+                    "Sample result 1 for Project 8",
+                    "Sample result 2 for Project 8",
+                    "Sample result 3 for Project 8",
+                    "Sample result 4 for Project 8"
                 ],
                 technologies: ["Instagram", "Facebook", "LinkedIn", "Content Management"],
-                timeline: "Ongoing 12-month strategy",
-                testimonial: "Our social media has become a powerful tool for educating our community and attracting new clients who align with our values.",
-                client: "Sunrise Wellness"
+                timeline: "Sample timeline for Project 8",
+                testimonial: "Sample testimonial for Project 8. This is a placeholder testimonial for the eighth project case study.",
+                client: "Sample Client 8"
             },
             project9: {
-                title: "Project 9 - Marketing Agency Portfolio",
+                title: "Project 9 Case Study",
                 type: "Website Development",
                 color: "#6366f1",
-                overview: "Professional portfolio website for a digital marketing agency showcasing their services, case studies, and client success stories.",
-                challenge: "The agency needed a website that would demonstrate their marketing expertise while generating qualified leads for their services.",
-                solution: "We created a Laravel-based website with dynamic portfolio sections, automated lead capture, and integrated analytics for performance tracking.",
+                overview: "Project 9 overview goes here. This is a sample overview for the ninth project case study in our portfolio.",
+                challenge: "Project 9 challenge description goes here. This is a sample challenge description for the ninth project case study.",
+                solution: "Project 9 solution description goes here. This is a sample solution description for the ninth project case study.",
                 results: [
-                    "300% increase in qualified leads",
-                    "Improved client acquisition rate by 150%",
-                    "Enhanced professional credibility",
-                    "Streamlined client onboarding process"
+                    "Sample result 1 for Project 9",
+                    "Sample result 2 for Project 9",
+                    "Sample result 3 for Project 9",
+                    "Sample result 4 for Project 9"
                 ],
                 technologies: ["HTML5", "CSS3", "JavaScript", "Portfolio Showcase", "Lead Capture"],
-                timeline: "10 weeks development and optimization",
-                testimonial: "Our new website perfectly showcases our capabilities and has become our most effective lead generation tool.",
-                client: "Digital Marketing Pro"
+                timeline: "Sample timeline for Project 9",
+                testimonial: "Sample testimonial for Project 9. This is a placeholder testimonial for the ninth project case study.",
+                client: "Sample Client 9"
             },
             project10: {
-                title: "Project 10 - Fashion Brand Social Campaign",
+                title: "Project 10 Case Study",
                 type: "Social Media Campaign",
                 color: "#db2777",
-                overview: "High-impact social media campaign for a luxury fashion brand focusing on product showcases and influencer collaborations.",
-                challenge: "The brand needed to increase sales while maintaining their luxury positioning and reaching a younger demographic.",
-                solution: "We executed a sophisticated campaign featuring professional product photography, influencer partnerships, and strategic hashtag campaigns across Instagram, TikTok, and X.",
+                overview: "Project 10 overview goes here. This is a sample overview for the tenth project case study in our portfolio.",
+                challenge: "Project 10 challenge description goes here. This is a sample challenge description for the tenth project case study.",
+                solution: "Project 10 solution description goes here. This is a sample solution description for the tenth project case study.",
                 results: [
-                    "180% increase in online sales",
-                    "500% growth in brand mentions",
-                    "Successful influencer partnerships with 50+ creators",
-                    "Expanded reach to target demographic by 300%"
+                    "Sample result 1 for Project 10",
+                    "Sample result 2 for Project 10",
+                    "Sample result 3 for Project 10",
+                    "Sample result 4 for Project 10"
                 ],
                 technologies: ["Instagram", "TikTok", "X", "Influencer Management"],
-                timeline: "6-month campaign with ongoing optimization",
-                testimonial: "The campaign exceeded all our expectations. Our brand visibility and sales have reached new heights.",
-                client: "Boutique Fashion"
+                timeline: "Sample timeline for Project 10",
+                testimonial: "Sample testimonial for Project 10. This is a placeholder testimonial for the tenth project case study.",
+                client: "Sample Client 10"
             }
         };
 
@@ -1312,5 +1323,5 @@ image-rendering: crisp-edges;
             });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96a661e540a30f09',t:'MTc1NDM5NzgzMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96af16dbc532b910',t:'MTc1NDQ4OTEyOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
