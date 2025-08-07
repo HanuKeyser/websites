@@ -121,6 +121,75 @@ body.dark-theme #mobileMenuBtn svg {
 color: #e2e8f0 !important;
 }
 
+/* Header dark mode styling */
+body.dark-theme .text-gray-900 {
+color: #ffffff !important;
+}
+
+body.dark-theme .text-gray-700 {
+color: #e2e8f0 !important;
+}
+
+body.dark-theme .hover\:text-blue-600:hover {
+color: #1e9bd5 !important;
+}
+
+body.dark-theme .hover\:bg-gray-100:hover {
+background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dark-theme .hover\:bg-blue-50:hover {
+background-color: rgba(30, 155, 213, 0.1) !important;
+}
+
+body.dark-theme .text-gray-600 {
+color: #94a3b8 !important;
+}
+
+body.dark-theme .bg-gray-100 {
+background-color: #334155 !important;
+}
+
+/* Project card text colors in dark mode */
+body.dark-theme .project-card .text-gray-600 {
+color: #94a3b8 !important;
+}
+
+body.dark-theme .project-card .text-black {
+color: #e2e8f0 !important;
+}
+
+/* Modal dark mode styling */
+body.dark-theme .modal-close svg {
+color: #e2e8f0 !important;
+}
+
+body.dark-theme .modal-close {
+background: rgba(30, 155, 213, 0.2) !important;
+border: 1px solid rgba(30, 155, 213, 0.3) !important;
+}
+
+body.dark-theme .modal-close:hover {
+background: rgba(30, 155, 213, 0.3) !important;
+}
+
+/* Modal content text colors in dark mode */
+body.dark-theme .modal-content h2,
+body.dark-theme .modal-content h3,
+body.dark-theme .modal-content p,
+body.dark-theme .modal-content span,
+body.dark-theme .modal-content blockquote {
+color: #ffffff !important;
+}
+
+body.dark-theme .modal-content .text-gray-600 {
+color: #94a3b8 !important;
+}
+
+body.dark-theme .modal-content .text-black {
+color: #ffffff !important;
+}
+
 .card {
 background: rgba(255, 255, 255, 0.95);
 backdrop-filter: blur(20px);
@@ -273,6 +342,61 @@ body.dark-theme .dark-theme-header {
 background: rgba(15, 23, 42, 0.95) !important;
 border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 backdrop-filter: blur(20px) !important;
+}
+
+/* Header navigation dark mode styling */
+body.dark-theme nav a {
+color: #1e9bd5 !important;
+}
+
+body.dark-theme nav a:hover {
+color: #22a8e8 !important;
+}
+
+body.dark-theme #dropdownButton {
+color: #1e9bd5 !important;
+}
+
+body.dark-theme #dropdownButton:hover {
+color: #22a8e8 !important;
+}
+
+body.dark-theme #dropdownButton svg {
+color: #1e9bd5 !important;
+}
+
+body.dark-theme #mobileMenuBtn svg {
+color: #e2e8f0 !important;
+}
+
+body.dark-theme #mobileMenu {
+background: rgba(15, 23, 42, 0.95) !important;
+border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dark-theme #mobileMenu a {
+color: #1e9bd5 !important;
+}
+
+body.dark-theme #mobileMenu a:hover {
+background: rgba(30, 155, 213, 0.2) !important;
+color: #22a8e8 !important;
+}
+
+body.dark-theme #dropdownMenu {
+background: rgba(15, 23, 42, 0.95) !important;
+border: 1px solid rgba(255, 255, 255, 0.1) !important;
+box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+z-index: 9999 !important;
+}
+
+body.dark-theme .dropdown-link {
+color: #e2e8f0 !important;
+}
+
+body.dark-theme .dropdown-link:hover {
+background: rgba(30, 155, 213, 0.2) !important;
+color: #1e9bd5 !important;
 }
 
 body.dark-theme .back-to-top {
@@ -490,6 +614,59 @@ image-rendering: crisp-edges;
 
 
 
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 text-black shadow-lg backdrop-blur-md border-b border-white/20 bg-white/10 transition-all duration-300 dark-theme-header">
+        <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20 sm:h-22 lg:h-24">
+            <img src="Company Logo (Spaced).png" alt="Hanu Studio Logo" class="h-10 sm:h-12 md:h-14 w-auto" loading="eager" decoding="async">
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-6 ml-auto">
+                <a href="https://hanustudio.co.za" class="font-medium text-base lg:text-lg transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Home</a>
+                
+                <!-- Projects Dropdown -->
+                <div id="projectsDropdown" class="relative group">
+                    <button id="dropdownButton" class="flex items-center font-medium text-base lg:text-lg transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">
+                        Projects
+                        <svg id="dropdownArrow" class="ml-1 w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div id="dropdownMenu" class="absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-filter backdrop-blur-lg rounded-lg shadow-lg border border-gray-200/50 opacity-0 invisible transition-all duration-200" style="z-index: 9999 !important;">
+                        <div class="py-2">
+                            <a href="#row1" class="dropdown-link block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">Projects 1-2</a>
+                            <a href="#row2" class="dropdown-link block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">Projects 3-4</a>
+                            <a href="#row3" class="dropdown-link block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">Projects 5-6</a>
+                            <a href="#row4" class="dropdown-link block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">Projects 7-8</a>
+                            <a href="#row5" class="dropdown-link block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">Projects 9-10</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg hover:bg-white/20 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center">
+                <svg id="hamburgerIcon" class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+                <svg id="closeIcon" class="w-6 h-6 text-black hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobileMenu" class="md:hidden border-t border-white/20 shadow-lg transform translate-y-0 opacity-0 scale-y-0 origin-top transition-all duration-300 ease-in-out overflow-hidden max-h-0 backdrop-blur-md bg-white/10">
+            <div class="px-4 py-4 flex flex-col items-center space-y-1">
+                <a href="https://hanustudio.co.za" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">Home</a>
+                <a href="#row1" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">Projects 1-2</a>
+                <a href="#row2" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">Projects 3-4</a>
+                <a href="#row3" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">Projects 5-6</a>
+                <a href="#row4" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">Projects 7-8</a>
+                <a href="#row5" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">Projects 9-10</a>
+            </div>
+        </div>
+    </header>
 
     <!-- Main Content -->
     <main class="flex-1 relative z-20">
@@ -1120,17 +1297,17 @@ image-rendering: crisp-edges;
             const mobileMenu = document.getElementById('mobileMenu');
             const hamburgerIcon = document.getElementById('hamburgerIcon');
             const closeIcon = document.getElementById('closeIcon');
+            let isMenuOpen = false;
             
             mobileMenuBtn.addEventListener('click', function() {
-                const isOpen = !mobileMenu.classList.contains('opacity-0');
-                
-                if (isOpen) {
+                if (isMenuOpen) {
                     // Close menu
                     mobileMenu.classList.add('opacity-0', 'scale-y-0');
                     mobileMenu.classList.remove('opacity-100', 'scale-y-100');
                     mobileMenu.style.maxHeight = '0';
                     hamburgerIcon.classList.remove('hidden');
                     closeIcon.classList.add('hidden');
+                    isMenuOpen = false;
                 } else {
                     // Open menu
                     mobileMenu.classList.remove('opacity-0', 'scale-y-0');
@@ -1138,6 +1315,7 @@ image-rendering: crisp-edges;
                     mobileMenu.style.maxHeight = '400px';
                     hamburgerIcon.classList.add('hidden');
                     closeIcon.classList.remove('hidden');
+                    isMenuOpen = true;
                 }
             });
             
@@ -1150,6 +1328,7 @@ image-rendering: crisp-edges;
                     mobileMenu.style.maxHeight = '0';
                     hamburgerIcon.classList.remove('hidden');
                     closeIcon.classList.add('hidden');
+                    isMenuOpen = false;
                 });
             });
         });
@@ -1226,6 +1405,36 @@ image-rendering: crisp-edges;
             });
         });
 
+        // Dark mode toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check for saved theme preference or default to light mode
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+            }
+
+            // Toggle dark mode with Ctrl+D
+            document.addEventListener('keydown', function(e) {
+                if (e.ctrlKey && e.key === 'd') {
+                    e.preventDefault();
+                    toggleDarkMode();
+                }
+            });
+
+            function toggleDarkMode() {
+                const body = document.body;
+                const isDark = body.classList.contains('dark-theme');
+                
+                if (isDark) {
+                    body.classList.remove('dark-theme');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    body.classList.add('dark-theme');
+                    localStorage.setItem('theme', 'dark');
+                }
+            }
+        });
+
         // Smooth scrolling for navigation links
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('a[href^="#"]');
@@ -1251,5 +1460,5 @@ image-rendering: crisp-edges;
             });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96b5570a4161dd69',t:'MTc1NDU1NDY3Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96b56e2244b873e4',t:'MTc1NDU1NTYxOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
