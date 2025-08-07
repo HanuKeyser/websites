@@ -926,7 +926,45 @@ transform: scale(1) translateY(0);
     </svg>
     </div>
     </div>
-    
+
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 text-black shadow-lg backdrop-blur-md border-b border-white/20 bg-white/10 transition-all duration-300 dark-theme-header">
+      <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20 sm:h-22 lg:h-24">
+        <img src="Company Logo (Spaced).png" alt="Hanu Studio Logo" class="h-10 sm:h-12 md:h-14 w-auto" loading="eager" decoding="async">
+        
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center space-x-6 ml-auto">
+          <a href="#home" class="font-medium text-base lg:text-lg transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Home</a>
+          <a href="#about" class="font-medium text-base lg:text-lg transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">About Us</a>
+          <a href="#portfolio" class="font-medium text-base lg:text-lg transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Portfolio</a>
+    	  <a href="#solutions" class="font-medium text-base lg:text-lg transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Solutions</a>
+          <a href="#contact" class="font-medium text-base lg:text-lg transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Contact Us</a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg hover:bg-white/20 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center">
+          <svg id="hamburgerIcon" class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <svg id="closeIcon" class="w-6 h-6 text-black hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <div id="mobileMenu" class="md:hidden border-t border-white/20 shadow-lg transform translate-y-0 opacity-0 scale-y-0 origin-top transition-all duration-300 ease-in-out overflow-hidden max-h-0 backdrop-blur-md bg-white/10">
+        <div class="px-4 py-4 flex flex-col items-center space-y-1">
+          <a href="#home" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">Home</a>
+          <a href="#about" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">About Us</a>
+          <a href="#portfolio" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">Portfolio</a>
+    	  <a href="#solutions" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">Solutions</a>
+          <a href="#contact" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">Contact Us</a>
+        </div>
+      </div>
+    </header>
+
     <!-- Main Content -->
     <main class="flex-1 relative z-20">
 
@@ -1163,21 +1201,6 @@ transform: scale(1) translateY(0);
               <p class="text-black leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
                 Explore real transformations from businesses across South Africa. From small startups to established companies, see how our digital solutions drove measurable growth and success.
               </p>
-              
-              <!-- Featured Success Metrics -->
-              <div class="bg-blue-50 p-3 rounded-lg mb-4">
-                <h4 class="font-bold text-blue-800 mb-2 text-sm">Recent Success Highlights:</h4>
-                <div class="grid grid-cols-2 gap-2 text-xs">
-                  <div class="text-center">
-                    <div class="font-bold text-blue-600">300%</div>
-                    <div class="text-blue-700">Traffic Increase</div>
-                  </div>
-                  <div class="text-center">
-                    <div class="font-bold text-blue-600">85%</div>
-                    <div class="text-blue-700">Lead Generation</div>
-                  </div>
-                </div>
-              </div>
 
               <!-- What You'll Find -->
               <div class="space-y-1 sm:space-y-2 mb-3 sm:mb-4">
@@ -1203,10 +1226,6 @@ transform: scale(1) translateY(0);
                 </div>
               </div>
 
-              <!-- Industries Covered -->
-              <div class="text-xs text-gray-600 mb-3">
-                <strong>Industries:</strong> Restaurants, Retail, Professional Services, Healthcare, Real Estate, E-commerce, Non-profits
-              </div>
             </div>
             <div class="mt-auto">
               <a href="https://hanustudio.co.za/client-work" rel="noopener noreferrer" class="btn-primary w-full text-center block text-sm sm:text-base py-2 sm:py-3">
@@ -1229,21 +1248,6 @@ transform: scale(1) translateY(0);
               <p class="text-black leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
                 Dive deep into Hanu's artistic evolution and creative process. Discover the passion projects, experimental designs, and innovative thinking that drives every client solution.
               </p>
-              
-              <!-- Creative Stats -->
-              <div class="bg-green-50 p-3 rounded-lg mb-4">
-                <h4 class="font-bold text-green-800 mb-2 text-sm">Creative Milestones:</h4>
-                <div class="grid grid-cols-2 gap-2 text-xs">
-                  <div class="text-center">
-                    <div class="font-bold text-green-600">50+</div>
-                    <div class="text-green-700">Art Projects</div>
-                  </div>
-                  <div class="text-center">
-                    <div class="font-bold text-green-600">5 Years</div>
-                    <div class="text-green-700">Design Evolution</div>
-                  </div>
-                </div>
-              </div>
 
               <!-- Portfolio Contents -->
               <div class="space-y-1 sm:space-y-2 mb-3 sm:mb-4">
@@ -1269,15 +1273,6 @@ transform: scale(1) translateY(0);
                 </div>
               </div>
 
-              <!-- Creative Mediums -->
-              <div class="text-xs text-gray-600 mb-3">
-                <strong>Mediums:</strong> Digital Art, Logo Design, Brand Identity, Web Graphics, Social Media Visuals, Print Design
-              </div>
-
-              <!-- Inspiration Sources -->
-              <div class="text-xs text-gray-600 mb-3">
-                <strong>Inspiration:</strong> Nature, Architecture, Typography, Color Theory, Cultural Art, Modern Minimalism
-              </div>
             </div>
             <div class="mt-auto">
               <a href="https://hanustudio.co.za/portfolio" rel="noopener noreferrer" class="btn-primary w-full text-center block text-sm sm:text-base py-2 sm:py-3" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
@@ -1291,42 +1286,6 @@ transform: scale(1) translateY(0);
       </div>
     </section>
 
-    <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 text-black shadow-lg backdrop-blur-md border-b border-white/20 bg-white/10 transition-all duration-300 dark-theme-header">
-      <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20 sm:h-22 lg:h-24">
-        <img src="Company Logo (Spaced).png" alt="Hanu Studio Logo" class="h-10 sm:h-12 md:h-14 w-auto" loading="eager" decoding="async">
-        
-        <!-- Desktop Navigation -->
-        <nav class="hidden md:flex items-center space-x-6 ml-auto">
-          <a href="#home" class="font-medium text-base lg:text-lg transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Home</a>
-          <a href="#about" class="font-medium text-base lg:text-lg transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">About Us</a>
-          <a href="#portfolio" class="font-medium text-base lg:text-lg transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Portfolio</a>
-    	  <a href="#solutions" class="font-medium text-base lg:text-lg transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Solutions</a>
-          <a href="#contact" class="font-medium text-base lg:text-lg transition-all duration-300 hover:scale-105" style="color: #127bb0;" onmouseover="this.style.color='#1e9bd5'" onmouseout="this.style.color='#127bb0'">Contact Us</a>
-        </nav>
-
-        <!-- Mobile Menu Button -->
-        <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg hover:bg-white/20 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center">
-          <svg id="hamburgerIcon" class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-          <svg id="closeIcon" class="w-6 h-6 text-black hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-      </div>
-
-      <!-- Mobile Navigation -->
-      <div id="mobileMenu" class="md:hidden border-t border-white/20 shadow-lg transform translate-y-0 opacity-0 scale-y-0 origin-top transition-all duration-300 ease-in-out overflow-hidden max-h-0 backdrop-blur-md bg-white/10">
-        <div class="px-4 py-4 flex flex-col items-center space-y-1">
-          <a href="#home" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">Home</a>
-          <a href="#about" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">About Us</a>
-          <a href="#portfolio" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">Portfolio</a>
-    	  <a href="#solutions" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">Solutions</a>
-          <a href="#contact" class="py-2 px-6 hover:bg-white/20 active:bg-white/30 transition-all duration-200 font-medium text-lg rounded-xl min-h-[44px] flex items-center justify-center w-full max-w-sm text-center" style="color: #127bb0;">Contact Us</a>
-        </div>
-      </div>
-    </header>
     <!-- Services Section -->
     <section id="solutions" class="py-0 scroll-mt-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
